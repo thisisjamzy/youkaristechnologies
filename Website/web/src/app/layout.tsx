@@ -5,9 +5,13 @@ import { fontVariables } from "@/styles/fonts";
 import "@/styles/tailwind.css";
 import "@/styles/globals.scss";
 
+const { site, meta } = strings.common;
+
 export const metadata: Metadata = {
-  metadataBase: new URL(strings.site.url),
-  title: strings.site.name,
+  metadataBase: new URL(site.url),
+  title: meta.home.title,
+  description: meta.home.description,
+  applicationName: site.name,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
