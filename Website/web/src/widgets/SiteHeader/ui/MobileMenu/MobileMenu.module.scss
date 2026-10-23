@@ -1,0 +1,197 @@
+@use "@/styles/abstracts" as *;
+
+.portal {
+  position: relative;
+  z-index: var(--z-menu);
+}
+
+.panel {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow-y: auto;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  animation: menu-in var(--duration-menu-open) var(--ease-out) both;
+}
+
+.closing {
+  animation: menu-out var(--duration-menu-close) var(--ease-out) both;
+}
+
+.title {
+  @include visually-hidden;
+}
+
+// The same row as the closed header, so nothing jumps when the menu opens.
+.top {
+  @include container;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: space(4);
+  min-height: var(--layout-header-height-mobile);
+  padding-block: space(3);
+}
+
+.home {
+  display: flex;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: space(2);
+}
+
+.body {
+  @include container;
+
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: space(8);
+  padding-top: space(6);
+  padding-bottom: space(8);
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: space(2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  animation: link-in var(--duration-menu-open) var(--ease-out) both;
+}
+
+// The links rise in one after another.
+@for $i from 1 through 5 {
+  .item:nth-child(#{$i}) {
+    animation-delay: calc(var(--duration-stagger) * #{$i});
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: space(4);
+  padding: space(2) 0 space(3);
+  border-bottom: var(--border-hairline) solid var(--color-hairline);
+  color: var(--color-ink);
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--color-ink);
+
+    .arrow {
+      color: var(--color-ink);
+      background: var(--color-lime);
+    }
+  }
+}
+
+.label {
+  @include display("40", "1-1", tight);
+
+  display: inline-flex;
+  align-items: center;
+  gap: space(3);
+
+  @include up(tablet) {
+    font-size: var(--text-52);
+  }
+}
+
+// The current page: a lime dot before the name.
+.current .label::before {
+  content: "";
+  flex: none;
+  width: space(3);
+  height: space(3);
+  border-radius: radius(pill);
+  background: var(--color-lime);
+}
+
+.arrow {
+  flex: none;
+  width: space(10);
+  height: space(10);
+  padding: space(2.5);
+  border-radius: radius(pill);
+  color: var(--color-text-placeholder);
+  transition: background var(--duration-menu-close), color var(--duration-menu-close);
+}
+
+// Full width on phones; its own width from tablets up.
+.cta {
+  align-self: flex-start;
+
+  @include down(tablet) {
+    align-self: stretch;
+    justify-content: space-between;
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: space(3);
+  margin-top: auto;
+  padding-top: space(6);
+  border-top: var(--border-hairline) solid var(--color-hairline);
+}
+
+.slogan {
+  @include label("20", medium, slogan);
+
+  margin: 0;
+}
+
+.email {
+  color: var(--color-ink);
+  font-size: var(--text-16);
+}
+
+.social {
+  display: flex;
+  gap: space(2.5);
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(calc(-1 * #{space(4)}));
+  }
+}
+
+@keyframes menu-out {
+  to {
+    opacity: 0;
+    transform: translateY(calc(-1 * #{space(4)}));
+  }
+}
+
+@keyframes link-in {
+  from {
+    opacity: 0;
+    transform: translateY(#{space(3)});
+  }
+}
+
+// Show and hide without movement.
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .closing,
+  .item {
+    animation: none;
+  }
+}

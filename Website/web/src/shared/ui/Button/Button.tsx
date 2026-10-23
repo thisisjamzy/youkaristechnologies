@@ -14,6 +14,8 @@ type Common = {
   arrow?: ArrowDirection;
   /** Full-width form button with a 14px radius. */
   block?: boolean;
+  /** `compact`: the 40px pill in the phone header ("Join us"). */
+  size?: "default" | "compact";
   className?: string;
   "aria-label"?: string;
   children: ReactNode;
@@ -34,12 +36,13 @@ export type ButtonProps = AsLink | AsButton;
  * `<Button href="#join" arrow="right">{strings.home.opening.primaryCta}</Button>`
  */
 export function Button(props: ButtonProps) {
-  const { variant = "primary", arrow, block, className, children } = props;
+  const { variant = "primary", arrow, block, size = "default", className, children } = props;
   const classes = cn(
     styles.button,
     styles[variant],
     arrow ? styles[variant === "primary" ? "withArrow" : "withArrowSm"] : styles.plain,
     block && styles.block,
+    size === "compact" && styles.compact,
     className,
   );
   const content = (

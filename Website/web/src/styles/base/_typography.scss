@@ -1,5 +1,20 @@
+@use "../abstracts" as *;
+
 html {
   scroll-behavior: smooth;
+}
+
+// Anchors land below the sticky header ("Join us" → #join).
+:root {
+  --header-offset: var(--layout-header-height-mobile);
+
+  @include up(laptop) {
+    --header-offset: var(--layout-header-height);
+  }
+}
+
+[id] {
+  scroll-margin-top: var(--header-offset);
 }
 
 body {

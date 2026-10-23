@@ -86,7 +86,9 @@ export const fontSizes = {
   "88": 88,
   "56": 56,
   "48": 48,
+  "52": 52, // menu links on tablets
   "44": 44,
+  "40": 40, // menu links on phones
   "28": 28,
   "26": 26,
   "24": 24,
@@ -251,6 +253,26 @@ export const layout = {
   container: 1200,
   gutter: 24,
   minTouch: 44,
+  headerHeight: 88, // desktop header, from 1024px
+  headerHeightMobile: 64, // tablet and phone header
+} as const;
+
+/** Stacking order. */
+export const zIndex = {
+  header: 100,
+  menu: 200,
+} as const;
+
+/** Durations (ms). */
+export const motion = {
+  headerHide: 250,
+  menuOpen: 250,
+  menuClose: 200,
+  stagger: 30,
+} as const;
+
+export const easing = {
+  out: "cubic-bezier(0.16, 1, 0.3, 1)",
 } as const;
 
 /** Reading widths (max-width) used in the reference. */
@@ -303,6 +325,9 @@ export const tokens = {
   blurs,
   opacities,
   layout,
+  zIndex,
+  motion,
+  easing,
   measures,
   breakpoints,
   focusRing,

@@ -1,18 +1,55 @@
 @use "@/styles/abstracts" as *;
 
+// Sticky, sliding up out of view while scrolling down (transform only: no re-layout).
 .header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
   background: var(--color-paper);
+  transition:
+    transform var(--duration-header-hide) ease,
+    box-shadow var(--duration-header-hide) ease;
+}
+
+.hidden {
+  transform: translateY(-100%);
+}
+
+// Away from the top, a hairline separates it from the content. A shadow, not a border,
+// so the height never changes.
+.scrolled {
+  box-shadow: 0 var(--border-hairline) 0 var(--color-hairline);
 }
 
 .inner {
   @include container;
 
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: space(3.5) space(6);
-  padding-block: space(5);
+  min-height: var(--layout-header-height-mobile);
+  padding-block: space(3);
+
+  @include up(laptop) {
+    flex-wrap: wrap;
+    min-height: 0;
+    padding-block: space(5);
+  }
+}
+
+.desktopOnly {
+  display: none !important;
+
+  @include up(laptop) {
+    display: flex !important;
+  }
+}
+
+.mobileOnly {
+  @include up(laptop) {
+    display: none !important;
+  }
 }
 
 .home {
@@ -20,7 +57,6 @@
 }
 
 .nav {
-  display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: space(1) space(6.5);
@@ -35,5 +71,17 @@
 
   &:hover {
     color: var(--color-ink);
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: space(2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header {
+    transition: none;
   }
 }

@@ -1,0 +1,77 @@
+@use "@/styles/abstracts" as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--layout-min-touch);
+  height: var(--layout-min-touch);
+  padding: 0;
+  border: 0;
+  border-radius: radius(sm);
+  background: transparent;
+  color: var(--color-ink);
+}
+
+.lines {
+  position: relative;
+  width: space(5.5);
+  height: space(4.5);
+
+  > span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: var(--border-strong);
+    background: currentcolor;
+    transition: transform var(--duration-menu-open) var(--ease-out), opacity var(--duration-menu-open);
+  }
+
+  // Three 2px lines, 6px apart.
+  > span:nth-child(1) {
+    top: 0;
+  }
+
+  > span:nth-child(2) {
+    top: space(2);
+  }
+
+  > span:nth-child(3) {
+    top: space(4);
+  }
+}
+
+// Inside the open menu: the lines draw in as an X.
+.open .lines > span {
+  animation: none;
+}
+
+.open .lines > span:nth-child(1) {
+  animation: to-x-top var(--duration-menu-open) var(--ease-out) forwards;
+}
+
+.open .lines > span:nth-child(2) {
+  animation: fade-out var(--duration-menu-open) var(--ease-out) forwards;
+}
+
+.open .lines > span:nth-child(3) {
+  animation: to-x-bottom var(--duration-menu-open) var(--ease-out) forwards;
+}
+
+@keyframes to-x-top {
+  to {
+    transform: translateY(#{space(2)}) rotate(45deg);
+  }
+}
+
+@keyframes to-x-bottom {
+  to {
+    transform: translateY(calc(-1 * #{space(2)})) rotate(-45deg);
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}

@@ -42,8 +42,10 @@
     --text-24: 24px;
     --text-26: 26px;
     --text-28: 28px;
+    --text-40: 40px;
     --text-44: 44px;
     --text-48: 48px;
+    --text-52: 52px;
     --text-56: 56px;
     --text-88: 88px;
     --text-104: 104px;
@@ -217,6 +219,15 @@
     --layout-container: 1200px;
     --layout-gutter: 24px;
     --layout-min-touch: 44px;
+    --layout-header-height: 88px;
+    --layout-header-height-mobile: 64px;
+    --z-header: 100;
+    --z-menu: 200;
+    --duration-header-hide: 250ms;
+    --duration-menu-open: 250ms;
+    --duration-menu-close: 200ms;
+    --duration-stagger: 30ms;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
     --measure-340: 340px;
     --measure-360: 360px;
     --measure-380: 380px;
@@ -293,8 +304,10 @@ $font-sizes: (
   "24": var(--text-24),
   "26": var(--text-26),
   "28": var(--text-28),
+  "40": var(--text-40),
   "44": var(--text-44),
   "48": var(--text-48),
+  "52": var(--text-52),
   "56": var(--text-56),
   "88": var(--text-88),
   "104": var(--text-104),

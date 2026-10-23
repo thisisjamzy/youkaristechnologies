@@ -35,6 +35,9 @@ export function cssVariables(t: Tokens): Entry[] {
   add("blur", t.blurs, px);
   add("opacity", t.opacities, (v: number) => String(v));
   add("layout", t.layout, px);
+  add("z", t.zIndex, (v: number) => String(v));
+  add("duration", t.motion, (v: number) => `${v}ms`);
+  add("ease", t.easing, (v: string) => v);
   add("measure", t.measures, px);
   add("breakpoint", t.breakpoints, px);
   add("focus", t.focusRing, px);

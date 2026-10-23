@@ -23,7 +23,7 @@ This is the pre-launch website for Strangers for Mary. The design and copy are a
 - Put route-level composition in `src/views/<Page>/`, with page-only sections in `src/views/<Page>/sections/<Section>/`. Each component has `Component.tsx`, `Component.module.scss` and `index.ts`.
 - Reuse `src/shared/ui` components before writing new markup. If two pages need the same piece, move it down to `shared` (or `widgets` if it is a large block).
 - Use `useTheme()`, `useFonts()`, `useStrings()` and `useBreakpoint()` when JavaScript needs a design value or a string.
-- Build mobile-first at the breakpoints in `tokens.ts` (640, 1024, 1280, 1536).
+- Build mobile-first at the breakpoints in `tokens.ts` (640, 1024, 1280, 1536). Below 1024px the header shows the mark only (never the full logo), "Join us" and the menu button; see `prompts/03-responsive-header-and-menu.md`.
 - Keep Server Components by default; add `"use client"` only for interaction.
 - Match the design reference in `Website/sfm-website-build-kit/design-reference/` pixel for pixel at 390, 768, 1280 and 1440px.
 
