@@ -15,10 +15,26 @@ const nav = [
   { href: routes.buildWithUs, label: header.nav.buildWithUs },
 ] as const;
 
-/** Logo, main navigation and the join button, on every page. Wraps onto lines on phones. */
+const SPACE = " ";
+
+/**
+ * The coming soon banner, then the logo, main navigation and the join button, on every page.
+ * Wraps onto lines on phones.
+ */
 export function SiteHeader() {
   return (
     <header className={styles.header}>
+      <div className={styles.banner}>
+        <p className={styles.bannerInner}>
+          <span className={styles.bannerLabel}>{header.banner.label}</span>
+          {SPACE}
+          <span>{header.banner.text}</span>
+          {SPACE}
+          <Link href={routes.join} className={styles.bannerLink}>
+            {header.banner.link}
+          </Link>
+        </p>
+      </div>
       <div className={styles.inner}>
         <Link href={routes.home} aria-label={header.homeAria} className={styles.home}>
           <Logo alt={header.logoAlt} priority />

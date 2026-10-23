@@ -1,6 +1,6 @@
 # Prompt 1: Google Apps Script backend for the Strangers for Mary sign-ups
 
-Paste everything below the line into Claude Code or Cursor, opened at the repository root `youkaristechnologies/`. The script lives in `Website/apps-script/`, beside the Next.js app in `Website/web/`. Build this first: the website talks to it.
+The finished code for this prompt is already in `Website/apps-script/` (`Code.gs`, `appsscript.json`, `README.md`). Use this prompt only as the specification, or to regenerate the backend as separate clasp files. Paste everything below the line into Claude Code or Cursor, opened at the repository root `youkaristechnologies/`. The script lives in `Website/apps-script/`, beside the Next.js app in `Website/web/`. Build this first: the website talks to it.
 
 ---
 

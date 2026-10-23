@@ -24,6 +24,11 @@ export const strings = {
     },
 
     header: {
+      banner: {
+        label: "Coming soon",
+        text: "Youkaris, our app, opens soon.",
+        link: "Join the strangers",
+      },
       homeAria: "Strangers for Mary home",
       logoAlt: "Strangers for Mary",
       navAria: "Main",
@@ -195,8 +200,8 @@ export const strings = {
   home: {
     opening: {
       headline: {
-        main: "If you love Mary, you are already one of us.",
-        muted: "Now take your place in the network.",
+        main: "Every friend of Mary is a stranger",
+        muted: "we cannot wait to pray for, care for, and gather with.",
       },
       body: "Strangers for Mary is a network of Catholics around the world, linked like beads on a Rosary. We help people live out their Catholic faith every single day, out loud, alongside a community that shares the same values and the same hunger for Christ.",
       primaryCta: "Join the strangers",

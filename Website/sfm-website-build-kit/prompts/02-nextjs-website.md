@@ -31,6 +31,8 @@ The existing app uses **Next.js 16.4.2**, React 19.3, Tailwind CSS v4 (through `
 | `assets/photos/*.jpg` and `CREDITS.json` | Every photo the design uses, already sized for the web. | Copy to `public/images/`. Keep the credits file. |
 | `prompts/01-apps-script-backend.md` | The backend contract. | The form API in this site must match it exactly. |
 
+The Apps Script backend is already written and deployed separately from `Website/apps-script/`. Its README lists the exact responses (including the `core_team_full` and `validation` error shapes and the `choice` field code); build `shared/lib/appsScript.ts` and the API routes against that contract, and follow redirects when calling it.
+
 Text comes from two files in `content/`:
 
 - **`content/strings-master.md`** is the master for `strings.ts`. It lists every user-facing word on the site, taken from the approved design, page by page and section by section, with each item's kind (H1, Paragraph, Button, Placeholder, Image alt, Aria label and so on). Lists and dynamic text (reasons, steps, teams, FAQ, the places counter) are in the page script block under each page. The last section, "Added for the build", holds the strings the code needs that the static design cannot show: both share messages, form errors and states, and page metadata.

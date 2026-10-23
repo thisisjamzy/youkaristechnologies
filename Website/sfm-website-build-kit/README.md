@@ -6,6 +6,7 @@ Everything Claude Code or Cursor needs to build the pre-launch website exactly a
 
 | Path | What it is |
 | --- | --- |
+| `../apps-script/` (in `Website/apps-script/`) | The finished backend: `Code.gs`, `appsscript.json` and a README with every setup and deploy step. Paste and deploy; no build needed. |
 | `prompts/01-apps-script-backend.md` | Prompt for the Google Apps Script that stores sign-ups in a Google Sheet and reports core team places left. Build this first. |
 | `prompts/02-nextjs-website.md` | Prompt for the Next.js website: architecture, single sources of truth for strings and design values, hooks, components, pages, forms and phases. |
 | `rules/CLAUDE.md` | Standing rules. Copied to `Website/web/CLAUDE.md` for Claude Code. |
@@ -24,7 +25,7 @@ This kit lives at `youkaristechnologies/Website/sfm-website-build-kit/`, beside 
 
 1. Open the `youkaristechnologies` repository in Cursor or Claude Code.
 2. Paste `prompts/02-nextjs-website.md` and let it work through phase 1 (setup). It works inside the existing `Website/web` app and copies the rules in.
-3. Paste `prompts/01-apps-script-backend.md` to build the backend in `Website/apps-script/`, then follow its README to create the Sheet and deploy.
+3. The backend is already written in `Website/apps-script/`. Follow its README to create the Sheet, paste the code and deploy, while the website is being built.
 4. Continue the website phases, reviewing after each one.
 
 ## Where the design and copy live

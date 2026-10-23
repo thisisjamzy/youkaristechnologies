@@ -25,8 +25,8 @@ How to read it:
 
 ### Opening
 
-- H1: If you love Mary, you are already one of us.
-- H1: Now take your place in the network.
+- H1: Every friend of Mary is a stranger
+- H1: we cannot wait to pray for, care for, and gather with.
 - Paragraph: Strangers for Mary is a network of Catholics around the world, linked like beads on a Rosary. We help people live out their Catholic faith every single day, out loud, alongside a community that shares the same values and the same hunger for Christ.
 - Link: Join the strangers
 - Link: Help us build it
@@ -685,6 +685,12 @@ class Component extends DCLogic {
 ## Added for the build (not visible in the design)
 
 These strings are needed by the code but have no place in the static design. They follow the same voice. Use them as written; the owner may refine them later in `strings.ts`.
+
+### Coming soon banner (above the site header, every page)
+
+- Banner label: Coming soon
+- Banner text: Youkaris, our app, opens soon.
+- Banner link: Join the strangers
 
 ### Share messages
 
