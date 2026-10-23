@@ -7,12 +7,14 @@
   list-style: none;
 }
 
-@each $step, $value in $space {
-  // min(100%, ...) keeps a single column from overflowing narrow phones.
+// min(100%, ...) keeps a single column from overflowing narrow phones.
+@each $step, $value in $box-space {
   .min-#{space-key($step)} {
     grid-template-columns: repeat(auto-fit, minmax(min(100%, #{$value}), 1fr));
   }
+}
 
+@each $step, $value in $gap-space {
   .row-#{space-key($step)} {
     row-gap: $value;
   }

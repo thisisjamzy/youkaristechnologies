@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { SpaceStep } from "@/styles/tokens/tokens";
+import type { BoxStep, GapStep } from "@/styles/tokens/tokens";
 import { cn, spaceKey } from "@/shared/lib";
 import styles from "./Grid.module.scss";
 
@@ -9,10 +9,10 @@ export type GridProps = {
    * Smallest column width on the 4px scale (75 = 300px). Columns fill the row and
    * wrap, so cards stack in reading order on phones.
    */
-  min: SpaceStep;
-  gap?: SpaceStep;
-  rowGap?: SpaceStep;
-  columnGap?: SpaceStep;
+  min: BoxStep;
+  gap?: GapStep;
+  rowGap?: GapStep;
+  columnGap?: GapStep;
   className?: string;
   children: ReactNode;
 };

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { SpaceStep } from "@/styles/tokens/tokens";
+import type { GapStep } from "@/styles/tokens/tokens";
 import { cn, spaceKey } from "@/shared/lib";
 import styles from "./Stack.module.scss";
 
@@ -7,9 +7,9 @@ export type StackProps = {
   as?: "div" | "ul" | "ol" | "li" | "span" | "header";
   direction?: "column" | "row";
   /** Gap on the 4px scale (6 = 24px). `rowGap`/`columnGap` override it per axis. */
-  gap?: SpaceStep;
-  rowGap?: SpaceStep;
-  columnGap?: SpaceStep;
+  gap?: GapStep;
+  rowGap?: GapStep;
+  columnGap?: GapStep;
   align?: "start" | "center" | "end" | "baseline" | "stretch";
   justify?: "start" | "center" | "end" | "between";
   wrap?: boolean;

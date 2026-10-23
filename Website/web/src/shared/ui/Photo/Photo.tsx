@@ -1,10 +1,10 @@
 import Image from "next/image";
-import { breakpoints, layout, type FluidSizeName, type RadiusName, type SpaceStep } from "@/styles/tokens/tokens";
+import { breakpoints, layout, type BoxStep, type FluidSizeName, type RadiusName } from "@/styles/tokens/tokens";
 import { cn, photos, spaceKey, type PhotoName } from "@/shared/lib";
 import styles from "./Photo.module.scss";
 
 /** A step on the 4px scale (105 = 420px), a fluid size (`hero`), or `fill` to fill a grid cell. */
-export type PhotoHeight = SpaceStep | FluidSizeName | "fill";
+export type PhotoHeight = BoxStep | FluidSizeName | "fill";
 
 const page = `(min-width: ${layout.container + layout.gutter * 2}px) ${layout.container}px, 100vw`;
 
@@ -23,12 +23,15 @@ export type PhotoProps = {
   alt: string;
   height: PhotoHeight;
   /** With `height="fill"`: the smallest height on the 4px scale. */
-  minHeight?: SpaceStep;
+  minHeight?: BoxStep;
   radius?: RadiusName;
   /** Vertical focus point, as in the reference (`object-position: center 30%`). */
   focus?: "25" | "30" | "35" | "40";
   sizes?: keyof typeof photoSizes;
-  /** Only for the photo in the opening of a page. */
+  /**
+   * Only for the photo in the opening of a page (the LCP element): fetched first and never
+   * lazy. Next 16 deprecates `priority` on next/image, so this maps to fetchPriority/loading.
+   */
   priority?: boolean;
   className?: string;
 };
@@ -63,7 +66,8 @@ export function Photo({
         alt={alt}
         fill
         sizes={photoSizes[sizes]}
-        priority={priority}
+        fetchPriority={priority ? "high" : undefined}
+        loading={priority ? "eager" : undefined}
         className={cn(styles.image, focus && styles[`focus-${focus}`])}
       />
     </div>

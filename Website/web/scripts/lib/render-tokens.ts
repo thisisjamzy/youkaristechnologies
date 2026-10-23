@@ -85,6 +85,8 @@ export function renderScss(t: Tokens): string {
       "space",
       t.spaceSteps.map((s) => [String(s), `var(${spaceVar(s)})`]),
     ),
+    scssMap("gap-space", t.gapSteps.map((s) => [String(s), `var(${spaceVar(s)})`])),
+    scssMap("box-space", t.boxSteps.map((s) => [String(s), `var(${spaceVar(s)})`])),
     scssMap("fluid-space", varRefs("space", t.fluidSpace)),
     scssMap("fluid-sizes", varRefs("size", t.fluidSizes)),
     scssMap("radii", varRefs("radius", t.radii)),

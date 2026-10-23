@@ -20,7 +20,7 @@
   flex-wrap: wrap;
 }
 
-@each $step, $value in $space {
+@each $step, $value in $gap-space {
   .row-#{space-key($step)} {
     row-gap: $value;
   }

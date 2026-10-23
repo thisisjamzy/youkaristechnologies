@@ -1,5 +1,5 @@
 // Use in every SCSS module: @use "@/styles/abstracts" as *;
 @forward "functions";
 @forward "mixins";
-@forward "../tokens/tokens.generated" show $breakpoints, $colors, $space, $fluid-space, $fluid-sizes,
+@forward "../tokens/tokens.generated" show $breakpoints, $colors, $space, $gap-space, $box-space, $fluid-space, $fluid-sizes,
   $radii, $font-sizes, $line-heights, $letter-spacings, $measures;

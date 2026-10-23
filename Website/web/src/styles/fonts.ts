@@ -21,11 +21,16 @@ const barlow = Barlow({
   variable: "--font-barlow",
 });
 
-/** Barlow Condensed: uppercase labels, tags, small numbers, the slogan beside the logo. */
+/**
+ * Barlow Condensed: uppercase labels, tags, small numbers, the slogan beside the logo.
+ * Only the weights the site uses (500 slogan, 700 labels, 800 numbers), and not preloaded,
+ * so these small labels never compete with the opening photo for bandwidth.
+ */
 const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
+  weight: ["500", "700", "800"],
   display: "swap",
+  preload: false,
   variable: "--font-barlow-condensed",
 });
 

@@ -18,7 +18,7 @@
   }
 }
 
-@each $step, $value in $space {
+@each $step, $value in $gap-space {
   .top-#{space-key($step)} {
     padding-top: $value;
   }

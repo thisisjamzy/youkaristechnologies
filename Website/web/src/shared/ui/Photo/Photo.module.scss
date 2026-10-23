@@ -14,7 +14,7 @@
   height: 100%;
 }
 
-@each $step, $value in $space {
+@each $step, $value in $box-space {
   .h-#{space-key($step)} {
     height: $value;
   }

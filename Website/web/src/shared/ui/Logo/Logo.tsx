@@ -30,7 +30,8 @@ export function Logo({ variant = "ink", size = "md", alt, priority, className }:
       alt={alt}
       width={WIDTH}
       height={HEIGHT}
-      priority={priority}
+      fetchPriority={priority ? "high" : undefined}
+      loading={priority ? "eager" : undefined}
       className={cn(styles.logo, styles[size], className)}
     />
   );

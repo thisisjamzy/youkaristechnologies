@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
-import type { FluidSpaceName, SpaceStep } from "@/styles/tokens/tokens";
+import type { FluidSpaceName, GapStep } from "@/styles/tokens/tokens";
 import { cn, spaceKey, tokenKey } from "@/shared/lib";
 import styles from "./Section.module.scss";
 
 /** A fluid rhythm token (`section`, `sectionLarge`, `opening`, ...) or a step on the 4px scale. */
-export type SectionSpace = FluidSpaceName | SpaceStep;
+export type SectionSpace = FluidSpaceName | GapStep;
 
 export type SectionProps = {
   as?: "section" | "article" | "div";

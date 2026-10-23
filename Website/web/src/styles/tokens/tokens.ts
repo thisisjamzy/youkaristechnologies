@@ -146,14 +146,20 @@ export const letterSpacings = {
  * `var(--space-6)` are both 24px. Keys are units (decimals become `_`, e.g. `--space-2_5` = 10px).
  */
 export const spaceUnit = 4;
-export const spaceSteps = [
-  // Gaps and padding
+/** Gaps and padding (Section, Stack, Grid gaps). */
+export const gapSteps = [
   0, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 9, 9.5, 10, 10.5,
   11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 16, 18, 20, 24, 26, 28, 30,
-  // Box sizes: card minimums, grid column minimums, photo heights, overlay widths
+] as const;
+
+/** Box sizes: card minimums, grid column minimums, photo heights, overlay widths. */
+export const boxSteps = [
   27.5, 29.5, 37.5, 40, 47.5, 50, 52.5, 55, 60, 65, 70, 75, 80, 82.5, 85, 90, 95, 100, 105, 110, 115, 120, 125,
   130, 140,
 ] as const;
+
+// Components only generate classes for their half of the scale, which keeps the CSS small.
+export const spaceSteps = [...gapSteps, ...boxSteps] as const;
 
 /** Fluid spacing used for section rhythm and panel padding. */
 export const fluidSpace = {
@@ -314,6 +320,8 @@ export const tokens = {
   letterSpacings,
   spaceUnit,
   spaceSteps,
+  gapSteps,
+  boxSteps,
   fluidSpace,
   fluidSizes,
   radii,
@@ -337,6 +345,8 @@ export type Tokens = typeof tokens;
 export type ColorName = keyof typeof colors;
 export type BreakpointName = keyof typeof breakpoints;
 export type SpaceStep = (typeof spaceSteps)[number];
+export type GapStep = (typeof gapSteps)[number];
+export type BoxStep = (typeof boxSteps)[number];
 export type FluidSpaceName = keyof typeof fluidSpace;
 export type FluidSizeName = keyof typeof fluidSizes;
 export type FontSizeName = keyof typeof fontSizes;

@@ -36,8 +36,11 @@ h6 {
   font-weight: var(--font-weight-bold);
 }
 
+// Tailwind's base reset removes link underlines; links inside text keep them, as in the
+// reference, so they never rely on colour alone. Components that need none set their own.
 a {
   color: var(--color-blue);
+  text-decoration: underline;
 
   &:hover {
     color: var(--color-ink);
