@@ -1,0 +1,16 @@
+{
+  "extends": ["stylelint-config-standard-scss"],
+  "ignoreFiles": ["src/**/*.generated.*", ".next/**", "node_modules/**"],
+  "rules": {
+    "color-no-hex": true,
+    "color-named": "never",
+    "selector-class-pattern": [
+      "^[a-z][a-zA-Z0-9]*$",
+      { "message": "Use camelCase class names so CSS modules read as styles.className" }
+    ],
+    "scss/at-rule-no-unknown": [
+      true,
+      { "ignoreAtRules": ["theme", "source", "utility", "variant", "custom-variant", "apply", "reference", "config", "plugin"] }
+    ]
+  }
+}

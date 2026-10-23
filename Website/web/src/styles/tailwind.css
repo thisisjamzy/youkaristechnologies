@@ -1,0 +1,3 @@
+/* Tailwind v4 entry. Processed by @tailwindcss/turbopack (see next.config.ts).
+   Phase 2 imports tailwind-theme.generated.css here so utilities use the tokens. */
+@import "tailwindcss";

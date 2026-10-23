@@ -1,0 +1,53 @@
+---
+description: Strangers for Mary website rules (design, strings, tokens, architecture)
+globs: Website/web/**
+alwaysApply: true
+---
+
+# Strangers for Mary website: rules for every session
+
+
+This Next.js version has breaking changes (see Website/web/AGENTS.md). Read the guides in `Website/web/node_modules/next/dist/docs/` before writing routing, data fetching, caching or route handler code.
+
+This is the pre-launch website for Strangers for Mary. The design and copy are approved; keep them as they are. The app is `Website/web/`. The full brief is in `Website/sfm-website-build-kit/prompts/02-nextjs-website.md` and the backend contract in `Website/sfm-website-build-kit/prompts/01-apps-script-backend.md`.
+
+## Never
+
+- Never redraw, retrace, recolour or retype the logo, mark or wordmark. Use the SVGs in `public/brand/` through the `Logo` and `Mark` components.
+- Never redraw or approximate the brand pattern. It appears in one place only: the lime pattern at 10% on the dark closing card. Never add it to the header, footer, section backgrounds or lime panels.
+- Never hard-code a user-facing string in a component. Every word lives in `src/content/strings.ts`.
+- Never hard-code a colour, font, spacing value, radius, shadow or breakpoint. Every design value lives in `src/styles/tokens/tokens.ts`; SCSS uses the generated CSS variables and mixins.
+- Never edit `*.generated.*` files; run `npm run tokens` instead.
+- Never use inline `style` props, arbitrary Tailwind values, or Tailwind colour and spacing utilities inside a component that has an SCSS module.
+- Never import upward or sideways between layers (`app` → `views` → `widgets` → `features` → `entities` → `shared`).
+- Never expose `APPS_SCRIPT_SECRET` or call the Apps Script URL from the browser.
+- Never add a runtime dependency without asking.
+
+## Always
+
+- Put route-level composition in `src/views/<Page>/`, with page-only sections in `src/views/<Page>/sections/<Section>/`. Each component has `Component.tsx`, `Component.module.scss` and `index.ts`.
+- Reuse `src/shared/ui` components before writing new markup. If two pages need the same piece, move it down to `shared` (or `widgets` if it is a large block).
+- Use `useTheme()`, `useFonts()`, `useStrings()` and `useBreakpoint()` when JavaScript needs a design value or a string.
+- Build mobile-first at the breakpoints in `tokens.ts` (640, 1024, 1280, 1536).
+- Keep Server Components by default; add `"use client"` only for interaction.
+- Match the design reference in `Website/sfm-website-build-kit/design-reference/` pixel for pixel at 390, 768, 1280 and 1440px.
+
+## Copy rules
+
+- No em dashes. No exclamation marks in headlines.
+- The word "pillar" never appears on the site.
+- Strangers for Mary is a "network", never a "family".
+- Headlines are sentence case and two-tone (main clause ink, second clause muted).
+- "PASS IT ON." next to the logo or mark is Barlow Condensed 500 with wide letter-spacing, never Nohemi Bold.
+
+## Design rules
+
+- Pages sit on neutral grounds (paper, white, mistTint). Colour lives on a few elements: at most one large lime element per screen, and one ink card per page (the closing card).
+- Sections are separated by space, not colour bands.
+- Lime is never used for text on light grounds.
+
+## Before finishing any task
+
+- `npm run lint`, `npm run lint:styles`, `npm run test` and `npm run build` pass.
+- New strings are in `strings.ts`, new values in `tokens.ts`.
+- Say what changed and anything that differs from the design reference.

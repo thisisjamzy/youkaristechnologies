@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Strangers for Mary · We pray</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Barlow:wght@400;500;600;700&amp;display=swap">
+<style>
+@font-face{font-family:'Nohemi';src:url('../assets/fonts/Nohemi-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+body{margin:0;background:#F7F8F5}
+a{color:#0251B0}a:hover{color:#0A0F1A}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #0251B0;outline-offset:3px}
+summary{cursor:pointer;list-style:none}summary::-webkit-details-marker{display:none}
+</style>
+</helmet>
+
+<div style="font-family: 'Barlow', 'Helvetica Neue', sans-serif; color: #0A0F1A; background: #F7F8F5; width: 100%; overflow-x: hidden;">
+
+<dc-import name="Nav" hint-size="100%,96px"></dc-import>
+
+<!-- OPENING -->
+<section style="max-width: 1200px; margin: 0 auto; padding: clamp(32px, 5vw, 64px) 24px 0;">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 32px 56px;">
+<div style="flex: 2 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 22px;">
+<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; background: #D1FF42; border-radius: 999px; padding: 6px 14px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase;">We pray</span>
+<h1 style="margin: 0; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(44px, 6vw, 84px); line-height: 1; letter-spacing: -0.035em;">A Rosary a day <span style="color: #8A94A6;">for someone who can never thank you.</span></h1>
+</div>
+<p style="flex: 1 1 320px; min-width: 0; margin: 0; padding-bottom: 8px; font-size: 18px; line-height: 1.6; color: #4A5468;">Prayer is where Strangers for Mary begins, and where it always returns. Every day of the week but Sunday, beads move through the fingers of strangers, and every one of them is moving for someone else.</p>
+</div>
+<div style="position: relative; margin-top: clamp(40px, 5vw, 64px);">
+<img src="../assets/photos/pray-open-hands.jpg" alt="Open hands holding a rosary" style="width: 100%; height: clamp(340px, 40vw, 560px); object-fit: cover; border-radius: 28px; display: block;">
+<div style="position: absolute; left: 24px; bottom: 24px; width: 300px; max-width: calc(100% - 48px); box-sizing: border-box; background: rgba(255,255,255,0.8); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-radius: 20px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px;">
+<span style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: #4A5468;">Youkaris · Today's stranger</span>
+<span style="font-weight: 700; font-size: 17px;">Decade 3 of 5</span>
+<div style="display: flex; gap: 5px;" aria-hidden="true"><span style="flex: 1; height: 8px; border-radius: 4px; background: #0A0F1A;"></span><span style="flex: 1; height: 8px; border-radius: 4px; background: #0A0F1A;"></span><span style="flex: 1; height: 8px; border-radius: 4px; background: #0A0F1A;"></span><span style="flex: 1; height: 8px; border-radius: 4px; background: #C7D1DD;"></span><span style="flex: 1; height: 8px; border-radius: 4px; background: #C7D1DD;"></span></div>
+</div>
+</div>
+</section>
+
+<!-- THE MODEL -->
+<section style="max-width: 1200px; margin: 0 auto; padding: clamp(96px, 12vw, 160px) 24px 0;">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px 48px;">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 18px;">
+<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 999px; padding: 6px 14px 6px 10px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase;"><span style="width: 8px; height: 8px; border-radius: 2px; background: #0251B0;"></span>How the exchange works</span>
+<h2 style="margin: 0; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(36px, 4.4vw, 60px); line-height: 1.02; letter-spacing: -0.03em;">Your week as a stranger.</h2>
+</div>
+<p style="flex: 1 1 300px; min-width: 0; margin: 0; font-size: 17px; line-height: 1.6; color: #4A5468; max-width: 380px;">Six days, six strangers, a full Rosary for each. Then Mass on Sunday.</p>
+</div>
+
+<div style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 10px;">
+<sc-for list="{{days}}" as="day" hint-placeholder-count="6">
+<div style="background: #FFFFFF; border-radius: 18px; padding: 18px 16px; display: flex; flex-direction: column; gap: 22px; min-height: 160px; box-sizing: border-box;">
+<span style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 20px; letter-spacing: 1px; text-transform: uppercase;">{{day}}</span>
+<div style="display: flex; gap: 5px;" aria-hidden="true"><span style="width: 12px; height: 12px; border-radius: 999px; background: #0A0F1A;"></span><span style="width: 12px; height: 12px; border-radius: 999px; background: #0A0F1A;"></span><span style="width: 12px; height: 12px; border-radius: 999px; background: #0A0F1A;"></span><span style="width: 12px; height: 12px; border-radius: 999px; background: #0A0F1A;"></span><span style="width: 12px; height: 12px; border-radius: 999px; background: #0A0F1A;"></span></div>
+<span style="font-size: 14px; font-weight: 600; color: #4A5468;">A new stranger, a full Rosary</span>
+</div>
+</sc-for>
+<div style="grid-column: span 2; background: #D1FF42; border-radius: 18px; padding: 10px 10px 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; min-height: 160px; box-sizing: border-box;">
+<img src="../assets/photos/mass-altar.jpg" alt="A priest celebrating Mass at the altar" style="width: 100%; height: 110px; object-fit: cover; border-radius: 12px; display: block;">
+<span style="padding: 0 10px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 20px; letter-spacing: 1px; text-transform: uppercase;">Sun · Mass</span>
+<span style="padding: 0 10px; font-size: 15px; font-weight: 600; line-height: 1.4;">No Rosary assigned. Offer a Mass for one of the week's intentions.</span>
+</div>
+</div>
+
+<ol style="margin: 64px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 32px 28px;">
+<li style="display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #DDE2E8; padding-top: 18px;"><span style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 18px; color: #0251B0;">01</span><b style="font-size: 18px;">You add your intention.</b><span style="font-size: 15px; line-height: 1.55; color: #4A5468;">Each week, before 6 pm on Sunday, you add one intention to the many already in the network. It travels with your baptism name and nothing more.</span></li>
+<li style="display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #DDE2E8; padding-top: 18px;"><span style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 18px; color: #0251B0;">02</span><b style="font-size: 18px;">We pass it on.</b><span style="font-size: 15px; line-height: 1.55; color: #4A5468;">We hand it to a series of strangers. Each day from Monday to Saturday, a different one takes their turn to pray a full Rosary for you.</span></li>
+<li style="display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #DDE2E8; padding-top: 18px;"><span style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 18px; color: #0251B0;">03</span><b style="font-size: 18px;">You pray for six.</b><span style="font-size: 15px; line-height: 1.55; color: #4A5468;">Every day you receive a new stranger's intention and pray a full Rosary for it. Six days, six strangers, every week.</span></li>
+<li style="display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #DDE2E8; padding-top: 18px;"><span style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 18px; color: #0251B0;">04</span><b style="font-size: 18px;">Sunday, at Mass.</b><span style="font-size: 15px; line-height: 1.55; color: #4A5468;">No Rosary is assigned on Sunday. Instead, you are encouraged to choose one of the week's intentions and offer a Mass for it.</span></li>
+<li style="display: flex; flex-direction: column; gap: 10px; border-top: 2px solid #0A0F1A; padding-top: 17px;"><span style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 18px; color: #0251B0;">05</span><b style="font-size: 18px;">The chain keeps moving.</b><span style="font-size: 15px; line-height: 1.55; color: #4A5468;">While you hold another stranger's intention, someone else is holding yours with the same care.</span></li>
+</ol>
+<p style="margin: 56px 0 0; text-align: center; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -0.02em; color: #8A94A6;">Every decade is a gift from one stranger to another.</p>
+<div style="margin-top: 56px; background: #D1FF42; border-radius: 28px; padding: 10px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px;"><img src="../assets/photos/woman-praying.jpg" alt="A young woman praying with folded hands" style="width: 100%; height: 380px; object-fit: cover; object-position: center 25%; border-radius: 20px; display: block;"><img src="../assets/photos/young-man-praying.jpg" alt="A young man praying with a rosary" style="width: 100%; height: 380px; object-fit: cover; object-position: center 30%; border-radius: 20px; display: block;"><img src="../assets/photos/rosary-walk.jpg" alt="A woman walking with a rosary in her hand" style="width: 100%; height: 380px; object-fit: cover; border-radius: 20px; display: block;"></div>
+</section>
+
+<!-- WHY THE ROSARY + HABIT -->
+<section style="max-width: 1200px; margin: 0 auto; padding: clamp(96px, 12vw, 160px) 24px 0; display: flex; flex-direction: column; gap: 72px;">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px;">
+<img src="../assets/photos/rosary-close.jpg" alt="A wooden rosary held in a hand" style="width: 100%; height: 420px; object-fit: cover; border-radius: 20px; display: block;">
+<img src="../assets/photos/pass-rosary.jpg" alt="A rosary passed from one hand to another" style="width: 100%; height: 420px; object-fit: cover; border-radius: 20px; display: block;">
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px 64px;">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+<span style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; color: #4A5468;">Every decade is a little Cana</span>
+<h2 style="margin: 0; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.05; letter-spacing: -0.03em;">We carry what is <span style="color: #8A94A6;">not ours to carry.</span></h2>
+</div>
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px; font-size: 18px; line-height: 1.65; color: #4A5468;">
+<p style="margin: 0;">At the wedding at Cana, Mary noticed a need that was not hers. The wine had run out at someone else's feast. She did not wait to be asked. She carried it to her Son, and He answered. Every decade we pray for a stranger, we do the same: we take to Jesus a problem that was never naturally ours to carry.</p>
+<p style="margin: 0;">The Rosary is simple enough for a child and deep enough for a lifetime. In it we walk with Mary through the life of her Son: his birth, his suffering, his rising, his glory. Alongside it, we keep the other Marian devotions the Church has treasured for centuries.</p>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px 64px; border-top: 1px solid #DDE2E8; padding-top: 72px;">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+<span style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; color: #4A5468;">Why they can never thank you</span>
+<h2 style="margin: 0; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.05; letter-spacing: -0.03em;">A gift with no way <span style="color: #8A94A6;">back to the giver.</span></h2>
+</div>
+<p style="flex: 1 1 420px; min-width: 0; margin: 0; font-size: 18px; line-height: 1.65; color: #4A5468;">Every intention carries a baptism name, but nothing that identifies the person behind it. In a network with a thousand Pauls and a thousand Marys, nobody can trace a prayer back to its owner. So the stranger you pray for can never thank you, and you never pray to be thanked. That is what keeps every gift pure.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px 64px; border-top: 1px solid #DDE2E8; padding-top: 72px;">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+<span style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; color: #4A5468;">Why it lasts</span>
+<h2 style="margin: 0; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.05; letter-spacing: -0.03em;">A habit for every day, <span style="color: #8A94A6;">not a feeling for one.</span></h2>
+</div>
+<p style="flex: 1 1 420px; min-width: 0; margin: 0; font-size: 18px; line-height: 1.65; color: #4A5468;">Most of us do not stop believing. We just stop practising, one busy day at a time. A stranger waiting on your Rosary changes that. It gives every day a reason to pick up the beads, and a quiet strength against everything that pulls you away from Christ between Sundays.</p>
+</div>
+</section>
+
+<!-- AMBITION -->
+<section style="max-width: 1200px; margin: 0 auto; padding: clamp(112px, 14vw, 184px) 24px 0; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 28px;">
+<span style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; color: #4A5468;">Our ambition</span>
+<h2 style="margin: 0; max-width: 960px; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(36px, 4.8vw, 68px); line-height: 1.04; letter-spacing: -0.03em;">A chain of prayer around the world <span style="color: #8A94A6;">that never breaks.</span></h2>
+<p style="margin: 0; max-width: 640px; font-size: 19px; line-height: 1.65; color: #4A5468;">We dream of a day when every intention shared with us is prayed for, every day, by someone who loves Mary. When no hospital bed, exam hall, empty kitchen or broken heart goes unprayed for. When a whole generation of Catholics, in every country, grows up knowing how to pray daily, because a stranger once needed them to.</p>
+<p style="margin: 0; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -0.02em;">It starts with one Rosary. <span style="background: #D1FF42; border-radius: 8px; padding: 0 8px;">Yours.</span></p>
+</section>
+
+<!-- YOUKARIS -->
+<section style="max-width: 1200px; margin: 0 auto; padding: clamp(96px, 12vw, 160px) 24px 0;">
+<div style="background: #EEF1F4; border-radius: 28px; padding: clamp(28px, 4vw, 56px) clamp(28px, 4vw, 56px) 0; display: flex; flex-wrap: wrap; align-items: flex-end; gap: 40px;">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 18px; padding-bottom: clamp(28px, 4vw, 56px);">
+<span style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; color: #4A5468;">Where it happens</span>
+<h2 style="margin: 0; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.05; letter-spacing: -0.03em;">Youkaris. <span style="color: #8A94A6;">A home for daily prayer.</span></h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.65; color: #4A5468;">Youkaris is the app that holds it all together. Each morning it hands you that day's stranger, keeps your place in the week and gently brings you back when life gets loud. It does not replace anything on your phone. It gives your daily prayer a home.</p>
+</div>
+<div aria-hidden="true" style="flex: 0 1 300px; margin: 0 auto; width: 280px; background: #0A0F1A; border-radius: 44px 44px 0 0; padding: 14px 14px 0; box-sizing: border-box;">
+<div style="background: #141B2B; border-radius: 32px 32px 0 0; padding: 24px 20px 28px; display: flex; flex-direction: column; gap: 14px; color: #FFFFFF;">
+<img src="../assets/brand/sfm-mark-lime.svg" alt="" style="width: 54px; height: auto;">
+<span style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1.5px; color: #A3AEC0;">THIS WEEK'S STRANGER</span>
+<div style="background: #FFFFFF; color: #0A0F1A; border-radius: 16px; padding: 14px; font-size: 15px; font-weight: 600; line-height: 1.35;">Pray the Rosary for this intention today.</div>
+<div style="display: flex; gap: 5px;"><span style="flex: 1; height: 8px; border-radius: 4px; background: #D1FF42;"></span><span style="flex: 1; height: 8px; border-radius: 4px; background: #D1FF42;"></span><span style="flex: 1; height: 8px; border-radius: 4px; background: #D1FF42;"></span><span style="flex: 1; height: 8px; border-radius: 4px; background: #2A3346;"></span><span style="flex: 1; height: 8px; border-radius: 4px; background: #2A3346;"></span><span style="flex: 1; height: 8px; border-radius: 4px; background: #2A3346;"></span></div>
+<span style="font-size: 13px; color: #A3AEC0;">Day 3 of 6 this week</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- QUESTIONS -->
+<section style="max-width: 1200px; margin: 0 auto; padding: clamp(96px, 12vw, 160px) 24px 0; display: flex; flex-wrap: wrap; gap: 32px 64px;">
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 28px;">
+<h2 style="margin: 0; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.05; letter-spacing: -0.03em;">Questions people ask.</h2>
+<img src="../assets/photos/church-praying.jpg" alt="A woman praying alone in a church pew" style="width: 100%; height: 340px; object-fit: cover; border-radius: 20px; display: block;">
+</div>
+<div style="flex: 2 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 10px;">
+<details style="background: #FFFFFF; border-radius: 18px; padding: 20px 24px;"><summary style="font-weight: 700; font-size: 18px; display: flex; justify-content: space-between; gap: 16px;">How long does it take?<span aria-hidden="true" style="color: #0251B0;">+</span></summary><p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: #4A5468;">A Rosary takes about twenty minutes. Many people pray it on the way to work, before bed or with their family.</p></details>
+<details style="background: #FFFFFF; border-radius: 18px; padding: 20px 24px;"><summary style="font-weight: 700; font-size: 18px; display: flex; justify-content: space-between; gap: 16px;">What can I share as an intention?<span aria-hidden="true" style="color: #0251B0;">+</span></summary><p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: #4A5468;">Anything you would bring to Mary herself, kept short. Please leave out personal details and the long history of the problem, and do not name other people in full. A few honest words, offered in faith, are enough.</p></details>
+<details style="background: #FFFFFF; border-radius: 18px; padding: 20px 24px;"><summary style="font-weight: 700; font-size: 18px; display: flex; justify-content: space-between; gap: 16px;">When do I add my intention?<span aria-hidden="true" style="color: #0251B0;">+</span></summary><p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: #4A5468;">Once a week, before 6 pm on Sunday. Each stranger adds one intention per week.</p></details>
+<details style="background: #FFFFFF; border-radius: 18px; padding: 20px 24px;"><summary style="font-weight: 700; font-size: 18px; display: flex; justify-content: space-between; gap: 16px;">Will anyone know it is mine?<span aria-hidden="true" style="color: #0251B0;">+</span></summary><p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: #4A5468;">Your intention carries your baptism name, but nothing that identifies you. Because so many strangers share the same baptism name, nobody can tell whose intention they are holding.</p></details>
+<details style="background: #FFFFFF; border-radius: 18px; padding: 20px 24px;"><summary style="font-weight: 700; font-size: 18px; display: flex; justify-content: space-between; gap: 16px;">What if I miss a day?<span aria-hidden="true" style="color: #0251B0;">+</span></summary><p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: #4A5468;">Nothing bad happens. A missed day is never punished. It is flagged, so we know who might need support, and someone makes sure you get it.</p></details>
+</div>
+</section>
+
+<!-- CLOSE + SWITCHER -->
+<section style="max-width: 1200px; margin: 0 auto; padding: clamp(112px, 14vw, 184px) 24px clamp(96px, 12vw, 140px); display: flex; flex-direction: column; gap: 72px;">
+<div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 22px;">
+<h2 style="margin: 0; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(36px, 4.6vw, 64px); line-height: 1.04; letter-spacing: -0.03em;">Somebody is waiting for your Rosary.</h2>
+<p style="margin: 0; max-width: 560px; font-size: 19px; line-height: 1.6; color: #4A5468;">They will never know it was you. They will never be able to thank you. They need you anyway.</p>
+<a href="home.html" style="display: inline-flex; align-items: center; gap: 14px; background: #D1FF42; color: #0A0F1A; text-decoration: none; font-weight: 700; font-size: 17px; padding: 6px 6px 6px 24px; border-radius: 999px; min-height: 54px; box-sizing: border-box;">Join the strangers<span style="width: 42px; height: 42px; border-radius: 999px; background: #0A0F1A; display: inline-flex; align-items: center; justify-content: center;"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D1FF42" stroke-width="2.4" stroke-linecap="square"><path d="M5 12h13M13 6l6 6-6 6"></path></svg></span></a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
+<a href="give.html" style="display: flex; flex-direction: column; text-decoration: none; color: #0A0F1A;">
+<span style="width: 40%; height: 20px; background: #FFFFFF; border-radius: 16px 16px 0 0;"></span>
+<span style="background: #FFFFFF; border-radius: 0 24px 24px 24px; padding: 12px; display: flex; flex-direction: column; gap: 14px;">
+<img src="../assets/photos/give-outreach.jpg" alt="" style="width: 100%; height: 220px; object-fit: cover; border-radius: 16px; display: block;">
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 4px 8px 6px;"><span><b style="display: block; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-size: 26px; letter-spacing: -0.02em;">Next: We give.</b><span style="font-size: 15px; color: #4A5468;">Charity, one small act at a time.</span></span><span style="width: 44px; height: 44px; flex: none; border-radius: 999px; background: #D1FF42; display: inline-flex; align-items: center; justify-content: center;"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A0F1A" stroke-width="2.4" stroke-linecap="square"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></span>
+</span>
+</a>
+<a href="gather.html" style="display: flex; flex-direction: column; text-decoration: none; color: #0A0F1A;">
+<span style="width: 40%; height: 20px; background: #FFFFFF; border-radius: 16px 16px 0 0;"></span>
+<span style="background: #FFFFFF; border-radius: 0 24px 24px 24px; padding: 12px; display: flex; flex-direction: column; gap: 14px;">
+<img src="../assets/photos/gather-crowd.jpg" alt="" style="width: 100%; height: 220px; object-fit: cover; border-radius: 16px; display: block;">
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 4px 8px 6px;"><span><b style="display: block; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-size: 26px; letter-spacing: -0.02em;">Then: We gather.</b><span style="font-size: 15px; color: #4A5468;">It is always a party for our Mother.</span></span><span style="width: 44px; height: 44px; flex: none; border-radius: 999px; background: #D1FF42; display: inline-flex; align-items: center; justify-content: center;"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A0F1A" stroke-width="2.4" stroke-linecap="square"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></span>
+</span>
+</a>
+</div>
+</section>
+
+<dc-import name="Closing" hint-size="100%,820px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":6200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { days: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] };
+  }
+}
+</script>
+</body>
+</html>

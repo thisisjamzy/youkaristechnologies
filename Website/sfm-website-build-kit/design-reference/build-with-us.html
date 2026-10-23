@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Strangers for Mary · Build with us</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Barlow:wght@400;500;600;700&amp;display=swap">
+<style>
+@font-face{font-family:'Nohemi';src:url('../assets/fonts/Nohemi-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+body{margin:0;background:#F7F8F5}
+html{scroll-behavior:smooth}
+a{color:#0251B0}a:hover{color:#0A0F1A}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid #0251B0;outline-offset:3px}
+input::placeholder,textarea::placeholder{color:#4A5468}
+</style>
+</helmet>
+
+<div style="font-family: 'Barlow', 'Helvetica Neue', sans-serif; color: #0A0F1A; background: #F7F8F5; width: 100%; overflow-x: hidden;">
+
+<dc-import name="Nav" hint-size="100%,96px"></dc-import>
+
+<!-- OPENING -->
+<section style="max-width: 1200px; margin: 0 auto; padding: clamp(32px, 5vw, 64px) 24px 0; display: flex; flex-wrap: wrap; align-items: flex-end; gap: 40px 56px;">
+<div style="flex: 2 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 24px;">
+<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #DDE2E8; border-radius: 999px; padding: 6px 14px 6px 10px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase;"><span style="width: 8px; height: 8px; border-radius: 2px; background: #0251B0;"></span>Build with us</span>
+<h1 style="margin: 0; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(44px, 6vw, 84px); line-height: 1; letter-spacing: -0.035em;">Someone has to bring the strangers together. <span style="color: #8A94A6;">Why not you?</span></h1>
+<p style="margin: 0; max-width: 640px; font-size: 18px; line-height: 1.65; color: #4A5468;">Every stranger who prays will one day stand on something built by someone else: an app that works, a welcome that feels warm, a message that reached them at the right moment, a prayer guide they can trust. Those things do not build themselves. They are being built right now, by people who decided to give their gifts to Mary's mission.</p>
+<a href="#volunteer" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 14px; background: #D1FF42; color: #0A0F1A; text-decoration: none; font-weight: 700; font-size: 17px; padding: 6px 6px 6px 24px; border-radius: 999px; min-height: 54px; box-sizing: border-box;">Apply for a place<span style="width: 42px; height: 42px; border-radius: 999px; background: #0A0F1A; display: inline-flex; align-items: center; justify-content: center;"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D1FF42" stroke-width="2.4" stroke-linecap="square"><path d="M12 5v13M6 13l6 6 6-6"></path></svg></span></a>
+</div>
+<div style="flex: 1 1 280px; min-width: 0; max-width: 340px; display: flex; flex-direction: column;">
+<span style="width: 46%; height: 22px; background: #D1FF42; border-radius: 16px 16px 0 0;"></span>
+<div style="position: relative; overflow: hidden; isolation: isolate; background: #D1FF42; border-radius: 0 24px 24px 24px; padding: 28px; display: flex; flex-direction: column; gap: 22px;">
+<div style="display: flex; align-items: baseline; gap: 12px;"><span style="font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 88px; line-height: 0.9; letter-spacing: -0.04em;">20</span><span style="font-weight: 700; font-size: 18px; line-height: 1.3;">places, one for every mystery</span></div>
+<div style="height: 1px; background: #0A0F1A; opacity: 0.25;"></div>
+<div style="display: flex; align-items: baseline; gap: 12px;"><span style="font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 88px; line-height: 0.9; letter-spacing: -0.04em;">{{spotsLeft}}</span><span style="font-weight: 700; font-size: 18px;">still open</span></div>
+</div>
+</div>
+</section>
+
+<!-- PHOTO -->
+<section style="max-width: 1200px; margin: 0 auto; padding: clamp(40px, 5vw, 64px) 24px 0;">
+<div style="position: relative;">
+<img src="../assets/photos/build-team.jpg" alt="A small team working together around a laptop" style="width: 100%; height: clamp(340px, 42vw, 560px); object-fit: cover; border-radius: 28px; display: block;">
+<span style="position: absolute; left: 24px; bottom: 24px; display: inline-flex; align-items: center; gap: 10px; background: #FFFFFF; border-radius: 999px; padding: 8px 18px 8px 8px; font-weight: 700; font-size: 15px;"><span style="background: #D1FF42; border-radius: 999px; padding: 2px 10px; font-family: 'Nohemi', 'Barlow Condensed', sans-serif;">{{spotsLeft}}</span>of 20 places still open</span>
+</div>
+</section>
+
+<!-- TWENTY PLACES -->
+<section style="max-width: 1200px; margin: 0 auto; padding: clamp(112px, 14vw, 184px) 24px 0; display: flex; flex-wrap: wrap; gap: 32px 64px; align-items: flex-start;">
+<h2 style="flex: 2 1 480px; min-width: 0; margin: 0; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(40px, 5.4vw, 76px); line-height: 1; letter-spacing: -0.035em;">Twenty people. <span style="color: #8A94A6;">One for every mystery.</span></h2>
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 18px; padding-top: 10px;">
+<p style="margin: 0; font-size: 18px; line-height: 1.65; color: #4A5468;">We are building a core team of no more than twenty people, one for every mystery of the Rosary. Small enough to know each other well, strong enough to carry a network that reaches across the world. When the twenty places are filled, the team is complete.</p>
+<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; background: #0A0F1A; color: #FFFFFF; border-radius: 999px; padding: 8px 16px 8px 8px; font-weight: 700; font-size: 15px;"><span style="background: #D1FF42; color: #0A0F1A; border-radius: 999px; padding: 2px 10px; font-family: 'Nohemi', 'Barlow Condensed', sans-serif;">{{spotsLeft}}</span>of 20 places still open</span>
+</div>
+</section>
+
+<!-- WHY NOW -->
+<section style="max-width: 1200px; margin: 0 auto; padding: clamp(112px, 14vw, 184px) 24px 0; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 26px;">
+<span style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; color: #4A5468;">Why now</span>
+<h2 style="margin: 0; max-width: 940px; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(36px, 4.8vw, 68px); line-height: 1.04; letter-spacing: -0.03em;">The first builders <span style="color: #8A94A6;">shape everything that follows.</span></h2>
+<p style="margin: 0; max-width: 660px; font-size: 19px; line-height: 1.65; color: #4A5468;">Strangers for Mary is at its beginning. The people who join now will set the tone, write the first words, welcome the first strangers and lay the first stones. Years from now, when a stranger on the other side of the world prays their first Rosary on Youkaris, part of what holds them will be yours.</p>
+</section>
+
+<!-- FOUR TEAMS -->
+<section style="max-width: 1200px; margin: 0 auto; padding: clamp(112px, 14vw, 184px) 24px 0;">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px 48px; margin-bottom: 40px;">
+<h2 style="margin: 0; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(36px, 4.4vw, 60px); line-height: 1.02; letter-spacing: -0.03em;">Four teams. <span style="color: #8A94A6;">Find yours.</span></h2>
+<p style="margin: 0; max-width: 380px; font-size: 17px; line-height: 1.6; color: #4A5468;">Each team carries one part of the mission. Pick the one that sounds like you, or more than one.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px;">
+<sc-for list="{{teams}}" as="team" hint-placeholder-count="4">
+<a href="#volunteer" style="display: flex; flex-direction: column; text-decoration: none; color: #0A0F1A;">
+<span style="width: 44%; height: 20px; background: #FFFFFF; border-radius: 16px 16px 0 0;"></span>
+<span style="background: #FFFFFF; border-radius: 0 24px 24px 24px; padding: 12px 12px 26px; display: flex; flex-direction: column; gap: 16px; min-height: 330px; box-sizing: border-box;">
+<img src="{{team.img}}" alt="{{team.alt}}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 16px; display: block;">
+<span style="padding: 0 14px; display: flex; flex-direction: column; gap: 16px; flex: 1;">
+<span style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; color: #0251B0;">{{team.role}}</span>
+<b style="font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-size: 28px; line-height: 1.05; letter-spacing: -0.02em;">{{team.name}}</b>
+<span style="flex: 1; font-size: 15px; line-height: 1.6; color: #4A5468;">{{team.text}}</span>
+<span style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #DDE2E8; padding-top: 14px; font-weight: 700; font-size: 15px;">Join this team<span style="width: 38px; height: 38px; border-radius: 999px; background: #D1FF42; display: inline-flex; align-items: center; justify-content: center;"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0F1A" stroke-width="2.4" stroke-linecap="square"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></span>
+</span>
+</span>
+</a>
+</sc-for>
+</div>
+</section>
+
+<!-- FORM -->
+<section id="volunteer" style="max-width: 1200px; margin: 0 auto; padding: clamp(112px, 14vw, 184px) 24px clamp(96px, 12vw, 140px);">
+<div style="background: #FFFFFF; border-radius: 28px; padding: 12px; display: flex; flex-wrap: wrap; gap: 12px;">
+<div style="flex: 1 1 340px; min-width: 0; padding: clamp(20px, 3vw, 36px); display: flex; flex-direction: column; gap: 22px;">
+<h2 style="margin: 0; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.04; letter-spacing: -0.03em;">What it asks of you.</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: #4A5468;">You do not need to live in any particular place. Most of our work happens online, and the teams are coordinated on our own internal tool. We welcome everyone, but we keep high standards, so you may be invited to a short interview before you join the team. There are no fixed hours: the work is organised by project, and you make your own time. The one firm commitment is Sunday, when core team members work all day.</p>
+<ul style="margin: 6px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 18px;">
+<li style="display: flex; gap: 14px; align-items: center;"><span style="width: 40px; height: 40px; flex: none; border: 1px solid #DDE2E8; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A0F1A" stroke-width="1.8" stroke-linecap="square"><path d="M14.5 5.5l4 4L9 19H5v-4z"></path></svg></span><b style="font-size: 16px;">Your skill</b></li>
+<li style="display: flex; gap: 14px; align-items: center;"><span style="width: 40px; height: 40px; flex: none; border: 1px solid #DDE2E8; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A0F1A" stroke-width="1.8" stroke-linecap="square"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span><b style="font-size: 16px;">Your time</b></li>
+<li style="display: flex; gap: 14px; align-items: center;"><span style="width: 40px; height: 40px; flex: none; border: 1px solid #DDE2E8; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A0F1A" stroke-width="1.8" stroke-linecap="square"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg></span><b style="font-size: 16px;">Your love for Mary</b></li>
+</ul>
+</div>
+
+<div style="position: relative; overflow: hidden; isolation: isolate; flex: 1.3 1 480px; min-width: 0; background: #D1FF42; border-radius: 20px; padding: clamp(24px, 3.5vw, 44px); box-sizing: border-box;">
+<sc-if value="{{notSent}}" hint-placeholder-val="{{true}}">
+<form onSubmit="{{submit}}" style="display: flex; flex-direction: column; gap: 22px;">
+<h3 style="margin: 0; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(28px, 3vw, 38px); line-height: 1.05; letter-spacing: -0.03em;">Got a gift? Mary has a place for it.</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 22px;">
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 14px; font-weight: 600;">Full name
+<input type="text" name="full_name" required autocomplete="name" placeholder="First and last name" style="font-family: 'Barlow', 'Helvetica Neue', sans-serif; font-size: 17px; color: #0A0F1A; padding: 10px 0; border: none; border-bottom: 1.5px solid #0A0F1A; background: transparent; min-height: 46px; box-sizing: border-box;">
+</label>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 14px; font-weight: 600;">Baptism name
+<input type="text" name="baptism_name" required placeholder="The name you were baptised with" style="font-family: 'Barlow', 'Helvetica Neue', sans-serif; font-size: 17px; color: #0A0F1A; padding: 10px 0; border: none; border-bottom: 1.5px solid #0A0F1A; background: transparent; min-height: 46px; box-sizing: border-box;">
+</label>
+</div>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 14px; font-weight: 600;">Email
+<input type="email" name="email" required autocomplete="email" placeholder="you@example.com" style="font-family: 'Barlow', 'Helvetica Neue', sans-serif; font-size: 17px; color: #0A0F1A; padding: 10px 0; border: none; border-bottom: 1.5px solid #0A0F1A; background: transparent; min-height: 46px; box-sizing: border-box;">
+</label>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 22px;">
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 14px; font-weight: 600;">Your parish
+<input type="text" name="parish" required placeholder="Parish name" style="font-family: 'Barlow', 'Helvetica Neue', sans-serif; font-size: 17px; color: #0A0F1A; padding: 10px 0; border: none; border-bottom: 1.5px solid #0A0F1A; background: transparent; min-height: 46px; box-sizing: border-box;">
+</label>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 14px; font-weight: 600;">City and country
+<input type="text" name="city" required autocomplete="address-level2" placeholder="e.g. Lagos, Nigeria" style="font-family: 'Barlow', 'Helvetica Neue', sans-serif; font-size: 17px; color: #0A0F1A; padding: 10px 0; border: none; border-bottom: 1.5px solid #0A0F1A; background: transparent; min-height: 46px; box-sizing: border-box;">
+</label>
+</div>
+<fieldset style="margin: 0; padding: 0; border: none;">
+<legend style="padding: 0 0 12px; font-size: 14px; font-weight: 600;">Which team fits you? Pick any</legend>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px;">
+<sc-for list="{{teams}}" as="team" hint-placeholder-count="4">
+<label style="display: flex; align-items: center; gap: 12px; cursor: pointer; font-size: 16px; font-weight: 500;"><input type="checkbox" name="team" value="{{team.name}}" style="width: 20px; height: 20px; margin: 0; accent-color: #0A0F1A; flex: none;">{{team.name}}</label>
+</sc-for>
+</div>
+</fieldset>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 14px; font-weight: 600;">Tell us about yourself
+<textarea name="about" rows="3" placeholder="What you do, what you would love to help with and how much time you can give" style="font-family: 'Barlow', 'Helvetica Neue', sans-serif; font-size: 17px; line-height: 1.5; color: #0A0F1A; padding: 10px 0; border: none; border-bottom: 1.5px solid #0A0F1A; background: transparent; resize: vertical; box-sizing: border-box;"></textarea>
+</label>
+<label style="display: flex; align-items: flex-start; gap: 12px; cursor: pointer; font-size: 15px; line-height: 1.4;"><input type="checkbox" name="stranger" checked style="width: 20px; height: 20px; margin: 0; accent-color: #0A0F1A; flex: none;"><span>Also invite me to join as a stranger the day Youkaris opens.</span></label>
+<button type="submit" style="width: 100%; background: #0A0F1A; color: #FFFFFF; border: none; font-family: 'Barlow', 'Helvetica Neue', sans-serif; font-weight: 700; font-size: 18px; padding: 18px; border-radius: 14px; cursor: pointer; min-height: 58px;">Apply for a place</button>
+<p style="margin: -8px 0 0; font-size: 14px; line-height: 1.5; font-weight: 600;">{{spotsLeft}} of 20 places still open. Applicants may be invited to a short interview.</p>
+<p style="margin: 0; font-size: 13px; line-height: 1.5;">We will only use your details to contact you about Strangers for Mary. <a href="#privacy" style="color: #0A0F1A;">[Privacy policy]</a></p>
+</form>
+</sc-if>
+<sc-if value="{{sent}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 18px; align-items: flex-start; padding: 16px 0;">
+<span style="width: 64px; height: 64px; border-radius: 999px; background: #0A0F1A; display: inline-flex; align-items: center; justify-content: center;"><svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D1FF42" stroke-width="2.6" stroke-linecap="square"><path d="M4 12l5 5L20 6"></path></svg></span>
+<h3 style="margin: 0; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 44px; line-height: 1; letter-spacing: -0.03em;">Thank you for applying.</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.6;">Thank you for offering your gifts to Mary's mission. Someone from the team will be in touch soon, and may invite you to a short interview to find the place where your gifts do the most good.</p>
+<p style="margin: 0; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 48px; line-height: 1; letter-spacing: -0.04em;">Pass it on.</p>
+<button type="button" onClick="{{reset}}" style="background: transparent; color: #0A0F1A; border: 1.5px solid #0A0F1A; font-family: 'Barlow', 'Helvetica Neue', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 22px; border-radius: 999px; cursor: pointer; min-height: 50px;">Sign up someone else</button>
+</div>
+</sc-if>
+</div>
+</div>
+<p style="margin: 72px 0 0; text-align: center; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(26px, 3vw, 40px); letter-spacing: -0.02em;">Do not just join the strangers. <span style="color: #8A94A6;">Bring them together.</span></p>
+</section>
+
+<dc-import name="Closing" hint-size="100%,820px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"spotsLeft":{"editor":"int","default":17,"min":0,"max":20,"section":"Core team"},"$preview":{"width":1440,"height":5600}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { sent: false }; }
+  renderVals() {
+    var self = this;
+    return {
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      spotsLeft: this.props.spotsLeft ?? 17,
+      teams: [
+        { img: '../assets/photos/hero-smile.jpg', alt: 'A smiling young woman at a gathering', role: 'You are the welcome', name: 'Stranger Relations', text: 'You walk with new strangers, answer their questions, and reach out when someone misses a day, so nobody who joins is ever left alone.' },
+        { img: '../assets/photos/event-laugh.jpg', alt: 'A young man laughing at an event', role: 'You are the voice', name: 'Outreach', text: 'You tell our story on social media, through design and film, and in parishes, schools and communities, so the call reaches every Catholic who needs to hear it.' },
+        { img: '../assets/photos/candle-rosary.jpg', alt: 'Hands holding a rosary beside a lit candle', role: 'You are the heart', name: 'Core and Content', text: 'You write the prayer guides, reflections and teaching that strangers will read, always faithful to the Catechism of the Catholic Church.' },
+        { img: '../assets/photos/team-talk.jpg', alt: 'Two colleagues talking, one holding a laptop', role: 'You are the hands', name: 'Technology', text: 'You build Youkaris and the tools behind it, so that a prayer typed in one country lands safely in another.' }
+      ],
+      submit: function (e) { if (e && e.preventDefault) { e.preventDefault(); } self.setState({ sent: true }); },
+      reset: function () { self.setState({ sent: false }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
