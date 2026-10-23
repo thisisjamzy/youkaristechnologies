@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { strings } from "@/content/strings";
+import { getPlacesLeft } from "@/features/show-places-left";
 import { photos } from "@/shared/lib";
 import { HomeView } from "@/views/Home";
 
@@ -11,7 +12,8 @@ export const metadata: Metadata = {
   openGraph: { title: meta.home.title, description: meta.home.description, images: [photos.prayHandsTogether] },
 };
 
-export default function HomePage() {
-  // TODO(phase 8): read places left from the backend (cached); null hides the number.
-  return <HomeView placesLeft={null} />;
+export default async function HomePage() {
+  // Cached for 5 minutes; null (backend unreachable) hides the number.
+  const placesLeft = await getPlacesLeft();
+  return <HomeView placesLeft={placesLeft} />;
 }

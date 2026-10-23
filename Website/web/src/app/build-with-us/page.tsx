@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { strings } from "@/content/strings";
+import { getPlacesLeft } from "@/features/show-places-left";
 import { photos } from "@/shared/lib";
 import { BuildWithUsView } from "@/views/BuildWithUs";
 
@@ -11,7 +12,8 @@ export const metadata: Metadata = {
   openGraph: { title, description, images: [photos.buildTeam] },
 };
 
-export default function BuildWithUsPage() {
-  // TODO(phase 8): read places left from the backend (cached); null hides the number.
-  return <BuildWithUsView placesLeft={null} />;
+export default async function BuildWithUsPage() {
+  // Cached for 5 minutes; null (backend unreachable) hides the number.
+  const placesLeft = await getPlacesLeft();
+  return <BuildWithUsView placesLeft={placesLeft} />;
 }

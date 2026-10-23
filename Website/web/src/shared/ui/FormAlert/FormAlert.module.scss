@@ -1,0 +1,15 @@
+@use "@/styles/abstracts" as *;
+
+.alert {
+  margin: 0;
+  font-size: var(--text-15);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--leading-1-4);
+  color: var(--color-error);
+}
+
+// Visually hidden but still in the accessibility tree while empty (no gap in the form),
+// so screen readers announce the message when it appears.
+.empty {
+  @include visually-hidden;
+}

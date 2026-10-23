@@ -24,11 +24,6 @@ export const strings = {
     },
 
     header: {
-      banner: {
-        label: "Coming soon",
-        text: "Youkaris, our app, opens soon.",
-        link: "Join the strangers",
-      },
       homeAria: "Strangers for Mary home",
       logoAlt: "Strangers for Mary",
       navAria: "Main",
@@ -40,6 +35,11 @@ export const strings = {
         buildWithUs: "Build With Us",
       },
       cta: "Join the strangers",
+      // Tablets and phones (prompts/03-responsive-header-and-menu.md; built after phase 8).
+      joinShort: "Join us",
+      openMenu: "Open menu",
+      closeMenu: "Close menu",
+      menuTitle: "Menu",
     },
 
     closingCard: {

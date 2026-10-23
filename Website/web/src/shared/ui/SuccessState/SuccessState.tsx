@@ -9,17 +9,19 @@ export type SuccessStateProps = {
   tone?: "lime" | "ink";
   /** Body text, the "Pass it on." line and the actions. */
   children: ReactNode;
+  /** Lets the form move focus to the title when it appears. */
+  titleId?: string;
   className?: string;
 };
 
 /** What a form turns into once it is sent. The title is focusable so the form can move focus to it. */
-export function SuccessState({ title, tone = "lime", children, className }: SuccessStateProps) {
+export function SuccessState({ title, tone = "lime", children, titleId, className }: SuccessStateProps) {
   return (
     <div className={cn(styles.success, styles[tone], className)} role="status">
       <span className={styles.circle}>
         <Icon name="check" size="xl" stroke="heavy" />
       </span>
-      <h3 className={styles.title} tabIndex={-1}>
+      <h3 id={titleId} className={styles.title} tabIndex={-1}>
         {title}
       </h3>
       {children}

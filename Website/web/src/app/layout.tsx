@@ -9,7 +9,7 @@ import "@/styles/globals.scss";
 const { site, meta } = strings.common;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || site.url),
   title: meta.home.title,
   description: meta.home.description,
   applicationName: site.name,

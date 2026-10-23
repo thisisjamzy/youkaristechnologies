@@ -74,7 +74,9 @@ const values = new Set(all.map((l) => l.value));
 
 describe("strings.ts against the strings master", () => {
   it.each(masterTexts().map((t) => [t]))("contains %j", (text) => {
-    expect(values.has(text)).toBe(true);
+    // Some build lines list several strings at once ("Our Story, Pray, …", "PASS IT ON. / …").
+    const parts = text.split(/\s+\/\s+|,\s+/);
+    expect(values.has(text) || (parts.length > 1 && parts.every((part) => values.has(part)))).toBe(true);
   });
 
   it("invents nothing: every string is a master line or part of one", () => {

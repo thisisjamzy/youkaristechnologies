@@ -4,48 +4,6 @@
   background: var(--color-paper);
 }
 
-// Coming soon banner: a slim ink bar above the menu. Lime only on the dark ground.
-.banner {
-  background: var(--color-ink);
-  color: var(--color-white);
-}
-
-.bannerInner {
-  @include container;
-
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: space(1) space(3);
-  margin: 0 auto;
-  padding-block: space(2.5);
-  font-size: var(--text-14);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--leading-1-4);
-  text-align: center;
-}
-
-.bannerLabel {
-  @include label("13");
-
-  padding: space(0.5) space(2.5);
-  border-radius: radius(pill);
-  background: var(--color-lime);
-  color: var(--color-ink);
-}
-
-.bannerLink {
-  color: var(--color-white);
-  font-weight: var(--font-weight-bold);
-  text-decoration-color: var(--color-lime);
-  text-underline-offset: space(1);
-
-  &:hover {
-    color: var(--color-lime);
-  }
-}
-
 .inner {
   @include container;
 

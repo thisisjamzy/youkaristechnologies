@@ -1,54 +1,94 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { strings } from "@/content/strings";
+import { createSignupSchema, LIMITS, type SignupField } from "@/entities/signup";
+import { useSignupSubmission } from "@/entities/signup/client";
+import { teamIds } from "@/entities/team";
 import { externalLinks, whatsAppShareUrl } from "@/shared/lib";
-import { Button, Checkbox, CheckboxGroup, FormField, Heading, SmartLink, SuccessState, TextArea } from "@/shared/ui";
+import {
+  Button,
+  Checkbox,
+  CheckboxGroup,
+  FormAlert,
+  FormField,
+  Heading,
+  Honeypot,
+  SmartLink,
+  SuccessState,
+  TextArea,
+} from "@/shared/ui";
 import styles from "./JoinNetworkForm.module.scss";
 
 const { form, teams, places, share } = strings.common;
 const { join } = strings.home;
 const SPACE = " ";
 
-const teamOptions = Object.entries(teams).map(([value, team]) => ({ value, label: team.name }));
+const schema = createSignupSchema(teamIds);
+const teamOptions = teamIds.map((id) => ({ value: id, label: teams[id].name }));
 
 export type JoinNetworkFormProps = {
   /** Core team places left, or null when unknown. 0 closes the core team option. */
   placesLeft: number | null;
 };
 
-/**
- * The Home sign-up form: join as a stranger and, optionally, apply for the core team.
- * Phase 8 adds validation and sending to /api/signup; until then submitting only shows
- * the success state.
- */
+/** The Home sign-up form: join as a stranger and, optionally, apply for the core team. */
 export function JoinNetworkForm({ placesLeft }: JoinNetworkFormProps) {
+  const [joining, setJoining] = useState(true);
   const [applying, setApplying] = useState(false);
   const [selectedTeams, setSelectedTeams] = useState<string[]>([]);
-  const [sent, setSent] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+  const successId = useId();
+  const { status, errors, formError, coreTeamFull, submit, reset } = useSignupSubmission(schema);
   const teamFull = placesLeft !== null && placesLeft <= 0;
 
-  const submit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    // TODO(phase 8): validate with the shared zod schema and POST to /api/signup.
-    setSent(true);
+  useEffect(() => {
+    if (status === "sent") document.getElementById(successId)?.focus();
+  }, [status, successId]);
+
+  const focusField = (field: SignupField) => {
+    const name = field === "choice" ? "joinAsStranger" : field;
+    formRef.current?.querySelector<HTMLElement>(`[name="${name}"]`)?.focus();
   };
 
-  const reset = () => {
-    setSent(false);
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const text = (name: string) => String(data.get(name) ?? "");
+    const firstInvalid = await submit({
+      sourcePage: "home",
+      fullName: text("fullName"),
+      baptismName: text("baptismName"),
+      email: text("email"),
+      parish: text("parish"),
+      city: text("city"),
+      whatsApp: text("whatsApp"),
+      joinAsStranger: joining,
+      applyCoreTeam: applying && !teamFull,
+      teams: applying ? selectedTeams : [],
+      about: applying ? text("about") : "",
+      website: text("website"),
+    });
+    if (firstInvalid) focusField(firstInvalid);
+  };
+
+  const startAgain = () => {
+    reset();
+    setJoining(true);
     setApplying(false);
     setSelectedTeams([]);
   };
 
-  if (sent) {
+  if (status === "sent") {
     return (
-      <SuccessState title={join.success.title}>
+      <SuccessState title={join.success.title} titleId={successId}>
         <p className={styles.successText}>{join.success.body}</p>
+        {coreTeamFull && <p className={styles.successText}>{places.complete}</p>}
         <p className={styles.successPrompt}>{join.success.prompt}</p>
         <Heading as="p" text={form.passItOn} size="56" tracking="tighter" />
         <div className={styles.actions}>
           <Button href={whatsAppShareUrl(share.afterSignup)}>{form.shareOnWhatsApp}</Button>
-          <Button variant="light" onClick={reset}>
+          <Button variant="light" onClick={startAgain}>
             {form.signUpSomeoneElse}
           </Button>
         </div>
@@ -56,30 +96,68 @@ export function JoinNetworkForm({ placesLeft }: JoinNetworkFormProps) {
     );
   }
 
-  return (
-    <form onSubmit={submit} noValidate className={styles.form}>
-      <div className={styles.pair}>
-        <FormField {...form.fullName} name="fullName" autoComplete="name" required />
-        <FormField {...form.baptismName} name="baptismName" required />
-      </div>
-      <FormField {...form.email} name="email" type="email" autoComplete="email" required />
-      <div className={styles.pair}>
-        <FormField {...form.parish} name="parish" required />
-        <FormField {...form.city} name="city" autoComplete="address-level2" required />
-      </div>
-      <FormField {...form.whatsApp} name="whatsApp" type="tel" autoComplete="tel" />
+  const sending = status === "sending";
 
-      <fieldset className={styles.choices}>
+  return (
+    <form ref={formRef} onSubmit={onSubmit} noValidate className={styles.form} aria-busy={sending}>
+      <Honeypot />
+      <div className={styles.pair}>
+        <FormField
+          {...form.fullName}
+          name="fullName"
+          autoComplete="name"
+          maxLength={LIMITS.name}
+          required
+          error={errors.fullName}
+        />
+        <FormField
+          {...form.baptismName}
+          name="baptismName"
+          maxLength={LIMITS.name}
+          required
+          error={errors.baptismName}
+        />
+      </div>
+      <FormField
+        {...form.email}
+        name="email"
+        type="email"
+        autoComplete="email"
+        maxLength={LIMITS.email}
+        required
+        error={errors.email}
+      />
+      <div className={styles.pair}>
+        <FormField {...form.parish} name="parish" maxLength={LIMITS.place} required error={errors.parish} />
+        <FormField
+          {...form.city}
+          name="city"
+          autoComplete="address-level2"
+          maxLength={LIMITS.place}
+          required
+          error={errors.city}
+        />
+      </div>
+      <FormField
+        {...form.whatsApp}
+        name="whatsApp"
+        type="tel"
+        autoComplete="tel"
+        maxLength={LIMITS.whatsApp}
+        error={errors.whatsApp}
+      />
+
+      <fieldset className={styles.choices} aria-describedby={errors.choice ? `${successId}-choice` : undefined}>
         <legend className={styles.legend}>{join.form.choiceLegend}</legend>
         <div className={styles.choiceGrid}>
-          <Checkbox name="joinAsStranger" defaultChecked>
+          <Checkbox name="joinAsStranger" checked={joining} onChange={(e) => setJoining(e.target.checked)}>
             <b>{join.form.joinAsStranger.label}</b>
             {SPACE}
             {join.form.joinAsStranger.hint}
           </Checkbox>
           <Checkbox
             name="applyCoreTeam"
-            checked={applying}
+            checked={applying && !teamFull}
             disabled={teamFull}
             onChange={(e) => setApplying(e.target.checked)}
           >
@@ -88,6 +166,11 @@ export function JoinNetworkForm({ placesLeft }: JoinNetworkFormProps) {
             {join.form.applyCoreTeam.hint}
           </Checkbox>
         </div>
+        {errors.choice && (
+          <p id={`${successId}-choice`} className={styles.error}>
+            {errors.choice}
+          </p>
+        )}
         {teamFull && <p className={styles.note}>{places.complete}</p>}
       </fieldset>
 
@@ -109,13 +192,15 @@ export function JoinNetworkForm({ placesLeft }: JoinNetworkFormProps) {
             value={selectedTeams}
             onChange={setSelectedTeams}
             gap={2.5}
+            error={errors.teams}
           />
-          <TextArea {...form.about} name="about" />
+          <TextArea {...form.about} name="about" maxLength={LIMITS.about} error={errors.about} />
         </div>
       )}
 
-      <Button type="submit" variant="dark" block>
-        {join.form.submit}
+      <FormAlert message={formError} />
+      <Button type="submit" variant="dark" block disabled={sending}>
+        {sending ? form.sending : join.form.submit}
       </Button>
       <p className={styles.privacy}>
         {form.privacyNote}

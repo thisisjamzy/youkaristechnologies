@@ -8,6 +8,7 @@ Everything Claude Code or Cursor needs to build the pre-launch website exactly a
 | --- | --- |
 | `../apps-script/` (in `Website/apps-script/`) | The finished backend: `Code.gs`, `appsscript.json` and a README with every setup and deploy step. Paste and deploy; no build needed. |
 | `prompts/01-apps-script-backend.md` | Prompt for the Google Apps Script that stores sign-ups in a Google Sheet and reports core team places left. Build this first. |
+| `prompts/03-responsive-header-and-menu.md` | The header on tablets and phones (mark, "Join us", menu button), the full-screen menu, and hiding the header on scroll down and showing it on scroll up. Use on its own if the header is already built. |
 | `prompts/02-nextjs-website.md` | Prompt for the Next.js website: architecture, single sources of truth for strings and design values, hooks, components, pages, forms and phases. |
 | `rules/CLAUDE.md` | Standing rules. Copied to `Website/web/CLAUDE.md` for Claude Code. |
 | `rules/sfm.mdc` | The same rules as a Cursor project rule, copied to `.cursor/rules/sfm.mdc` at the repository root. |

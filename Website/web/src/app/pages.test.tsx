@@ -1,8 +1,8 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import type { ReactElement } from "react";
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { BuildWithUsView } from "@/views/BuildWithUs";
 import { GatherView } from "@/views/Gather";
 import { GiveView } from "@/views/Give";
@@ -63,8 +63,21 @@ function collect(root: HTMLElement, into: Set<string>) {
   }
 }
 
+// A valid sign-up, typed into whichever of these fields the form has.
+const typed: Record<string, string> = {
+  fullName: "Mary Ndi",
+  baptismName: "Mary",
+  email: "mary@example.org",
+  parish: "St Anthony",
+  city: "Buea, Cameroon",
+};
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
+
 /** Renders the page and walks its form states, so conditional text is seen too. */
-function renderedTexts(view: ReactElement): Set<string> {
+async function renderedTexts(view: ReactElement): Promise<Set<string>> {
   const { container } = render(view);
   const texts = new Set<string>();
   collect(container, texts);
@@ -75,18 +88,25 @@ function renderedTexts(view: ReactElement): Set<string> {
     fireEvent.click(apply);
     collect(container, texts);
   }
-  // Both forms: submitting shows the success state (phase 8 adds validation).
+
+  // Both forms: a valid submission shows the success state.
   const form = container.querySelector("form");
   if (form) {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(Response.json({ ok: true, placesLeft: PLACES, coreTeamFull: false })));
+    for (const [name, value] of Object.entries(typed)) {
+      const input = form.querySelector<HTMLInputElement>(`[name="${name}"]`);
+      if (input) fireEvent.change(input, { target: { value } });
+    }
     fireEvent.submit(form);
+    await waitFor(() => expect(container.querySelector('[role="status"]')).not.toBeNull());
     collect(container, texts);
   }
   return texts;
 }
 
 describe.each(pages)("$name page", ({ name, view, script }) => {
-  it("shows every line of the strings master for this page", () => {
-    const texts = renderedTexts(view);
+  it("shows every line of the strings master for this page", async () => {
+    const texts = await renderedTexts(view);
     const missing = linesFor(name, script).filter((line) => !texts.has(line));
     expect(missing).toEqual([]);
   });

@@ -686,11 +686,16 @@ class Component extends DCLogic {
 
 These strings are needed by the code but have no place in the static design. They follow the same voice. Use them as written; the owner may refine them later in `strings.ts`.
 
-### Coming soon banner (above the site header, every page)
+### Header on tablets and phones
 
-- Banner label: Coming soon
-- Banner text: Youkaris, our app, opens soon.
-- Banner link: Join the strangers
+- Aria label (mark link): Strangers for Mary home
+- Button (small, next to the menu button): Join us
+- Aria label (menu button, closed): Open menu
+- Aria label (menu button, open): Close menu
+- Visually hidden heading of the menu panel: Menu
+- Menu panel links: Our Story, Pray, Give, Gather, Build With Us
+- Menu panel button: Join the strangers
+- Menu panel footer: PASS IT ON. / admin@strangersformary.org
 
 ### Share messages
 

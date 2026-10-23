@@ -238,6 +238,7 @@ Rebuild each page section by section from its reference file, in order. The head
 - **Gather** (`gather.html`): Opening, A room full of Pauls, What happens when we gather (mosaic), Why we gather, How often (big "2"), Something to look forward to, Close, Path switcher.
 - **Build With Us** (`build-with-us.html`): Opening with lime "20 places / X still open" card, team photo with places pill, Twenty places, Why now, Four teams (photo cards), Application form (lime panel), Close.
 - **Shared**: `SiteHeader` (`_shared-site-header.html`) and `ClosingCard` + `SiteFooter` (`_shared-closing-and-footer.html`) appear on every page from `app/layout.tsx` or the views.
+- **Header on smaller screens**: the design reference shows only the desktop header. Below 1024px the header shows the mark only, a small "Join us" button and a menu button that opens a full-screen menu, and on every screen size the header hides while scrolling down and returns on scrolling up. The full spec is `prompts/03-responsive-header-and-menu.md`; build `SiteHeader` to it.
 
 ## 8. Forms and data
 
@@ -267,7 +268,7 @@ Both forms post to `/api/signup`, which forwards to the Apps Script web app desc
 2. **Tokens, fonts and hooks**: `tokens.ts`, the generator script, generated files, global styles, mixins, providers and the four hooks. Show a token preview on `/dev/ui`.
 3. **Strings**: build `src/content/strings.ts` from `content/strings-master.md`. Keep the same order: `common` (header, footer, closing card, share, form, errors), then one key per page (`home`, `ourStory`, `pray`, `give`, `gather`, `buildWithUs`), then one key per section inside it (`opening`, `challenge`, `whoWeAre` and so on). Two-tone headlines become `{ main, muted }`. Lists become arrays of objects. `{{spotsLeft}}` becomes a function. Copy every character exactly (apostrophes, "6 pm", "Rosary" capitalised). Once the pages are built, add a test that renders each page and checks that every text line of the master appears on it. List any text you were unsure how to key.
 4. **Shared UI**: every component in section 6 with tests where they have logic, shown on `/dev/ui`.
-5. **Widgets**: SiteHeader, ClosingCard, SiteFooter, PathSwitcher, JoinPanel, PlacesBadge.
+5. **Widgets**: SiteHeader (including the smaller-screen header, full-screen menu and hide-on-scroll from `prompts/03-responsive-header-and-menu.md`), ClosingCard, SiteFooter, PathSwitcher, JoinPanel, PlacesBadge.
 6. **Home page**, then compare it side by side with `home.html` at 390px, 768px, 1280px and 1440px widths and fix every difference.
 7. **The other five pages**, same comparison for each.
 8. **Forms and API**: entities, features, both routes, wired to a mocked backend first, then to the real Apps Script URL.
