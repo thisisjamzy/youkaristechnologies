@@ -1,0 +1,21 @@
+@use "../abstracts" as *;
+
+a,
+button,
+input,
+textarea,
+select,
+summary {
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+button {
+  cursor: pointer;
+}

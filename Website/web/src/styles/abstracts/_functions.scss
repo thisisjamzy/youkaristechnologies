@@ -1,0 +1,48 @@
+// Token lookups. Each fails the build on an unknown key, so typos never ship.
+@use "sass:map";
+@use "../tokens/tokens.generated" as tokens;
+
+@function -lookup($map, $key, $kind) {
+  @if not map.has-key($map, $key) {
+    @error "Unknown #{$kind} token `#{$key}`. Add it to src/styles/tokens/tokens.ts.";
+  }
+
+  @return map.get($map, $key);
+}
+
+/// Space on the 4px unit: space(6) → var(--space-6) = 24px. Fluid: space(section).
+@function space($step) {
+  @if map.has-key(tokens.$fluid-space, $step) {
+    @return map.get(tokens.$fluid-space, $step);
+  }
+
+  @return -lookup(tokens.$space, $step, "space");
+}
+
+@function color($name) {
+  @return -lookup(tokens.$colors, $name, "color");
+}
+
+@function radius($name) {
+  @return -lookup(tokens.$radii, $name, "radius");
+}
+
+@function font-size($name) {
+  @return -lookup(tokens.$font-sizes, $name, "font size");
+}
+
+@function leading($name) {
+  @return -lookup(tokens.$line-heights, $name, "line height");
+}
+
+@function tracking($name) {
+  @return -lookup(tokens.$letter-spacings, $name, "letter spacing");
+}
+
+@function measure($name) {
+  @return -lookup(tokens.$measures, $name, "measure");
+}
+
+@function shadow($name) {
+  @return -lookup(tokens.$shadows, $name, "shadow");
+}

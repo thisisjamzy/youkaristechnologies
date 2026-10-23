@@ -1,0 +1,152 @@
+@use "sass:string";
+@use "abstracts" as *;
+
+// 2.5 → "2_5", matching the --space-2_5 variable names.
+@function step-key($n) {
+  $s: "#{$n}";
+  $i: string.index($s, ".");
+
+  @if $i {
+    @return string.slice($s, 1, $i - 1) + "_" + string.slice($s, $i + 1);
+  }
+
+  @return $s;
+}
+
+.page {
+  @include container;
+
+  display: flex;
+  flex-direction: column;
+  gap: space(6);
+  padding-block: space(opening);
+}
+
+.title {
+  @include display(heading-l, "1-02", tight);
+}
+
+.note,
+.value {
+  color: var(--color-text-body);
+  font-size: var(--text-14);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: space(4);
+  padding-top: space(8);
+  border-top: 1px solid var(--color-hairline);
+}
+
+.groupTitle {
+  @include display(title-m, "1-1", snug);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: space(2);
+  padding: 0;
+  list-style: none;
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(space(30), 1fr));
+  gap: space(4);
+  padding: 0;
+  list-style: none;
+}
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  gap: space(1);
+  font-size: var(--text-13);
+}
+
+.chip,
+.radiusBox,
+.shadowBox {
+  height: space(16);
+  border: 1px solid var(--color-hairline);
+  border-radius: radius(sm);
+}
+
+.radiusBox {
+  background: var(--color-lime);
+  border: 0;
+}
+
+.shadowBox {
+  background: var(--color-white);
+  box-shadow: shadow(float);
+}
+
+@each $name, $value in $colors {
+  .color-#{$name} {
+    background: $value;
+  }
+}
+
+@each $name, $value in $radii {
+  .radius-#{$name} {
+    border-radius: $value;
+  }
+}
+
+.fontDisplay {
+  @include display(heading-m, "1-05", tight);
+}
+
+.fontBody {
+  @include body("18", "1-55");
+}
+
+.fontLabel {
+  @include label("14");
+}
+
+.typeRow,
+.spaceRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 2fr);
+  gap: space(4);
+  align-items: center;
+}
+
+.typeName {
+  font-size: var(--text-13);
+}
+
+.typeSample {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+}
+
+@each $name, $value in $font-sizes {
+  .text-#{$name} {
+    font-size: $value;
+  }
+}
+
+.bar {
+  height: space(3);
+  background: var(--color-blue);
+  border-radius: radius(pill);
+}
+
+@each $step, $value in $space {
+  .space-#{step-key($step)} {
+    width: $value;
+  }
+}
+
+@each $name, $value in $fluid-space {
+  .space-#{$name} {
+    width: $value;
+  }
+}

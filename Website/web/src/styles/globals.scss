@@ -1,2 +1,6 @@
-// Global styles. Phase 2 adds the generated tokens, typography and forms.
+// Global styles: the generated tokens on :root, then the base layer.
+@use "tokens/tokens.generated" as tokens;
 @use "base/reset";
+@use "base/typography";
+@use "base/forms";
+@include tokens.css-variables;

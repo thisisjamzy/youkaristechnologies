@@ -8,7 +8,8 @@ const eslintConfig = defineConfig([
   {
     // Every user-facing word lives in src/content/strings.ts.
     files: ["src/**/*.tsx"],
-    ignores: ["src/**/*.test.tsx"],
+    // /dev/ui is an internal preview, blocked in production, so its labels are not site copy.
+    ignores: ["src/**/*.test.tsx", "src/app/dev/**"],
     rules: {
       "react/jsx-no-literals": ["error", { noStrings: true, ignoreProps: true }],
     },

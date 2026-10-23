@@ -1,3 +1,5 @@
-/* Tailwind v4 entry. Processed by @tailwindcss/turbopack (see next.config.ts).
-   Phase 2 imports tailwind-theme.generated.css here so utilities use the tokens. */
+/* Tailwind v4 entry, processed by @tailwindcss/turbopack (see next.config.ts).
+   The theme is generated from tokens.ts, so utilities only offer brand values.
+   Use utilities for simple layout only (flex, grid, gap, display). */
 @import "tailwindcss";
+@import "./tokens/tailwind-theme.generated.css";
