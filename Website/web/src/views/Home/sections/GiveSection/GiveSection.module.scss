@@ -1,0 +1,6 @@
+@use "@/styles/abstracts" as *;
+
+.smallActs {
+  justify-content: space-between;
+  gap: space(6);
+}

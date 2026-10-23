@@ -1,0 +1,29 @@
+@use "@/styles/abstracts" as *;
+
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: space(12);
+}
+
+.panel {
+  // As in the reference: the width or basis is for the content; padding adds to it.
+  box-sizing: content-box;
+  flex: 1 1 space(115);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: space(4.5);
+  padding: space("fluid-24-36");
+  border-radius: radius("2xl");
+  background: var(--color-mist-tint);
+}
+
+.copy {
+  flex: 1 1 space(100);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: space(5.5);
+}

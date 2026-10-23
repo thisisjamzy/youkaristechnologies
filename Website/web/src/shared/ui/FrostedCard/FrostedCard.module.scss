@@ -9,6 +9,8 @@
 }
 
 .row {
+  // As in the reference: the width or basis is for the content; padding adds to it.
+  box-sizing: content-box;
   align-items: center;
   gap: space(4);
   max-width: measure("380");

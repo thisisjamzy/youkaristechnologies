@@ -7,6 +7,8 @@
 }
 
 .card {
+  // As in the reference: the width or basis is for the content; padding adds to it.
+  box-sizing: content-box;
   position: relative;
   overflow: hidden;
   max-width: var(--layout-container);

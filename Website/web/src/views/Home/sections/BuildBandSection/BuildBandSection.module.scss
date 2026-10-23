@@ -1,0 +1,46 @@
+@use "@/styles/abstracts" as *;
+
+.band {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: space(8) space(12);
+  padding: space("fluid-32-56");
+  border-radius: radius("2xl");
+  background: var(--color-lime);
+}
+
+.headline {
+  flex: 2 1 space(115);
+}
+
+.aside {
+  flex: 1 1 space(65);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: space(3.5);
+}
+
+.body {
+  margin: 0;
+  font-size: var(--text-16);
+  line-height: var(--leading-1-55);
+}
+
+.link {
+  flex: none;
+  width: space(28);
+  height: space(28);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-strong) solid var(--color-ink);
+  border-radius: radius(lg-plus);
+  color: var(--color-ink);
+
+  &:hover {
+    color: var(--color-ink);
+  }
+}

@@ -1,0 +1,13 @@
+@use "@/styles/abstracts" as *;
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: space(6.5);
+  text-align: center;
+}
+
+.closing {
+  margin-top: space(3);
+}

@@ -1,0 +1,28 @@
+@use "@/styles/abstracts" as *;
+
+// The card hangs below the photo's bottom edge on wider screens.
+.cardSlot {
+  bottom: calc(-1 * #{space(18)});
+  width: space(125);
+  max-width: calc(100% - 2 * var(--layout-gutter));
+}
+
+.card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: space(4);
+  padding: space(8);
+  border-radius: radius(xl);
+  background: var(--color-white);
+  box-shadow: shadow(float);
+}
+
+.closing {
+  margin-top: space(28);
+
+  // On phones the card sits under the photo, so the space for its overhang is not needed.
+  @include down(tablet) {
+    margin-top: space(10);
+  }
+}

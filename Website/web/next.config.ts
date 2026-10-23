@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  // Hide the dev-tools button; compile and runtime errors still show in dev.
+  devIndicators: false,
   experimental: {
     agentFeedback: true,
   },

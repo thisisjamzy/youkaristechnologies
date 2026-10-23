@@ -1,0 +1,66 @@
+@use "@/styles/abstracts" as *;
+
+.intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: space(8) space(14);
+}
+
+.headline {
+  flex: 2 1 space(140);
+}
+
+.aside {
+  flex: 1 1 space(80);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: space(6);
+  padding-bottom: space(2);
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: space(3) space(6);
+}
+
+// Beside the button the link is centred, not top-aligned as in cards.
+.secondary {
+  align-self: center;
+}
+
+.photo {
+  margin-top: space("fluid-40-64");
+}
+
+.photoCard {
+  margin: 0;
+  font-size: var(--text-16);
+  line-height: var(--leading-1-4);
+  font-weight: var(--font-weight-semibold);
+}
+
+// The lime card rides over the top edge of the photo.
+.limeSlot {
+  top: calc(-1 * #{space(11)});
+  right: space(8);
+  width: space(65);
+}
+
+.limeCard {
+  flex: 1;
+}
+
+.limeBody {
+  gap: space(1.5);
+  padding: space(4.5) space(5.5) space(5.5);
+}
+
+.limeCaption {
+  font-size: var(--text-15);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--leading-1-35);
+}

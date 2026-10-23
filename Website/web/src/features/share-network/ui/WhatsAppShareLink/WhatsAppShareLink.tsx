@@ -1,5 +1,5 @@
+import { whatsAppShareUrl } from "@/shared/lib";
 import { Button } from "@/shared/ui";
-import { whatsAppShareUrl } from "../../lib/whatsApp";
 
 export type WhatsAppShareLinkProps = {
   /** The share message from strings.common.share. */

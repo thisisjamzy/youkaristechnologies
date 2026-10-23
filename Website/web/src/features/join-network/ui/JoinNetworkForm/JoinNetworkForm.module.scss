@@ -1,0 +1,79 @@
+@use "@/styles/abstracts" as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: space(5.5);
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, space(50)), 1fr));
+  gap: space(5.5);
+}
+
+.choices {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.legend {
+  padding: 0 0 space(3);
+  font-size: var(--text-14);
+  font-weight: var(--font-weight-semibold);
+}
+
+.choiceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, space(52.5)), 1fr));
+  gap: space(3);
+}
+
+.coreTeam {
+  display: flex;
+  flex-direction: column;
+  gap: space(4.5);
+  padding-top: space(5);
+  border-top: var(--border-hairline) solid var(--color-mist);
+}
+
+.note {
+  margin: 0;
+  font-size: var(--text-15);
+  line-height: var(--leading-1-5);
+  color: var(--color-text-body);
+
+  .choices & {
+    margin-top: space(3);
+  }
+}
+
+.places {
+  color: var(--color-ink);
+}
+
+.privacy {
+  margin: 0;
+  font-size: var(--text-13);
+  line-height: var(--leading-1-5);
+  color: var(--color-text-body);
+}
+
+.successText,
+.successPrompt {
+  margin: 0;
+  font-size: var(--text-17);
+  color: var(--color-text-body);
+}
+
+.successText {
+  line-height: var(--leading-1-6);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: space(2.5);
+}

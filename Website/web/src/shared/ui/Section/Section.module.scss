@@ -5,7 +5,7 @@
 }
 
 .reading {
-  max-width: measure("688");
+  max-width: calc(#{measure("688")} + 2 * var(--layout-gutter));
 }
 
 @each $name, $value in $fluid-space {

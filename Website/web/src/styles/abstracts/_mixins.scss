@@ -25,9 +25,10 @@
 }
 
 // Layout
+// The reference sizes sections with content-box: 1200px of content plus the gutters.
 @mixin container {
   width: 100%;
-  max-width: var(--layout-container);
+  max-width: calc(var(--layout-container) + 2 * var(--layout-gutter));
   margin-inline: auto;
   padding-inline: var(--layout-gutter);
 }
