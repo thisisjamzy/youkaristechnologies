@@ -19,6 +19,7 @@ export * from "./Logo";
 export * from "./Mark";
 export * from "./NumberCard";
 export * from "./NumberedList";
+export * from "./OpeningIntro";
 export * from "./Photo";
 export * from "./PhotoMosaic";
 export * from "./PhotoStrip";

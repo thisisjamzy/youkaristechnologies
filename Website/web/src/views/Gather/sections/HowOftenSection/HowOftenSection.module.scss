@@ -1,0 +1,27 @@
+@use "@/styles/abstracts" as *;
+
+.panel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: space(8) space(14);
+  padding: space("fluid-28-56-5");
+  border-radius: radius("2xl");
+  background: var(--color-white);
+}
+
+.number {
+  @include display("fluid-120-200", "0-85", tightest);
+
+  flex: none;
+  margin: 0;
+  color: var(--color-blue);
+}
+
+.copy {
+  flex: 1 1 space(95);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: space(3.5);
+}

@@ -1,0 +1,1 @@
+export { WhyWeGatherSection } from "./WhyWeGatherSection";

@@ -36,6 +36,8 @@ export const colors = {
   textMuted: "#8A94A6", // second clause of two-tone headlines only (large text)
   textPlaceholder: "#6B7488", // input placeholders and underlines
   textOnDarkMuted: "#A3AEC0",
+  // State (owner's choice, not in the design reference)
+  error: "#B42318", // form errors; at least 5.6:1 on white, mistTint and lime
 } as const;
 
 export const fonts = {
@@ -147,7 +149,7 @@ export const spaceSteps = [
   0, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 9, 9.5, 10, 10.5,
   11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 16, 18, 20, 24, 26, 28, 30,
   // Box sizes: card minimums, grid column minimums, photo heights, overlay widths
-  29.5, 37.5, 40, 47.5, 50, 52.5, 55, 60, 65, 70, 75, 80, 82.5, 85, 90, 95, 100, 105, 110, 115, 120, 125,
+  27.5, 29.5, 37.5, 40, 47.5, 50, 52.5, 55, 60, 65, 70, 75, 80, 82.5, 85, 90, 95, 100, 105, 110, 115, 120, 125,
   130, 140,
 ] as const;
 

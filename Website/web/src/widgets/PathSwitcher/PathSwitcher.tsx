@@ -26,7 +26,7 @@ export function PathSwitcher({ items, className }: PathSwitcherProps) {
           <span className={styles.row}>
             <span>
               <Heading as="b" text={item.title} size="26" leading="normal" tracking="snug" className={styles.title} />
-              <Text as="span" size="15">
+              <Text as="span" size="15" leading="normal">
                 {item.text}
               </Text>
             </span>

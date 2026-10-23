@@ -1,0 +1,1 @@
+export { WhoWeGiveToSection } from "./WhoWeGiveToSection";

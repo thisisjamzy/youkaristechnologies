@@ -19,6 +19,28 @@ const eslintConfig = defineConfig([
       "@typescript-eslint/no-explicit-any": "error",
     },
   },
+  // Layers import only downward: app → views → widgets → features → entities → shared.
+  // Items on the same layer never import each other (inside an item, use relative paths).
+  ...[
+    { layer: "shared", banned: ["core", "views", "widgets", "features", "entities"] },
+    { layer: "entities", banned: ["core", "views", "widgets", "features", "entities"] },
+    { layer: "features", banned: ["core", "views", "widgets", "features"] },
+    { layer: "widgets", banned: ["core", "views", "widgets"] },
+    { layer: "views", banned: ["core", "views"] },
+  ].map(({ layer, banned }) => ({
+    files: [`src/${layer}/**/*.{ts,tsx}`],
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          patterns: banned.map((b) => ({
+            group: [`@/${b}`, `@/${b}/**`],
+            message: `${layer} must not import from ${b}: imports only point down the layers, never sideways.`,
+          })),
+        },
+      ],
+    },
+  })),
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:

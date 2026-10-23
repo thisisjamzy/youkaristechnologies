@@ -1,0 +1,19 @@
+@use "@/styles/abstracts" as *;
+
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: space(5) space(16);
+}
+
+.side {
+  flex: 1 1 space(105);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: space(4);
+}
+
+.copy {
+  gap: space(5);
+}

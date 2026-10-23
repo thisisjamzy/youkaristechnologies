@@ -1,0 +1,12 @@
+@use "@/styles/abstracts" as *;
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: space(18);
+}
+
+.ruled {
+  padding-top: space(18);
+  border-top: var(--border-hairline) solid var(--color-hairline);
+}

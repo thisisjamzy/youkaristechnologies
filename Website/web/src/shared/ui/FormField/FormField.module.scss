@@ -26,7 +26,7 @@
 
   &[aria-invalid="true"] {
     border-bottom-width: var(--border-strong);
-    border-bottom-color: var(--color-ink);
+    border-bottom-color: var(--color-error);
   }
 }
 
@@ -34,11 +34,10 @@
   border-bottom-color: var(--color-ink);
 }
 
-// Errors use ink and weight rather than a new colour; the palette has no error red.
 .error {
   margin: 0;
   font-size: var(--text-14);
   font-weight: var(--font-weight-semibold);
   line-height: var(--leading-1-4);
-  color: var(--color-ink);
+  color: var(--color-error);
 }

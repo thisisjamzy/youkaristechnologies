@@ -21,6 +21,7 @@
   --color-text-muted: #8A94A6;
   --color-text-placeholder: #6B7488;
   --color-text-on-dark-muted: #A3AEC0;
+  --color-error: #B42318;
   --font-display: var(--font-nohemi), 'Barlow Condensed', sans-serif;
   --font-body: var(--font-barlow), 'Helvetica Neue', sans-serif;
   --font-label: var(--font-barlow-condensed), 'Arial Narrow', sans-serif;

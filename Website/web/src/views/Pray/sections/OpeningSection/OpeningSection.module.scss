@@ -1,0 +1,35 @@
+@use "@/styles/abstracts" as *;
+
+.cardSlot {
+  width: space(75);
+  max-width: calc(100% - 2 * var(--layout-gutter));
+  margin-right: 0;
+}
+
+.card {
+  flex: 1;
+}
+
+.progressLabel {
+  font-size: var(--text-17);
+  font-weight: var(--font-weight-bold);
+}
+
+.bars {
+  display: flex;
+  gap: space(1.25);
+
+  > span {
+    flex: 1;
+    height: space(2);
+    border-radius: radius(xs);
+  }
+}
+
+.done {
+  background: var(--color-ink);
+}
+
+.todo {
+  background: var(--color-mist);
+}

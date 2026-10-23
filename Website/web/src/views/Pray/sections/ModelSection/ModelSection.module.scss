@@ -1,0 +1,76 @@
+@use "@/styles/abstracts" as *;
+
+.week {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(space(29.5), 1fr));
+  gap: space(2.5);
+  margin-top: space(10);
+}
+
+.day,
+.sunday {
+  display: flex;
+  flex-direction: column;
+  min-height: space(40);
+  border-radius: radius(md-plus);
+}
+
+.day {
+  gap: space(5.5);
+  padding: space(4.5) space(4);
+  background: var(--color-white);
+}
+
+.dayName {
+  font-family: var(--font-label);
+  font-weight: var(--font-weight-extrabold);
+  font-size: var(--text-20);
+  letter-spacing: var(--tracking-label-narrow);
+  text-transform: uppercase;
+}
+
+.beads {
+  display: flex;
+  gap: space(1.25);
+
+  > span {
+    width: space(3);
+    height: space(3);
+    border-radius: radius(pill);
+    background: var(--color-ink);
+  }
+}
+
+.dayCaption {
+  font-size: var(--text-14);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-body);
+}
+
+.sunday {
+  grid-column: span 2;
+  justify-content: space-between;
+  gap: space(3);
+  padding: space(2.5) space(2.5) space(4.5);
+  background: var(--color-lime);
+
+  .dayName,
+  .sundayText {
+    padding: 0 space(2.5);
+  }
+}
+
+.sundayText {
+  font-size: var(--text-15);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--leading-1-4);
+}
+
+.steps {
+  margin-top: space(16);
+}
+
+.pullLine,
+.strip {
+  margin-top: space(14);
+}

@@ -1,0 +1,17 @@
+@use "@/styles/abstracts" as *;
+
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: space(8) space(16);
+}
+
+.headline {
+  flex: 2 1 space(120);
+}
+
+.body {
+  flex: 1 1 space(80);
+  padding-top: space(2.5);
+}

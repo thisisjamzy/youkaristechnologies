@@ -52,10 +52,10 @@
   height: space(5.5);
 }
 
+// Content height, as in the reference: cards in one row do not stretch to match.
 .body {
   display: flex;
   flex-direction: column;
-  flex: 1;
   background: var(--surface);
 }
 

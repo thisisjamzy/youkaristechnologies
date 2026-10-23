@@ -1,0 +1,16 @@
+// Label and heading on the left, copy on the right (Pray: Cana, thanks, habit; Questions).
+@use "@/styles/abstracts" as *;
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: space(5) space(16);
+}
+
+.side {
+  flex: 1 1 space(105);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: space(4);
+}

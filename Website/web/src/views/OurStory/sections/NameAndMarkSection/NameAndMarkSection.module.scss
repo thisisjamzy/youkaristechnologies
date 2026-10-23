@@ -1,0 +1,34 @@
+@use "@/styles/abstracts" as *;
+
+.markCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: space(90);
+  padding: space("fluid-40-72");
+  border-radius: radius("2xl");
+  background: var(--color-white);
+}
+
+.textCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: space(4.5);
+  padding: space("fluid-28-48");
+  border-radius: radius("2xl");
+  background: var(--color-mist-tint);
+}
+
+.text {
+  margin: 0;
+  font-size: var(--text-18);
+  line-height: var(--leading-1-7);
+  color: var(--color-text-longform);
+}
+
+.slogan {
+  @include label("28", medium, slogan-wide);
+
+  margin: space(1.5) 0 0;
+}

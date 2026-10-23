@@ -1,0 +1,8 @@
+@use "@/styles/abstracts" as *;
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: space(4.5);
+  margin-bottom: space(11);
+}

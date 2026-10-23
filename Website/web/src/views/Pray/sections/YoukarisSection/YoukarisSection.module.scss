@@ -1,0 +1,73 @@
+@use "@/styles/abstracts" as *;
+
+.panel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: space(10);
+  padding: space("fluid-28-56") space("fluid-28-56") 0;
+  border-radius: radius("2xl");
+  background: var(--color-mist-tint);
+}
+
+.copy {
+  flex: 1 1 space(105);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: space(4.5);
+  padding-bottom: space("fluid-28-56");
+}
+
+.phone {
+  flex: 0 1 space(75);
+  width: space(70);
+  margin: 0 auto;
+  padding: space(3.5) space(3.5) 0;
+  border-radius: radius("4xl") radius("4xl") 0 0;
+  background: var(--color-ink);
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  gap: space(3.5);
+  padding: space(6) space(5) space(7);
+  border-radius: radius("3xl") radius("3xl") 0 0;
+  background: var(--color-ink-raised);
+  color: var(--color-white);
+}
+
+.intention {
+  padding: space(3.5);
+  border-radius: radius(md);
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-size: var(--text-15);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--leading-1-35);
+}
+
+.bars {
+  display: flex;
+  gap: space(1.25);
+
+  > span {
+    flex: 1;
+    height: space(2);
+    border-radius: radius(xs);
+  }
+}
+
+.done {
+  background: var(--color-lime);
+}
+
+.todo {
+  background: var(--color-ink-border);
+}
+
+.progress {
+  font-size: var(--text-13);
+  color: var(--color-text-on-dark-muted);
+}
