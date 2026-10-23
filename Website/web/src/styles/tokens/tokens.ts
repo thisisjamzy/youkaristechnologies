@@ -33,7 +33,7 @@ export const colors = {
   textPrimary: "#0A0F1A",
   textBody: "#4A5468", // body copy on light grounds
   textLongform: "#2E3748", // Our Story reading column
-  textMuted: "#8A94A6", // second clause of two-tone headlines only (large text)
+  textMuted: "#7E899D", // second clause of two-tone headlines only (large text). Darkened from the design's #8A94A6 to pass 3:1 on paper and mistTint (owner approved)
   textPlaceholder: "#6B7488", // input placeholders and underlines
   textOnDarkMuted: "#A3AEC0",
   // State (owner's choice, not in the design reference)
