@@ -9,9 +9,9 @@ export const metadata: Metadata = { robots: { index: false, follow: false } };
 export default function DevUiPage() {
   if (process.env.NODE_ENV === "production") notFound();
   return (
-    <main>
+    <>
       <UiShowcase />
       <TokenPreview />
-    </main>
+    </>
   );
 }

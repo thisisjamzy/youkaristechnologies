@@ -1,0 +1,80 @@
+@use "@/styles/abstracts" as *;
+
+// A full-width soft band holding the card, as in the reference.
+.band {
+  padding: space("fluid-48-88") var(--layout-gutter);
+  background: var(--color-mist-tint);
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  max-width: var(--layout-container);
+  margin: 0 auto;
+  display: grid;
+  gap: space(10);
+  padding: space(opening);
+  border-radius: radius("2xl");
+  background: var(--color-ink);
+  color: var(--color-white);
+
+  // The reference puts "Now pass it on." on one line beside the lead, but its flex
+  // columns are narrower than the line (it is clipped by about 100px at 1440). The
+  // right column is sized to the headline instead, so nothing is cut off.
+  @include up(laptop) {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+  }
+}
+
+.pattern {
+  object-fit: cover;
+  object-position: left top;
+  opacity: var(--opacity-pattern);
+  pointer-events: none;
+}
+
+.lead,
+.action {
+  position: relative;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.lead {
+  gap: space(4.5);
+}
+
+.action {
+  align-items: flex-start;
+  gap: space(5.5);
+}
+
+.statement {
+  @include display("fluid-28-40", "1-1", snug-plus);
+
+  margin: 0;
+}
+
+.muted {
+  color: var(--color-text-muted);
+}
+
+.headline {
+  @include display("fluid-48-84", "0-95", tighter);
+
+  margin: 0;
+  color: var(--color-lime);
+
+  // One line from tablet up, as designed; on phones it may wrap rather than be clipped.
+  @include up(tablet) {
+    white-space: nowrap;
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: space(2.5);
+}

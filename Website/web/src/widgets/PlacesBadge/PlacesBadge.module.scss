@@ -1,0 +1,20 @@
+@use "@/styles/abstracts" as *;
+
+.complete {
+  align-self: flex-start;
+  display: inline-flex;
+  padding: space(2) space(4);
+  border-radius: radius(pill);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--text-15);
+}
+
+.ink {
+  background: var(--color-ink);
+  color: var(--color-white);
+}
+
+.white {
+  background: var(--color-white);
+  color: var(--color-ink);
+}

@@ -16,7 +16,7 @@ export function FormDemo() {
 
   if (sent) {
     return (
-      <div className={styles.formPanel}>
+      <div>
         <SuccessState title={strings.home.join.success.title}>
           <Text size="17">{strings.home.join.success.body}</Text>
           <Stack direction="row" gap={2.5} wrap>
@@ -31,7 +31,7 @@ export function FormDemo() {
   }
 
   return (
-    <div className={styles.formPanel}>
+    <div>
       <Stack gap={5.5}>
         <div className={styles.twoCol}>
           <FormField

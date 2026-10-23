@@ -32,6 +32,8 @@ import {
   type IconName,
   type MosaicTile,
 } from "@/shared/ui";
+import { routes } from "@/shared/lib";
+import { JoinPanel, PathSwitcher, PlacesBadge } from "@/widgets";
 import { FormDemo } from "./FormDemo";
 import styles from "./UiShowcase.module.scss";
 
@@ -239,8 +241,34 @@ export function UiShowcase() {
         <Accordion items={pray.questions.items} />
       </Block>
 
-      <Block title="FormField, TextArea, Checkbox, CheckboxGroup, SuccessState">
-        <FormDemo />
+      <Block title="Widgets: PathSwitcher, PlacesBadge, JoinPanel (SiteHeader, ClosingCard, SiteFooter frame this page)">
+        <PathSwitcher
+          items={[
+            { href: routes.give, photo: "giveOutreach", ...pray.switcher.give },
+            { href: routes.gather, photo: "gatherCrowd", ...pray.switcher.gather },
+          ]}
+        />
+        <Stack direction="row" gap={3} wrap>
+          <PlacesBadge left={17} />
+          <PlacesBadge left={17} tone="white" />
+          <PlacesBadge left={0} />
+        </Stack>
+        <JoinPanel
+          variant="join"
+          headline={home.join.headline}
+          body={home.join.body}
+          points={home.join.benefits.map((b, i) => ({ ...b, icon: (["globe", "person", "leave"] as const)[i] }))}
+        >
+          <FormDemo />
+        </JoinPanel>
+        <JoinPanel
+          variant="apply"
+          headline={strings.buildWithUs.form.headline}
+          body={strings.buildWithUs.form.body}
+          points={strings.buildWithUs.form.asks.map((title, i) => ({ title, icon: (["pen", "clock", "heart"] as const)[i] }))}
+        >
+          <Heading as="h3" text={strings.buildWithUs.form.title} size="fluid-28-38" leading="1-05" />
+        </JoinPanel>
       </Block>
     </Section>
   );

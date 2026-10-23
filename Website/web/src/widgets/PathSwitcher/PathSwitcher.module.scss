@@ -1,0 +1,36 @@
+@use "@/styles/abstracts" as *;
+
+.switcher {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, space(75)), 1fr));
+  gap: space(4);
+}
+
+.body {
+  gap: space(3.5);
+  padding: space(3);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: space(4);
+  padding: space(1) space(2) space(1.5);
+}
+
+.title {
+  display: block;
+}
+
+.arrow {
+  flex: none;
+  width: space(11);
+  height: space(11);
+  border-radius: radius(pill);
+  background: var(--color-lime);
+  color: var(--color-ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

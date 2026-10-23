@@ -1,0 +1,39 @@
+@use "@/styles/abstracts" as *;
+
+.header {
+  background: var(--color-paper);
+}
+
+.inner {
+  @include container;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: space(3.5) space(6);
+  padding-block: space(5);
+}
+
+.home {
+  display: flex;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: space(1) space(6.5);
+  font-size: var(--text-16);
+  font-weight: var(--font-weight-semibold);
+}
+
+.link {
+  padding: space(2) 0;
+  color: var(--color-ink);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-ink);
+  }
+}
