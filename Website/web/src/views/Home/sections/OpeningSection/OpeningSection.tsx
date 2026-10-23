@@ -21,7 +21,15 @@ export function OpeningSection() {
   return (
     <Section top="opening">
       <div className={styles.intro}>
-        <Heading as="h1" text={opening.headline} size="displayXl" tracking="tightPlus" className={styles.headline} />
+        <Heading
+          as="h1"
+          text={opening.headline}
+          size="displayXl"
+          tracking="tightPlus"
+          breakBefore
+          secondSize="headingM"
+          className={styles.headline}
+        />
         <div className={styles.aside}>
           <Text variant="lead">{opening.body}</Text>
           <div className={styles.ctas}>

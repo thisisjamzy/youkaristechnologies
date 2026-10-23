@@ -80,3 +80,10 @@
   border-radius: radius(s);
   padding: 0 space(2);
 }
+
+// A smaller second part sits on its own line, set a little tighter than the main clause.
+.secondLine {
+  display: inline-block;
+  margin-top: space(2);
+  line-height: var(--leading-1-05);
+}

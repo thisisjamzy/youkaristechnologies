@@ -20,6 +20,8 @@ export type HeadingProps = {
   secondTone?: SecondTone;
   /** Put the second part on its own line. */
   breakBefore?: boolean;
+  /** A smaller size for the second part (with its own line height). */
+  secondSize?: FontSizeName;
   tone?: "primary" | "muted" | "lime" | "blue" | "inherit";
   measure?: MeasureName;
   align?: "start" | "center";
@@ -41,6 +43,7 @@ export function Heading({
   tracking = "tight",
   secondTone = "muted",
   breakBefore,
+  secondSize,
   tone = "primary",
   measure,
   align,
@@ -68,7 +71,15 @@ export function Heading({
       {second !== undefined && (
         <>
           {breakBefore ? <br /> : SPACE}
-          <span className={styles[secondTone]}>{second}</span>
+          <span
+            className={cn(
+              styles[secondTone],
+              secondSize && styles[`size-${tokenKey(secondSize)}`],
+              secondSize && styles.secondLine,
+            )}
+          >
+            {second}
+          </span>
         </>
       )}
     </Tag>
