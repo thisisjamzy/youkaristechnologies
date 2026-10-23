@@ -25,7 +25,7 @@ export function PathSwitcher({ items, className }: PathSwitcherProps) {
           <Photo name={item.photo} alt="" height={55} radius="md" sizes="half" />
           <span className={styles.row}>
             <span>
-              <Heading as="b" text={item.title} size="26" leading="1-2" tracking="snug" className={styles.title} />
+              <Heading as="b" text={item.title} size="26" leading="normal" tracking="snug" className={styles.title} />
               <Text as="span" size="15">
                 {item.text}
               </Text>

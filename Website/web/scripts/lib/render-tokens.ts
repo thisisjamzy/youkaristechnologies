@@ -22,7 +22,7 @@ export function cssVariables(t: Tokens): Entry[] {
   add("font", t.fonts, (v: string) => v);
   add("font-weight", t.fontWeights, (v: number) => String(v));
   for (const [k, v] of Object.entries(t.fontSizes)) out.push([`--text-${kebab(k)}`, size(v)]);
-  add("leading", t.lineHeights, (v: number) => String(v));
+  add("leading", t.lineHeights, (v: number | string) => String(v));
   add("tracking", t.letterSpacings, (v: string) => v);
   out.push(["--space-unit", px(t.spaceUnit)]);
   for (const step of t.spaceSteps) out.push([spaceVar(step), px(step * t.spaceUnit)]);

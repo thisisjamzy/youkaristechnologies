@@ -33,7 +33,7 @@ export function PullLine({
       as="p"
       text={text}
       size={size}
-      leading={leading ?? "1-2"}
+      leading={leading ?? "normal"}
       tracking="snug"
       tone={tone}
       secondTone={secondTone}

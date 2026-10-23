@@ -18,6 +18,7 @@ export function WhoWeAreSection() {
         secondTone="blue"
         breakBefore
         size="fluid-24-34"
+        leading="1-2"
         align="center"
         className={styles.closing}
       />

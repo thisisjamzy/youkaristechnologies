@@ -29,7 +29,7 @@
 }
 
 .title {
-  @include display("26", "1-2", snug);
+  @include display("26", normal, snug);
 
   margin: 0;
 }

@@ -100,6 +100,8 @@ export const fontSizes = {
 } as const;
 
 export const lineHeights = {
+  // The reference never sets a body line-height, so unset text uses the browser's `normal`.
+  normal: "normal",
   "0-85": 0.85,
   "0-9": 0.9,
   "0-95": 0.95,

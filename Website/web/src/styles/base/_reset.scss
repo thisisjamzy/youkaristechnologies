@@ -12,9 +12,9 @@ html {
   text-size-adjust: 100%;
 }
 
+// No font smoothing override: the reference renders text with the browser default.
 body {
   min-height: 100dvh;
-  -webkit-font-smoothing: antialiased;
 }
 
 img,

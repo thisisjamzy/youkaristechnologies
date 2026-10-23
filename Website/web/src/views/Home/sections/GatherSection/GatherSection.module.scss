@@ -18,11 +18,7 @@
   box-shadow: shadow(float);
 }
 
+// 112px at every width, as in the reference (it keeps the space after the card stacks).
 .closing {
   margin-top: space(28);
-
-  // On phones the card sits under the photo, so the space for its overhang is not needed.
-  @include down(tablet) {
-    margin-top: space(10);
-  }
 }

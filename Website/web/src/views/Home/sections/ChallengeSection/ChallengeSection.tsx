@@ -31,7 +31,7 @@ export function ChallengeSection() {
             {paragraph}
           </Text>
         ))}
-        <PullLine text={challenge.pullLine} tone="primary" size="fluid-24-32" />
+        <PullLine text={challenge.pullLine} tone="primary" size="fluid-24-32" leading="1-2" />
       </div>
     </Section>
   );
