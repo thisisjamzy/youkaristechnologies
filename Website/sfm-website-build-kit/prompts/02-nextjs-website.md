@@ -31,7 +31,12 @@ The existing app uses **Next.js 16.4.2**, React 19.3, Tailwind CSS v4 (through `
 | `assets/photos/*.jpg` and `CREDITS.json` | Every photo the design uses, already sized for the web. | Copy to `public/images/`. Keep the credits file. |
 | `prompts/01-apps-script-backend.md` | The backend contract. | The form API in this site must match it exactly. |
 
-The master copy document is the "Strangers for Mary Website Copy" doc; the design reference files contain the same final text. If they ever disagree, stop and ask.
+Text comes from two files in `content/`:
+
+- **`content/strings-master.md`** is the master for `strings.ts`. It lists every user-facing word on the site, taken from the approved design, page by page and section by section, with each item's kind (H1, Paragraph, Button, Placeholder, Image alt, Aria label and so on). Lists and dynamic text (reasons, steps, teams, FAQ, the places counter) are in the page script block under each page. The last section, "Added for the build", holds the strings the code needs that the static design cannot show: both share messages, form errors and states, and page metadata.
+- **`content/website-copy.md`** is the approved copy document. Use it for voice and for the reasoning behind each section. Where its wording differs from `strings-master.md`, the strings master wins, because the design was refined after the document.
+
+If a string you need is in neither file, do not invent it: add a `TODO` key in `strings.ts`, list it in your phase summary and ask.
 
 ## 2. Stack
 
@@ -258,7 +263,7 @@ Both forms post to `/api/signup`, which forwards to the Apps Script web app desc
 
 1. **Setup**: in the existing `Website/web` app, read the Next.js 16 docs in `node_modules/next/dist/docs/`, move `app/` into `src/app/`, install and configure SCSS, ESLint rules, Stylelint and Vitest, keep Tailwind v4 and the current `next.config.ts`, copy assets into `public/`, add `CLAUDE.md` and the Cursor rule, and create the folder structure. Commit on a new branch.
 2. **Tokens, fonts and hooks**: `tokens.ts`, the generator script, generated files, global styles, mixins, providers and the four hooks. Show a token preview on `/dev/ui`.
-3. **Strings**: transcribe every string from all reference files into `strings.ts`, in page order, with the strings test passing. List any text you were unsure how to key.
+3. **Strings**: build `src/content/strings.ts` from `content/strings-master.md`. Keep the same order: `common` (header, footer, closing card, share, form, errors), then one key per page (`home`, `ourStory`, `pray`, `give`, `gather`, `buildWithUs`), then one key per section inside it (`opening`, `challenge`, `whoWeAre` and so on). Two-tone headlines become `{ main, muted }`. Lists become arrays of objects. `{{spotsLeft}}` becomes a function. Copy every character exactly (apostrophes, "6 pm", "Rosary" capitalised). Once the pages are built, add a test that renders each page and checks that every text line of the master appears on it. List any text you were unsure how to key.
 4. **Shared UI**: every component in section 6 with tests where they have logic, shown on `/dev/ui`.
 5. **Widgets**: SiteHeader, ClosingCard, SiteFooter, PathSwitcher, JoinPanel, PlacesBadge.
 6. **Home page**, then compare it side by side with `home.html` at 390px, 768px, 1280px and 1440px widths and fix every difference.

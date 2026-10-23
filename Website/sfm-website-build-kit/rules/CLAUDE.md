@@ -10,7 +10,7 @@ This is the pre-launch website for Strangers for Mary. The design and copy are a
 
 - Never redraw, retrace, recolour or retype the logo, mark or wordmark. Use the SVGs in `public/brand/` through the `Logo` and `Mark` components.
 - Never redraw or approximate the brand pattern. It appears in one place only: the lime pattern at 10% on the dark closing card. Never add it to the header, footer, section backgrounds or lime panels.
-- Never hard-code a user-facing string in a component. Every word lives in `src/content/strings.ts`.
+- Never hard-code a user-facing string in a component. Every word lives in `src/content/strings.ts`, transcribed from `Website/sfm-website-build-kit/content/strings-master.md` without rewording.
 - Never hard-code a colour, font, spacing value, radius, shadow or breakpoint. Every design value lives in `src/styles/tokens/tokens.ts`; SCSS uses the generated CSS variables and mixins.
 - Never edit `*.generated.*` files; run `npm run tokens` instead.
 - Never use inline `style` props, arbitrary Tailwind values, or Tailwind colour and spacing utilities inside a component that has an SCSS module.
