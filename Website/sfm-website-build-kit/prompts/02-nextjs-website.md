@@ -258,7 +258,9 @@ Both forms post to `/api/signup`, which forwards to the Apps Script web app desc
 - TypeScript strict, no `any`. Lint and Stylelint clean.
 - Tests: schema tests, strings test (no em dashes, no "pillar"), API route tests with the Apps Script client mocked, and component tests for the form (reveal on tick, validation messages, success state), Accordion and Button.
 - Lighthouse on mobile: Performance 90+, Accessibility 100, Best Practices 100, SEO 100. Hero photo uses `priority`; all images have correct `sizes`.
-- Metadata per page from `strings.meta` (title, description, Open Graph image from the page's hero photo). `sitemap.ts` and `robots.ts`. Favicon from `sfm-mark-ink.svg` as `app/icon.svg`.
+- Metadata per page from `strings.meta` (title and description from the strings master). `sitemap.ts` and `robots.ts`. Favicon from `sfm-mark-ink.svg` as `app/icon.svg`.
+- **Social share image**: copy `assets/social/sfm-og-1200x630.jpg` to `src/app/opengraph-image.jpg` and to `src/app/twitter-image.jpg`, each with an `.alt.txt` file holding the share image alt text from the strings master (the file convention this Next.js version documents in `node_modules/next/dist/docs/`). It is 1200 by 630 pixels, under 100 KB, and applies to every page. Set `metadataBase` to `https://www.strangersformary.org`, `openGraph` (type `website`, `siteName`, `locale` `en`, title and description from `strings.meta.share`) and `twitter` (`card: "summary_large_image"`). Do not generate the image in code; it is a designed asset. `assets/social/og-source.html` is its source if the headline changes: open it in a browser at 1200 by 630, edit the text and take a screenshot.
+- After deploying, check the preview with the Facebook Sharing Debugger, the LinkedIn Post Inspector and by pasting the link into WhatsApp.
 - A `README.md` explaining the structure, the two sources of truth, how to add a section, how to add a string, how to change a token, and how to run, test and deploy.
 - `Website/web/CLAUDE.md` (from `rules/CLAUDE.md`, which also points to `AGENTS.md`) and `.cursor/rules/sfm.mdc` at the repository root (from `rules/sfm.mdc`), so every later session follows them.
 

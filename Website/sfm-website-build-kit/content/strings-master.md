@@ -720,7 +720,16 @@ These strings are needed by the code but have no place in the static design. The
 
 ### Page titles and descriptions (metadata)
 
-- Home: Strangers for Mary | A Rosary a day for a stranger. Description: A worldwide network of Catholics who pray a full Rosary every day for each other's intentions. Take your place in the network.
+- Home: Strangers for Mary | A Rosary a day for a stranger. Description: Every day, a stranger prays a full Rosary for your intention, and you pray one for someone else. Join Catholics everywhere in the network, and be one of the first.
+
+### Social sharing (Open Graph and X)
+
+These apply to every page unless a page sets its own title and description above.
+
+- Share title: Strangers for Mary | A Rosary a day for a stranger
+- Share description: Every day, a stranger prays a full Rosary for your intention, and you pray one for someone else. Join Catholics everywhere in the network, and be one of the first.
+- Share image alt text: Strangers for Mary. Every friend of Mary is a stranger we cannot wait to pray for, care for, and gather with. A network of Catholics around the world, linked like beads on a Rosary. Hands of strangers holding rosaries together, and a lime card reading: Mon to Sat, 1 Rosary a day, for a different stranger.
+- Site name: Strangers for Mary
 - Our Story: Our Story | Strangers for Mary. Description: It started in 2017 with ten text messages. Why Strangers for Mary began, and why it is coming back stronger.
 - Pray: Pray | Strangers for Mary. Description: A Rosary a day for someone who can never thank you. How intentions move through the network.
 - Give: Give | Strangers for Mary. Description: Charity, one small act at a time. We give what we have worked for, to strangers waiting to receive it.

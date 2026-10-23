@@ -9,6 +9,7 @@ Everything Claude Code or Cursor needs to build the pre-launch website exactly a
 | `../apps-script/` (in `Website/apps-script/`) | The finished backend: `Code.gs`, `appsscript.json` and a README with every setup and deploy step. Paste and deploy; no build needed. |
 | `prompts/01-apps-script-backend.md` | Prompt for the Google Apps Script that stores sign-ups in a Google Sheet and reports core team places left. Build this first. |
 | `prompts/03-responsive-header-and-menu.md` | The header on tablets and phones (mark, "Join us", menu button), the full-screen menu, and hiding the header on scroll down and showing it on scroll up. Use on its own if the header is already built. |
+| `prompts/04-update-hero-and-share-image.md` | Paste this if the build has already started: applies the new hero tagline and the social share image and text. |
 | `prompts/02-nextjs-website.md` | Prompt for the Next.js website: architecture, single sources of truth for strings and design values, hooks, components, pages, forms and phases. |
 | `rules/CLAUDE.md` | Standing rules. Copied to `Website/web/CLAUDE.md` for Claude Code. |
 | `rules/sfm.mdc` | The same rules as a Cursor project rule, copied to `.cursor/rules/sfm.mdc` at the repository root. |
@@ -17,6 +18,7 @@ Everything Claude Code or Cursor needs to build the pre-launch website exactly a
 | `design-reference/` | The approved design for every page, plus the shared header and the closing card and footer. Open the copy document for the master text. |
 | `assets/brand/` | The original logo and mark files. Use as they are. |
 | `assets/brand/pattern/` | The brand pattern: your original tile and swatches, plus see-through swatches made from the same shape. On the site it is used only on the dark closing card. |
+| `assets/social/` | The image shown when the site is shared on WhatsApp, Facebook, LinkedIn and X (1200 by 630), and the HTML it was made from. |
 | `assets/fonts/Nohemi-Bold.ttf` | The display typeface. |
 | `assets/photos/` | Every photo used in the design, sized for the web, with `CREDITS.json` mapping each to its Unsplash original. |
 

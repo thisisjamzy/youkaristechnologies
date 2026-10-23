@@ -1,16 +1,10 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/core/config/metadata";
 import { strings } from "@/content/strings";
 import { getPlacesLeft } from "@/features/show-places-left";
-import { photos } from "@/shared/lib";
 import { BuildWithUsView } from "@/views/BuildWithUs";
 
-const { title, description } = strings.common.meta.buildWithUs;
-
-export const metadata: Metadata = {
-  title,
-  description,
-  openGraph: { title, description, images: [photos.buildTeam] },
-};
+export const metadata: Metadata = pageMetadata(strings.common.meta.buildWithUs);
 
 export default async function BuildWithUsPage() {
   // Cached for 5 minutes; null (backend unreachable) hides the number.

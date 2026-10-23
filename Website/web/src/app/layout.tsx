@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteShareMetadata } from "@/core/config/metadata";
 import { Providers } from "@/core/providers";
 import { strings } from "@/content/strings";
 import { siteUrl } from "@/shared/lib";
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
   title: meta.home.title,
   description: meta.home.description,
   applicationName: site.name,
+  ...siteShareMetadata,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
