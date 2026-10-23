@@ -1,0 +1,43 @@
+@use "@/styles/abstracts" as *;
+
+.photo {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.fill {
+  height: 100%;
+}
+
+@each $step, $value in $space {
+  .h-#{space-key($step)} {
+    height: $value;
+  }
+
+  .min-#{space-key($step)} {
+    min-height: $value;
+  }
+}
+
+@each $name, $value in $fluid-sizes {
+  .h-#{$name} {
+    height: $value;
+  }
+}
+
+@each $name, $value in $radii {
+  .radius-#{$name} {
+    border-radius: $value;
+  }
+}
+
+@each $focus in (25, 30, 35, 40) {
+  .focus-#{$focus} {
+    object-position: center #{$focus * 1%};
+  }
+}

@@ -1,0 +1,20 @@
+@use "@/styles/abstracts" as *;
+
+.mark {
+  display: block;
+  flex: none;
+  height: auto;
+}
+
+.sm {
+  width: space(13);
+}
+
+.md {
+  width: space(13.5);
+}
+
+.fluid {
+  width: 100%;
+  max-width: measure("360");
+}

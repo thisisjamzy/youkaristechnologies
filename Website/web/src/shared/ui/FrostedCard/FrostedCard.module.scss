@@ -1,0 +1,20 @@
+@use "@/styles/abstracts" as *;
+
+.card {
+  display: flex;
+  border-radius: radius(lg);
+  padding: space(4.5) space(5);
+  background: var(--color-glass);
+  backdrop-filter: blur(var(--blur-glass));
+}
+
+.row {
+  align-items: center;
+  gap: space(4);
+  max-width: measure("380");
+}
+
+.column {
+  flex-direction: column;
+  gap: space(2.5);
+}

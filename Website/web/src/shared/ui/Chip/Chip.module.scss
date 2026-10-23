@@ -1,0 +1,47 @@
+@use "@/styles/abstracts" as *;
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: space(2.5);
+  border-radius: radius(pill);
+  font-family: var(--font-body);
+  font-size: var(--text-14);
+}
+
+.sm {
+  padding: space(1.75) space(3.5);
+  font-weight: var(--font-weight-bold);
+}
+
+.md {
+  padding: space(2) space(3.5);
+  font-weight: var(--font-weight-semibold);
+}
+
+.withIcon {
+  padding: space(2) space(4.5) space(2) space(2);
+  font-size: var(--text-15);
+  font-weight: var(--font-weight-bold);
+}
+
+.white {
+  background: var(--color-white);
+  color: var(--color-ink);
+}
+
+.ink {
+  background: var(--color-ink);
+  color: var(--color-white);
+}
+
+.icon {
+  width: space(7.5);
+  height: space(7.5);
+  border-radius: radius(pill);
+  background: var(--color-blue);
+  color: var(--color-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

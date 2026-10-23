@@ -1,0 +1,31 @@
+@use "@/styles/abstracts" as *;
+
+.counter {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: space(2.5);
+  padding: space(2) space(4) space(2) space(2);
+  border-radius: radius(pill);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--text-15);
+}
+
+.ink {
+  background: var(--color-ink);
+  color: var(--color-white);
+}
+
+.white {
+  background: var(--color-white);
+  color: var(--color-ink);
+  padding-right: space(4.5);
+}
+
+.value {
+  padding: space(0.5) space(2.5);
+  border-radius: radius(pill);
+  background: var(--color-lime);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+}

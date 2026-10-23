@@ -1,0 +1,31 @@
+/** Every photo in public/images (credits in CREDITS.json), by name. */
+export const photos = {
+  buildTeam: "/images/build-team.jpg",
+  bwRosaryHands: "/images/bw-rosary-hands.jpg",
+  candleRosary: "/images/candle-rosary.jpg",
+  challengeAlone: "/images/challenge-alone.jpg",
+  churchPraying: "/images/church-praying.jpg",
+  eventLaugh: "/images/event-laugh.jpg",
+  gatherChurch: "/images/gather-church.jpg",
+  gatherCrowd: "/images/gather-crowd.jpg",
+  gatherHall: "/images/gather-hall.jpg",
+  gatherTable: "/images/gather-table.jpg",
+  gatherWorship: "/images/gather-worship.jpg",
+  giveOutreach: "/images/give-outreach.jpg",
+  giveTable: "/images/give-table.jpg",
+  heroSmile: "/images/hero-smile.jpg",
+  massAltar: "/images/mass-altar.jpg",
+  menTalking: "/images/men-talking.jpg",
+  passRosary: "/images/pass-rosary.jpg",
+  prayHandsTogether: "/images/pray-hands-together.jpg",
+  prayOpenHands: "/images/pray-open-hands.jpg",
+  rosaryClose: "/images/rosary-close.jpg",
+  rosaryWalk: "/images/rosary-walk.jpg",
+  storyCampus: "/images/story-campus.jpg",
+  teamTalk: "/images/team-talk.jpg",
+  womanPhone: "/images/woman-phone.jpg",
+  womanPraying: "/images/woman-praying.jpg",
+  youngManPraying: "/images/young-man-praying.jpg",
+} as const;
+
+export type PhotoName = keyof typeof photos;

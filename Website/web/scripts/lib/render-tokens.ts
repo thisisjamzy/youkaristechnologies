@@ -27,7 +27,10 @@ export function cssVariables(t: Tokens): Entry[] {
   out.push(["--space-unit", px(t.spaceUnit)]);
   for (const step of t.spaceSteps) out.push([spaceVar(step), px(step * t.spaceUnit)]);
   for (const [k, v] of Object.entries(t.fluidSpace)) out.push([`--space-${kebab(k)}`, clamp(v)]);
+  for (const [k, v] of Object.entries(t.fluidSizes)) out.push([`--size-${kebab(k)}`, clamp(v)]);
   add("radius", t.radii, px);
+  add("border", t.borderWidths, px);
+  add("folder-tab", t.folderTabs, (v: string) => v);
   add("shadow", t.shadows, (v: string) => v);
   add("blur", t.blurs, px);
   add("opacity", t.opacities, (v: number) => String(v));
@@ -80,6 +83,7 @@ export function renderScss(t: Tokens): string {
       t.spaceSteps.map((s) => [String(s), `var(${spaceVar(s)})`]),
     ),
     scssMap("fluid-space", varRefs("space", t.fluidSpace)),
+    scssMap("fluid-sizes", varRefs("size", t.fluidSizes)),
     scssMap("radii", varRefs("radius", t.radii)),
     scssMap("shadows", varRefs("shadow", t.shadows)),
     scssMap("measures", varRefs("measure", t.measures)),

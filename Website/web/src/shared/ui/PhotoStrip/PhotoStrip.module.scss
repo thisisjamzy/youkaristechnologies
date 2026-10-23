@@ -1,0 +1,10 @@
+@use "@/styles/abstracts" as *;
+
+.strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, space(55)), 1fr));
+  gap: space(2.5);
+  padding: space(2.5);
+  border-radius: radius("2xl");
+  background: var(--color-lime);
+}

@@ -1,0 +1,70 @@
+@use "@/styles/abstracts" as *;
+
+.text {
+  margin: 0;
+  min-width: 0;
+  font-family: var(--font-body);
+}
+
+@each $name, $value in $font-sizes {
+  .size-#{$name} {
+    font-size: $value;
+  }
+}
+
+@each $name, $value in $line-heights {
+  .leading-#{$name} {
+    line-height: $value;
+  }
+}
+
+@each $name, $value in $measures {
+  .measure-#{$name} {
+    max-width: $value;
+  }
+}
+
+.center {
+  text-align: center;
+  margin-inline: auto;
+}
+
+.tone-body {
+  color: var(--color-text-body);
+}
+
+.tone-primary {
+  color: var(--color-text-primary);
+}
+
+.tone-longform {
+  color: var(--color-text-longform);
+}
+
+.tone-muted {
+  color: var(--color-text-muted);
+}
+
+.tone-on-dark-muted {
+  color: var(--color-text-on-dark-muted);
+}
+
+.tone-inherit {
+  color: inherit;
+}
+
+.weight-regular {
+  font-weight: var(--font-weight-regular);
+}
+
+.weight-medium {
+  font-weight: var(--font-weight-medium);
+}
+
+.weight-semibold {
+  font-weight: var(--font-weight-semibold);
+}
+
+.weight-bold {
+  font-weight: var(--font-weight-bold);
+}

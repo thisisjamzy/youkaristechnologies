@@ -1,0 +1,41 @@
+@use "@/styles/abstracts" as *;
+
+.mosaic {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, space(60)), 1fr));
+  gap: space(3);
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: space(2.5);
+  min-height: space(75);
+  padding: space(6.5);
+  border-radius: radius(lg-plus);
+}
+
+.white {
+  background: var(--color-white);
+
+  .text {
+    color: var(--color-text-body);
+  }
+}
+
+.lime {
+  background: var(--color-lime);
+}
+
+.title {
+  @include display("26", "1-2", snug);
+
+  margin: 0;
+}
+
+.text {
+  margin: 0;
+  font-size: var(--text-15);
+  line-height: var(--leading-1-55);
+}

@@ -19,8 +19,8 @@ const describe = (v: number | Fluid) =>
 
 export function TokenPreview() {
   return (
-    <main className={styles.page}>
-      <h1 className={styles.title}>Design tokens</h1>
+    <section id="tokens" className={styles.page}>
+      <h2 className={styles.title}>Design tokens</h2>
       <p className={styles.note}>
         Everything here is read from src/styles/tokens/tokens.ts. Edit that file, then run npm run tokens.
       </p>
@@ -108,6 +108,6 @@ export function TokenPreview() {
           ))}
         </ul>
       </section>
-    </main>
+    </section>
   );
 }

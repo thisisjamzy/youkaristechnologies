@@ -1,0 +1,9 @@
+@use "@/styles/abstracts" as *;
+
+.container {
+  @include container;
+}
+
+.reading {
+  max-width: measure("688");
+}

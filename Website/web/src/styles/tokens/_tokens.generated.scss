@@ -117,19 +117,51 @@
     --space-6: 24px;
     --space-6_5: 26px;
     --space-7: 28px;
+    --space-7_5: 30px;
     --space-8: 32px;
     --space-9: 36px;
+    --space-9_5: 38px;
     --space-10: 40px;
+    --space-10_5: 42px;
     --space-11: 44px;
+    --space-11_5: 46px;
     --space-12: 48px;
+    --space-12_5: 50px;
+    --space-13: 52px;
     --space-13_5: 54px;
     --space-14: 56px;
+    --space-14_5: 58px;
     --space-16: 64px;
     --space-18: 72px;
     --space-20: 80px;
     --space-24: 96px;
+    --space-26: 104px;
     --space-28: 112px;
     --space-30: 120px;
+    --space-29_5: 118px;
+    --space-37_5: 150px;
+    --space-40: 160px;
+    --space-47_5: 190px;
+    --space-50: 200px;
+    --space-52_5: 210px;
+    --space-55: 220px;
+    --space-60: 240px;
+    --space-65: 260px;
+    --space-70: 280px;
+    --space-75: 300px;
+    --space-80: 320px;
+    --space-82_5: 330px;
+    --space-85: 340px;
+    --space-90: 360px;
+    --space-95: 380px;
+    --space-100: 400px;
+    --space-105: 420px;
+    --space-110: 440px;
+    --space-115: 460px;
+    --space-120: 480px;
+    --space-125: 500px;
+    --space-130: 520px;
+    --space-140: 560px;
     --space-section: clamp(96px, 12vw, 160px);
     --space-section-large: clamp(112px, 14vw, 184px);
     --space-opening: clamp(32px, 5vw, 64px);
@@ -142,6 +174,19 @@
     --space-fluid-40-72: clamp(40px, 6vw, 72px);
     --space-fluid-40-64: clamp(40px, 5vw, 64px);
     --space-fluid-20-36: clamp(20px, 3vw, 36px);
+    --space-fluid-24-36: clamp(24px, 3vw, 36px);
+    --space-fluid-24-40: clamp(24px, 3.5vw, 40px);
+    --space-fluid-24-44: clamp(24px, 3.5vw, 44px);
+    --space-fluid-28-48: clamp(28px, 4vw, 48px);
+    --space-fluid-28-56: clamp(28px, 4vw, 56px);
+    --space-fluid-28-56-5: clamp(28px, 5vw, 56px);
+    --space-fluid-28-64: clamp(28px, 5vw, 64px);
+    --space-fluid-32-56: clamp(32px, 5vw, 56px);
+    --size-hero: clamp(360px, 44vw, 600px);
+    --size-feature: clamp(340px, 40vw, 560px);
+    --size-wide: clamp(400px, 48vw, 640px);
+    --size-team: clamp(340px, 42vw, 560px);
+    --size-story: clamp(320px, 40vw, 540px);
     --radius-2xs: 2px;
     --radius-xs: 4px;
     --radius-s: 8px;
@@ -156,6 +201,12 @@
     --radius-3xl: 32px;
     --radius-4xl: 44px;
     --radius-pill: 999px;
+    --border-hairline: 1px;
+    --border-input: 1.5px;
+    --border-strong: 2px;
+    --folder-tab-narrow: 40%;
+    --folder-tab-mid: 44%;
+    --folder-tab-wide: 46%;
     --shadow-float: 0 24px 48px rgba(10, 15, 26, 0.08);
     --blur-glass: 14px;
     --opacity-pattern: 0.1;
@@ -319,19 +370,51 @@ $space: (
   6: var(--space-6),
   6.5: var(--space-6_5),
   7: var(--space-7),
+  7.5: var(--space-7_5),
   8: var(--space-8),
   9: var(--space-9),
+  9.5: var(--space-9_5),
   10: var(--space-10),
+  10.5: var(--space-10_5),
   11: var(--space-11),
+  11.5: var(--space-11_5),
   12: var(--space-12),
+  12.5: var(--space-12_5),
+  13: var(--space-13),
   13.5: var(--space-13_5),
   14: var(--space-14),
+  14.5: var(--space-14_5),
   16: var(--space-16),
   18: var(--space-18),
   20: var(--space-20),
   24: var(--space-24),
+  26: var(--space-26),
   28: var(--space-28),
   30: var(--space-30),
+  29.5: var(--space-29_5),
+  37.5: var(--space-37_5),
+  40: var(--space-40),
+  47.5: var(--space-47_5),
+  50: var(--space-50),
+  52.5: var(--space-52_5),
+  55: var(--space-55),
+  60: var(--space-60),
+  65: var(--space-65),
+  70: var(--space-70),
+  75: var(--space-75),
+  80: var(--space-80),
+  82.5: var(--space-82_5),
+  85: var(--space-85),
+  90: var(--space-90),
+  95: var(--space-95),
+  100: var(--space-100),
+  105: var(--space-105),
+  110: var(--space-110),
+  115: var(--space-115),
+  120: var(--space-120),
+  125: var(--space-125),
+  130: var(--space-130),
+  140: var(--space-140),
 );
 $fluid-space: (
   "section": var(--space-section),
@@ -346,6 +429,21 @@ $fluid-space: (
   "fluid-40-72": var(--space-fluid-40-72),
   "fluid-40-64": var(--space-fluid-40-64),
   "fluid-20-36": var(--space-fluid-20-36),
+  "fluid-24-36": var(--space-fluid-24-36),
+  "fluid-24-40": var(--space-fluid-24-40),
+  "fluid-24-44": var(--space-fluid-24-44),
+  "fluid-28-48": var(--space-fluid-28-48),
+  "fluid-28-56": var(--space-fluid-28-56),
+  "fluid-28-56-5": var(--space-fluid-28-56-5),
+  "fluid-28-64": var(--space-fluid-28-64),
+  "fluid-32-56": var(--space-fluid-32-56),
+);
+$fluid-sizes: (
+  "hero": var(--size-hero),
+  "feature": var(--size-feature),
+  "wide": var(--size-wide),
+  "team": var(--size-team),
+  "story": var(--size-story),
 );
 $radii: (
   "2xs": var(--radius-2xs),

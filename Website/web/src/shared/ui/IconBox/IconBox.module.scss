@@ -1,0 +1,21 @@
+@use "@/styles/abstracts" as *;
+
+.box {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-hairline) solid var(--color-hairline);
+  border-radius: radius(sm);
+  color: var(--color-ink);
+}
+
+.md {
+  width: space(10);
+  height: space(10);
+}
+
+.lg {
+  width: space(11);
+  height: space(11);
+}

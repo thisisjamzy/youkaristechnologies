@@ -1,0 +1,43 @@
+@use "@/styles/abstracts" as *;
+
+.stack {
+  display: flex;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+@each $step, $value in $space {
+  .row-#{space-key($step)} {
+    row-gap: $value;
+  }
+
+  .col-#{space-key($step)} {
+    column-gap: $value;
+  }
+}
+
+@each $name, $value in (start: flex-start, center: center, end: flex-end, baseline: baseline, stretch: stretch) {
+  .align-#{$name} {
+    align-items: $value;
+  }
+}
+
+@each $name, $value in (start: flex-start, center: center, end: flex-end, between: space-between) {
+  .justify-#{$name} {
+    justify-content: $value;
+  }
+}

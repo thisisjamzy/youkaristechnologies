@@ -1,0 +1,18 @@
+@use "@/styles/abstracts" as *;
+
+.link {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: space(2);
+  padding-bottom: space(0.75);
+  border-bottom: var(--border-strong) solid var(--color-lime);
+  color: var(--color-ink);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--text-16);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-ink);
+  }
+}

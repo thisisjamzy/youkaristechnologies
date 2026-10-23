@@ -1,0 +1,38 @@
+@use "@/styles/abstracts" as *;
+
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: space(4.5);
+  padding: space(4) 0;
+}
+
+.circle {
+  width: space(16);
+  height: space(16);
+  border-radius: radius(pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  .lime & {
+    background: var(--color-lime);
+    color: var(--color-ink);
+  }
+
+  .ink & {
+    background: var(--color-ink);
+    color: var(--color-lime);
+  }
+}
+
+.title {
+  @include display("44", "1", tight);
+
+  margin: 0;
+
+  &:focus {
+    outline: none;
+  }
+}

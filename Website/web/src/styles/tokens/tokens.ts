@@ -141,8 +141,12 @@ export const letterSpacings = {
  */
 export const spaceUnit = 4;
 export const spaceSteps = [
-  0, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 8, 9, 10, 11, 12,
-  13.5, 14, 16, 18, 20, 24, 28, 30,
+  // Gaps and padding
+  0, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 9, 9.5, 10, 10.5,
+  11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 16, 18, 20, 24, 26, 28, 30,
+  // Box sizes: card minimums, grid column minimums, photo heights, overlay widths
+  29.5, 37.5, 40, 47.5, 50, 52.5, 55, 60, 65, 70, 75, 80, 82.5, 85, 90, 95, 100, 105, 110, 115, 120, 125,
+  130, 140,
 ] as const;
 
 /** Fluid spacing used for section rhythm and panel padding. */
@@ -159,6 +163,24 @@ export const fluidSpace = {
   "fluid-40-72": fluid(40, 6, 72),
   "fluid-40-64": fluid(40, 5, 64),
   "fluid-20-36": fluid(20, 3, 36),
+  // Panel padding
+  "fluid-24-36": fluid(24, 3, 36),
+  "fluid-24-40": fluid(24, 3.5, 40),
+  "fluid-24-44": fluid(24, 3.5, 44),
+  "fluid-28-48": fluid(28, 4, 48),
+  "fluid-28-56": fluid(28, 4, 56),
+  "fluid-28-56-5": fluid(28, 5, 56),
+  "fluid-28-64": fluid(28, 5, 64),
+  "fluid-32-56": fluid(32, 5, 56),
+} as const;
+
+/** Fluid photo heights. Fixed heights use the space scale (e.g. space(105) = 420px). */
+export const fluidSizes = {
+  hero: fluid(360, 44, 600), // Home opening photo
+  feature: fluid(340, 40, 560), // Pray and Give opening photos
+  wide: fluid(400, 48, 640), // Home gather photo
+  team: fluid(340, 42, 560), // Build With Us team photo
+  story: fluid(320, 40, 540), // Our Story campus photo
 } as const;
 
 export const radii = {
@@ -176,6 +198,36 @@ export const radii = {
   "3xl": 32,
   "4xl": 44,
   pill: 999,
+} as const;
+
+export const borderWidths = {
+  hairline: 1, // card borders, dividers
+  input: 1.5, // input underlines, outline buttons
+  strong: 2, // link underline, emphasised rules
+} as const;
+
+/** Width of the tab on folder-tab cards, as a share of the card. */
+export const folderTabs = {
+  narrow: "40%", // path switcher
+  mid: "44%", // team cards
+  wide: "46%", // lime places cards
+} as const;
+
+/** Icon sizes (px) and stroke widths, for SVG attributes. */
+export const iconSizes = {
+  xs: 14,
+  sm: 16,
+  md: 18,
+  lg: 20,
+  xl: 30,
+  xxl: 48,
+} as const;
+
+export const iconStrokes = {
+  thin: 1.8, // line icons in boxes
+  regular: 2,
+  bold: 2.4, // arrows
+  heavy: 2.6, // checks and chevrons
 } as const;
 
 export const shadows = {
@@ -237,7 +289,12 @@ export const tokens = {
   spaceUnit,
   spaceSteps,
   fluidSpace,
+  fluidSizes,
   radii,
+  borderWidths,
+  folderTabs,
+  iconSizes,
+  iconStrokes,
   shadows,
   blurs,
   opacities,
@@ -251,3 +308,11 @@ export type Tokens = typeof tokens;
 export type ColorName = keyof typeof colors;
 export type BreakpointName = keyof typeof breakpoints;
 export type SpaceStep = (typeof spaceSteps)[number];
+export type FluidSpaceName = keyof typeof fluidSpace;
+export type FluidSizeName = keyof typeof fluidSizes;
+export type FontSizeName = keyof typeof fontSizes;
+export type LineHeightName = keyof typeof lineHeights;
+export type LetterSpacingName = keyof typeof letterSpacings;
+export type RadiusName = keyof typeof radii;
+export type MeasureName = keyof typeof measures;
+export type IconSize = keyof typeof iconSizes;

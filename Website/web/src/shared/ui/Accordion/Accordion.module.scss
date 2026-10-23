@@ -1,0 +1,44 @@
+@use "@/styles/abstracts" as *;
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: space(2.5);
+}
+
+.item {
+  padding: space(5) space(6);
+  border-radius: radius(md-plus);
+  background: var(--color-white);
+}
+
+.question {
+  display: flex;
+  justify-content: space-between;
+  gap: space(4);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--text-18);
+  list-style: none;
+  cursor: pointer;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+}
+
+// The "+" from the reference, drawn in CSS so it is not text.
+.icon {
+  flex: none;
+  color: var(--color-blue);
+
+  &::after {
+    content: "+";
+  }
+}
+
+.answer {
+  margin: space(3) 0 0;
+  font-size: var(--text-16);
+  line-height: var(--leading-1-6);
+  color: var(--color-text-body);
+}

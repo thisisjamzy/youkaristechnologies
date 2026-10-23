@@ -1,4 +1,3 @@
-import path from "node:path";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -8,13 +7,12 @@ const nextConfig: NextConfig = {
   },
   cacheComponents: true,
   partialPrefetching: true,
-  // Lets every SCSS module write `@use "abstracts" as *;`.
-  sassOptions: {
-    loadPaths: [path.resolve("src/styles")],
-  },
   turbopack: {
     rules: {
       "*.css": {
+        // CSS modules (including compiled *.module.scss) must stay modules: re-typing them
+        // "as *.css" turns them into global CSS and every `styles.x` becomes undefined.
+        condition: { not: { path: /\.module\.s?css$/ } },
         loaders: ["@tailwindcss/turbopack"],
         as: "*.css",
       },

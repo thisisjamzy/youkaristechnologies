@@ -1,0 +1,58 @@
+@use "@/styles/abstracts" as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: radius(xl);
+  color: var(--color-ink);
+}
+
+.white {
+  background: var(--color-white);
+
+  .label {
+    color: var(--color-text-body);
+  }
+}
+
+.lime {
+  background: var(--color-lime);
+}
+
+.md {
+  gap: space(10);
+  min-height: space(60);
+  padding: space(7);
+}
+
+.lg {
+  gap: space(6);
+  padding: space(8);
+}
+
+.label {
+  @include label("14");
+}
+
+.value {
+  @include display("88", "0-9", tighter);
+
+  margin: 0;
+
+  .lg & {
+    font-size: var(--text-104);
+  }
+}
+
+.caption {
+  margin: space(2) 0 0;
+  font-size: var(--text-16);
+  font-weight: var(--font-weight-semibold);
+
+  .lg & {
+    margin-top: space(2.5);
+    font-size: var(--text-17);
+    line-height: var(--leading-1-4);
+  }
+}

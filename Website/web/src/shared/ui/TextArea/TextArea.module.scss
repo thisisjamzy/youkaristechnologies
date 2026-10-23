@@ -1,0 +1,7 @@
+@use "@/styles/abstracts" as *;
+
+.textarea {
+  min-height: 0;
+  line-height: var(--leading-1-5);
+  resize: vertical;
+}

@@ -1,0 +1,48 @@
+@use "@/styles/abstracts" as *;
+
+.tag {
+  @include label("14");
+
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: space(2);
+  border-radius: radius(pill);
+  padding: space(1.5) space(3.5);
+  color: var(--color-ink);
+}
+
+.lg {
+  font-size: var(--text-15);
+  padding: space(2) space(4);
+}
+
+.dot {
+  background: var(--color-white);
+  padding-left: space(2.5);
+}
+
+.bordered {
+  border: var(--border-hairline) solid var(--color-hairline);
+}
+
+.dotMark {
+  width: space(2);
+  height: space(2);
+  border-radius: radius("2xs");
+  background: var(--color-blue);
+}
+
+.lime {
+  background: var(--color-lime);
+}
+
+.ink {
+  background: var(--color-ink);
+  color: var(--color-lime);
+}
+
+.blue {
+  background: var(--color-blue);
+  color: var(--color-white);
+}

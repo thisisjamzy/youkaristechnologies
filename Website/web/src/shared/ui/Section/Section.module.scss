@@ -1,0 +1,29 @@
+@use "@/styles/abstracts" as *;
+
+.section {
+  @include container;
+}
+
+.reading {
+  max-width: measure("688");
+}
+
+@each $name, $value in $fluid-space {
+  .top-#{$name} {
+    padding-top: $value;
+  }
+
+  .bottom-#{$name} {
+    padding-bottom: $value;
+  }
+}
+
+@each $step, $value in $space {
+  .top-#{space-key($step)} {
+    padding-top: $value;
+  }
+
+  .bottom-#{space-key($step)} {
+    padding-bottom: $value;
+  }
+}

@@ -1,0 +1,69 @@
+@use "@/styles/abstracts" as *;
+
+// The photo and its overlays share the first grid area, so an absolute overlay is
+// positioned against the photo, even when a stacked overlay adds a row below it.
+// The end lines must be explicit: for absolute items an `auto` end line is the
+// container's edge, which would stretch the area over the stacked row.
+.wrapper {
+  position: relative;
+  display: grid;
+
+  > * {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+}
+
+.overlay {
+  --inset: #{space(6)};
+
+  position: absolute;
+  display: flex;
+}
+
+.inset-3_5 {
+  --inset: #{space(3.5)};
+}
+
+.inset-4 {
+  --inset: #{space(4)};
+}
+
+.topLeft {
+  top: var(--inset);
+  left: var(--inset);
+}
+
+.topRight {
+  top: var(--inset);
+  right: var(--inset);
+}
+
+.bottomLeft {
+  bottom: var(--inset);
+  left: var(--inset);
+  margin-right: var(--inset);
+}
+
+.bottomRight {
+  right: var(--inset);
+  bottom: var(--inset);
+}
+
+.bottomEdge {
+  right: var(--inset);
+  bottom: var(--inset);
+  left: var(--inset);
+  flex-wrap: wrap;
+  gap: space(2);
+}
+
+// Two classes, so it beats a section's own placement class on phones.
+.overlay.stack {
+  @include down(tablet) {
+    grid-area: 2 / 1 / 3 / 2;
+    position: static;
+    width: auto;
+    max-width: none;
+    margin: space(4) 0 0;
+  }
+}

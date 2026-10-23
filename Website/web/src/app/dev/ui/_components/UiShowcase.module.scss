@@ -1,0 +1,120 @@
+@use "@/styles/abstracts" as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: space(10);
+}
+
+.pageTitle {
+  @include display(heading-l, "1-02", tight);
+}
+
+.note {
+  color: var(--color-text-body);
+  font-size: var(--text-14);
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: space(6);
+  padding-top: space(8);
+  border-top: var(--border-hairline) solid var(--color-hairline);
+}
+
+.blockTitle {
+  @include label("14");
+
+  color: var(--color-blue);
+}
+
+.inkPanel {
+  display: flex;
+  align-items: center;
+  gap: space(6);
+  padding: space(6);
+  border-radius: radius("2xl");
+  background: var(--color-ink);
+}
+
+.markBox {
+  display: flex;
+  justify-content: center;
+  padding: space("fluid-40-72");
+  border-radius: radius("2xl");
+  background: var(--color-white);
+}
+
+.heroPhoto {
+  margin-top: space(11);
+}
+
+.frostedText {
+  margin: 0;
+  font-size: var(--text-16);
+  line-height: var(--leading-1-4);
+  font-weight: var(--font-weight-semibold);
+}
+
+// Mirrors the Home opening: the lime card overlaps the top edge of the photo.
+.limeCardSlot {
+  top: calc(-1 * #{space(11)});
+  right: space(8);
+  width: space(65);
+}
+
+.limeCard {
+  flex: 1;
+}
+
+.limeCardBody {
+  gap: space(1.5);
+  padding: space(4.5) space(5.5) space(5.5);
+}
+
+.limeCaption {
+  font-size: var(--text-15);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--leading-1-35);
+}
+
+.switcherBody {
+  gap: space(3.5);
+  padding: space(3);
+}
+
+.switcherRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: space(4);
+  padding: space(1) space(2) space(1.5);
+}
+
+.arrowCircle {
+  flex: none;
+  width: space(11);
+  height: space(11);
+  border-radius: radius(pill);
+  background: var(--color-lime);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formPanel {
+  padding: space("fluid-24-40");
+  border-radius: radius(lg);
+  background: var(--color-mist-tint);
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, space(50)), 1fr));
+  gap: space(5.5);
+}
+
+.blockText {
+  display: block;
+}

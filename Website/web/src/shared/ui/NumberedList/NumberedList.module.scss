@@ -1,0 +1,129 @@
+@use "@/styles/abstracts" as *;
+
+.list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rule {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, space(47.5)), 1fr));
+  gap: space(8) space(7);
+
+  .item {
+    gap: space(2.5);
+    padding-top: space(4.5);
+    border-top: var(--border-hairline) solid var(--rule-color);
+  }
+
+  .text {
+    line-height: var(--leading-1-55);
+  }
+}
+
+.rule-mist {
+  --rule-color: var(--color-mist);
+
+  // Home reasons: wider columns and more space.
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, space(50)), 1fr));
+  gap: space(9) space(7);
+
+  .item {
+    gap: space(3);
+  }
+
+  .text {
+    line-height: var(--leading-1-6);
+  }
+}
+
+.rule-hairline {
+  --rule-color: var(--color-hairline);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+}
+
+.emphasized {
+  .rule & {
+    padding-top: calc(#{space(4.5)} - (var(--border-strong) - var(--border-hairline)));
+    border-top: var(--border-strong) solid var(--color-ink);
+  }
+}
+
+.number {
+  font-family: var(--font-label);
+  font-weight: var(--font-weight-extrabold);
+  font-size: var(--text-18);
+  color: var(--color-blue);
+}
+
+.title {
+  color: var(--color-ink);
+}
+
+.title-display {
+  font-family: var(--font-display);
+  font-size: var(--text-22);
+  line-height: var(--leading-1-1);
+  letter-spacing: var(--tracking-snug);
+}
+
+.title-body {
+  font-size: var(--text-18);
+}
+
+.text {
+  font-size: var(--text-15);
+  color: var(--color-text-body);
+}
+
+.joined {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, space(50)), 1fr));
+  gap: space(3);
+
+  .item {
+    gap: space(3.5);
+    padding: space(6);
+    border-radius: radius(lg-plus);
+    background: var(--color-white);
+  }
+
+  .text {
+    line-height: var(--leading-1-55);
+  }
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  gap: space(2);
+}
+
+.circle {
+  flex: none;
+  width: space(10);
+  height: space(10);
+  border-radius: radius(pill);
+  background: var(--color-blue);
+  color: var(--color-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-label);
+  font-weight: var(--font-weight-extrabold);
+  font-size: var(--text-17);
+}
+
+.line {
+  flex: 1;
+  height: var(--border-input);
+  background: var(--color-mist);
+}
+
+.chevron {
+  color: var(--color-text-placeholder);
+}

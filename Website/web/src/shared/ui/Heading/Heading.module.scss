@@ -1,0 +1,82 @@
+@use "@/styles/abstracts" as *;
+
+.heading {
+  margin: 0;
+  min-width: 0;
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+}
+
+@each $name, $value in $font-sizes {
+  .size-#{$name} {
+    font-size: $value;
+  }
+}
+
+@each $name, $value in $line-heights {
+  .leading-#{$name} {
+    line-height: $value;
+  }
+}
+
+@each $name, $value in $letter-spacings {
+  .tracking-#{$name} {
+    letter-spacing: $value;
+  }
+}
+
+@each $name, $value in $measures {
+  .measure-#{$name} {
+    max-width: $value;
+  }
+}
+
+.center {
+  text-align: center;
+  margin-inline: auto;
+}
+
+.tone-primary {
+  color: var(--color-text-primary);
+}
+
+.tone-muted {
+  color: var(--color-text-muted);
+}
+
+.tone-lime {
+  color: var(--color-lime);
+}
+
+.tone-blue {
+  color: var(--color-blue);
+}
+
+.tone-inherit {
+  color: inherit;
+}
+
+.muted {
+  color: var(--color-text-muted);
+}
+
+.blue {
+  color: var(--color-blue);
+}
+
+.highlight,
+.badge {
+  color: var(--color-text-primary);
+  background: var(--color-lime);
+  box-decoration-break: clone;
+}
+
+.highlight {
+  border-radius: radius(sm);
+  padding: 0 0.1em;
+}
+
+.badge {
+  border-radius: radius(s);
+  padding: 0 space(2);
+}

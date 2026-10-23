@@ -1,17 +1,5 @@
-@use "sass:string";
-@use "abstracts" as *;
+@use "@/styles/abstracts" as *;
 
-// 2.5 → "2_5", matching the --space-2_5 variable names.
-@function step-key($n) {
-  $s: "#{$n}";
-  $i: string.index($s, ".");
-
-  @if $i {
-    @return string.slice($s, 1, $i - 1) + "_" + string.slice($s, $i + 1);
-  }
-
-  @return $s;
-}
 
 .page {
   @include container;
@@ -140,7 +128,7 @@
 }
 
 @each $step, $value in $space {
-  .space-#{step-key($step)} {
+  .space-#{space-key($step)} {
     width: $value;
   }
 }

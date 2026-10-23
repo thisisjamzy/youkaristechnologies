@@ -1,0 +1,35 @@
+@use "@/styles/abstracts" as *;
+
+.label {
+  @include label("14");
+
+  margin: 0;
+}
+
+.size-13 {
+  font-size: var(--text-13);
+}
+
+.size-15 {
+  font-size: var(--text-15);
+}
+
+.tone-body {
+  color: var(--color-text-body);
+}
+
+.tone-primary {
+  color: var(--color-text-primary);
+}
+
+.tone-blue {
+  color: var(--color-blue);
+}
+
+.tone-onDarkMuted {
+  color: var(--color-text-on-dark-muted);
+}
+
+.tone-inherit {
+  color: inherit;
+}

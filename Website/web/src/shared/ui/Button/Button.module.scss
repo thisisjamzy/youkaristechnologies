@@ -1,0 +1,117 @@
+@use "@/styles/abstracts" as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-input) solid transparent;
+  border-radius: radius(pill);
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--text-16);
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: var(--opacity-faint);
+  }
+}
+
+// Sizes follow the content: the primary arrow button is the large one.
+.plain {
+  min-height: space(12.5);
+  padding: space(3.5) space(5.5);
+}
+
+.withArrow {
+  gap: space(3.5);
+  min-height: space(13.5);
+  padding: space(1.5) space(1.5) space(1.5) space(6);
+  font-size: var(--text-17);
+}
+
+.withArrowSm {
+  gap: space(3);
+  min-height: space(12.5);
+  padding: space(1.25) space(1.25) space(1.25) space(5);
+}
+
+.circle {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: radius(pill);
+  background: var(--color-lime);
+  color: var(--color-ink);
+
+  .withArrow & {
+    width: space(10.5);
+    height: space(10.5);
+  }
+
+  .withArrowSm & {
+    width: space(9.5);
+    height: space(9.5);
+  }
+}
+
+.primary {
+  background: var(--color-lime);
+  color: var(--color-ink);
+
+  .circle {
+    background: var(--color-ink);
+    color: var(--color-lime);
+  }
+}
+
+.outline {
+  background: transparent;
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+}
+
+.light {
+  background: var(--color-white);
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+}
+
+.dark {
+  background: var(--color-ink);
+  color: var(--color-white);
+}
+
+.ghost {
+  background: transparent;
+  border-color: var(--color-text-body);
+  color: var(--color-white);
+}
+
+.block {
+  width: 100%;
+  min-height: space(14.5);
+  padding: space(4.5);
+  border-radius: radius(sm-plus);
+  font-size: var(--text-18);
+}
+
+// The global link hover colour must not repaint buttons.
+.button:hover {
+  color: inherit;
+}
+
+.primary:hover,
+.outline:hover,
+.light:hover {
+  color: var(--color-ink);
+}
+
+.dark:hover,
+.ghost:hover {
+  color: var(--color-white);
+}
+

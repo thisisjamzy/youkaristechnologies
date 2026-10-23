@@ -1,0 +1,44 @@
+@use "@/styles/abstracts" as *;
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: space(1);
+  min-width: 0;
+}
+
+.label {
+  font-size: var(--text-14);
+  font-weight: var(--font-weight-semibold);
+}
+
+.input {
+  width: 100%;
+  min-height: space(11.5);
+  padding: space(2.5) 0;
+  border: 0;
+  border-bottom: var(--border-input) solid var(--color-text-placeholder);
+  border-radius: 0;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: var(--text-17);
+  color: var(--color-ink);
+
+  &[aria-invalid="true"] {
+    border-bottom-width: var(--border-strong);
+    border-bottom-color: var(--color-ink);
+  }
+}
+
+.onLime {
+  border-bottom-color: var(--color-ink);
+}
+
+// Errors use ink and weight rather than a new colour; the palette has no error red.
+.error {
+  margin: 0;
+  font-size: var(--text-14);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--leading-1-4);
+  color: var(--color-ink);
+}

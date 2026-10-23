@@ -1,0 +1,37 @@
+@use "@/styles/abstracts" as *;
+
+.group {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.legend {
+  padding: 0 0 space(3);
+  font-size: var(--text-14);
+  font-weight: var(--font-weight-semibold);
+}
+
+.options {
+  display: grid;
+}
+
+@each $step in (47.5, 52.5) {
+  .min-#{space-key($step)} {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, #{space($step)}), 1fr));
+  }
+}
+
+@each $step in (2.5, 3) {
+  .gap-#{space-key($step)} {
+    gap: space($step);
+  }
+}
+
+.error {
+  margin: space(2) 0 0;
+  font-size: var(--text-14);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-ink);
+}

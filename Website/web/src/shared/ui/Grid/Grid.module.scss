@@ -1,0 +1,23 @@
+@use "@/styles/abstracts" as *;
+
+.grid {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@each $step, $value in $space {
+  // min(100%, ...) keeps a single column from overflowing narrow phones.
+  .min-#{space-key($step)} {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, #{$value}), 1fr));
+  }
+
+  .row-#{space-key($step)} {
+    row-gap: $value;
+  }
+
+  .col-#{space-key($step)} {
+    column-gap: $value;
+  }
+}

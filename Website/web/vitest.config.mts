@@ -9,13 +9,10 @@ export default defineConfig({
   resolve: {
     tsconfigPaths: true,
     alias: {
+      // For Sass `@use "@/styles/abstracts"`, which tsconfig paths do not reach.
+      "@/": `${path.resolve("src")}/`,
       "next/font/google": fontStub,
       "next/font/local": fontStub,
-    },
-  },
-  css: {
-    preprocessorOptions: {
-      scss: { loadPaths: [path.resolve("src/styles")] },
     },
   },
   test: {

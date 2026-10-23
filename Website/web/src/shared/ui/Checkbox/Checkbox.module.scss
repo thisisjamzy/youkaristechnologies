@@ -1,0 +1,40 @@
+@use "@/styles/abstracts" as *;
+
+.checkbox {
+  display: flex;
+  gap: space(3);
+  line-height: var(--leading-1-4);
+  cursor: pointer;
+}
+
+.start {
+  align-items: flex-start;
+
+  .input {
+    margin-top: var(--border-hairline);
+  }
+}
+
+.center {
+  align-items: center;
+}
+
+.size-15 {
+  font-size: var(--text-15);
+}
+
+.size-16 {
+  font-size: var(--text-16);
+}
+
+.medium {
+  font-weight: var(--font-weight-medium);
+}
+
+.input {
+  flex: none;
+  width: space(5);
+  height: space(5);
+  margin: 0;
+  accent-color: var(--color-ink);
+}

@@ -1,0 +1,68 @@
+@use "@/styles/abstracts" as *;
+
+.card {
+  --surface: var(--color-white);
+
+  display: flex;
+  flex-direction: column;
+  color: var(--color-ink);
+}
+
+.lime {
+  --surface: var(--color-lime);
+}
+
+.ink {
+  --surface: var(--color-ink);
+
+  color: var(--color-white);
+}
+
+.link {
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-ink);
+  }
+}
+
+.tab {
+  display: block;
+  background: var(--surface);
+  border-radius: radius(md) radius(md) 0 0;
+}
+
+.tab-narrow {
+  width: var(--folder-tab-narrow);
+}
+
+.tab-mid {
+  width: var(--folder-tab-mid);
+}
+
+.tab-wide {
+  width: var(--folder-tab-wide);
+}
+
+.tabHeight-md {
+  height: space(5);
+}
+
+.tabHeight-lg {
+  height: space(5.5);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background: var(--surface);
+}
+
+.radius-lg {
+  border-radius: 0 radius(lg) radius(lg);
+}
+
+.radius-xl {
+  border-radius: 0 radius(xl) radius(xl);
+}
