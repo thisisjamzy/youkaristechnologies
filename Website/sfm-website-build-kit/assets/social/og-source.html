@@ -2,37 +2,26 @@
 @font-face{font-family:Nohemi;src:url('../fonts/Nohemi-Bold.ttf');font-weight:700}
 @font-face{font-family:Barlow;src:url('https://cdn.jsdelivr.net/npm/@fontsource/barlow@5.0.13/files/barlow-latin-500-normal.woff2');font-weight:500}
 @font-face{font-family:Barlow;src:url('https://cdn.jsdelivr.net/npm/@fontsource/barlow@5.0.13/files/barlow-latin-600-normal.woff2');font-weight:600}
-@font-face{font-family:Barlow;src:url('https://cdn.jsdelivr.net/npm/@fontsource/barlow@5.0.13/files/barlow-latin-700-normal.woff2');font-weight:700}
 @font-face{font-family:'Barlow Condensed';src:url('https://cdn.jsdelivr.net/npm/@fontsource/barlow-condensed@5.0.13/files/barlow-condensed-latin-500-normal.woff2');font-weight:500}
-@font-face{font-family:'Barlow Condensed';src:url('https://cdn.jsdelivr.net/npm/@fontsource/barlow-condensed@5.0.13/files/barlow-condensed-latin-700-normal.woff2');font-weight:700}
 *{box-sizing:border-box}html,body{margin:0}
-body{width:1200px;height:630px;background:#F7F8F5;font-family:Barlow,sans-serif;color:#0A0F1A;position:relative;overflow:hidden}
-.left{position:absolute;left:64px;top:56px;bottom:56px;width:560px;display:flex;flex-direction:column;justify-content:space-between}
-.logo{height:46px;width:auto;align-self:flex-start}
-h1{margin:0;font-family:Nohemi;font-weight:700;font-size:44px;line-height:1.04;letter-spacing:-0.03em}
-.mid{display:flex;flex-direction:column;gap:20px}
-.desc{margin:0;font-size:18.5px;line-height:1.5;color:#4A5468;font-weight:500}
-h1 span{color:#8A94A6}
-.row{display:flex;align-items:center;gap:22px}
-.btn{display:inline-flex;align-items:center;gap:14px;background:#D1FF42;font-weight:700;font-size:20px;padding:6px 6px 6px 24px;border-radius:999px;height:56px}
-.btn i{width:44px;height:44px;border-radius:999px;background:#0A0F1A;display:inline-flex;align-items:center;justify-content:center}
-.url{font-family:'Barlow Condensed';font-weight:500;font-size:20px;letter-spacing:2px;color:#4A5468}
-.photo{position:absolute;right:48px;top:88px;bottom:48px;width:470px;border-radius:28px;background:url('../photos/pray-hands-together.jpg') center/cover}
-.card{position:absolute;right:76px;top:40px;width:250px;display:flex;flex-direction:column}
-.tab{width:46%;height:20px;background:#D1FF42;border-radius:16px 16px 0 0}
-.body{background:#D1FF42;border-radius:0 20px 20px 20px;padding:16px 22px 20px;display:flex;flex-direction:column;gap:6px}
-.lab{font-family:'Barlow Condensed';font-weight:700;font-size:15px;letter-spacing:1.5px;text-transform:uppercase}
-.big{font-family:Nohemi;font-weight:700;font-size:46px;line-height:1;letter-spacing:-0.03em}
-.small{font-size:16px;font-weight:500;line-height:1.3}
-.glass{position:absolute;right:72px;bottom:72px;width:330px;background:rgba(255,255,255,.82);border-radius:18px;padding:14px 18px;display:flex;align-items:center;gap:14px;backdrop-filter:blur(14px)}
-.glass img{width:44px}.glass p{margin:0;font-size:16px;line-height:1.35;font-weight:600}
+body{width:1200px;height:630px;position:relative;overflow:hidden;background:#0A0F1A;font-family:Barlow,sans-serif;color:#0A0F1A}
+.photo{position:absolute;inset:0;background:url('og-photo-rosary-crucifix.jpg') center/cover}
+.shade{position:absolute;left:0;right:0;top:0;height:170px;background:linear-gradient(to bottom,rgba(10,15,26,.45),rgba(10,15,26,0))}
+.frame{position:absolute;inset:22px;border:1.5px solid rgba(255,255,255,.75);border-radius:30px}
+.tag{position:absolute;left:56px;top:50px;font-family:'Barlow Condensed';font-weight:500;font-size:20px;letter-spacing:3px;color:#fff}
+.logo{position:absolute;right:52px;top:44px;height:40px}
+svg.shape{position:absolute;inset:0}
+.list{position:absolute;left:838px;right:80px;top:132px;display:flex;flex-direction:column;gap:8px}
+.eyebrow{font-family:'Barlow Condensed';font-weight:500;font-size:15px;letter-spacing:2.5px;text-transform:uppercase}
+.lead{margin:0;font-family:Nohemi;font-weight:700;font-size:20px;line-height:1.15;letter-spacing:-0.01em}
+.body{margin:2px 0 0;font-size:15.5px;font-weight:500;line-height:1.4}
+
+h1{position:absolute;left:606px;bottom:62px;margin:0;font-family:Nohemi;font-weight:700;font-size:35px;line-height:1.1;white-space:nowrap;letter-spacing:-0.025em}
 </style></head><body>
-<div class="left">
-<img class="logo" src="../brand/sfm-logo-ink.svg">
-<div class="mid"><h1>Every friend of Mary is a stranger <span>we cannot wait to pray for, care for, and gather with.</span></h1><p class="desc">Strangers for Mary is a network of Catholics around the world, linked like beads on a Rosary. We help people live out their Catholic faith every single day, out loud, alongside a community that shares the same values and the same hunger for Christ.</p></div>
-<span class="url">STRANGERSFORMARY.ORG</span>
-</div>
-<div class="photo"></div>
-<div class="glass"><img src="../brand/sfm-mark-ink.svg"><p>Every decade is a gift from one stranger to another.</p></div>
-<div class="card"><span class="tab"></span><div class="body"><span class="lab">Mon to Sat</span><span class="big">1 Rosary</span><span class="small">a day, for a different stranger</span></div></div>
+<div class="photo"></div><div class="shade"></div><div class="frame"></div>
+<span class="tag">#PASSITON</span>
+<img class="logo" src="../brand/sfm-logo-lime-on-dark.svg">
+<svg class="shape" width="1200" height="630"><path d="M834,108 H1118 A34,34 0 0 1 1152,142 V338 A34,34 0 0 1 1118,372 H1094 A34,34 0 0 0 1060,406 V570 A34,34 0 0 1 1026,604 H600 A34,34 0 0 1 566,570 V334 A34,34 0 0 1 600,300 H766 A34,34 0 0 0 800,266 V142 A34,34 0 0 1 834,108 Z" fill="#D1FF42"/></svg>
+<div class="list"><span class="eyebrow">We are strangers.</span><p class="lead">Different cities.<br>Different languages.<br>Different stories.</p><p class="body">Most of us will never stand in the same room. But every one of us has run to the same Mother, and found her already waiting.</p></div>
+<h1>Every friend of Mary<br>is a stranger we<br>cannot wait to pray for,<br>care for, and gather with.</h1>
 </body></html>

@@ -44,7 +44,7 @@ export function OpeningSection() {
       </div>
 
       <PhotoWithOverlay
-        name="prayHandsTogether"
+        name="prayHandRosary"
         alt={opening.photoAlt}
         height="hero"
         priority

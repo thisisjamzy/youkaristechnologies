@@ -32,8 +32,8 @@ export function PrayView() {
         switcher={
           <PathSwitcher
             items={[
-              { href: routes.give, photo: "giveOutreach", ...switcher.give },
-              { href: routes.gather, photo: "gatherCrowd", ...switcher.gather },
+              { href: routes.give, photo: "giveEmbrace", ...switcher.give },
+              { href: routes.gather, photo: "gatherWorshipCrowd", ...switcher.gather },
             ]}
           />
         }

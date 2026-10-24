@@ -17,6 +17,7 @@ This is the pre-launch website for Strangers for Mary. The design and copy are a
 - Never import upward or sideways between layers (`app` → `views` → `widgets` → `features` → `entities` → `shared`).
 - Never expose `APPS_SCRIPT_SECRET` or call the Apps Script URL from the browser.
 - Never add a runtime dependency without asking.
+- Never use a photo that is not in `public/images/` (copied from the kit's `assets/photos/`, all from the Stock Images folder). No stock, AI-generated or placeholder images; ask for a Stock Images file instead.
 
 ## Always
 

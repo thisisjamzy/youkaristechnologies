@@ -7,7 +7,7 @@ export function OpeningSection() {
   return (
     <Section top="opening">
       <OpeningIntro tag={<Tag variant="blue">{opening.label}</Tag>} headline={opening.headline} lead={opening.body}>
-        <PhotoWithOverlay name="giveOutreach" alt={opening.photoAlt} height="feature" priority>
+        <PhotoWithOverlay name="giveEmbrace" alt={opening.photoAlt} height="feature" priority>
           <Overlay position="bottomLeft">
             <Chip icon={<Icon name="check" size="sm" stroke="heavy" />}>{opening.photoChip}</Chip>
           </Overlay>

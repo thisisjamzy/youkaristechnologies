@@ -22,7 +22,7 @@ export function OpeningSection() {
         </Text>
       </Section>
       <Section top="fluid-48-80">
-        <Photo name="storyCampus" alt={opening.photoAlt} height="story" focus="35" priority />
+        <Photo name="storyChurchRow" alt={opening.photoAlt} height="story" focus="35" priority />
       </Section>
     </>
   );

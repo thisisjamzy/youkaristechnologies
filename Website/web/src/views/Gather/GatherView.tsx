@@ -33,8 +33,8 @@ export function GatherView() {
         switcher={
           <PathSwitcher
             items={[
-              { href: routes.pray, photo: "prayOpenHands", ...switcher.pray },
-              { href: routes.give, photo: "giveOutreach", ...switcher.give },
+              { href: routes.pray, photo: "prayHandsRaised", ...switcher.pray },
+              { href: routes.give, photo: "giveEmbrace", ...switcher.give },
             ]}
           />
         }

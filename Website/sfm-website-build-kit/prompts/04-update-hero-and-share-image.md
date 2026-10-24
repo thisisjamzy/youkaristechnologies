@@ -1,4 +1,4 @@
-# Prompt 4: Apply the new hero tagline and the social share image
+# Prompt 4: Apply the new hero tagline, the social share image and the new photos
 
 Paste everything below the line into Claude Code or Cursor if the website build has already started. If it has not, prompt 2 already includes these changes and this prompt is not needed.
 
@@ -33,3 +33,19 @@ It replaces "If you love Mary, you are already one of us. Now take your place in
 - `npm run lint`, `npm run test` and `npm run build` pass.
 - In the built HTML of `/`, the `og:image` URL is absolute, `og:image:width` is 1200 and `og:image:height` is 630.
 - Report what changed. After deploying, test the link in the Facebook Sharing Debugger, the LinkedIn Post Inspector and a WhatsApp chat.
+
+## 4. Photos now come only from the Stock Images folder
+
+Seven photos were replaced so that every image on the site comes from the owner's Stock Images folder. In `public/images/`, delete these files: `pray-hands-together.jpg`, `pray-open-hands.jpg`, `give-outreach.jpg`, `gather-crowd.jpg`, `gather-hall.jpg`, `story-campus.jpg`, `men-talking.jpg`. Copy in the new ones from `assets/photos/` and update every reference and alt text (alt text is in `content/strings-master.md`):
+
+| Old file | New file | Where | New alt text |
+| --- | --- | --- | --- |
+| pray-hands-together.jpg | pray-hand-rosary.jpg | Home hero | A hand holding a rosary in prayer |
+| pray-open-hands.jpg | pray-hands-raised.jpg | Pray hero, Pray link cards | Hands raised in prayer |
+| give-outreach.jpg | give-embrace.jpg | Home "We give", Give hero, Give link cards | Two women embracing |
+| gather-crowd.jpg | gather-worship-crowd.jpg | Home "We gather", Gather hero, Gather link cards | A crowd of people worshipping together |
+| gather-hall.jpg | gather-talking.jpg | Gather "What happens" card | Strangers talking together at a gathering |
+| story-campus.jpg | story-church-row.jpg | Our Story "What we saw" | A row of people praying with open hands in church |
+| men-talking.jpg | story-praying-room.jpg | Our Story "When it broke" | Young people praying together in a crowded room |
+
+Replace `public/images/CREDITS.json` with the kit's version. Then check with a search that no old file name is referenced anywhere.

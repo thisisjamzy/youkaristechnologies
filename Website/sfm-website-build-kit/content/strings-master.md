@@ -30,7 +30,7 @@ How to read it:
 - Paragraph: Strangers for Mary is a network of Catholics around the world, linked like beads on a Rosary. We help people live out their Catholic faith every single day, out loud, alongside a community that shares the same values and the same hunger for Christ.
 - Link: Join the strangers
 - Link: Help us build it
-- Image alt: Hands of different strangers holding rosaries together
+- Image alt: A hand holding a rosary in prayer
 - Paragraph: Every decade is a gift from one stranger to another.
 - Label: Mon to Sat
 - Text: 1 Rosary
@@ -84,7 +84,7 @@ How to read it:
 - H2: We give.
 - Paragraph: We are built on the charity of small actions. A meal. A hospital visit. A school fee. A few hours of work. Each one small, each one offered for someone waiting to receive it. And we give only what we have worked for: every campaign is carried by the effort of the strangers themselves.
 - Link: See how we give
-- Image alt: Volunteers helping people in a community outdoors
+- Image alt: Two women embracing
 - Label: Small acts
 - Paragraph: Many small hands.
 - Paragraph: One real gift.
@@ -92,7 +92,7 @@ How to read it:
 
 ### We gather
 
-- Image alt: A large crowd of young people gathered together
+- Image alt: A crowd of people worshipping together
 - Label: Twice a year
 - H2: We gather.
 - Paragraph: Twice a year, the strangers meet. Not to become familiar, since a room can hold a hundred Pauls and still keep every prayer's secret, but to share the communion our prayers have made us hungry for. We pray, praise and worship together, talk honestly about what makes daily prayer hard, go deeper into the faith and break bread with the strangers we trusted to care for ours. It is always a party for our Mother.
@@ -208,7 +208,7 @@ class Component extends DCLogic {
 - H1: It started with
 - H1: ten text messages.
 - Paragraph: In 2017, a few young Catholics had just finished university and were working around the city of Buea. What they saw around them would not let them go.
-- Image alt: Three young men talking outside a university building
+- Image alt: A row of people praying with open hands in church
 
 ### What we saw
 
@@ -251,7 +251,7 @@ class Component extends DCLogic {
 
 ### Why we are back
 
-- Image alt: Young men talking together in a modern office
+- Image alt: Young people praying together in a crowded room
 - Label: Why we are back
 - H2: Because the need
 - H2: never went away.
@@ -279,7 +279,7 @@ class Component extends DCLogic {
 - H1: A Rosary a day
 - H1: for someone who can never thank you.
 - Paragraph: Prayer is where Strangers for Mary begins, and where it always returns. Every day of the week but Sunday, beads move through the fingers of strangers, and every one of them is moving for someone else.
-- Image alt: Open hands holding a rosary
+- Image alt: Hands raised in prayer
 - Label: Youkaris · Today's stranger
 - Text: Decade 3 of 5
 
@@ -389,7 +389,7 @@ class Component extends DCLogic {
 - H1: Charity,
 - H1: one small act at a time.
 - Paragraph: We are built on the charity of small actions. A meal shared. A hospital bill paid. A school fee covered. An afternoon spent with someone who is alone. None of it is grand. All of it is offered for a stranger waiting to receive it.
-- Image alt: Volunteers helping people in a community outdoors
+- Image alt: Two women embracing
 - Text: Every gift here was worked for
 
 ### No free meals
@@ -463,7 +463,7 @@ class Component extends DCLogic {
 - H1: It is always a party
 - H1: for our Mother.
 - Paragraph: For months you have prayed for strangers known to you only by a baptism name, and strangers have prayed for you. Then, twice a year, the doors open and the strangers walk in.
-- Image alt: A large crowd of young people gathered together
+- Image alt: A crowd of people worshipping together
 - Label: Twice a year
 
 ### Not to become familiar
@@ -488,7 +488,7 @@ class Component extends DCLogic {
 - Image alt: Young people smiling together in church
 - H3: We break bread.
 - Paragraph: Then the tables fill, and we share a meal with the strangers we trusted to care for our faith.
-- Image alt: Guests talking at a dinner table
+- Image alt: Strangers talking together at a gathering
 
 ### Why we gather
 
@@ -728,7 +728,7 @@ These apply to every page unless a page sets its own title and description above
 
 - Share title: Strangers for Mary | A Rosary a day for a stranger
 - Share description: Every day, a stranger prays a full Rosary for your intention, and you pray one for someone else. Join Catholics everywhere in the network, and be one of the first.
-- Share image alt text: Strangers for Mary. Every friend of Mary is a stranger we cannot wait to pray for, care for, and gather with. A network of Catholics around the world, linked like beads on a Rosary. Hands of strangers holding rosaries together, and a lime card reading: Mon to Sat, 1 Rosary a day, for a different stranger.
+- Share image alt text: A hand holding a wooden rosary with a crucifix. Text: Every friend of Mary is a stranger we cannot wait to pray for, care for, and gather with. We are strangers. Different cities. Different languages. Different stories. Most of us will never stand in the same room. But every one of us has run to the same Mother, and found her already waiting. Strangers for Mary.
 - Site name: Strangers for Mary
 - Our Story: Our Story | Strangers for Mary. Description: It started in 2017 with ten text messages. Why Strangers for Mary began, and why it is coming back stronger.
 - Pray: Pray | Strangers for Mary. Description: A Rosary a day for someone who can never thank you. How intentions move through the network.

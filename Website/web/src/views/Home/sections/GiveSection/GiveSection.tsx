@@ -15,7 +15,7 @@ export function GiveSection() {
           <Text className={cards.grow}>{give.body}</Text>
           <ArrowLink href={routes.give}>{give.link}</ArrowLink>
         </div>
-        <Photo name="giveOutreach" alt={give.photoAlt} height="fill" minHeight={95} radius="xl" sizes="third" />
+        <Photo name="giveEmbrace" alt={give.photoAlt} height="fill" minHeight={95} radius="xl" sizes="third" />
         <div className={`${cards.card} ${styles.smallActs}`}>
           <Tag variant="lime">{give.card.label}</Tag>
           <Heading as="p" text={give.card.line} size="44" secondTone="muted" />

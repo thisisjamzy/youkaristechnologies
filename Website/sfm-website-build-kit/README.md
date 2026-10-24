@@ -20,7 +20,7 @@ Everything Claude Code or Cursor needs to build the pre-launch website exactly a
 | `assets/brand/pattern/` | The brand pattern: your original tile and swatches, plus see-through swatches made from the same shape. On the site it is used only on the dark closing card. |
 | `assets/social/` | The image shown when the site is shared on WhatsApp, Facebook, LinkedIn and X (1200 by 630), and the HTML it was made from. |
 | `assets/fonts/Nohemi-Bold.ttf` | The display typeface. |
-| `assets/photos/` | Every photo used in the design, sized for the web, with `CREDITS.json` mapping each to its Unsplash original. |
+| `assets/photos/` | Every photo used on the site, sized for the web. All of them come from `Strangers For Mary/Stock Images`; `CREDITS.json` lists the source file (`image N.jpg`) for each. |
 
 ## How to use it
 

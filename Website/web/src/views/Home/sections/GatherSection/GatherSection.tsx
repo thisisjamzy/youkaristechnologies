@@ -8,7 +8,7 @@ const { gather } = strings.home;
 export function GatherSection() {
   return (
     <Section top="fluid-80-128" id="gather">
-      <PhotoWithOverlay name="gatherCrowd" alt={gather.photoAlt} height="wide">
+      <PhotoWithOverlay name="gatherWorshipCrowd" alt={gather.photoAlt} height="wide">
         <Overlay position="topLeft">
           <Tag variant="lime" size="lg">
             {gather.label}

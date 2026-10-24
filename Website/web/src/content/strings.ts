@@ -169,7 +169,7 @@ export const strings = {
         siteName: "Strangers for Mary",
         /** Also in src/app/opengraph-image.alt.txt and twitter-image.alt.txt (a test keeps them equal). */
         imageAlt:
-          "Strangers for Mary. Every friend of Mary is a stranger we cannot wait to pray for, care for, and gather with. A network of Catholics around the world, linked like beads on a Rosary. Hands of strangers holding rosaries together, and a lime card reading: Mon to Sat, 1 Rosary a day, for a different stranger.",
+          "A hand holding a wooden rosary with a crucifix. Text: Every friend of Mary is a stranger we cannot wait to pray for, care for, and gather with. We are strangers. Different cities. Different languages. Different stories. Most of us will never stand in the same room. But every one of us has run to the same Mother, and found her already waiting. Strangers for Mary.",
       },
       home: {
         title: "Strangers for Mary | A Rosary a day for a stranger",
@@ -216,7 +216,7 @@ export const strings = {
       body: "Strangers for Mary is a network of Catholics around the world, linked like beads on a Rosary. We help people live out their Catholic faith every single day, out loud, alongside a community that shares the same values and the same hunger for Christ.",
       primaryCta: "Join the strangers",
       secondaryCta: "Help us build it",
-      photoAlt: "Hands of different strangers holding rosaries together",
+      photoAlt: "A hand holding a rosary in prayer",
       photoCard: "Every decade is a gift from one stranger to another.",
       limeCard: {
         label: "Mon to Sat",
@@ -294,7 +294,7 @@ export const strings = {
       headline: "We give.",
       body: "We are built on the charity of small actions. A meal. A hospital visit. A school fee. A few hours of work. Each one small, each one offered for someone waiting to receive it. And we give only what we have worked for: every campaign is carried by the effort of the strangers themselves.",
       link: "See how we give",
-      photoAlt: "Volunteers helping people in a community outdoors",
+      photoAlt: "Two women embracing",
       card: {
         label: "Small acts",
         line: { main: "Many small hands.", emphasis: "One real gift." },
@@ -303,7 +303,7 @@ export const strings = {
     },
 
     gather: {
-      photoAlt: "A large crowd of young people gathered together",
+      photoAlt: "A crowd of people worshipping together",
       label: "Twice a year",
       headline: "We gather.",
       body: "Twice a year, the strangers meet. Not to become familiar, since a room can hold a hundred Pauls and still keep every prayer's secret, but to share the communion our prayers have made us hungry for. We pray, praise and worship together, talk honestly about what makes daily prayer hard, go deeper into the faith and break bread with the strangers we trusted to care for ours. It is always a party for our Mother.",
@@ -370,7 +370,7 @@ export const strings = {
       label: "Our story",
       headline: { main: "It started with", muted: "ten text messages." },
       body: "In 2017, a few young Catholics had just finished university and were working around the city of Buea. What they saw around them would not let them go.",
-      photoAlt: "Three young men talking outside a university building",
+      photoAlt: "A row of people praying with open hands in church",
     },
 
     whatWeSaw: {
@@ -412,7 +412,7 @@ export const strings = {
     },
 
     whyWeAreBack: {
-      photoAlt: "Young men talking together in a modern office",
+      photoAlt: "Young people praying together in a crowded room",
       label: "Why we are back",
       headline: { main: "Because the need", muted: "never went away." },
       body: "The young people we saw in 2017 are still out there, along with millions more, in every city and every language, going to Mass on Sunday and losing the fight by Monday. This time we are building it properly: Youkaris, an app made to carry intentions safely between strangers, and a core team ready to keep the chain moving.",
@@ -443,7 +443,7 @@ export const strings = {
       label: "We pray",
       headline: { main: "A Rosary a day", muted: "for someone who can never thank you." },
       body: "Prayer is where Strangers for Mary begins, and where it always returns. Every day of the week but Sunday, beads move through the fingers of strangers, and every one of them is moving for someone else.",
-      photoAlt: "Open hands holding a rosary",
+      photoAlt: "Hands raised in prayer",
       appCard: { label: "Youkaris · Today's stranger", progress: "Decade 3 of 5" },
     },
 
@@ -581,7 +581,7 @@ export const strings = {
       label: "We give",
       headline: { main: "Charity,", muted: "one small act at a time." },
       body: "We are built on the charity of small actions. A meal shared. A hospital bill paid. A school fee covered. An afternoon spent with someone who is alone. None of it is grand. All of it is offered for a stranger waiting to receive it.",
-      photoAlt: "Volunteers helping people in a community outdoors",
+      photoAlt: "Two women embracing",
       photoChip: "Every gift here was worked for",
     },
 
@@ -662,7 +662,7 @@ export const strings = {
       label: "We gather",
       headline: { main: "It is always a party", muted: "for our Mother." },
       body: "For months you have prayed for strangers known to you only by a baptism name, and strangers have prayed for you. Then, twice a year, the doors open and the strangers walk in.",
-      photoAlt: "A large crowd of young people gathered together",
+      photoAlt: "A crowd of people worshipping together",
       photoLabel: "Twice a year",
     },
 
@@ -702,7 +702,7 @@ export const strings = {
           title: "We break bread.",
           text: "Then the tables fill, and we share a meal with the strangers we trusted to care for our faith.",
         },
-        { kind: "photo", alt: "Guests talking at a dinner table" },
+        { kind: "photo", alt: "Strangers talking together at a gathering" },
       ],
     },
 

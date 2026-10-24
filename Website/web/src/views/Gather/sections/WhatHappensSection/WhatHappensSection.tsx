@@ -10,7 +10,7 @@ const photos: { name: PhotoName; focus?: "40" }[] = [
   { name: "gatherWorship" },
   { name: "gatherTable" },
   { name: "gatherChurch" },
-  { name: "gatherHall", focus: "40" },
+  { name: "gatherTalking", focus: "40" },
 ];
 // The last text tile is the one lime tile, as in the reference.
 const limeIndex = whatHappens.tiles.findLastIndex((tile) => tile.kind === "text");

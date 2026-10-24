@@ -10,7 +10,7 @@ export function OpeningSection() {
   return (
     <Section top="opening">
       <OpeningIntro tag={<Tag variant="lime">{copy.label}</Tag>} headline={copy.headline} lead={copy.body}>
-        <PhotoWithOverlay name="prayOpenHands" alt={copy.photoAlt} height="feature" priority>
+        <PhotoWithOverlay name="prayHandsRaised" alt={copy.photoAlt} height="feature" priority>
           <Overlay position="bottomLeft" className={styles.cardSlot}>
             <FrostedCard direction="column" className={styles.card}>
               <Label size="13">{copy.appCard.label}</Label>

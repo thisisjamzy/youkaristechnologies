@@ -39,7 +39,7 @@ import styles from "./UiShowcase.module.scss";
 
 const { home, pray, give, gather, ourStory, common } = strings;
 const icons: IconName[] = ["globe", "person", "leave", "pen", "clock", "heart", "instagram", "whatsApp", "mail", "check"];
-const mosaicPhotos = ["gatherWorship", "gatherTable", "gatherChurch", "gatherHall"] as const;
+const mosaicPhotos = ["gatherWorship", "gatherTable", "gatherChurch", "gatherTalking"] as const;
 const mosaic: MosaicTile[] = (() => {
   let photo = 0;
   return gather.whatHappens.tiles.map((tile, i, all): MosaicTile =>
@@ -160,7 +160,7 @@ export function UiShowcase() {
       </Block>
 
       <Block title="Photo, PhotoWithOverlay, FrostedCard, FolderCard">
-        <PhotoWithOverlay name="prayHandsTogether" alt={home.opening.photoAlt} height="hero" wrapperClassName={styles.heroPhoto}>
+        <PhotoWithOverlay name="prayHandRosary" alt={home.opening.photoAlt} height="hero" wrapperClassName={styles.heroPhoto}>
           <Overlay position="bottomLeft">
             <FrostedCard>
               <Mark />
@@ -185,7 +185,7 @@ export function UiShowcase() {
         <Grid min={75} gap={4}>
           {Object.values(pray.switcher).map((card, i) => (
             <FolderCard key={card.title} href="#" bodyClassName={styles.switcherBody}>
-              <Photo name={i === 0 ? "giveOutreach" : "gatherCrowd"} alt="" height={55} radius="md" sizes="half" />
+              <Photo name={i === 0 ? "giveEmbrace" : "gatherWorshipCrowd"} alt="" height={55} radius="md" sizes="half" />
               <span className={styles.switcherRow}>
                 <span>
                   <Heading as="b" text={card.title} size="26" tracking="snug" className={styles.blockText} />
@@ -244,8 +244,8 @@ export function UiShowcase() {
       <Block title="Widgets: PathSwitcher, PlacesBadge, JoinPanel (SiteHeader, ClosingCard, SiteFooter frame this page)">
         <PathSwitcher
           items={[
-            { href: routes.give, photo: "giveOutreach", ...pray.switcher.give },
-            { href: routes.gather, photo: "gatherCrowd", ...pray.switcher.gather },
+            { href: routes.give, photo: "giveEmbrace", ...pray.switcher.give },
+            { href: routes.gather, photo: "gatherWorshipCrowd", ...pray.switcher.gather },
           ]}
         />
         <Stack direction="row" gap={3} wrap>
