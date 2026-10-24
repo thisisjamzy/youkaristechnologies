@@ -1,0 +1,13 @@
+@use "@/styles/abstracts" as *;
+
+// Three across on wide screens; they wrap to fewer per row as the screen narrows.
+.band {
+  display: flex;
+  flex-wrap: wrap;
+  gap: space(4);
+}
+
+.photo {
+  flex: 1 1 space(65);
+  min-width: 0;
+}

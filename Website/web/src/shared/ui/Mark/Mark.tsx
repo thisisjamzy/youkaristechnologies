@@ -14,8 +14,8 @@ const HEIGHT = 1055;
 
 export type MarkProps = {
   variant?: keyof typeof files;
-  /** Width: `sm` 52px, `md` 54px, `fluid` fills its box up to 360px. `header`: 32px tall. */
-  size?: "sm" | "md" | "fluid" | "header";
+  /** Width: `xs` 48px, `sm` 52px, `md` 54px, `fluid` fills its box up to 320px. `header`: 32px tall. */
+  size?: "xs" | "sm" | "md" | "fluid" | "header";
   /** Empty (decorative) unless the mark is the subject, as on Our Story. */
   alt?: string;
   className?: string;

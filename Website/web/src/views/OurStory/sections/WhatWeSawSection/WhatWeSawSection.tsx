@@ -1,44 +1,40 @@
 import { strings } from "@/content/strings";
-import { Chip, Grid, Heading, Label, Overlay, PhotoWithOverlay, Section, Text } from "@/shared/ui";
-import reading from "../_shared/reading.module.scss";
+import { Chip, Heading, Overlay, PhotoWithOverlay, Text } from "@/shared/ui";
+import media from "../_media/media.module.scss";
+import { StoryChapter } from "../StoryChapter";
 
 const { whatWeSaw } = strings.ourStory;
 
 export function WhatWeSawSection() {
   return (
-    <>
-      <Section as="article" width="reading" top="fluid-80-128" className={reading.column}>
-        <Label>{whatWeSaw.label}</Label>
-        <Heading text={whatWeSaw.headline} size="fluid-30-44" leading="1-08" />
-        {whatWeSaw.body.map((paragraph) => (
-          <Text key={paragraph} variant="longform">
-            {paragraph}
-          </Text>
-        ))}
-      </Section>
-      <Section top={14}>
-        <Grid min={75} gap={3}>
-          <PhotoWithOverlay name="massAltar" alt={whatWeSaw.sunday.photoAlt} height={105} radius="lg" sizes="half">
-            <Overlay position="topLeft" inset={4}>
-              <Chip size="sm">{whatWeSaw.sunday.caption}</Chip>
-            </Overlay>
-          </PhotoWithOverlay>
-          <PhotoWithOverlay
-            name="eventLaugh"
-            alt={whatWeSaw.monday.photoAlt}
-            height={105}
-            radius="lg"
-            focus="30"
-            sizes="half"
-          >
-            <Overlay position="topLeft" inset={4}>
-              <Chip size="sm" tone="ink">
-                {whatWeSaw.monday.caption}
-              </Chip>
-            </Overlay>
-          </PhotoWithOverlay>
-        </Grid>
-      </Section>
-    </>
+    <StoryChapter index={1} label={whatWeSaw.label}>
+      <Heading text={whatWeSaw.headline} size="fluid-30-48" leading="1-06" measure="760" />
+      {whatWeSaw.body.map((paragraph) => (
+        <Text key={paragraph} variant="longform" measure="680">
+          {paragraph}
+        </Text>
+      ))}
+      <div className={`${media.media} ${media.pair}`}>
+        <PhotoWithOverlay name="massAltar" alt={whatWeSaw.sunday.photoAlt} height="chapterPair" radius="lg" sizes="third">
+          <Overlay position="topLeft" inset={3.5}>
+            <Chip size="sm">{whatWeSaw.sunday.caption}</Chip>
+          </Overlay>
+        </PhotoWithOverlay>
+        <PhotoWithOverlay
+          name="eventLaugh"
+          alt={whatWeSaw.monday.photoAlt}
+          height="chapterPair"
+          radius="lg"
+          focus="30"
+          sizes="third"
+        >
+          <Overlay position="topLeft" inset={3.5}>
+            <Chip size="sm" tone="ink">
+              {whatWeSaw.monday.caption}
+            </Chip>
+          </Overlay>
+        </PhotoWithOverlay>
+      </div>
+    </StoryChapter>
   );
 }

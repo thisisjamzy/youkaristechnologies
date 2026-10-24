@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { breakpoints, layout, type BoxStep, type FluidSizeName, type RadiusName } from "@/styles/tokens/tokens";
-import { cn, photos, spaceKey, type PhotoName } from "@/shared/lib";
+import { cn, photos, spaceKey, tokenKey, type PhotoName } from "@/shared/lib";
 import styles from "./Photo.module.scss";
 
 /** A step on the 4px scale (105 = 420px), a fluid size (`hero`), or `fill` to fill a grid cell. */
@@ -26,7 +26,7 @@ export type PhotoProps = {
   minHeight?: BoxStep;
   radius?: RadiusName;
   /** Vertical focus point, as in the reference (`object-position: center 30%`). */
-  focus?: "25" | "30" | "35" | "40";
+  focus?: "25" | "30" | "35" | "40" | "45";
   sizes?: keyof typeof photoSizes;
   /**
    * Only for the photo in the opening of a page (the LCP element): fetched first and never
@@ -37,7 +37,8 @@ export type PhotoProps = {
 };
 
 const heightClass = (height: PhotoHeight) =>
-  typeof height === "number" ? `h-${spaceKey(height)}` : height === "fill" ? "fill" : `h-${height}`;
+  // Fluid sizes are camelCase in tokens.ts and kebab-case in the generated classes.
+  typeof height === "number" ? `h-${spaceKey(height)}` : height === "fill" ? "fill" : `h-${tokenKey(height)}`;
 
 /** A rounded photo, never tinted. `<Photo name="passRosary" alt={alt} height="fill" minHeight={100} />` */
 export function Photo({

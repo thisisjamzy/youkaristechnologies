@@ -55,6 +55,10 @@
   --text-heading-m: clamp(32px, 3.6vw, 48px);
   --text-title-m: clamp(22px, 2.4vw, 30px);
   --text-fluid-120-200: clamp(120px, 16vw, 200px);
+  --text-fluid-44-96: clamp(44px, 6.6vw, 96px);
+  --text-story-number: clamp(44px, 6.5vw, 88px);
+  --text-fluid-30-48: clamp(30px, 3.6vw, 48px);
+  --text-fluid-22-28: clamp(22px, 2.4vw, 28px);
   --text-fluid-48-100: clamp(48px, 7vw, 100px);
   --text-fluid-44-88: clamp(44px, 6vw, 88px);
   --text-fluid-40-88: clamp(40px, 6vw, 88px);
@@ -77,6 +81,7 @@
   --leading-0-9: 0.9;
   --leading-0-95: 0.95;
   --leading-0-98: 0.98;
+  --leading-1-06: 1.06;
   --leading-1-02: 1.02;
   --leading-1-04: 1.04;
   --leading-1-05: 1.05;
@@ -105,6 +110,7 @@
   --radius-2xs: 2px;
   --radius-xs: 4px;
   --radius-s: 8px;
+  --radius-s-plus: 10px;
   --radius-sm: 12px;
   --radius-sm-plus: 14px;
   --radius-md: 16px;

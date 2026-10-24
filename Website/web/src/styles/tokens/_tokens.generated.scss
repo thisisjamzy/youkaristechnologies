@@ -55,6 +55,10 @@
     --text-heading-m: clamp(32px, 3.6vw, 48px);
     --text-title-m: clamp(22px, 2.4vw, 30px);
     --text-fluid-120-200: clamp(120px, 16vw, 200px);
+    --text-fluid-44-96: clamp(44px, 6.6vw, 96px);
+    --text-story-number: clamp(44px, 6.5vw, 88px);
+    --text-fluid-30-48: clamp(30px, 3.6vw, 48px);
+    --text-fluid-22-28: clamp(22px, 2.4vw, 28px);
     --text-fluid-48-100: clamp(48px, 7vw, 100px);
     --text-fluid-44-88: clamp(44px, 6vw, 88px);
     --text-fluid-40-88: clamp(40px, 6vw, 88px);
@@ -77,6 +81,7 @@
     --leading-0-9: 0.9;
     --leading-0-95: 0.95;
     --leading-0-98: 0.98;
+    --leading-1-06: 1.06;
     --leading-1-02: 1.02;
     --leading-1-04: 1.04;
     --leading-1-05: 1.05;
@@ -187,14 +192,25 @@
     --space-fluid-28-56-5: clamp(28px, 5vw, 56px);
     --space-fluid-28-64: clamp(28px, 5vw, 64px);
     --space-fluid-32-56: clamp(32px, 5vw, 56px);
+    --space-fluid-56-96: clamp(56px, 7vw, 96px);
+    --space-fluid-72-120: clamp(72px, 9vw, 120px);
+    --space-fluid-16-32: clamp(16px, 3vw, 32px);
+    --space-fluid-18-28: clamp(18px, 3vw, 28px);
+    --space-fluid-32-72: clamp(32px, 6vw, 72px);
     --size-hero: clamp(360px, 44vw, 600px);
     --size-feature: clamp(340px, 40vw, 560px);
     --size-wide: clamp(400px, 48vw, 640px);
     --size-team: clamp(340px, 42vw, 560px);
-    --size-story: clamp(320px, 40vw, 540px);
+    --size-story: clamp(300px, 40vw, 540px);
+    --size-band: clamp(300px, 34vw, 460px);
+    --size-chapter-pair: clamp(220px, 28vw, 380px);
+    --size-chapter-wide: clamp(260px, 34vw, 440px);
+    --size-chapter-phone: clamp(220px, 26vw, 320px);
+    --size-mark-card: clamp(240px, 30vw, 360px);
     --radius-2xs: 2px;
     --radius-xs: 4px;
     --radius-s: 8px;
+    --radius-s-plus: 10px;
     --radius-sm: 12px;
     --radius-sm-plus: 14px;
     --radius-md: 16px;
@@ -228,6 +244,7 @@
     --duration-menu-close: 200ms;
     --duration-stagger: 30ms;
     --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --measure-320: 320px;
     --measure-340: 340px;
     --measure-360: 360px;
     --measure-380: 380px;
@@ -236,7 +253,9 @@
     --measure-620: 620px;
     --measure-640: 640px;
     --measure-660: 660px;
+    --measure-680: 680px;
     --measure-688: 688px;
+    --measure-760: 760px;
     --measure-900: 900px;
     --measure-940: 940px;
     --measure-960: 960px;
@@ -317,6 +336,10 @@ $font-sizes: (
   "heading-m": var(--text-heading-m),
   "title-m": var(--text-title-m),
   "fluid-120-200": var(--text-fluid-120-200),
+  "fluid-44-96": var(--text-fluid-44-96),
+  "story-number": var(--text-story-number),
+  "fluid-30-48": var(--text-fluid-30-48),
+  "fluid-22-28": var(--text-fluid-22-28),
   "fluid-48-100": var(--text-fluid-48-100),
   "fluid-44-88": var(--text-fluid-44-88),
   "fluid-40-88": var(--text-fluid-40-88),
@@ -341,6 +364,7 @@ $line-heights: (
   "0-9": var(--leading-0-9),
   "0-95": var(--leading-0-95),
   "0-98": var(--leading-0-98),
+  "1-06": var(--leading-1-06),
   "1-02": var(--leading-1-02),
   "1-04": var(--leading-1-04),
   "1-05": var(--leading-1-05),
@@ -524,6 +548,11 @@ $fluid-space: (
   "fluid-28-56-5": var(--space-fluid-28-56-5),
   "fluid-28-64": var(--space-fluid-28-64),
   "fluid-32-56": var(--space-fluid-32-56),
+  "fluid-56-96": var(--space-fluid-56-96),
+  "fluid-72-120": var(--space-fluid-72-120),
+  "fluid-16-32": var(--space-fluid-16-32),
+  "fluid-18-28": var(--space-fluid-18-28),
+  "fluid-32-72": var(--space-fluid-32-72),
 );
 $fluid-sizes: (
   "hero": var(--size-hero),
@@ -531,11 +560,17 @@ $fluid-sizes: (
   "wide": var(--size-wide),
   "team": var(--size-team),
   "story": var(--size-story),
+  "band": var(--size-band),
+  "chapter-pair": var(--size-chapter-pair),
+  "chapter-wide": var(--size-chapter-wide),
+  "chapter-phone": var(--size-chapter-phone),
+  "mark-card": var(--size-mark-card),
 );
 $radii: (
   "2xs": var(--radius-2xs),
   "xs": var(--radius-xs),
   "s": var(--radius-s),
+  "s-plus": var(--radius-s-plus),
   "sm": var(--radius-sm),
   "sm-plus": var(--radius-sm-plus),
   "md": var(--radius-md),
@@ -552,6 +587,7 @@ $shadows: (
   "float": var(--shadow-float),
 );
 $measures: (
+  "320": var(--measure-320),
   "340": var(--measure-340),
   "360": var(--measure-360),
   "380": var(--measure-380),
@@ -560,7 +596,9 @@ $measures: (
   "620": var(--measure-620),
   "640": var(--measure-640),
   "660": var(--measure-660),
+  "680": var(--measure-680),
   "688": var(--measure-688),
+  "760": var(--measure-760),
   "900": var(--measure-900),
   "940": var(--measure-940),
   "960": var(--measure-960),

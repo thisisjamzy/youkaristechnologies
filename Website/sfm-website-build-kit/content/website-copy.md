@@ -26,9 +26,9 @@ The Home page invites the reader in at once, names the struggle plainly, shows w
 
 ### 1. Opening
 
-**Headline:** If you love Mary, you are already one of us.
+**Headline:** Every friend of Mary is a stranger we cannot wait to pray for, care for, and gather with.
 
-**Line under it:** Now take your place in the network.
+**Line under it:** None. The headline is one sentence; from "we cannot wait" onwards it is set in muted grey.
 
 **Body:** Strangers for Mary is a network of Catholics around the world, linked like beads on a Rosary. We help people live out their Catholic faith every single day, out loud, alongside a community that shares the same values and the same hunger for Christ.
 

@@ -5,10 +5,11 @@ import styles from "./Heading.module.scss";
 
 /**
  * How the second part of a two-part line looks:
- * `muted` (two-tone headline), `blue`, `highlight` (lime, as in "Not another prayer group.")
+ * `muted` (two-tone headline), `blue`, `highlight` (lime, as in "Not another prayer group."),
+ * `highlightSoft` (the same with a softer corner, Our Story chapter 02)
  * or `badge` (tighter lime pill, as in "Yours.").
  */
-export type SecondTone = "muted" | "blue" | "highlight" | "badge";
+export type SecondTone = "muted" | "blue" | "highlight" | "highlightSoft" | "badge";
 
 export type HeadingProps = {
   as?: "h1" | "h2" | "h3" | "h4" | "p" | "span" | "b";

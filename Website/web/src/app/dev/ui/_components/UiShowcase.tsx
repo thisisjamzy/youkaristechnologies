@@ -111,8 +111,8 @@ export function UiShowcase() {
           <Button href="#" variant="outline" arrow="right">{common.header.cta}</Button>
           <Button href="#" arrow="down">{strings.buildWithUs.opening.cta}</Button>
           <Button href="#">{common.form.shareOnWhatsApp}</Button>
-          <Button variant="light">{common.form.signUpSomeoneElse}</Button>
-          <Button variant="outline">{common.form.signUpSomeoneElse}</Button>
+          <Button variant="light">{common.closingCard.copyLink}</Button>
+          <Button variant="outline">{common.closingCard.copyLink}</Button>
           <Button variant="dark" arrow="right">{home.opening.primaryCta}</Button>
         </Stack>
         <div className={styles.inkPanel}>
@@ -160,7 +160,7 @@ export function UiShowcase() {
       </Block>
 
       <Block title="Photo, PhotoWithOverlay, FrostedCard, FolderCard">
-        <PhotoWithOverlay name="prayHandRosary" alt={home.opening.photoAlt} height="hero" wrapperClassName={styles.heroPhoto}>
+        <PhotoWithOverlay name="gatherChurch" alt={home.opening.photoAlt} height="hero" wrapperClassName={styles.heroPhoto}>
           <Overlay position="bottomLeft">
             <FrostedCard>
               <Mark />

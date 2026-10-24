@@ -1,0 +1,43 @@
+@use "@/styles/abstracts" as *;
+
+.chapter {
+  display: flex;
+  flex-direction: column;
+  gap: space(5) space(12);
+  padding-top: space(8);
+  border-top: var(--border-hairline) solid var(--color-hairline);
+
+  @include up(laptop) {
+    flex-direction: row;
+  }
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  gap: space(1.5);
+
+  @include up(laptop) {
+    flex: 1 1 space(55);
+    max-width: measure("320");
+  }
+}
+
+.number {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--text-20);
+  color: var(--color-text-muted);
+}
+
+// Headings and text keep their reading widths; photos and cards fill the column.
+.content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: space(5.5);
+
+  @include up(laptop) {
+    flex: 3 1 space(130);
+  }
+}

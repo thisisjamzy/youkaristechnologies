@@ -1,28 +1,31 @@
 import { strings } from "@/content/strings";
-import { Heading, Label, Photo, Section, Text } from "@/shared/ui";
-import reading from "../_shared/reading.module.scss";
-import styles from "./WhatWeKnewSection.module.scss";
+import { Heading, Photo, Text } from "@/shared/ui";
+import media from "../_media/media.module.scss";
+import { StoryChapter } from "../StoryChapter";
 
 const { whatWeKnew } = strings.ourStory;
 
 export function WhatWeKnewSection() {
   return (
-    <>
-      <Section top="fluid-96-152">
-        <Heading
-          as="p"
-          text={whatWeKnew.pullQuote}
-          size="fluid-40-88"
-          tracking="tighter"
-          secondTone="highlight"
-          className={styles.quote}
-        />
-      </Section>
-      <Section as="article" width="reading" top={14} className={reading.column}>
-        <Label>{whatWeKnew.label}</Label>
-        <Text variant="longform">{whatWeKnew.body}</Text>
-        <Photo name="bwRosaryHands" alt={whatWeKnew.photoAlt} height={110} radius="lg" sizes="half" className={reading.photo} />
-      </Section>
-    </>
+    <StoryChapter index={2} label={whatWeKnew.label}>
+      <Heading
+        text={whatWeKnew.pullQuote}
+        size="fluid-30-48"
+        leading="1-06"
+        measure="760"
+        secondTone="highlightSoft"
+      />
+      <Text variant="longform" measure="680">
+        {whatWeKnew.body}
+      </Text>
+      <Photo
+        name="bwRosaryHands"
+        alt={whatWeKnew.photoAlt}
+        height="chapterWide"
+        radius="lg"
+        sizes="half"
+        className={media.media}
+      />
+    </StoryChapter>
   );
 }

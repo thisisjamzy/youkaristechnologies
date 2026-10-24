@@ -31,6 +31,13 @@
   padding: space(8);
 }
 
+.fluid {
+  min-width: 0;
+  gap: space(8);
+  padding: space("fluid-18-28");
+  border-radius: radius(lg);
+}
+
 .label {
   @include label("14");
 }
@@ -42,6 +49,11 @@
 
   .lg & {
     font-size: var(--text-104);
+  }
+
+  .fluid & {
+    font-size: var(--text-story-number);
+    white-space: nowrap;
   }
 }
 

@@ -1,23 +1,31 @@
 import { strings } from "@/content/strings";
-import { Heading, Label, NumberCard, Photo, Section, Text } from "@/shared/ui";
-import styles from "./TenFriendsSection.module.scss";
+import { Heading, NumberCard, Photo, Text } from "@/shared/ui";
+import media from "../_media/media.module.scss";
+import { StoryChapter } from "../StoryChapter";
 
 const { tenFriends } = strings.ourStory;
 
 export function TenFriendsSection() {
   const [first, later] = tenFriends.numbers;
   return (
-    <Section top="fluid-96-152" className={styles.section}>
-      <div className={styles.copy}>
-        <Label>{tenFriends.label}</Label>
-        <Heading text={tenFriends.headline} size="fluid-32-52" leading="1-04" />
-        <Text variant="longform">{tenFriends.body}</Text>
+    <StoryChapter index={3} label={tenFriends.label}>
+      <Heading text={tenFriends.headline} size="fluid-30-48" leading="1-06" measure="760" />
+      <Text variant="longform" measure="680">
+        {tenFriends.body}
+      </Text>
+      <div className={`${media.media} ${media.pair}`}>
+        <Photo
+          name="womanPhone"
+          alt={tenFriends.photoAlt}
+          height="chapterPhone"
+          radius="lg"
+          focus="30"
+          sizes="half"
+          className={media.wide}
+        />
+        <NumberCard {...first} size="fluid" />
+        <NumberCard {...later} tone="lime" size="fluid" />
       </div>
-      <div className={styles.cards}>
-        <Photo name="womanPhone" alt={tenFriends.photoAlt} height={70} radius="xl" focus="30" sizes="half" className={styles.wide} />
-        <NumberCard {...first} />
-        <NumberCard {...later} tone="lime" />
-      </div>
-    </Section>
+    </StoryChapter>
   );
 }

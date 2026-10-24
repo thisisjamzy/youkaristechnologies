@@ -39,7 +39,7 @@ export function JoinNetworkForm({ placesLeft }: JoinNetworkFormProps) {
   const [selectedTeams, setSelectedTeams] = useState<string[]>([]);
   const formRef = useRef<HTMLFormElement>(null);
   const successId = useId();
-  const { status, errors, formError, coreTeamFull, submit, reset } = useSignupSubmission(schema);
+  const { status, errors, formError, coreTeamFull, submit } = useSignupSubmission(schema);
   const teamFull = placesLeft !== null && placesLeft <= 0;
 
   useEffect(() => {
@@ -72,12 +72,6 @@ export function JoinNetworkForm({ placesLeft }: JoinNetworkFormProps) {
     if (firstInvalid) focusField(firstInvalid);
   };
 
-  const startAgain = () => {
-    reset();
-    setJoining(true);
-    setApplying(false);
-    setSelectedTeams([]);
-  };
 
   if (status === "sent") {
     return (
@@ -88,9 +82,6 @@ export function JoinNetworkForm({ placesLeft }: JoinNetworkFormProps) {
         <Heading as="p" text={form.passItOn} size="56" tracking="tighter" />
         <div className={styles.actions}>
           <Button href={whatsAppShareUrl(share.afterSignup)}>{form.shareOnWhatsApp}</Button>
-          <Button variant="light" onClick={startAgain}>
-            {form.signUpSomeoneElse}
-          </Button>
         </div>
       </SuccessState>
     );

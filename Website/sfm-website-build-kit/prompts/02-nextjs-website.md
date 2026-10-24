@@ -245,6 +245,7 @@ Rebuild each page section by section from its reference file, in order. The head
 Both forms post to `/api/signup`, which forwards to the Apps Script web app described in `prompts/01-apps-script-backend.md`.
 
 - **Home form (`join-network`)**: Full name, Baptism name, Email, Your parish, City and country, WhatsApp (optional). Checkboxes: "Join as a stranger" (ticked by default) and "Apply for the core team". Ticking the second reveals: the places-left line and interview note, team checkboxes (Stranger Relations, Outreach, Core and Content, Technology), and "Tell us about yourself". Button "Count me in". Success state: "Welcome, stranger." with Share on WhatsApp and "Sign up someone else".
+- **After a successful submission** (both forms): show the success panel only. There is no button to reset the form or sign up another person; the panel offers sharing (Home: "Share on WhatsApp") and nothing else. Reloading the page shows the empty form again.
 - **Build With Us form (`apply-core-team`)**: same fields, `applyCoreTeam` always true, team checkboxes and about shown, a "Also invite me to join as a stranger" checkbox ticked by default, button "Apply for a place", places line under the button. Success: "Thank you for applying."
 - One zod schema in `entities/signup/model/schema.ts` drives client validation, server validation and the TypeScript types. Field errors show under each field using strings from `strings.forms.errors`.
 - Hidden honeypot field (`website`); if filled, return success without forwarding.

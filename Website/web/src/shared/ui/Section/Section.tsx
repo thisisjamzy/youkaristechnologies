@@ -15,6 +15,8 @@ export type SectionProps = {
   id?: string;
   className?: string;
   "aria-labelledby"?: string;
+  /** For a section without a heading, e.g. a band of photos. */
+  "aria-label"?: string;
   children: ReactNode;
 };
 

@@ -30,7 +30,7 @@ How to read it:
 - Paragraph: Strangers for Mary is a network of Catholics around the world, linked like beads on a Rosary. We help people live out their Catholic faith every single day, out loud, alongside a community that shares the same values and the same hunger for Christ.
 - Link: Join the strangers
 - Link: Help us build it
-- Image alt: A hand holding a rosary in prayer
+- Image alt: Young people smiling together in church
 - Paragraph: Every decade is a gift from one stranger to another.
 - Label: Mon to Sat
 - Text: 1 Rosary
@@ -57,6 +57,13 @@ How to read it:
 - Paragraph: Most of us will never stand in the same room. But every one of us has run to the same Mother, and found her already waiting.
 - Paragraph: Whoever identifies with her,
 - Paragraph: identifies with us.
+
+### Strangers in prayer (photo band)
+
+- Aria label (section): Strangers in prayer
+- Image alt: A young man holding up a rosary
+- Image alt: A family worshipping with a child on his father's shoulders
+- Image alt: A young woman praying alone by a window
 
 ### What makes us different
 
@@ -167,7 +174,6 @@ How to read it:
 - Paragraph: Now do what every stranger does.
 - Paragraph: Pass it on.
 - Link: Share on WhatsApp
-- Button: Sign up someone else
 
 ### Page script: lists and dynamic text
 
@@ -602,7 +608,6 @@ class Component extends DCLogic {
 - H3: Thank you for applying.
 - Paragraph: Thank you for offering your gifts to Mary's mission. Someone from the team will be in touch soon, and may invite you to a short interview to find the place where your gifts do the most good.
 - Paragraph: Pass it on.
-- Button: Sign up someone else
 - Paragraph: Do not just join the strangers.
 - Paragraph: Bring them together.
 

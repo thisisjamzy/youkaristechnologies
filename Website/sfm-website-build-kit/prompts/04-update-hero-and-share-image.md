@@ -40,7 +40,7 @@ Seven photos were replaced so that every image on the site comes from the owner'
 
 | Old file | New file | Where | New alt text |
 | --- | --- | --- | --- |
-| pray-hands-together.jpg | pray-hand-rosary.jpg | Home hero | A hand holding a rosary in prayer |
+| pray-hands-together.jpg | gather-church.jpg (already in the kit, also used on Gather) | Home hero, `object-position: center 45%` | Young people smiling together in church |
 | pray-open-hands.jpg | pray-hands-raised.jpg | Pray hero, Pray link cards | Hands raised in prayer |
 | give-outreach.jpg | give-embrace.jpg | Home "We give", Give hero, Give link cards | Two women embracing |
 | gather-crowd.jpg | gather-worship-crowd.jpg | Home "We gather", Gather hero, Gather link cards | A crowd of people worshipping together |
@@ -49,3 +49,22 @@ Seven photos were replaced so that every image on the site comes from the owner'
 | men-talking.jpg | story-praying-room.jpg | Our Story "When it broke" | Young people praying together in a crowded room |
 
 Replace `public/images/CREDITS.json` with the kit's version. Then check with a search that no old file name is referenced anywhere.
+
+## 5. New photo band on Home
+
+Between "We are strangers" and "Not another prayer group" there is now a row of three photos (see `design-reference/home.html`, section "3B STRANGERS IN PRAYER"): `strangers-rosary-man.jpg`, `strangers-family-worship.jpg` and `strangers-window-prayer.jpg` from `assets/photos/`, with alt text from `content/strings-master.md` ("Strangers in prayer"). Three equal rounded images (radius 24px, 16px apart) inside the page container, each between 300px and 460px tall, wrapping to one per row on phones. Build it as a reusable `PhotoRow` component in `shared/ui`.
+
+## 6. Our Story page layout
+
+The Our Story page has a new layout (see `design-reference/our-story.html`). The words are unchanged; only the structure is new.
+
+- One left edge for everything. The opening is left-aligned: the "Our story" tag, then the headline and the intro paragraph side by side on wide screens, then the full-width photo.
+- The five parts of the story are numbered chapters (01 What we saw, 02 What we knew, 03 Ten friends, 04 When it broke, 05 Why we are back). Each chapter starts with a 1px hairline (`#DDE2E8`). On wide screens a narrow left column (up to 320px) shows the chapter number in muted Nohemi and the label; the right column holds the heading, text and media. Below 1024px they stack.
+- In the right column, headings are capped at 760px and paragraphs at 680px wide, while photos and cards fill the full column, so every photo ends on the same right edge as the opening photo.
+- The 10 and 100s numbers scale with the screen (`clamp(44px, 6.5vw, 88px)` as a type token) and never overflow their cards.
+- The name and mark cards are left-aligned to the same edge. The closing ("Our story is still being written" and the button) stays centred, like the closing on every other page.
+- Build the chapter as a reusable `StoryChapter` component (number, label, children) inside `views/OurStory/sections/`.
+
+## 7. No "Sign up someone else" after submitting
+
+Remove the "Sign up someone else" button from the success panel of both forms (Home and Build With Us), its string from `strings.ts`, and the reset handler behind it. After a successful submission the person sees only the thank-you panel (and, on Home, "Share on WhatsApp"). Update the form tests to check the button is not there.

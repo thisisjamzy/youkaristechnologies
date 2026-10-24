@@ -36,7 +36,7 @@
   }
 }
 
-@each $focus in (25, 30, 35, 40) {
+@each $focus in (25, 30, 35, 40, 45) {
   .focus-#{$focus} {
     object-position: center #{$focus * 1%};
   }

@@ -65,6 +65,7 @@
 }
 
 .highlight,
+.highlightSoft,
 .badge {
   color: var(--color-text-primary);
   background: var(--color-lime);
@@ -74,6 +75,11 @@
 .highlight {
   border-radius: radius(sm);
   padding: 0 0.1em;
+}
+
+.highlightSoft {
+  border-radius: radius(s-plus);
+  padding: 0 0.12em;
 }
 
 .badge {

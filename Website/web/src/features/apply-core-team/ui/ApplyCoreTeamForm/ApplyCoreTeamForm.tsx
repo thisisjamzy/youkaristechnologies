@@ -41,7 +41,7 @@ export function ApplyCoreTeamForm({ placesLeft }: ApplyCoreTeamFormProps) {
   const [joining, setJoining] = useState(true);
   const formRef = useRef<HTMLFormElement>(null);
   const successId = useId();
-  const { status, errors, formError, coreTeamFull, submit, reset } = useSignupSubmission(schema);
+  const { status, errors, formError, coreTeamFull, submit } = useSignupSubmission(schema);
   const teamFull = (placesLeft !== null && placesLeft <= 0) || coreTeamFull;
 
   useEffect(() => {
@@ -75,16 +75,6 @@ export function ApplyCoreTeamForm({ placesLeft }: ApplyCoreTeamFormProps) {
       <SuccessState title={copy.success.title} tone="ink" titleId={successId}>
         <p className={styles.successText}>{copy.success.body}</p>
         <Heading as="p" text={form.passItOn} size="48" tracking="tighter" />
-        <Button
-          variant="outline"
-          onClick={() => {
-            reset();
-            setSelectedTeams([]);
-            setJoining(true);
-          }}
-        >
-          {form.signUpSomeoneElse}
-        </Button>
       </SuccessState>
     );
   }

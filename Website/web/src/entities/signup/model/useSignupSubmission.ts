@@ -16,7 +16,6 @@ export type SignupSubmission = {
   coreTeamFull: boolean;
   /** Validates, then sends. Returns the first invalid field, if any, so the form can focus it. */
   submit: (input: unknown) => Promise<SignupField | null>;
-  reset: () => void;
 };
 
 const e = strings.common.errors;
@@ -60,12 +59,6 @@ export function useSignupSubmission<T extends string>(schema: SignupSchema<T>): 
     return null;
   };
 
-  const reset = () => {
-    setStatus("idle");
-    setErrors({});
-    setFormError(null);
-    setCoreTeamFull(false);
-  };
 
-  return { status, errors, formError, coreTeamFull, submit, reset };
+  return { status, errors, formError, coreTeamFull, submit };
 }

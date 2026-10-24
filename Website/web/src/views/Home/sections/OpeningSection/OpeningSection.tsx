@@ -44,9 +44,10 @@ export function OpeningSection() {
       </div>
 
       <PhotoWithOverlay
-        name="prayHandRosary"
+        name="gatherChurch"
         alt={opening.photoAlt}
         height="hero"
+        focus="45"
         priority
         wrapperClassName={styles.photo}
       >

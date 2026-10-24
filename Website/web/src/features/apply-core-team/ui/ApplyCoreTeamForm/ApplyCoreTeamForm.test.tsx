@@ -34,6 +34,9 @@ describe("ApplyCoreTeamForm", () => {
     await user.click(screen.getByLabelText(teams.outreach.name));
     await user.click(screen.getByRole("button", { name: copy.submit }));
     expect(await screen.findByRole("heading", { name: copy.success.title })).toBeInTheDocument();
+    // Only the thank-you: no button to reset the form or sign up another person.
+    expect(screen.queryAllByRole("button")).toHaveLength(0);
+    expect(screen.queryByRole("textbox")).toBeNull();
     expect(JSON.parse(fetchMock.mock.calls[0][1].body)).toMatchObject({
       sourcePage: "build-with-us",
       applyCoreTeam: true,

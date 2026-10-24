@@ -4,8 +4,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: space(90);
-  padding: space("fluid-40-72");
+  min-height: size(mark-card);
+  padding: space("fluid-32-72");
   border-radius: radius("2xl");
   background: var(--color-white);
 }
@@ -28,7 +28,7 @@
 }
 
 .slogan {
-  @include label("28", medium, slogan-wide);
+  @include label("fluid-22-28", medium, slogan-wide);
 
   margin: space(1.5) 0 0;
 }

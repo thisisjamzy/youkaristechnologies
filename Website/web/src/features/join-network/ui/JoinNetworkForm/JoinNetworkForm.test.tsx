@@ -67,6 +67,10 @@ describe("JoinNetworkForm", () => {
     await fillValid(user);
     await user.click(submitButton());
     expect(await screen.findByRole("heading", { name: join.success.title })).toHaveFocus();
+    // Only the thank-you and sharing: no way to reset the form or sign up another person.
+    expect(screen.getByRole("link", { name: form.shareOnWhatsApp })).toBeInTheDocument();
+    expect(screen.queryAllByRole("button")).toHaveLength(0);
+    expect(screen.queryByRole("textbox")).toBeNull();
     const [url, init] = fetchMock.mock.calls[0];
     expect(url).toBe("/api/signup");
     expect(JSON.parse(init.body)).toMatchObject({ sourcePage: "home", email: "mary@example.org", joinAsStranger: true });

@@ -21,9 +21,6 @@ export function FormDemo() {
           <Text size="17">{strings.home.join.success.body}</Text>
           <Stack direction="row" gap={2.5} wrap>
             <Button href="https://wa.me/">{form.shareOnWhatsApp}</Button>
-            <Button variant="light" onClick={() => setSent(false)}>
-              {form.signUpSomeoneElse}
-            </Button>
           </Stack>
         </SuccessState>
       </div>

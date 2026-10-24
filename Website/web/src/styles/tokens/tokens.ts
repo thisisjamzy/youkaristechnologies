@@ -65,6 +65,10 @@ export const fontSizes = {
   titleM: fluid(22, 2.4, 30), // card headings
   // Other fluid sizes in the reference (min-max, vw)
   "fluid-120-200": fluid(120, 16, 200),
+  "fluid-44-96": fluid(44, 6.6, 96), // Our Story headline
+  storyNumber: fluid(44, 6.5, 88), // Our Story 10 and 100s: scale with the screen, never overflow
+  "fluid-30-48": fluid(30, 3.6, 48), // Our Story chapter headings
+  "fluid-22-28": fluid(22, 2.4, 28), // Our Story slogan
   "fluid-48-100": fluid(48, 7, 100),
   "fluid-44-88": fluid(44, 6, 88),
   "fluid-40-88": fluid(40, 6, 88),
@@ -110,6 +114,7 @@ export const lineHeights = {
   "0-9": 0.9,
   "0-95": 0.95,
   "0-98": 0.98,
+  "1-06": 1.06,
   "1": 1,
   "1-02": 1.02,
   "1-04": 1.04,
@@ -184,6 +189,11 @@ export const fluidSpace = {
   "fluid-28-56-5": fluid(28, 5, 56),
   "fluid-28-64": fluid(28, 5, 64),
   "fluid-32-56": fluid(32, 5, 56),
+  "fluid-56-96": fluid(56, 7, 96), // Home photo band
+  "fluid-72-120": fluid(72, 9, 120), // Our Story chapters
+  "fluid-16-32": fluid(16, 3, 32),
+  "fluid-18-28": fluid(18, 3, 28),
+  "fluid-32-72": fluid(32, 6, 72),
 } as const;
 
 /** Fluid photo heights. Fixed heights use the space scale (e.g. space(105) = 420px). */
@@ -192,13 +202,19 @@ export const fluidSizes = {
   feature: fluid(340, 40, 560), // Pray and Give opening photos
   wide: fluid(400, 48, 640), // Home gather photo
   team: fluid(340, 42, 560), // Build With Us team photo
-  story: fluid(320, 40, 540), // Our Story campus photo
+  story: fluid(300, 40, 540), // Our Story opening photo
+  band: fluid(300, 34, 460), // Home "Strangers in prayer" photos
+  chapterPair: fluid(220, 28, 380), // Our Story Sunday/Monday
+  chapterWide: fluid(260, 34, 440), // Our Story chapter photos
+  chapterPhone: fluid(220, 26, 320), // Our Story ten friends photo
+  markCard: fluid(240, 30, 360), // Our Story mark card minimum height
 } as const;
 
 export const radii = {
   "2xs": 2,
   xs: 4,
   s: 8,
+  "s-plus": 10,
   sm: 12,
   "sm-plus": 14,
   md: 16,
@@ -283,6 +299,7 @@ export const easing = {
 
 /** Reading widths (max-width) used in the reference. */
 export const measures = {
+  "320": 320,
   "340": 340,
   "360": 360,
   "380": 380,
@@ -291,7 +308,9 @@ export const measures = {
   "620": 620,
   "640": 640,
   "660": 660,
+  "680": 680,
   "688": 688,
+  "760": 760,
   "900": 900,
   "940": 940,
   "960": 960,

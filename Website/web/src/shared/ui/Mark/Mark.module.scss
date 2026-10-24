@@ -6,6 +6,10 @@
   height: auto;
 }
 
+.xs {
+  width: space(12);
+}
+
 .sm {
   width: space(13);
 }
@@ -21,5 +25,5 @@
 
 .fluid {
   width: 100%;
-  max-width: measure("360");
+  max-width: measure("320");
 }

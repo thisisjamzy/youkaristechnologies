@@ -141,7 +141,6 @@ export const strings = {
       privacyNote: "We will only use your details to contact you about Strangers for Mary.",
       privacyLink: "Privacy policy",
       sending: "Sending",
-      signUpSomeoneElse: "Sign up someone else",
       passItOn: "Pass it on.",
       shareOnWhatsApp: "Share on WhatsApp",
     },
@@ -216,7 +215,7 @@ export const strings = {
       body: "Strangers for Mary is a network of Catholics around the world, linked like beads on a Rosary. We help people live out their Catholic faith every single day, out loud, alongside a community that shares the same values and the same hunger for Christ.",
       primaryCta: "Join the strangers",
       secondaryCta: "Help us build it",
-      photoAlt: "A hand holding a rosary in prayer",
+      photoAlt: "Young people smiling together in church",
       photoCard: "Every decade is a gift from one stranger to another.",
       limeCard: {
         label: "Mon to Sat",
@@ -242,6 +241,15 @@ export const strings = {
       headline: { main: "Different cities.", muted: "Different languages. Different stories." },
       body: "Most of us will never stand in the same room. But every one of us has run to the same Mother, and found her already waiting.",
       closing: { main: "Whoever identifies with her,", emphasis: "identifies with us." },
+    },
+
+    strangersInPrayer: {
+      label: "Strangers in prayer",
+      photoAlts: [
+        "A young man holding up a rosary",
+        "A family worshipping with a child on his father's shoulders",
+        "A young woman praying alone by a window",
+      ],
     },
 
     difference: {

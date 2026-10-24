@@ -37,7 +37,7 @@ input::placeholder,textarea::placeholder{color:#6B7488}
 </div>
 </div>
 <div style="position: relative; margin-top: clamp(40px, 5vw, 64px);">
-<img src="../assets/photos/pray-hand-rosary.jpg" alt="A hand holding a rosary in prayer" style="width: 100%; height: clamp(360px, 44vw, 600px); object-fit: cover; border-radius: 28px; display: block;">
+<img src="../assets/photos/gather-church.jpg" alt="Young people smiling together in church" style="width: 100%; height: clamp(360px, 44vw, 600px); object-fit: cover; object-position: center 45%; border-radius: 28px; display: block;">
 <div style="position: absolute; left: 24px; bottom: 24px; max-width: 380px; background: rgba(255,255,255,0.8); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-radius: 20px; padding: 18px 20px; display: flex; align-items: center; gap: 16px; margin-right: 24px;">
 <img src="../assets/brand/sfm-mark-ink.svg" alt="" aria-hidden="true" style="width: 52px; height: auto; flex: none;">
 <p style="margin: 0; font-size: 16px; line-height: 1.4; font-weight: 600;">Every decade is a gift from one stranger to another.</p>
@@ -80,6 +80,13 @@ input::placeholder,textarea::placeholder{color:#6B7488}
 <h2 style="margin: 0; max-width: 940px; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(36px, 4.8vw, 68px); line-height: 1.04; letter-spacing: -0.03em;">Different cities. <span style="color: #8A94A6;">Different languages. Different stories.</span></h2>
 <p style="margin: 0; max-width: 620px; font-size: 19px; line-height: 1.6; color: #4A5468;">Most of us will never stand in the same room. But every one of us has run to the same Mother, and found her already waiting.</p>
 <p style="margin: 12px 0 0; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.2; letter-spacing: -0.02em;">Whoever identifies with her,<br><span style="color: #0251B0;">identifies with us.</span></p>
+</section>
+
+<!-- 3B STRANGERS IN PRAYER (photo band) -->
+<section aria-label="Strangers in prayer" style="max-width: 1200px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) 24px 0; display: flex; flex-wrap: wrap; gap: 16px;">
+<img src="../assets/photos/strangers-rosary-man.jpg" alt="A young man holding up a rosary" style="flex: 1 1 260px; min-width: 0; width: 100%; height: clamp(300px, 34vw, 460px); object-fit: cover; object-position: center 35%; border-radius: 24px; display: block;">
+<img src="../assets/photos/strangers-family-worship.jpg" alt="A family worshipping with a child on his father's shoulders" style="flex: 1 1 260px; min-width: 0; width: 100%; height: clamp(300px, 34vw, 460px); object-fit: cover; object-position: center 40%; border-radius: 24px; display: block;">
+<img src="../assets/photos/strangers-window-prayer.jpg" alt="A young woman praying alone by a window" style="flex: 1 1 260px; min-width: 0; width: 100%; height: clamp(300px, 34vw, 460px); object-fit: cover; object-position: center 45%; border-radius: 24px; display: block;">
 </section>
 
 <!-- 4 WHAT MAKES US DIFFERENT -->
@@ -250,7 +257,6 @@ input::placeholder,textarea::placeholder{color:#6B7488}
 <p style="margin: 0; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 56px; line-height: 1; letter-spacing: -0.04em;">Pass it on.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
 <a href="https://wa.me/?text=I%20just%20joined%20Strangers%20for%20Mary%2C%20a%20network%20of%20Catholics%20who%20pray%20a%20full%20Rosary%20every%20day%20for%20each%20other%27s%20intentions.%20Add%20yours%2C%20pray%20for%20someone%20else%27s%2C%20and%20pass%20it%20on.%20Be%20one%20of%20the%20first%3A%20https%3A%2F%2Fwww.strangersformary.org" style="display: inline-flex; align-items: center; background: #D1FF42; color: #0A0F1A; text-decoration: none; font-weight: 700; font-size: 16px; padding: 14px 22px; border-radius: 999px; min-height: 50px; box-sizing: border-box;">Share on WhatsApp</a>
-<button type="button" onClick="{{reset}}" style="background: #FFFFFF; color: #0A0F1A; border: 1.5px solid #0A0F1A; font-family: 'Barlow', 'Helvetica Neue', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 22px; border-radius: 999px; cursor: pointer; min-height: 50px;">Sign up someone else</button>
 </div>
 </div>
 </sc-if>
@@ -284,8 +290,7 @@ class Component extends DCLogic {
         { n: '05', title: 'Prayer that becomes action.', text: 'What we pray for, we also work for, through small acts of charity for people waiting to receive them.' }
       ],
       toggleVolunteer: function (e) { self.setState({ volunteer: !!e.target.checked }); },
-      submit: function (e) { if (e && e.preventDefault) { e.preventDefault(); } self.setState({ sent: true }); },
-      reset: function () { self.setState({ sent: false, volunteer: false }); }
+      submit: function (e) { if (e && e.preventDefault) { e.preventDefault(); } self.setState({ sent: true }); }
     };
   }
 }

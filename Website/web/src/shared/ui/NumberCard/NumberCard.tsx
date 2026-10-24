@@ -6,8 +6,11 @@ export type NumberCardProps = {
   value: string;
   caption: string;
   tone?: "white" | "lime";
-  /** `md`: 88px number (Our Story). `lg`: 104px number (Home). */
-  size?: "md" | "lg";
+  /**
+   * `md`: 88px number. `lg`: 104px number (Home). `fluid`: the number scales with the screen
+   * (44 to 88px) and never wraps or overflows (Our Story).
+   */
+  size?: "md" | "lg" | "fluid";
   className?: string;
 };
 

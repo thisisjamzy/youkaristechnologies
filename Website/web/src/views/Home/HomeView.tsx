@@ -7,6 +7,7 @@ import { GiveSection } from "./sections/GiveSection";
 import { JoinSection } from "./sections/JoinSection";
 import { OpeningSection } from "./sections/OpeningSection";
 import { PraySection } from "./sections/PraySection";
+import { StrangersInPrayerSection } from "./sections/StrangersInPrayerSection";
 import { WhoWeAreSection } from "./sections/WhoWeAreSection";
 import { WhyStrangersSection } from "./sections/WhyStrangersSection";
 
@@ -22,6 +23,7 @@ export function HomeView({ placesLeft }: HomeViewProps) {
       <OpeningSection />
       <ChallengeSection />
       <WhoWeAreSection />
+      <StrangersInPrayerSection />
       <DifferenceSection />
       <PraySection />
       <GiveSection />

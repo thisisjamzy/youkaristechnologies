@@ -1,0 +1,1 @@
+export { StrangersInPrayerSection } from "./StrangersInPrayerSection";

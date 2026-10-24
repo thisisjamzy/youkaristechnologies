@@ -148,7 +148,6 @@ input::placeholder,textarea::placeholder{color:#4A5468}
 <h3 style="margin: 0; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 44px; line-height: 1; letter-spacing: -0.03em;">Thank you for applying.</h3>
 <p style="margin: 0; font-size: 17px; line-height: 1.6;">Thank you for offering your gifts to Mary's mission. Someone from the team will be in touch soon, and may invite you to a short interview to find the place where your gifts do the most good.</p>
 <p style="margin: 0; font-family: 'Nohemi', 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 48px; line-height: 1; letter-spacing: -0.04em;">Pass it on.</p>
-<button type="button" onClick="{{reset}}" style="background: transparent; color: #0A0F1A; border: 1.5px solid #0A0F1A; font-family: 'Barlow', 'Helvetica Neue', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 22px; border-radius: 999px; cursor: pointer; min-height: 50px;">Sign up someone else</button>
 </div>
 </sc-if>
 </div>
@@ -175,8 +174,7 @@ class Component extends DCLogic {
         { img: '../assets/photos/candle-rosary.jpg', alt: 'Hands holding a rosary beside a lit candle', role: 'You are the heart', name: 'Core and Content', text: 'You write the prayer guides, reflections and teaching that strangers will read, always faithful to the Catechism of the Catholic Church.' },
         { img: '../assets/photos/team-talk.jpg', alt: 'Two colleagues talking, one holding a laptop', role: 'You are the hands', name: 'Technology', text: 'You build Youkaris and the tools behind it, so that a prayer typed in one country lands safely in another.' }
       ],
-      submit: function (e) { if (e && e.preventDefault) { e.preventDefault(); } self.setState({ sent: true }); },
-      reset: function () { self.setState({ sent: false }); }
+      submit: function (e) { if (e && e.preventDefault) { e.preventDefault(); } self.setState({ sent: true }); }
     };
   }
 }

@@ -6,24 +6,29 @@ const { opening } = strings.ourStory;
 
 export function OpeningSection() {
   return (
-    <>
-      <Section top="fluid-48-96" className={styles.intro}>
-        <Tag bordered>{opening.label}</Tag>
+    <Section top="fluid-48-96" className={styles.opening}>
+      <Tag bordered>{opening.label}</Tag>
+      <div className={styles.intro}>
         <Heading
           as="h1"
           text={opening.headline}
-          size="fluid-48-100"
+          size="fluid-44-96"
           leading="0-98"
           tracking="tighter"
-          measure="960"
+          className={styles.headline}
         />
-        <Text size="20" leading="1-6" measure="620">
+        <Text variant="lead" size="19" leading="1-6" className={styles.lead}>
           {opening.body}
         </Text>
-      </Section>
-      <Section top="fluid-48-80">
-        <Photo name="storyChurchRow" alt={opening.photoAlt} height="story" focus="35" priority />
-      </Section>
-    </>
+      </div>
+      <Photo
+        name="storyChurchRow"
+        alt={opening.photoAlt}
+        height="story"
+        focus="35"
+        priority
+        className={styles.photo}
+      />
+    </Section>
   );
 }
