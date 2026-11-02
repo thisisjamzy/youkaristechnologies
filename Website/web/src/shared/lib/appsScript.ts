@@ -7,8 +7,7 @@ import { mockAppsScript } from "./appsScriptMock";
  * never logged. Apps Script answers through a redirect, which fetch follows.
  *
  * Without both variables, development uses an in-memory mock (see appsScriptMock.ts);
- * production treats it as an outage, so the site hides the number and shows the
- * friendly error.
+ * production treats it as an outage and shows the friendly error.
  */
 
 const TIMEOUT_MS = 10_000;
@@ -58,8 +57,8 @@ export async function appsScriptPost(payload: Record<string, unknown>): Promise<
   }
 }
 
-/** GETs ?action=… (places, health). */
-export async function appsScriptGet(action: "places" | "health"): Promise<AppsScriptReply> {
+/** GETs ?action=health. */
+export async function appsScriptGet(action: "health"): Promise<AppsScriptReply> {
   const cfg = config();
   if (cfg === "mock") return mockAppsScript.get(action);
   if (!cfg) return unreachable;

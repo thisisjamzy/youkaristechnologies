@@ -25,7 +25,8 @@ const columns = [
     title: footer.getInvolved.title,
     links: [
       { href: routes.join, label: footer.getInvolved.join },
-      { href: routes.buildWithUs, label: footer.getInvolved.buildWithUs },
+      { href: routes.volunteer, label: footer.getInvolved.volunteer },
+      { href: routes.roles, label: footer.getInvolved.volunteerRoles },
     ],
   },
   {

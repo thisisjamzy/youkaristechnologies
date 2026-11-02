@@ -10,11 +10,8 @@ const master = readFileSync(MASTER_PATH, "utf8");
 const PRAY_DESIGN_PATH = resolve(__dirname, "../../../sfm-website-build-kit/design-reference/pray.html");
 const prayScript = /data-dc-script[^>]*>([\s\S]*?)<\/script>/.exec(readFileSync(PRAY_DESIGN_PATH, "utf8"))?.[1] ?? "";
 
-// Any number works: functions are compared with the master's {{spotsLeft}} lines.
-const SAMPLE_LEFT = 17;
-
-/** The master with the server value filled in, plus the Pray script: everything strings.ts may say. */
-const sources = master.replaceAll("{{spotsLeft}}", String(SAMPLE_LEFT)) + prayScript;
+/** The master plus the Pray script: everything strings.ts may say. */
+const sources = master + prayScript;
 
 // Keys that hold data for components rather than copy.
 const NON_COPY_KEYS = new Set(["kind"]);
@@ -23,7 +20,6 @@ type Leaf = { path: string; value: string };
 
 function leaves(node: unknown, path = "strings"): Leaf[] {
   if (typeof node === "string") return [{ path, value: node }];
-  if (typeof node === "function") return [{ path: `${path}()`, value: String(node(SAMPLE_LEFT)) }];
   if (Array.isArray(node)) return node.flatMap((v, i) => leaves(v, `${path}[${i}]`));
   if (node && typeof node === "object") {
     return Object.entries(node)
@@ -44,9 +40,8 @@ function masterTexts(): string[] {
     if (kind === "Question" && raw === "+") continue;
     const text = raw
       .replace(/ \[link to add\]$/, "")
-      .replace(/^\[(.+)\]$/, "$1")
-      .replaceAll("{{spotsLeft}}", String(SAMPLE_LEFT));
-    if (text.includes("{{") || text === String(SAMPLE_LEFT)) continue; // filled from lists or the server
+      .replace(/^\[(.+)\]$/, "$1");
+    if (text.includes("{{")) continue; // filled from lists
     texts.push(text);
   }
 

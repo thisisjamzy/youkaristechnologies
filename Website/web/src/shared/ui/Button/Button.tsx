@@ -14,8 +14,11 @@ type Common = {
   arrow?: ArrowDirection;
   /** Full-width form button with a 14px radius. */
   block?: boolean;
-  /** `compact`: the 40px pill in the phone header ("Join us"). */
-  size?: "default" | "compact";
+  /**
+   * `compact`: the 40px pill in the phone header ("Join us").
+   * `large`: the 54px arrow pill in any variant (primary arrow buttons are always large).
+   */
+  size?: "default" | "compact" | "large";
   className?: string;
   "aria-label"?: string;
   children: ReactNode;
@@ -40,7 +43,7 @@ export function Button(props: ButtonProps) {
   const classes = cn(
     styles.button,
     styles[variant],
-    arrow ? styles[variant === "primary" ? "withArrow" : "withArrowSm"] : styles.plain,
+    arrow ? styles[variant === "primary" || size === "large" ? "withArrow" : "withArrowSm"] : styles.plain,
     block && styles.block,
     size === "compact" && styles.compact,
     className,

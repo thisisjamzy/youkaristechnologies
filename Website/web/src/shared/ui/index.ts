@@ -6,7 +6,6 @@ export * from "./Checkbox";
 export * from "./CheckboxGroup";
 export * from "./Chip";
 export * from "./Container";
-export * from "./Counter";
 export * from "./FolderCard";
 export * from "./FormAlert";
 export * from "./FormField";

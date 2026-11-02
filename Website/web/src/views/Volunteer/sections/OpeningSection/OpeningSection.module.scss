@@ -1,0 +1,36 @@
+@use "@/styles/abstracts" as *;
+
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: space(10) space(14);
+}
+
+.copy {
+  flex: 2 1 space(140);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: space(6);
+}
+
+.cta {
+  align-self: flex-start;
+}
+
+.cardColumn {
+  flex: 1 1 space(70);
+  min-width: 0;
+  max-width: measure("340");
+}
+
+.card {
+  gap: space(4);
+  padding: space(7);
+}
+
+.text {
+  font-size: var(--text-16);
+  line-height: var(--leading-1-55);
+}

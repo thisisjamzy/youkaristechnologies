@@ -1,1 +1,0 @@
-export { TwentyPlacesSection } from "./TwentyPlacesSection";

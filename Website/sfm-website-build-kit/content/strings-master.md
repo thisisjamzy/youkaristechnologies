@@ -125,8 +125,8 @@ How to read it:
 
 - H2: Do not just join the strangers. Bring them together.
 - Paragraph: Strangers for Mary is built and carried by volunteers. Find the role that fits your gifts and apply for it.
-- Link: See the volunteer roles (to the Roles page)
-- Aria label: Volunteer with us (square arrow button, to the Volunteer page)
+- Link: See the volunteer roles
+- Aria label: Volunteer with us
 
 ### Join
 

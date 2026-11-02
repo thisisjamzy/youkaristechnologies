@@ -1,1 +1,1 @@
-export { HomeView, type HomeViewProps } from "./HomeView";
+export { HomeView } from "./HomeView";

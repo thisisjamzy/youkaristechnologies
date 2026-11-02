@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
     process.env.NODE_ENV === "production" ? ["tsx", "ts", "jsx", "js"] : ["dev.tsx", "tsx", "ts", "jsx", "js"],
   // Hide the dev-tools button; compile and runtime errors still show in dev.
   devIndicators: false,
+  // Build With Us became Volunteer (prompt 05).
+  async redirects() {
+    return [{ source: "/build-with-us", destination: "/volunteer", permanent: true }];
+  },
   experimental: {
     agentFeedback: true,
   },

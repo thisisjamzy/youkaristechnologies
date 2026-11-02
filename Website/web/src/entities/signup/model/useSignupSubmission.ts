@@ -10,10 +10,8 @@ export type SignupSubmission = {
   status: SubmissionStatus;
   /** Error message per field, from strings.common.errors. */
   errors: Partial<Record<SignupField, string>>;
-  /** A message for the whole form (network, rate limit, team full). */
+  /** A message for the whole form (network, rate limit). */
   formError: string | null;
-  /** The person was saved as a stranger, but the core team was full. */
-  coreTeamFull: boolean;
   /** Validates, then sends. Returns the first invalid field, if any, so the form can focus it. */
   submit: (input: unknown) => Promise<SignupField | null>;
 };
@@ -25,12 +23,11 @@ const toMessages = (fields: FieldErrors) =>
     Object.entries(fields).map(([field, code]) => [field, fieldErrorMessage(field as SignupField, code)]),
   ) as Partial<Record<SignupField, string>>;
 
-/** Form state for both sign-up forms: browser validation, sending, and the server's answer. */
+/** Form state for the sign-up form: browser validation, sending, and the server's answer. */
 export function useSignupSubmission<T extends string>(schema: SignupSchema<T>): SignupSubmission {
   const [status, setStatus] = useState<SubmissionStatus>("idle");
   const [errors, setErrors] = useState<Partial<Record<SignupField, string>>>({});
   const [formError, setFormError] = useState<string | null>(null);
-  const [coreTeamFull, setCoreTeamFull] = useState(false);
 
   const fail = (fields: FieldErrors): SignupField | null => {
     setErrors(toMessages(fields));
@@ -49,7 +46,6 @@ export function useSignupSubmission<T extends string>(schema: SignupSchema<T>): 
     const res = await postSignup(parsed.data);
 
     if (res.ok) {
-      setCoreTeamFull(res.coreTeamFull);
       setStatus("sent");
       return null;
     }
@@ -60,5 +56,5 @@ export function useSignupSubmission<T extends string>(schema: SignupSchema<T>): 
   };
 
 
-  return { status, errors, formError, coreTeamFull, submit };
+  return { status, errors, formError, submit };
 }

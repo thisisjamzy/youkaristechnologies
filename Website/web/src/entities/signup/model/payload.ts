@@ -3,7 +3,7 @@ import type { SignupData } from "./schema";
 /** The JSON body the Apps Script web app expects, minus the secret (added server-side). */
 export type AppsScriptSignupPayload = {
   action: "signup";
-  sourcePage: "home" | "build-with-us";
+  sourcePage: "home";
   fullName: string;
   baptismName: string;
   email: string;

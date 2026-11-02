@@ -4,7 +4,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { strings } from "@/content/strings";
 import { JoinNetworkForm } from "./JoinNetworkForm";
 
-const { form, errors, places } = strings.common;
+const { form, errors } = strings.common;
 const { join } = strings.home;
 
 afterEach(() => {
@@ -30,18 +30,17 @@ const submitButton = () => screen.getByRole("button", { name: join.form.submit }
 describe("JoinNetworkForm", () => {
   it("reveals the core team questions when the box is ticked", async () => {
     const user = userEvent.setup();
-    render(<JoinNetworkForm placesLeft={17} />);
+    render(<JoinNetworkForm />);
     expect(screen.queryByRole("group", { name: join.form.teamsLegend })).toBeNull();
     await user.click(screen.getByRole("checkbox", { name: /Apply for the core team/ }));
     expect(screen.getByRole("group", { name: join.form.teamsLegend })).toBeInTheDocument();
-    expect(screen.getByText(places.sentence(17))).toBeInTheDocument();
     expect(screen.getByLabelText(form.about.label)).toBeInTheDocument();
   });
 
   it("shows the messages from strings and focuses the first invalid field, without sending", async () => {
     const user = userEvent.setup();
     const fetchMock = reply({ ok: true });
-    render(<JoinNetworkForm placesLeft={17} />);
+    render(<JoinNetworkForm />);
     await user.type(screen.getByLabelText(form.email.label), "nope");
     await user.click(submitButton());
     expect(screen.getByLabelText(form.fullName.label)).toHaveAccessibleDescription(errors.fullNameMissing);
@@ -53,7 +52,7 @@ describe("JoinNetworkForm", () => {
   it("asks for a choice when both boxes are unticked", async () => {
     const user = userEvent.setup();
     reply({ ok: true });
-    render(<JoinNetworkForm placesLeft={17} />);
+    render(<JoinNetworkForm />);
     await fillValid(user);
     await user.click(screen.getByRole("checkbox", { name: /Join as a stranger/ }));
     await user.click(submitButton());
@@ -62,8 +61,8 @@ describe("JoinNetworkForm", () => {
 
   it("sends the sign-up and shows the success state", async () => {
     const user = userEvent.setup();
-    const fetchMock = reply({ ok: true, placesLeft: 17, coreTeamFull: false });
-    render(<JoinNetworkForm placesLeft={17} />);
+    const fetchMock = reply({ ok: true });
+    render(<JoinNetworkForm />);
     await fillValid(user);
     await user.click(submitButton());
     expect(await screen.findByRole("heading", { name: join.success.title })).toHaveFocus();
@@ -79,7 +78,7 @@ describe("JoinNetworkForm", () => {
   it("says Sending and blocks a second submit while waiting", async () => {
     const user = userEvent.setup();
     vi.stubGlobal("fetch", vi.fn().mockReturnValue(new Promise(() => {})));
-    render(<JoinNetworkForm placesLeft={17} />);
+    render(<JoinNetworkForm />);
     await fillValid(user);
     await user.click(submitButton());
     expect(await screen.findByRole("button", { name: form.sending })).toBeDisabled();
@@ -88,7 +87,7 @@ describe("JoinNetworkForm", () => {
   it("says when the server fails, and keeps the form", async () => {
     const user = userEvent.setup();
     reply({ ok: false, error: "server" });
-    render(<JoinNetworkForm placesLeft={17} />);
+    render(<JoinNetworkForm />);
     await fillValid(user);
     await user.click(submitButton());
     expect(await screen.findByRole("alert")).toHaveTextContent(errors.server);
@@ -98,15 +97,9 @@ describe("JoinNetworkForm", () => {
   it("asks people to wait when they are rate limited", async () => {
     const user = userEvent.setup();
     reply({ ok: false, error: "rate_limited" });
-    render(<JoinNetworkForm placesLeft={17} />);
+    render(<JoinNetworkForm />);
     await fillValid(user);
     await user.click(submitButton());
     await waitFor(() => expect(screen.getByRole("alert")).toHaveTextContent(errors.tooManyAttempts));
-  });
-
-  it("closes the core team option when no places are left", () => {
-    render(<JoinNetworkForm placesLeft={0} />);
-    expect(screen.getByRole("checkbox", { name: /Apply for the core team/ })).toBeDisabled();
-    expect(screen.getByText(places.complete)).toBeInTheDocument();
   });
 });

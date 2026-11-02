@@ -38,7 +38,7 @@ const requiredText = (max: number) =>
 export function createSignupSchema<T extends string>(teamIds: readonly [T, ...T[]]) {
   return z
     .object({
-      sourcePage: z.enum(["home", "build-with-us"]),
+      sourcePage: z.literal("home"),
       fullName: requiredText(LIMITS.name),
       baptismName: requiredText(LIMITS.name),
       email: z

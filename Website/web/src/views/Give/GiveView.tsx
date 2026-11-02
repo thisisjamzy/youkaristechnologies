@@ -29,7 +29,7 @@ export function GiveView() {
             <Button href={routes.join} arrow="right">
               {close.cta}
             </Button>
-            <ArrowLink href={routes.buildWithUs} arrow={false}>
+            <ArrowLink href={routes.volunteer} arrow={false}>
               {close.secondaryCta}
             </ArrowLink>
           </>

@@ -43,6 +43,8 @@
     --text-24: 24px;
     --text-26: 26px;
     --text-28: 28px;
+    --text-30: 30px;
+    --text-32: 32px;
     --text-40: 40px;
     --text-44: 44px;
     --text-48: 48px;
@@ -188,6 +190,7 @@
     --space-fluid-24-36: clamp(24px, 3vw, 36px);
     --space-fluid-24-40: clamp(24px, 3.5vw, 40px);
     --space-fluid-24-44: clamp(24px, 3.5vw, 44px);
+    --space-fluid-24-48: clamp(24px, 4vw, 48px);
     --space-fluid-28-48: clamp(28px, 4vw, 48px);
     --space-fluid-28-56: clamp(28px, 4vw, 56px);
     --space-fluid-28-56-5: clamp(28px, 5vw, 56px);
@@ -226,6 +229,7 @@
     --border-hairline: 1px;
     --border-input: 1.5px;
     --border-strong: 2px;
+    --border-rule: 3px;
     --folder-tab-narrow: 40%;
     --folder-tab-mid: 44%;
     --folder-tab-wide: 46%;
@@ -325,6 +329,8 @@ $font-sizes: (
   "24": var(--text-24),
   "26": var(--text-26),
   "28": var(--text-28),
+  "30": var(--text-30),
+  "32": var(--text-32),
   "40": var(--text-40),
   "44": var(--text-44),
   "48": var(--text-48),
@@ -545,6 +551,7 @@ $fluid-space: (
   "fluid-24-36": var(--space-fluid-24-36),
   "fluid-24-40": var(--space-fluid-24-40),
   "fluid-24-44": var(--space-fluid-24-44),
+  "fluid-24-48": var(--space-fluid-24-48),
   "fluid-28-48": var(--space-fluid-28-48),
   "fluid-28-56": var(--space-fluid-28-56),
   "fluid-28-56-5": var(--space-fluid-28-56-5),

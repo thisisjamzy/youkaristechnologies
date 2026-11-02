@@ -99,6 +99,8 @@ export const fontSizes = {
   "52": 52, // menu links on tablets
   "44": 44,
   "40": 40, // menu links on phones
+  "32": 32, // Volunteer step numbers
+  "30": 30, // lime card titles on Volunteer and Roles
   "28": 28,
   "26": 26,
   "24": 24,
@@ -190,6 +192,7 @@ export const fluidSpace = {
   "fluid-24-36": fluid(24, 3, 36),
   "fluid-24-40": fluid(24, 3.5, 40),
   "fluid-24-44": fluid(24, 3.5, 44),
+  "fluid-24-48": fluid(24, 4, 48), // Volunteer "How to volunteer" panel
   "fluid-28-48": fluid(28, 4, 48),
   "fluid-28-56": fluid(28, 4, 56),
   "fluid-28-56-5": fluid(28, 5, 56),
@@ -238,13 +241,14 @@ export const borderWidths = {
   hairline: 1, // card borders, dividers
   input: 1.5, // input underlines, outline buttons
   strong: 2, // link underline, emphasised rules
+  rule: 3, // lime rule over steps and "nature of the work" items
 } as const;
 
 /** Width of the tab on folder-tab cards, as a share of the card. */
 export const folderTabs = {
   narrow: "40%", // path switcher
   mid: "44%", // team cards
-  wide: "46%", // lime places cards
+  wide: "46%", // lime cards (Volunteer, Roles)
 } as const;
 
 /** Icon sizes (px) and stroke widths, for SVG attributes. */

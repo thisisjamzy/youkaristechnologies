@@ -36,7 +36,7 @@ export function OpeningSection() {
             <Button href={routes.join} arrow="right">
               {opening.primaryCta}
             </Button>
-            <ArrowLink href={routes.buildWithUs} arrow={false} className={styles.secondary}>
+            <ArrowLink href={routes.volunteer} arrow={false} className={styles.secondary}>
               {opening.secondaryCta}
             </ArrowLink>
           </div>

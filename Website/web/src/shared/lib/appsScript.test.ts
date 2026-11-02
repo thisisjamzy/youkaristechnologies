@@ -15,9 +15,9 @@ const configure = () => {
 describe("appsScript client", () => {
   it("adds the secret, follows redirects and times out", async () => {
     configure();
-    const fetchMock = vi.fn().mockResolvedValue(Response.json({ ok: true, placesLeft: 17 }));
+    const fetchMock = vi.fn().mockResolvedValue(Response.json({ ok: true, strangerId: "STR-1" }));
     vi.stubGlobal("fetch", fetchMock);
-    expect(await appsScriptPost({ action: "signup" })).toEqual({ ok: true, placesLeft: 17 });
+    expect(await appsScriptPost({ action: "signup" })).toEqual({ ok: true, strangerId: "STR-1" });
     const [url, init] = fetchMock.mock.calls[0];
     expect(url).toBe("https://script.google.com/macros/s/TEST/exec");
     expect(JSON.parse(init.body)).toEqual({ action: "signup", secret: "s3cret" });
@@ -27,11 +27,11 @@ describe("appsScript client", () => {
 
   it("puts the action and secret in the GET query", async () => {
     configure();
-    const fetchMock = vi.fn().mockResolvedValue(Response.json({ ok: true, left: 17 }));
+    const fetchMock = vi.fn().mockResolvedValue(Response.json({ ok: true, time: "now" }));
     vi.stubGlobal("fetch", fetchMock);
-    await appsScriptGet("places");
+    await appsScriptGet("health");
     const url = new URL(String(fetchMock.mock.calls[0][0]));
-    expect(url.searchParams.get("action")).toBe("places");
+    expect(url.searchParams.get("action")).toBe("health");
     expect(url.searchParams.get("secret")).toBe("s3cret");
   });
 
@@ -48,13 +48,13 @@ describe("appsScript client", () => {
   it("uses the mock in development when not configured", async () => {
     vi.stubEnv("APPS_SCRIPT_URL", "");
     vi.stubEnv("NODE_ENV", "development");
-    expect(await appsScriptGet("places")).toMatchObject({ ok: true, total: 20 });
+    expect(await appsScriptGet("health")).toMatchObject({ ok: true });
   });
 
   it("reports an outage in production when not configured", async () => {
     vi.stubEnv("APPS_SCRIPT_URL", "");
     vi.stubEnv("NODE_ENV", "production");
     vi.spyOn(console, "error").mockImplementation(() => {});
-    expect(await appsScriptGet("places")).toEqual({ ok: false, error: "server" });
+    expect(await appsScriptGet("health")).toEqual({ ok: false, error: "server" });
   });
 });

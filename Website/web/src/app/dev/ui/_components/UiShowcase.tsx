@@ -5,7 +5,6 @@ import {
   ArrowLink,
   Button,
   Chip,
-  Counter,
   FolderCard,
   FrostedCard,
   Grid,
@@ -33,7 +32,7 @@ import {
   type MosaicTile,
 } from "@/shared/ui";
 import { routes } from "@/shared/lib";
-import { JoinPanel, PathSwitcher, PlacesBadge } from "@/widgets";
+import { JoinPanel, PathSwitcher } from "@/widgets";
 import { FormDemo } from "./FormDemo";
 import styles from "./UiShowcase.module.scss";
 
@@ -82,7 +81,7 @@ export function UiShowcase() {
         <PullLine text={home.whoWeAre.closing} tone="primary" breakBefore size="fluid-24-34" align="center" />
       </Block>
 
-      <Block title="Tag, Chip, Counter">
+      <Block title="Tag, Chip">
         <Stack direction="row" gap={3} wrap align="center">
           <Tag>{home.challenge.label}</Tag>
           <Tag bordered>{pray.model.label}</Tag>
@@ -99,17 +98,14 @@ export function UiShowcase() {
           <Chip size="sm" tone="ink">{ourStory.whatWeSaw.monday.caption}</Chip>
           <Chip icon={<Icon name="check" size="sm" stroke="heavy" />}>{give.opening.photoChip}</Chip>
         </Stack>
-        <Stack direction="row" gap={3} wrap>
-          <Counter value={17} caption={common.places.ofTotal} />
-          <Counter value={17} caption={common.places.ofTotal} tone="white" />
-        </Stack>
       </Block>
 
       <Block title="Button, ArrowLink">
         <Stack direction="row" gap={3} wrap align="center">
           <Button href="#" arrow="right">{home.opening.primaryCta}</Button>
           <Button href="#" variant="outline" arrow="right">{common.header.cta}</Button>
-          <Button href="#" arrow="down">{strings.buildWithUs.opening.cta}</Button>
+          <Button href="#" arrow="right">{strings.volunteer.opening.cta}</Button>
+          <Button href="#" variant="dark" size="large" arrow="right">{strings.volunteer.howToVolunteer.cta}</Button>
           <Button href="#">{common.form.shareOnWhatsApp}</Button>
           <Button variant="light">{common.closingCard.copyLink}</Button>
           <Button variant="outline">{common.closingCard.copyLink}</Button>
@@ -121,7 +117,7 @@ export function UiShowcase() {
         <Button variant="dark" block type="submit">{home.join.form.submit}</Button>
         <Stack direction="row" gap={6} wrap>
           <ArrowLink href="/pray">{home.pray.link}</ArrowLink>
-          <ArrowLink href="/build-with-us" arrow={false}>{home.opening.secondaryCta}</ArrowLink>
+          <ArrowLink href={routes.volunteer} arrow={false}>{home.opening.secondaryCta}</ArrowLink>
         </Stack>
       </Block>
 
@@ -241,18 +237,13 @@ export function UiShowcase() {
         <Accordion items={pray.questions.items} />
       </Block>
 
-      <Block title="Widgets: PathSwitcher, PlacesBadge, JoinPanel (SiteHeader, ClosingCard, SiteFooter frame this page)">
+      <Block title="Widgets: PathSwitcher, JoinPanel (SiteHeader, ClosingCard, SiteFooter frame this page)">
         <PathSwitcher
           items={[
             { href: routes.give, photo: "giveEmbrace", ...pray.switcher.give },
             { href: routes.gather, photo: "gatherWorshipCrowd", ...pray.switcher.gather },
           ]}
         />
-        <Stack direction="row" gap={3} wrap>
-          <PlacesBadge left={17} />
-          <PlacesBadge left={17} tone="white" />
-          <PlacesBadge left={0} />
-        </Stack>
         <JoinPanel
           variant="join"
           headline={home.join.headline}
@@ -260,14 +251,6 @@ export function UiShowcase() {
           points={home.join.benefits.map((b, i) => ({ ...b, icon: (["globe", "person", "leave"] as const)[i] }))}
         >
           <FormDemo />
-        </JoinPanel>
-        <JoinPanel
-          variant="apply"
-          headline={strings.buildWithUs.form.headline}
-          body={strings.buildWithUs.form.body}
-          points={strings.buildWithUs.form.asks.map((title, i) => ({ title, icon: (["pen", "clock", "heart"] as const)[i] }))}
-        >
-          <Heading as="h3" text={strings.buildWithUs.form.title} size="fluid-28-38" leading="1-05" />
         </JoinPanel>
       </Block>
     </Section>

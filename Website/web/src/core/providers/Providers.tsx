@@ -7,7 +7,7 @@ import { strings } from "@/content/strings";
 import { tokens } from "@/styles/tokens/tokens";
 
 // Values are imported here rather than passed from the server layout, because
-// strings will hold functions (e.g. placesLeft) that cannot cross the boundary.
+// strings may hold functions, which cannot cross the server-client boundary.
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   return <ThemeContext value={tokens}>{children}</ThemeContext>;

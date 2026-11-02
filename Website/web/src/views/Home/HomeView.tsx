@@ -11,13 +11,8 @@ import { StrangersInPrayerSection } from "./sections/StrangersInPrayerSection";
 import { WhoWeAreSection } from "./sections/WhoWeAreSection";
 import { WhyStrangersSection } from "./sections/WhyStrangersSection";
 
-export type HomeViewProps = {
-  /** Core team places left. Phase 8 reads it from the backend; null hides the number. */
-  placesLeft: number | null;
-};
-
 /** Home, section by section in the order of design-reference/home.html. */
-export function HomeView({ placesLeft }: HomeViewProps) {
+export function HomeView() {
   return (
     <>
       <OpeningSection />
@@ -30,8 +25,8 @@ export function HomeView({ placesLeft }: HomeViewProps) {
       <GatherSection />
       <WhyStrangersSection />
       <AmbitionSection />
-      <BuildBandSection placesLeft={placesLeft} />
-      <JoinSection placesLeft={placesLeft} />
+      <BuildBandSection />
+      <JoinSection />
     </>
   );
 }

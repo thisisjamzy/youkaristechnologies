@@ -5,11 +5,12 @@ export const routes = {
   pray: "/pray",
   give: "/give",
   gather: "/gather",
-  buildWithUs: "/build-with-us",
+  volunteer: "/volunteer",
+  roles: "/volunteer/roles",
+  /** The role cards on the Roles page. */
+  rolesList: "/volunteer/roles#roles",
   /** The join form on Home. */
   join: "/#join",
-  /** The application form on Build With Us. */
-  apply: "/build-with-us#volunteer",
 } as const;
 
 export type RouteName = keyof typeof routes;

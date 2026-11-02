@@ -12,8 +12,6 @@
  * - Keys starting with TODO are not in the master yet. Do not ship them.
  */
 
-const placesOfTotal = "of 20 places still open";
-
 export const strings = {
   common: {
     site: {
@@ -32,7 +30,7 @@ export const strings = {
         pray: "Pray",
         give: "Give",
         gather: "Gather",
-        buildWithUs: "Build With Us",
+        volunteer: "Volunteer",
       },
       cta: "Join the strangers",
       // Tablets and phones (prompts/03-responsive-header-and-menu.md; built after phase 8).
@@ -70,7 +68,8 @@ export const strings = {
       getInvolved: {
         title: "Get involved",
         join: "Join the strangers",
-        buildWithUs: "Build With Us",
+        volunteer: "Volunteer",
+        volunteerRoles: "Volunteer roles",
       },
       contact: {
         title: "Contact",
@@ -95,13 +94,13 @@ export const strings = {
       strangerRelations: {
         name: "Stranger Relations",
         role: "You are the welcome",
-        text: "You walk with new strangers, answer their questions, and reach out when someone misses a day, so nobody who joins is ever left alone.",
+        text: "Onboarding, support, retention and events. You look after every member from the day they join, so nobody is ever left alone.",
         alt: "A smiling young woman at a gathering",
       },
       outreach: {
         name: "Outreach",
         role: "You are the voice",
-        text: "You tell our story on social media, through design and film, and in parishes, schools and communities, so the call reaches every Catholic who needs to hear it.",
+        text: "Brand, social media, partnerships, campaigns, logistics and finance. You grow the network and the income that funds its charity.",
         alt: "A young man laughing at an event",
       },
       coreAndContent: {
@@ -116,14 +115,6 @@ export const strings = {
         text: "You build Youkaris and the tools behind it, so that a prayer typed in one country lands safely in another.",
         alt: "Two colleagues talking, one holding a laptop",
       },
-    },
-
-    places: {
-      ofTotal: placesOfTotal,
-      sentence: (left: number) => `${left} ${placesOfTotal}.`,
-      sentenceWithInterview: (left: number) =>
-        `${left} ${placesOfTotal}. Applicants may be invited to a short interview.`,
-      complete: "All 20 places are taken. You can still join as a stranger.",
     },
 
     form: {
@@ -156,7 +147,6 @@ export const strings = {
       noChoice: "Please choose at least one: join as a stranger or apply for the core team.",
       server: "Something went wrong on our side. Please try again in a moment.",
       tooManyAttempts: "Please wait a minute and try again.",
-      applicationsClosed: "All 20 places are taken. You can still join as a stranger.",
     },
 
     meta: {
@@ -194,10 +184,15 @@ export const strings = {
         title: "Gather | Strangers for Mary",
         description: "Twice a year, the strangers meet. It is always a party for our Mother.",
       },
-      buildWithUs: {
-        title: "Build With Us | Strangers for Mary",
+      volunteer: {
+        title: "Volunteer | Strangers for Mary",
         description:
-          "Twenty places on the core team, one for every mystery of the Rosary. Apply for yours.",
+          "Strangers for Mary is built and carried by volunteers. Unpaid, online and rooted in prayer. Find the role that fits your gifts.",
+      },
+      roles: {
+        title: "Volunteer roles | Strangers for Mary",
+        description:
+          "Read each volunteer role, then apply for the one that fits your gifts. Every role is unpaid and not full-time, and we train you in the role.",
       },
       notFound: {
         title: "This page has wandered off.",
@@ -333,9 +328,9 @@ export const strings = {
 
     buildBand: {
       headline: "Do not just join the strangers. Bring them together.",
-      body: "We are building a core team of twenty people, one for every mystery of the Rosary.",
-      placesCaption: placesOfTotal,
-      linkAria: "Build it with us",
+      body: "Strangers for Mary is built and carried by volunteers. Find the role that fits your gifts and apply for it.",
+      rolesLink: "See the volunteer roles",
+      linkAria: "Volunteer with us",
     },
 
     join: {
@@ -745,54 +740,61 @@ export const strings = {
     },
   },
 
-  buildWithUs: {
+  volunteer: {
     opening: {
-      label: "Build with us",
+      label: "Volunteer",
       headline: { main: "Someone has to bring the strangers together.", muted: "Why not you?" },
-      body: "Every stranger who prays will one day stand on something built by someone else: an app that works, a welcome that feels warm, a message that reached them at the right moment, a prayer guide they can trust. Those things do not build themselves. They are being built right now, by people who decided to give their gifts to Mary's mission.",
-      cta: "Apply for a place",
-      placesCard: {
-        total: "20",
-        totalCaption: "places, one for every mystery",
-        openCaption: "still open",
+      body: "Every stranger who prays stands on something built by a volunteer: an app that works, a welcome that feels warm, a message that reached them at the right moment, a prayer guide they can trust. Strangers for Mary is built and carried by people who give their gifts to Mary's mission.",
+      cta: "See the volunteer roles",
+      card: {
+        label: "Volunteering, not a job",
+        title: "Unpaid. Not full-time. Online.",
+        text: "You serve alongside your studies, work and family life, from anywhere in the world. Sunday is the one firm commitment.",
       },
     },
 
     photo: {
       photoAlt: "A small team working together around a laptop",
-      placesCaption: placesOfTotal,
     },
 
-    twentyPlaces: {
-      headline: { main: "Twenty people.", muted: "One for every mystery." },
-      body: "We are building a core team of no more than twenty people, one for every mystery of the Rosary. Small enough to know each other well, strong enough to carry a network that reaches across the world. When the twenty places are filled, the team is complete.",
-      placesCaption: placesOfTotal,
-    },
-
-    whyNow: {
-      label: "Why now",
-      headline: { main: "The first builders", muted: "shape everything that follows." },
-      body: "Strangers for Mary is at its beginning. The people who join now will set the tone, write the first words, welcome the first strangers and lay the first stones. Years from now, when a stranger on the other side of the world prays their first Rosary on Youkaris, part of what holds them will be yours.",
+    whyVolunteer: {
+      label: "Why volunteer",
+      headline: { main: "Your gifts,", muted: "carried to strangers you will never meet." },
+      body: "The work you do reaches people who will never know your name. A stranger on the other side of the world prays their Rosary on Youkaris, reads a reflection you edited or finds the welcome you wrote, and part of what holds them is yours. That is Cana: carrying to Jesus what we were never asked to carry.",
     },
 
     fourTeams: {
       headline: { main: "Four teams.", muted: "Find yours." },
-      body: "Each team carries one part of the mission. Pick the one that sounds like you, or more than one.",
-      joinTeam: "Join this team",
+      body: "Each team carries one part of the mission. Read its roles and apply for the one that fits your gifts.",
+      seeRoles: "See the roles",
     },
 
-    form: {
-      headline: "What it asks of you.",
-      body: "You do not need to live in any particular place. Most of our work happens online, and the teams are coordinated on our own internal tool. We welcome everyone, but we keep high standards, so you may be invited to a short interview before you join the team. There are no fixed hours: the work is organised by project, and you make your own time. The one firm commitment is Sunday, when core team members work all day.",
-      asks: ["Your skill", "Your time", "Your love for Mary"],
-      title: "Got a gift? Mary has a place for it.",
-      teamsLegend: "Which team fits you? Pick any",
-      alsoJoin: "Also invite me to join as a stranger the day Youkaris opens.",
-      submit: "Apply for a place",
-      success: {
-        title: "Thank you for applying.",
-        body: "Thank you for offering your gifts to Mary's mission. Someone from the team will be in touch soon, and may invite you to a short interview to find the place where your gifts do the most good.",
-      },
+    howToVolunteer: {
+      headline: "How to volunteer.",
+      body: "We welcome everyone, and we keep high standards. Every role is unpaid and none is full-time, and we train you in the role. Most of the work happens online and is organised by project on our own internal tool, so you make your own time. The one firm commitment is Sunday.",
+      cta: "See the volunteer roles",
+      steps: [
+        {
+          number: "01",
+          title: "Read the roles",
+          text: "Each role has a full description: what it carries, what you will do and what we look for.",
+        },
+        {
+          number: "02",
+          title: "Apply for one role",
+          text: "Answer the questions for that role, attach your CV and confirm you understand it is unpaid and not full-time.",
+        },
+        {
+          number: "03",
+          title: "A short interview",
+          text: "We may invite you to a short online conversation, built around the role you chose.",
+        },
+        {
+          number: "04",
+          title: "Welcome to the team",
+          text: "You are welcomed onto your team and our internal tool. If the role is filled, we keep your application for when it opens again.",
+        },
+      ],
       closing: { main: "Do not just join the strangers.", emphasis: "Bring them together." },
     },
   },

@@ -1,4 +1,3 @@
-import { revalidateTag } from "next/cache";
 import {
   backendFieldNames,
   createSignupSchema,
@@ -11,7 +10,6 @@ import {
   type SignupResponse,
 } from "@/entities/signup";
 import { teamApiNames, teamIds } from "@/entities/team";
-import { PLACES_TAG } from "@/features/show-places-left";
 import { appsScriptPost } from "@/shared/lib/appsScript";
 import { createRateLimiter } from "@/shared/lib";
 
@@ -57,22 +55,14 @@ export async function POST(request: Request) {
   }
 
   // Honeypot filled: look successful, store nothing.
-  if (parsed.data.website !== "") return reply({ ok: true, placesLeft: null, coreTeamFull: false });
+  if (parsed.data.website !== "") return reply({ ok: true });
 
   const payload = toAppsScriptPayload(parsed.data, (id) => teamApiNames[id], new Date());
   const result = await appsScriptPost(payload);
 
-  if (result.ok) {
-    if (payload.applyCoreTeam) revalidateTag(PLACES_TAG, "max");
-    const placesLeft = typeof result.placesLeft === "number" ? result.placesLeft : null;
-    return reply({ ok: true, placesLeft, coreTeamFull: false });
-  }
+  if (result.ok) return reply({ ok: true });
 
   switch (result.error) {
-    case "core_team_full":
-      // The backend still saved them as a stranger.
-      revalidateTag(PLACES_TAG, "max");
-      return reply({ ok: true, placesLeft: 0, coreTeamFull: true });
     case "validation":
       return reply({ ok: false, error: "validation", fields: mapBackendFields(result.fields) }, 400);
     default:

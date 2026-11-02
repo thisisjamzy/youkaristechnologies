@@ -20,7 +20,7 @@ const nav = [
   { href: routes.pray, label: header.nav.pray },
   { href: routes.give, label: header.nav.give },
   { href: routes.gather, label: header.nav.gather },
-  { href: routes.buildWithUs, label: header.nav.buildWithUs },
+  { href: routes.volunteer, label: header.nav.volunteer },
 ] as const;
 
 type MenuPhase = "closed" | "open" | "closing";

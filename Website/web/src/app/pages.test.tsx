@@ -3,12 +3,12 @@ import { resolve } from "node:path";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import type { ReactElement } from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { BuildWithUsView } from "@/views/BuildWithUs";
 import { GatherView } from "@/views/Gather";
 import { GiveView } from "@/views/Give";
 import { HomeView } from "@/views/Home";
 import { OurStoryView } from "@/views/OurStory";
 import { PrayView } from "@/views/Pray";
+import { VolunteerView } from "@/views/Volunteer";
 
 const KIT = resolve(__dirname, "../../../sfm-website-build-kit");
 const master = readFileSync(resolve(KIT, "content/strings-master.md"), "utf8");
@@ -16,16 +16,13 @@ const master = readFileSync(resolve(KIT, "content/strings-master.md"), "utf8");
 const prayScript =
   /data-dc-script[^>]*>([\s\S]*?)<\/script>/.exec(readFileSync(resolve(KIT, "design-reference/pray.html"), "utf8"))?.[1] ?? "";
 
-// A number shows the places lines that hide while the backend is unknown.
-const PLACES = 17;
-
 const pages: { name: string; view: ReactElement; script?: string }[] = [
-  { name: "Home", view: <HomeView placesLeft={PLACES} /> },
+  { name: "Home", view: <HomeView /> },
   { name: "Our Story", view: <OurStoryView /> },
   { name: "Pray", view: <PrayView />, script: prayScript },
   { name: "Give", view: <GiveView /> },
   { name: "Gather", view: <GatherView /> },
-  { name: "Build With Us", view: <BuildWithUsView placesLeft={PLACES} /> },
+  { name: "Volunteer", view: <VolunteerView /> },
 ];
 
 /** Every text the master lists for one page: its design lines and its script lists. */
@@ -89,10 +86,10 @@ async function renderedTexts(view: ReactElement): Promise<Set<string>> {
     collect(container, texts);
   }
 
-  // Both forms: a valid submission shows the success state.
+  // Forms: a valid submission shows the success state.
   const form = container.querySelector("form");
   if (form) {
-    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(Response.json({ ok: true, placesLeft: PLACES, coreTeamFull: false })));
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(Response.json({ ok: true })));
     for (const [name, value] of Object.entries(typed)) {
       const input = form.querySelector<HTMLInputElement>(`[name="${name}"]`);
       if (input) fireEvent.change(input, { target: { value } });

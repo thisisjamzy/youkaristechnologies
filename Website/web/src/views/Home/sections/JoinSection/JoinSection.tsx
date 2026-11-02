@@ -7,9 +7,7 @@ import { JoinPanel } from "@/widgets";
 const { join } = strings.home;
 const icons: readonly IconName[] = ["globe", "person", "leave"];
 
-export type JoinSectionProps = { placesLeft: number | null };
-
-export function JoinSection({ placesLeft }: JoinSectionProps) {
+export function JoinSection() {
   return (
     <Section top="section" bottom="section" id="join">
       <JoinPanel
@@ -18,7 +16,7 @@ export function JoinSection({ placesLeft }: JoinSectionProps) {
         body={join.body}
         points={join.benefits.map((benefit, i) => ({ ...benefit, icon: icons[i] }))}
       >
-        <JoinNetworkForm placesLeft={placesLeft} />
+        <JoinNetworkForm />
       </JoinPanel>
     </Section>
   );

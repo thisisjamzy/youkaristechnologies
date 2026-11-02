@@ -1,1 +1,1 @@
-export { JoinNetworkForm, type JoinNetworkFormProps } from "./JoinNetworkForm";
+export { JoinNetworkForm } from "./JoinNetworkForm";

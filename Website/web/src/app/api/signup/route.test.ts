@@ -1,13 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const appsScriptPost = vi.fn();
-const revalidateTag = vi.fn();
 vi.mock("@/shared/lib/appsScript", () => ({ appsScriptPost: (p: unknown) => appsScriptPost(p) }));
-vi.mock("next/cache", () => ({
-  revalidateTag: (...args: unknown[]) => revalidateTag(...args),
-  cacheLife: () => {},
-  cacheTag: () => {},
-}));
 
 const valid = {
   sourcePage: "home",
@@ -38,7 +32,6 @@ async function post(body: unknown, headers?: Record<string, string>) {
 
 beforeEach(() => {
   appsScriptPost.mockReset();
-  revalidateTag.mockReset();
 });
 
 describe("POST /api/signup", () => {
@@ -60,30 +53,21 @@ describe("POST /api/signup", () => {
     expect(appsScriptPost).not.toHaveBeenCalled();
   });
 
-  it("forwards the backend payload and reports places left", async () => {
-    appsScriptPost.mockResolvedValue({ ok: true, strangerId: "STR-1", applicationId: null, placesLeft: 17 });
+  it("forwards the backend payload and answers ok", async () => {
+    appsScriptPost.mockResolvedValue({ ok: true, strangerId: "STR-1" });
     const { status, json } = await post(valid);
     expect(status).toBe(200);
-    expect(json).toEqual({ ok: true, placesLeft: 17, coreTeamFull: false });
+    expect(json).toEqual({ ok: true });
     const payload = appsScriptPost.mock.calls[0][0];
     expect(payload).toMatchObject({ action: "signup", sourcePage: "home", whatsapp: "", teams: [] });
     expect(typeof payload.submittedAt).toBe("string");
     expect(payload).not.toHaveProperty("secret"); // the client adds it, server-side
-    expect(revalidateTag).not.toHaveBeenCalled();
   });
 
-  it("sends team names with an application and refreshes the places", async () => {
-    appsScriptPost.mockResolvedValue({ ok: true, strangerId: "STR-1", applicationId: "APP-1", placesLeft: 16 });
+  it("sends team names with an application", async () => {
+    appsScriptPost.mockResolvedValue({ ok: true, strangerId: "STR-1" });
     await post({ ...valid, applyCoreTeam: true, teams: ["outreach", "technology"], about: "Hi" });
     expect(appsScriptPost.mock.calls[0][0].teams).toEqual(["Outreach", "Technology"]);
-    expect(revalidateTag).toHaveBeenCalledWith("core-team-places", "max");
-  });
-
-  it("treats a full core team as success: the stranger is saved", async () => {
-    appsScriptPost.mockResolvedValue({ ok: false, error: "core_team_full", strangerId: "STR-1", placesLeft: 0 });
-    const { status, json } = await post({ ...valid, applyCoreTeam: true });
-    expect(status).toBe(200);
-    expect(json).toEqual({ ok: true, placesLeft: 0, coreTeamFull: true });
   });
 
   it("maps backend validation fields to ours", async () => {
@@ -102,7 +86,7 @@ describe("POST /api/signup", () => {
   });
 
   it("allows five requests a minute from one address, then 429", async () => {
-    appsScriptPost.mockResolvedValue({ ok: true, placesLeft: 17 });
+    appsScriptPost.mockResolvedValue({ ok: true });
     const same = { "x-forwarded-for": "203.0.113.9" };
     for (let i = 0; i < 5; i++) expect((await post(valid, same)).status).toBe(200);
     const { status, json } = await post(valid, same);

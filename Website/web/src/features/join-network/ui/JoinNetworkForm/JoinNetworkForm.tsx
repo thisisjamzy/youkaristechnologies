@@ -20,27 +20,21 @@ import {
 } from "@/shared/ui";
 import styles from "./JoinNetworkForm.module.scss";
 
-const { form, teams, places, share } = strings.common;
+const { form, teams, share } = strings.common;
 const { join } = strings.home;
 const SPACE = " ";
 
 const schema = createSignupSchema(teamIds);
 const teamOptions = teamIds.map((id) => ({ value: id, label: teams[id].name }));
 
-export type JoinNetworkFormProps = {
-  /** Core team places left, or null when unknown. 0 closes the core team option. */
-  placesLeft: number | null;
-};
-
 /** The Home sign-up form: join as a stranger and, optionally, apply for the core team. */
-export function JoinNetworkForm({ placesLeft }: JoinNetworkFormProps) {
+export function JoinNetworkForm() {
   const [joining, setJoining] = useState(true);
   const [applying, setApplying] = useState(false);
   const [selectedTeams, setSelectedTeams] = useState<string[]>([]);
   const formRef = useRef<HTMLFormElement>(null);
   const successId = useId();
-  const { status, errors, formError, coreTeamFull, submit } = useSignupSubmission(schema);
-  const teamFull = placesLeft !== null && placesLeft <= 0;
+  const { status, errors, formError, submit } = useSignupSubmission(schema);
 
   useEffect(() => {
     if (status === "sent") document.getElementById(successId)?.focus();
@@ -64,7 +58,7 @@ export function JoinNetworkForm({ placesLeft }: JoinNetworkFormProps) {
       city: text("city"),
       whatsApp: text("whatsApp"),
       joinAsStranger: joining,
-      applyCoreTeam: applying && !teamFull,
+      applyCoreTeam: applying,
       teams: applying ? selectedTeams : [],
       about: applying ? text("about") : "",
       website: text("website"),
@@ -77,7 +71,6 @@ export function JoinNetworkForm({ placesLeft }: JoinNetworkFormProps) {
     return (
       <SuccessState title={join.success.title} titleId={successId}>
         <p className={styles.successText}>{join.success.body}</p>
-        {coreTeamFull && <p className={styles.successText}>{places.complete}</p>}
         <p className={styles.successPrompt}>{join.success.prompt}</p>
         <Heading as="p" text={form.passItOn} size="56" tracking="tighter" />
         <div className={styles.actions}>
@@ -148,8 +141,7 @@ export function JoinNetworkForm({ placesLeft }: JoinNetworkFormProps) {
           </Checkbox>
           <Checkbox
             name="applyCoreTeam"
-            checked={applying && !teamFull}
-            disabled={teamFull}
+            checked={applying}
             onChange={(e) => setApplying(e.target.checked)}
           >
             <b>{join.form.applyCoreTeam.label}</b>
@@ -162,20 +154,11 @@ export function JoinNetworkForm({ placesLeft }: JoinNetworkFormProps) {
             {errors.choice}
           </p>
         )}
-        {teamFull && <p className={styles.note}>{places.complete}</p>}
       </fieldset>
 
-      {applying && !teamFull && (
+      {applying && (
         <div className={styles.coreTeam}>
-          <p className={styles.note}>
-            {placesLeft !== null && (
-              <>
-                <b className={styles.places}>{places.sentence(placesLeft)}</b>
-                {SPACE}
-              </>
-            )}
-            {form.interviewNote}
-          </p>
+          <p className={styles.note}>{form.interviewNote}</p>
           <CheckboxGroup
             legend={join.form.teamsLegend}
             name="teams"
