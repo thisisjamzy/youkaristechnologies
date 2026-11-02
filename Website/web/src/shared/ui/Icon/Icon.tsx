@@ -11,7 +11,11 @@ export type IconName =
   | "instagram"
   | "whatsApp"
   | "mail"
-  | "check";
+  | "check"
+  | "chevronDown"
+  | "chevronRight"
+  | "plus"
+  | "upload";
 
 export type IconProps = {
   name: IconName;
@@ -58,6 +62,10 @@ const shapes: Record<IconName, ReactNode> = {
     </>
   ),
   check: <path d="M4 12l5 5L20 6" />,
+  chevronDown: <path d="M6 9l6 6 6-6" />,
+  chevronRight: <path d="M8 4l8 8-8 8" />,
+  plus: <path d="M12 4v16M4 12h16" />,
+  upload: <path d="M12 19V6M6 11l6-6 6 6M5 21h14" />,
 };
 
 /** Line icon, square caps, in currentColor. Decorative: label the control around it. */

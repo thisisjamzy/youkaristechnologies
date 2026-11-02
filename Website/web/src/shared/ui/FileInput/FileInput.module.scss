@@ -1,0 +1,65 @@
+@use "@/styles/abstracts" as *;
+
+.box {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: space(3.5);
+  min-height: space(16);
+  padding: space(3) space(3) space(3) space(4);
+  border: var(--border-input) dashed var(--color-mist);
+  border-radius: radius(sm-plus);
+  background: var(--color-white);
+  cursor: pointer;
+
+  // The hidden input still takes focus; show the ring on the whole box.
+  &:has(.input:focus-visible) {
+    @include focus-ring;
+  }
+}
+
+.invalid {
+  border-color: var(--color-error);
+}
+
+.input {
+  @include visually-hidden;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: space(2.5);
+  min-height: var(--layout-min-touch);
+  padding: space(2.5) space(4.5);
+  border-radius: radius(pill);
+  background: var(--color-ink);
+  color: var(--color-white);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--text-15);
+}
+
+.icon {
+  display: inline-flex;
+  color: var(--color-lime);
+}
+
+.name {
+  flex: 1 1 space(40);
+  min-width: 0;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--text-15);
+  color: var(--color-ink);
+  overflow-wrap: anywhere;
+}
+
+.empty {
+  color: var(--color-text-body);
+}
+
+.hint {
+  font-weight: var(--font-weight-regular);
+  font-size: var(--text-14);
+  color: var(--color-text-body);
+}

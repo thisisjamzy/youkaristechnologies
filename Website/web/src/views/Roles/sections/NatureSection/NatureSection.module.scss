@@ -1,0 +1,37 @@
+@use "@/styles/abstracts" as *;
+
+.header {
+  margin-bottom: space(10);
+}
+
+.panel {
+  margin: 0;
+  padding: space("fluid-24-44");
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, space(65)), 1fr));
+  gap: space(7) space(10);
+  border-radius: radius("2xl");
+  background: var(--color-white);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: space(2);
+  padding-top: space(3);
+  border-top: var(--border-rule) solid var(--color-lime);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--text-18);
+  font-weight: var(--font-weight-bold);
+}
+
+.text {
+  margin: 0;
+  font-size: var(--text-15);
+  line-height: var(--leading-1-6);
+  color: var(--color-text-body);
+}

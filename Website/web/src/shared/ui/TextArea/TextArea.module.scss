@@ -5,3 +5,11 @@
   line-height: var(--leading-1-5);
   resize: vertical;
 }
+
+.note {
+  margin: 0;
+  align-self: flex-end;
+  font-size: var(--text-13);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-body);
+}

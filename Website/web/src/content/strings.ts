@@ -144,6 +144,24 @@ export const strings = {
       cityMissing: "Please add your city and country.",
       server: "Something went wrong on our side. Please try again in a moment.",
       tooManyAttempts: "Please wait a minute and try again.",
+      /** The volunteer application on the Roles page (shared messages above are reused there). */
+      application: {
+        roleMissing: "Please choose the role you are applying for.",
+        answerMissing: "Please answer this question.",
+        answerTooLong: "Please keep your answer under 3,000 characters.",
+        linkMissing: "Please add a link to your portfolio.",
+        linkInvalid: "Please add a full link, starting with https://",
+        cvMissing: "Please upload your CV.",
+        cvWrongType: "Please upload your CV as a PDF or Word document.",
+        cvTooLarge: "Your CV is larger than 4 MB. Please upload a smaller file.",
+        timeMissing: "Please choose how much time you can give.",
+        unpaidNotConfirmed: "Please confirm you understand this is an unpaid volunteer role.",
+        sundayNotConfirmed: "Please confirm you can keep Sunday for the network.",
+        rosaryNotConfirmed: "Please confirm the daily Rosary.",
+        applicationsClosed: "We are not taking applications right now. Please check back soon.",
+        roleClosed: "This role is not taking applications right now. Please choose another role or check back soon.",
+        server: "Something went wrong on our side. Your application was not sent. Please try again in a moment.",
+      },
     },
 
     meta: {
@@ -151,16 +169,16 @@ export const strings = {
       share: {
         title: "Strangers for Mary | Never carry your faith alone",
         description:
-          "Never carry your faith alone. Have strangers pray for your intentions, see your small acts become real help, and gather with Catholics who keep you strong.",
+          "Strangers for Mary is a network of Marian devotees who carry one another to Jesus. We pray. We give. We gather. Pass it on.",
         siteName: "Strangers for Mary",
         /** Also in src/app/opengraph-image.alt.txt and twitter-image.alt.txt (a test keeps them equal). */
         imageAlt:
-          "A hand holding a wooden rosary with a crucifix. Text: Every friend of Mary is a stranger we cannot wait to pray for, care for, and gather with. We are strangers. Different cities. Different languages. Different stories. Most of us will never stand in the same room. But every one of us has run to the same Mother, and found her already waiting. Strangers for Mary.",
+          "Young people smiling together in church. Text: Every friend of Mary is a stranger we cannot wait to pray for, care for, and gather with. Strangers for Mary.",
       },
       home: {
         title: "Strangers for Mary | Never carry your faith alone",
         description:
-          "Never carry your faith alone. Have strangers pray for your intentions, see your small acts become real help, and gather with Catholics who keep you strong.",
+          "Strangers for Mary is a network of Marian devotees who carry one another to Jesus. We pray. We give. We gather. Pass it on.",
       },
       ourStory: {
         title: "Our Story | Strangers for Mary",
@@ -797,6 +815,115 @@ export const strings = {
           text: "You are welcomed onto your team and our internal tool. If the role is filled, we keep your application for when it opens again.",
         },
       ],
+      closing: { main: "Do not just join the strangers.", emphasis: "Bring them together." },
+    },
+  },
+
+  roles: {
+    opening: {
+      tag: "Volunteer · Roles",
+      headline: { main: "Read the role.", muted: "Then apply for it." },
+      body: "Strangers for Mary is built and carried by volunteers. Each role is described here: what it carries, what you will do and what we look for. Choose the one that fits your gifts and apply for that role. No experience? Many roles come with training. If a role is already filled, we keep your application for when it opens again.",
+      cta: "See the roles",
+      card: {
+        label: "Before you apply",
+        title: "Every role is unpaid. None is full-time.",
+        text: "You serve alongside your studies, work and family life, online from anywhere. Sunday is the one firm commitment, and we train you in the role.",
+        link: "The nature of the work",
+      },
+    },
+
+    nature: {
+      headline: { main: "Volunteering,", muted: "not a job." },
+      body: "Please read this before you apply, so nobody mistakes a place on the team for paid or full-time work.",
+    },
+
+    whoWeLookFor: {
+      headline: { main: "Every role asks two things.", muted: "Faith, and real skill." },
+      cards: [
+        {
+          label: "Every role",
+          title: "A practising Catholic who loves Mary",
+          text: "You pray the Rosary daily and the Strangers' Prayer after it, and you may be invited to pray an extra Rosary when a stranger's intention would otherwise go unprayed.",
+        },
+        {
+          label: "Technology",
+          title: "Mid-level developers who think in systems",
+          text: "We build with a lot of AI assistance, so we look for people who understand system design and can judge what AI produces. Native Android and iOS, hybrid apps and React on the web all matter here.",
+        },
+        {
+          label: "A pivotal role",
+          title: "A brand designer who is genuinely good at it",
+          text: "The brand drives most of our outreach and our charity work. The Brand and Graphic Designer needs strong, proven brand identity experience, and a portfolio that shows it.",
+        },
+      ],
+    },
+
+    list: {
+      headline: { main: "The roles.", muted: "Find yours." },
+      body: "Each role has its own description and its own application. Many roles come with training, and are open to people with no experience in the work.",
+      filterAria: "Filter by team",
+      filters: {
+        all: "All roles",
+        coreAndContent: "Core and Content",
+        technology: "Technology",
+        strangerRelations: "Stranger Relations",
+        outreach: "Outreach",
+      },
+      card: {
+        more: "Read the full role",
+        less: "Show less",
+        team: "The team",
+        role: "The role",
+        responsibilities: "What you will do",
+        requirements: "You will need",
+        reportsTo: "Reports to:",
+        downloadPdf: "Download PDF",
+        apply: "Apply for this role",
+      },
+    },
+
+    application: {
+      headline: { main: "Apply for", muted: "one role." },
+      body: "Each application is for one role, so we can judge you on what that role needs. Choose the role, answer its questions and attach your CV. Applicants may be invited to a short online interview.",
+      downloadDescription: "Download the role description",
+      notPaid: {
+        title: "This is not a paid job.",
+        text: "Every role is unpaid and none is full-time. There is no salary, allowance, stipend or payment of any kind.",
+      },
+      form: {
+        role: { label: "The role you are applying for", empty: "Choose a role" },
+        questionsLabel: "Questions for this role",
+        answerPlaceholder: "Your answer",
+        linkPlaceholder: "https://",
+        noRole: "Choose a role above to see the questions for that role.",
+        cv: {
+          label: "Your CV",
+          upload: "Upload your CV",
+          change: "Change file",
+          empty: "No file chosen yet",
+          hint: "PDF or Word document",
+        },
+        hours: {
+          label: "Besides Sunday, how much time can you give in a typical week?",
+          empty: "Choose one",
+          options: ["Up to 3 hours", "4 to 6 hours", "7 hours or more"],
+        },
+        confirmLegend: "Please confirm",
+        /** The form sets the first sentence in bold, as in the design. */
+        confirmUnpaid:
+          "I understand this is an unpaid volunteer role. It is not a job and not full-time, and there is no salary, allowance or payment of any kind.",
+        confirmSunday: "I can keep Sunday for the network, after Holy Mass.",
+        confirmRosary: "I pray the Rosary daily, or I am ready to begin.",
+        joinAsStranger: "Also invite me to join the network as a stranger.",
+        submit: "Send my application",
+        privacyNote:
+          "We will only use your details to consider your application and contact you about Strangers for Mary.",
+      },
+      success: {
+        title: "Thank you for applying.",
+        body: "Your application is in. Someone from the team will review it and may invite you to a short online interview. If the role is filled, we will keep your application for when it opens again.",
+      },
       closing: { main: "Do not just join the strangers.", emphasis: "Bring them together." },
     },
   },

@@ -1,0 +1,39 @@
+@use "@/styles/abstracts" as *;
+
+.heading {
+  margin-bottom: space(10);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, space(65)), 1fr));
+  gap: space(3.5);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: space(3);
+  padding: space(7);
+  border-radius: radius(xl);
+  background: var(--color-white);
+}
+
+.text {
+  font-size: var(--text-15);
+  line-height: var(--leading-1-6);
+  color: var(--color-text-body);
+}
+
+.ink {
+  background: var(--color-ink);
+  color: var(--color-white);
+
+  .label {
+    color: var(--color-lime);
+  }
+
+  .text {
+    color: var(--color-mist);
+  }
+}

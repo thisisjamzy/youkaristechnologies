@@ -9,13 +9,13 @@ export type FormFieldProps = Omit<InputHTMLAttributes<HTMLInputElement>, "classN
   name: string;
   /** Message from strings.common.errors, shown under the field. */
   error?: string;
-  /** `onLime` draws the underline in ink, for the Build With Us panel. */
-  tone?: "default" | "onLime";
+  /** `line`: underlined (Home). `box`: white rounded box (the Roles application). */
+  variant?: "line" | "box";
   className?: string;
 };
 
-/** Underlined text input with its label and error. `<FormField label={f.email.label} name="email" type="email" />` */
-export function FormField({ label, labelHint, name, error, tone = "default", className, ...input }: FormFieldProps) {
+/** A text input with its label and error. `<FormField label={f.email.label} name="email" type="email" />` */
+export function FormField({ label, labelHint, name, error, variant = "line", className, ...input }: FormFieldProps) {
   const id = useId();
   const errorId = `${id}-error`;
   return (
@@ -29,7 +29,7 @@ export function FormField({ label, labelHint, name, error, tone = "default", cla
         name={name}
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? errorId : undefined}
-        className={cn(styles.input, styles[tone])}
+        className={cn(styles.input, styles[variant])}
         {...input}
       />
       {error && (

@@ -27,6 +27,8 @@ export type HeadingProps = {
   measure?: MeasureName;
   align?: "start" | "center";
   id?: string;
+  /** Lets a script move focus here (tabIndex -1), e.g. a form heading after a jump link. */
+  focusable?: boolean;
   className?: string;
 };
 
@@ -49,6 +51,7 @@ export function Heading({
   measure,
   align,
   id,
+  focusable,
   className,
 }: HeadingProps) {
   const [main, second] =
@@ -57,6 +60,7 @@ export function Heading({
   return (
     <Tag
       id={id}
+      tabIndex={focusable ? -1 : undefined}
       className={cn(
         styles.heading,
         styles[`size-${tokenKey(size)}`],

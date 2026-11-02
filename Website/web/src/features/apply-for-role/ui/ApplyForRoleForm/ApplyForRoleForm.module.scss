@@ -1,0 +1,78 @@
+@use "@/styles/abstracts" as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: space(5.5);
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, space(50)), 1fr));
+  gap: space(5.5);
+}
+
+.questions,
+.noRole {
+  padding-top: space(5.5);
+  border-top: var(--border-hairline) solid var(--color-mist);
+}
+
+.questions {
+  display: flex;
+  flex-direction: column;
+  gap: space(5.5);
+}
+
+.questionsLabel {
+  @include label("13");
+}
+
+.noRole {
+  margin: 0;
+  font-size: var(--text-15);
+  line-height: var(--leading-1-5);
+  color: var(--color-text-body);
+}
+
+.confirm {
+  display: flex;
+  flex-direction: column;
+  gap: space(3.5);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.legend {
+  padding: 0 0 space(3);
+  font-size: var(--text-14);
+  font-weight: var(--font-weight-semibold);
+}
+
+.confirmItem {
+  display: flex;
+  flex-direction: column;
+  gap: space(1);
+}
+
+.error {
+  margin: 0 0 0 space(8);
+  font-size: var(--text-14);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-error);
+}
+
+.privacy {
+  margin: calc(-1 * #{space(1.5)}) 0 0;
+  font-size: var(--text-13);
+  line-height: var(--leading-1-5);
+  color: var(--color-text-body);
+}
+
+.successText {
+  margin: 0;
+  font-size: var(--text-17);
+  line-height: var(--leading-1-6);
+}

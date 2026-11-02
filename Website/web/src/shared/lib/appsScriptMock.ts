@@ -6,7 +6,8 @@ import type { AppsScriptReply } from "./appsScript";
  * It mirrors the real replies (see Website/apps-script/README.md) and keeps sign-ups in
  * memory until the dev server restarts.
  *
- * To try the server error, put a tag in the email: `you+error@x.org`.
+ * To try other replies, put a tag in the email: `you+error@x.org` → server error,
+ * `you+closed@x.org` → applications closed (role applications only).
  */
 
 const strangers = new Map<string, string>();
@@ -18,6 +19,10 @@ export const mockAppsScript = {
   async post(payload: Record<string, unknown>): Promise<AppsScriptReply> {
     const email = String(payload.email ?? "");
     if (email.includes("+error")) return { ok: false, error: "server" };
+    if (payload.action === "apply") {
+      if (email.includes("+closed")) return { ok: false, error: "applications_closed" };
+      return { ok: true, applicationId: id("VOL"), updated: false };
+    }
 
     const updated = strangers.has(email);
     const strangerId = strangers.get(email) ?? id("STR");

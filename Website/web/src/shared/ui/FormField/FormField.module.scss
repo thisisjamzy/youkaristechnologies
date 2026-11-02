@@ -35,8 +35,22 @@
   }
 }
 
-.onLime {
-  border-bottom-color: var(--color-ink);
+// The white box on the grey Roles form panel. Shared with Select and FileInput.
+.box {
+  min-height: space(13);
+  padding: space(3) space(4);
+  border: var(--border-input) solid var(--color-hairline);
+  border-radius: radius(sm-plus);
+  background: var(--color-white);
+
+  &::placeholder {
+    color: var(--color-text-body);
+  }
+
+  &[aria-invalid="true"] {
+    border-width: var(--border-input);
+    border-color: var(--color-error);
+  }
 }
 
 .error {

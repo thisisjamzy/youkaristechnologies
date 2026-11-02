@@ -253,6 +253,7 @@ export const folderTabs = {
 
 /** Icon sizes (px) and stroke widths, for SVG attributes. */
 export const iconSizes = {
+  "2xs": 12, // list chevrons on role cards
   xs: 14,
   sm: 16,
   md: 18,
@@ -266,6 +267,8 @@ export const iconStrokes = {
   regular: 2,
   bold: 2.4, // arrows
   heavy: 2.6, // checks and chevrons
+  heavier: 2.8, // the select chevron
+  heaviest: 3.2, // list chevrons on role cards
 } as const;
 
 export const shadows = {

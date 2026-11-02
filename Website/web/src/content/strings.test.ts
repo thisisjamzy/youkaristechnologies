@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
+import { rolesData } from "./roles";
 import { strings } from "./strings";
 
 const MASTER_PATH = resolve(__dirname, "../../../sfm-website-build-kit/content/strings-master.md");
@@ -65,7 +66,8 @@ function masterTexts(): string[] {
 }
 
 const all = leaves(strings);
-const values = new Set(all.map((l) => l.value));
+// The "nature of the work" items are listed in the master but live in the role data (roles.ts).
+const values = new Set([...all.map((l) => l.value), ...leaves(rolesData.nature).map((l) => l.value)]);
 
 describe("strings.ts against the strings master", () => {
   it.each(masterTexts().map((t) => [t]))("contains %j", (text) => {

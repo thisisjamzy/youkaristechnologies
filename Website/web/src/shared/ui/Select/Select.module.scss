@@ -1,0 +1,29 @@
+@use "@/styles/abstracts" as *;
+
+.wrap {
+  position: relative;
+  display: block;
+}
+
+.select {
+  appearance: none;
+  padding-right: space(13);
+  cursor: pointer;
+}
+
+// The lime circle with an ink chevron, inside the right edge.
+.indicator {
+  position: absolute;
+  top: 50%;
+  right: space(2);
+  width: space(9);
+  height: space(9);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: radius(pill);
+  background: var(--color-lime);
+  color: var(--color-ink);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
