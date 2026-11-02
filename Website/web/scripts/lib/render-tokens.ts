@@ -1,4 +1,4 @@
-import type { Fluid, Tokens } from "../../src/styles/tokens/tokens";
+import type { Fluid, Tokens, Wide } from "../../src/styles/tokens/tokens";
 
 type Entry = [name: string, value: string];
 
@@ -7,6 +7,8 @@ const px = (n: number) => (n === 0 ? "0" : `${n}px`);
 const isFluid = (v: unknown): v is Fluid => typeof v === "object" && v !== null && "vw" in v;
 const clamp = ({ min, vw, max }: Fluid) => `clamp(${min}px, ${vw}vw, ${max}px)`;
 const size = (v: number | Fluid) => (isFluid(v) ? clamp(v) : px(v));
+const isWide = (v: unknown): v is Wide => typeof v === "object" && v !== null && "vw" in v && !("max" in v);
+const length = (v: number | Wide) => (isWide(v) ? `max(${px(v.min)}, ${v.vw}vw)` : px(v));
 
 /** CSS custom property name for a space step: 2.5 → `--space-2_5`. */
 export const spaceVar = (step: number) => `--space-${String(step).replace(".", "_")}`;
@@ -14,7 +16,7 @@ export const spaceVar = (step: number) => `--space-${String(step).replace(".", "
 /** Every token as a CSS custom property, in a stable order. */
 export function cssVariables(t: Tokens): Entry[] {
   const out: Entry[] = [];
-  const add = (prefix: string, rec: Record<string, string | number>, fmt: (v: never) => string) => {
+  const add = (prefix: string, rec: Record<string, string | number | Wide>, fmt: (v: never) => string) => {
     for (const [k, v] of Object.entries(rec)) out.push([`--${prefix}-${kebab(k)}`, fmt(v as never)]);
   };
 
@@ -34,7 +36,7 @@ export function cssVariables(t: Tokens): Entry[] {
   add("shadow", t.shadows, (v: string) => v);
   add("blur", t.blurs, px);
   add("opacity", t.opacities, (v: number) => String(v));
-  add("layout", t.layout, px);
+  add("layout", t.layout, length);
   add("z", t.zIndex, (v: number) => String(v));
   add("duration", t.motion, (v: number) => `${v}ms`);
   add("ease", t.easing, (v: string) => v);

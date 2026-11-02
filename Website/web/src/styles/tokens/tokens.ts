@@ -14,6 +14,11 @@ export type Fluid = { min: number; vw: number; max: number };
 
 const fluid = (min: number, vw: number, max: number): Fluid => ({ min, vw, max });
 
+/** A width that grows with the screen past a minimum: max(min, vw). Sizes in px. */
+export type Wide = { min: number; vw: number };
+
+const wide = (min: number, vw: number): Wide => ({ min, vw });
+
 export const colors = {
   // Brand
   lime: "#D1FF42", // one large lime element per screen, primary buttons, tags. Never text on light grounds
@@ -33,7 +38,8 @@ export const colors = {
   textPrimary: "#0A0F1A",
   textBody: "#4A5468", // body copy on light grounds
   textLongform: "#2E3748", // Our Story reading column
-  textMuted: "#7E899D", // second clause of two-tone headlines only (large text). Darkened from the design's #8A94A6 to pass 3:1 on paper and mistTint (owner approved)
+  textAccent: "#0251B0", // Elite Blue: second clause of two-tone headlines and standalone pull lines
+  textMuted: "#7E899D", // second line inside the dark closing card and small labels. Darkened from the design's #8A94A6 to pass 3:1 on paper and mistTint (owner approved)
   textPlaceholder: "#6B7488", // input placeholders and underlines
   textOnDarkMuted: "#A3AEC0",
   // State (owner's choice, not in the design reference)
@@ -272,7 +278,7 @@ export const opacities = {
 } as const;
 
 export const layout = {
-  container: 1200,
+  container: wide(1200, 80), // content width: max(1200px, 80vw), plus the gutter on each side
   gutter: 24,
   minTouch: 44,
   headerHeight: 88, // desktop header, from 1024px

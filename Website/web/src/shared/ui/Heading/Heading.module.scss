@@ -40,6 +40,10 @@
   color: var(--color-text-primary);
 }
 
+.tone-accent {
+  color: var(--color-text-accent);
+}
+
 .tone-muted {
   color: var(--color-text-muted);
 }
@@ -54,6 +58,10 @@
 
 .tone-inherit {
   color: inherit;
+}
+
+.accent {
+  color: var(--color-text-accent);
 }
 
 .muted {

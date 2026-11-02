@@ -3,11 +3,16 @@ import { describe, expect, it } from "vitest";
 import { Heading } from "./Heading";
 
 describe("Heading", () => {
-  it("renders a two-tone headline as one heading with a muted second clause", () => {
+  it("renders a two-tone headline as one heading with an Elite Blue second clause", () => {
     render(<Heading as="h1" text={{ main: "Sunday is easy.", muted: "Monday is where we lose." }} />);
     const heading = screen.getByRole("heading", { level: 1 });
     expect(heading).toHaveTextContent("Sunday is easy. Monday is where we lose.");
-    expect(screen.getByText("Monday is where we lose.")).toHaveClass("muted");
+    expect(screen.getByText("Monday is where we lose.")).toHaveClass("accent");
+  });
+
+  it("keeps the grey second clause when asked, for the dark closing card", () => {
+    render(<Heading as="p" text={{ main: "Now pass it on.", muted: "We pray." }} secondTone="muted" />);
+    expect(screen.getByText("We pray.")).toHaveClass("muted");
   });
 
   it("styles an emphasis part with the chosen tone", () => {

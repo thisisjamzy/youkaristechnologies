@@ -6,15 +6,20 @@ import styles from "./Photo.module.scss";
 /** A step on the 4px scale (105 = 420px), a fluid size (`hero`), or `fill` to fill a grid cell. */
 export type PhotoHeight = BoxStep | FluidSizeName | "fill";
 
-const page = `(min-width: ${layout.container + layout.gutter * 2}px) ${layout.container}px, 100vw`;
+// The container is max(min, vw): fixed at `min` px until the screen is wide enough for vw to overtake it.
+const { min, vw } = layout.container;
+const growsFrom = Math.ceil((min * 100) / vw);
+const share = (n: number) => `(min-width: ${growsFrom}px) ${vw / n}vw, (min-width: ${breakpoints.laptop}px) ${Math.round(min / n)}px`;
+
+const page = `(min-width: ${growsFrom}px) ${vw}vw, (min-width: ${min + layout.gutter * 2}px) ${min}px, 100vw`;
 
 /** `sizes` presets from the layout tokens: how wide the photo renders at each breakpoint. */
 export const photoSizes = {
   full: page,
-  half: `(min-width: ${breakpoints.laptop}px) ${layout.container / 2}px, 100vw`,
-  third: `(min-width: ${breakpoints.laptop}px) ${Math.round(layout.container / 3)}px, (min-width: ${breakpoints.tablet}px) 50vw, 100vw`,
-  quarter: `(min-width: ${breakpoints.laptop}px) ${layout.container / 4}px, (min-width: ${breakpoints.tablet}px) 50vw, 100vw`,
-  thumb: `${layout.container / 4}px`,
+  half: `${share(2)}, 100vw`,
+  third: `${share(3)}, (min-width: ${breakpoints.tablet}px) 50vw, 100vw`,
+  quarter: `${share(4)}, (min-width: ${breakpoints.tablet}px) 50vw, 100vw`,
+  thumb: `${min / 4}px`,
 } as const;
 
 export type PhotoProps = {

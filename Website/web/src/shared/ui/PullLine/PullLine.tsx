@@ -4,8 +4,8 @@ import { Heading, type SecondTone } from "../Heading";
 
 export type PullLineProps = {
   text: RichLine;
-  /** `muted` for the grey line under a section, `primary` for an ink closing line. */
-  tone?: "muted" | "primary";
+  /** `accent` for the Elite Blue line under a section, `primary` for an ink closing line. */
+  tone?: "accent" | "primary";
   secondTone?: SecondTone;
   breakBefore?: boolean;
   size?: FontSizeName;
@@ -20,7 +20,7 @@ export type PullLineProps = {
  */
 export function PullLine({
   text,
-  tone = "muted",
+  tone = "accent",
   secondTone = "blue",
   breakBefore,
   size = "titleM",

@@ -24,6 +24,12 @@ describe("render-tokens", () => {
     expect(vars["--space-section"]).toBe("clamp(96px, 12vw, 160px)");
   });
 
+  it("renders the page container as max(min, vw)", () => {
+    expect(vars["--layout-container"]).toBe("max(1200px, 80vw)");
+    expect(vars["--layout-gutter"]).toBe("24px");
+    expect(vars["--color-text-accent"]).toBe("#0251B0");
+  });
+
   it("wraps :root in a mixin so CSS modules never re-emit it", () => {
     const scss = renderScss(tokens);
     expect(scss).toMatch(/^@mixin css-variables \{\n {2}:root \{/m);

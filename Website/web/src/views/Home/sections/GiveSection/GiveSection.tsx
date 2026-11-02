@@ -18,7 +18,7 @@ export function GiveSection() {
         <Photo name="giveEmbrace" alt={give.photoAlt} height="fill" minHeight={95} radius="xl" sizes="third" />
         <div className={`${cards.card} ${styles.smallActs}`}>
           <Tag variant="lime">{give.card.label}</Tag>
-          <Heading as="p" text={give.card.line} size="44" secondTone="muted" />
+          <Heading as="p" text={give.card.line} size="44" />
         </div>
       </div>
       <PullLine text={give.pullLine} align="center" className={cards.pullLine} />

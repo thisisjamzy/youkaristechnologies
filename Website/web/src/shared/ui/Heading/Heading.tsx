@@ -5,11 +5,11 @@ import styles from "./Heading.module.scss";
 
 /**
  * How the second part of a two-part line looks:
- * `muted` (two-tone headline), `blue`, `highlight` (lime, as in "Not another prayer group."),
+ * `accent` (two-tone headline, Elite Blue), `muted` (grey, only on ink), `blue`, `highlight` (lime, as in "Not another prayer group."),
  * `highlightSoft` (the same with a softer corner, Our Story chapter 02)
  * or `badge` (tighter lime pill, as in "Yours.").
  */
-export type SecondTone = "muted" | "blue" | "highlight" | "highlightSoft" | "badge";
+export type SecondTone = "accent" | "muted" | "blue" | "highlight" | "highlightSoft" | "badge";
 
 export type HeadingProps = {
   as?: "h1" | "h2" | "h3" | "h4" | "p" | "span" | "b";
@@ -23,7 +23,7 @@ export type HeadingProps = {
   breakBefore?: boolean;
   /** A smaller size for the second part (with its own line height). */
   secondSize?: FontSizeName;
-  tone?: "primary" | "muted" | "lime" | "blue" | "inherit";
+  tone?: "primary" | "accent" | "muted" | "lime" | "blue" | "inherit";
   measure?: MeasureName;
   align?: "start" | "center";
   id?: string;
@@ -42,7 +42,7 @@ export function Heading({
   size = "headingL",
   leading = "1",
   tracking = "tight",
-  secondTone = "muted",
+  secondTone = "accent",
   breakBefore,
   secondSize,
   tone = "primary",
