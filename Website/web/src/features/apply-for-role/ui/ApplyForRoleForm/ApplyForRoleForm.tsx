@@ -113,6 +113,10 @@ export function ApplyForRoleForm({ roleId, onRoleChange, onSent }: ApplyForRoleF
     if (status === "sending") return;
     setFormError(null);
     const data = new FormData(event.currentTarget);
+    // Take the CV straight from its input: the same file in browsers, and test DOMs (jsdom)
+    // leave uploaded files out of FormData.
+    const cv = event.currentTarget.querySelector<HTMLInputElement>('input[name="cv"]')?.files?.[0];
+    if (cv) data.set("cv", cv);
     const parsed = schema.safeParse(applicationFromFormData(data));
     if (!parsed.success) return fail(toApplicationErrors(parsed.error));
 

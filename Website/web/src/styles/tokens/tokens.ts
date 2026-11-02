@@ -210,7 +210,7 @@ export const fluidSizes = {
   hero: fluid(360, 44, 600), // Home opening photo
   feature: fluid(340, 40, 560), // Pray and Give opening photos
   wide: fluid(400, 48, 640), // Home gather photo
-  team: fluid(340, 42, 560), // Build With Us team photo
+  team: fluid(340, 42, 560), // Volunteer team photo
   story: fluid(300, 40, 540), // Our Story opening photo
   band: fluid(300, 34, 460), // Home "Strangers in prayer" photos
   chapterPair: fluid(220, 28, 380), // Our Story Sunday/Monday

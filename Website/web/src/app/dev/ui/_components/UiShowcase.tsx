@@ -245,7 +245,6 @@ export function UiShowcase() {
           ]}
         />
         <JoinPanel
-          variant="join"
           headline={home.join.headline}
           body={home.join.body}
           points={home.join.benefits.map((b, i) => ({ ...b, icon: (["globe", "person", "leave"] as const)[i] }))}

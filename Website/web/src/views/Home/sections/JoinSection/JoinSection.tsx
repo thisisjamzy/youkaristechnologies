@@ -11,7 +11,6 @@ export function JoinSection() {
   return (
     <Section top="section" bottom="section" id="join">
       <JoinPanel
-        variant="join"
         headline={join.headline}
         body={join.body}
         points={join.benefits.map((benefit, i) => ({ ...benefit, icon: icons[i] }))}

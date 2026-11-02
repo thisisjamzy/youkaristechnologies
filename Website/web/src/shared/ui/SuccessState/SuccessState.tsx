@@ -5,7 +5,7 @@ import styles from "./SuccessState.module.scss";
 
 export type SuccessStateProps = {
   title: string;
-  /** `lime` circle on the grey Home panel, `ink` circle on the lime Build With Us panel. */
+  /** `lime` circle on the Home join panel, `ink` circle on the Roles application. */
   tone?: "lime" | "ink";
   /** Body text, the "Pass it on." line and the actions. */
   children: ReactNode;

@@ -6,26 +6,20 @@ import styles from "./JoinPanel.module.scss";
 export type JoinPanelPoint = { icon: IconName; title: string; text?: string };
 
 export type JoinPanelProps = {
-  /** `join`: Home, grey form panel. `apply`: Build With Us, lime form panel. */
-  variant: "join" | "apply";
   headline: string;
   body: string;
   points: readonly JoinPanelPoint[];
-  /** The form (join-network or apply-core-team). */
+  /** The form (join-network). */
   children: ReactNode;
   className?: string;
 };
 
-/** White card: the pitch and its points on the left, the form panel on the right. */
-export function JoinPanel({ variant, headline, body, points, children, className }: JoinPanelProps) {
+/** Home's white card: the pitch and its points on the left, the grey form panel on the right. */
+export function JoinPanel({ headline, body, points, children, className }: JoinPanelProps) {
   return (
-    <div className={cn(styles.panel, styles[variant], className)}>
+    <div className={cn(styles.panel, className)}>
       <div className={styles.intro}>
-        <Heading
-          text={headline}
-          size={variant === "join" ? "fluid-34-52" : "headingM"}
-          leading={variant === "join" ? "1-02" : "1-04"}
-        />
+        <Heading text={headline} size="fluid-34-52" leading="1-02" />
         <p className={styles.body}>{body}</p>
         <ul className={styles.points}>
           {points.map((point) => (
