@@ -34,8 +34,15 @@ async function readJson(res: Response): Promise<AppsScriptReply> {
   }
 }
 
-/** POSTs a sign-up. Any network failure, timeout or odd reply comes back as { ok: false, error: "server" }. */
-export async function appsScriptPost(payload: Record<string, unknown>): Promise<AppsScriptReply> {
+/**
+ * POSTs a sign-up or an application. Any network failure, timeout or odd reply comes back as
+ * { ok: false, error: "server" }. Applications pass a longer timeout: saving a CV to Drive and
+ * emailing the team can take Apps Script well over ten seconds.
+ */
+export async function appsScriptPost(
+  payload: Record<string, unknown>,
+  { timeoutMs = TIMEOUT_MS }: { timeoutMs?: number } = {},
+): Promise<AppsScriptReply> {
   const cfg = config();
   if (cfg === "mock") return mockAppsScript.post(payload);
   if (!cfg) {
@@ -48,7 +55,7 @@ export async function appsScriptPost(payload: Record<string, unknown>): Promise<
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...payload, secret: cfg.secret }),
       redirect: "follow",
-      signal: AbortSignal.timeout(TIMEOUT_MS),
+      signal: AbortSignal.timeout(timeoutMs),
     });
     return await readJson(res);
   } catch (err) {

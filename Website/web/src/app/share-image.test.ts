@@ -9,3 +9,11 @@ describe("share image alt text", () => {
     expect(readFileSync(resolve(__dirname, file), "utf8").trim()).toBe(strings.common.meta.share.imageAlt);
   });
 });
+
+// The share image is a designed asset from the kit (assets/social/og-source.html), never drawn in code.
+describe("share image", () => {
+  const kitImage = readFileSync(resolve(__dirname, "../../../sfm-website-build-kit/assets/social/sfm-og-1200x630.jpg"));
+  it.each(["opengraph-image.jpg", "twitter-image.jpg"])("%s is the kit's sfm-og-1200x630.jpg", (file) => {
+    expect(readFileSync(resolve(__dirname, file)).equals(kitImage)).toBe(true);
+  });
+});

@@ -81,6 +81,7 @@ describe("POST /api/apply", () => {
       joinAsStranger: true,
       cv: { fileName: "mary-cv.pdf", mimeType: "application/pdf" },
     });
+    expect(fetchMock.mock.calls[0][1].signal).toBeInstanceOf(AbortSignal);
     expect(sent.questions).toHaveLength(3);
     expect(sent.questions[0]).toBe("Why are you ideal for this role?");
     expect(Buffer.from(sent.cv.base64, "base64").toString()).toBe(new TextDecoder().decode(PDF));

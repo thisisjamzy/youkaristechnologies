@@ -4,7 +4,7 @@ Paste everything below the line into Claude Code or Cursor, opened at the reposi
 
 ---
 
-The build kit in `Website/sfm-website-build-kit/` has been updated. Apply these changes to `Website/web/`, following `Website/web/CLAUDE.md` and the architecture you already set up (feature-sliced folders, SCSS modules first, `strings.ts` and `tokens.ts` as the single sources of truth). Work through the phases in order, run lint, tests and build at the end of each phase, commit on a new branch `volunteer-roles`, and stop for review after each phase.
+The build kit in `Website/sfm-website-build-kit/` has been updated. Apply these changes to `Website/web/`, following `Website/web/CLAUDE.md` and the architecture you already set up (feature-sliced folders, SCSS modules first, `strings.ts` and `tokens.ts` as the single sources of truth). Work through the phases in order (six of them), run lint, tests and build at the end of each phase, commit on a new branch `volunteer-roles`, and stop for review after each phase.
 
 ## What changed, in one paragraph
 
@@ -117,5 +117,15 @@ Submitting:
 - Pages test: `/volunteer` and `/volunteer/roles` render; `/build-with-us` redirects; no page contains "places still open" or "20 places".
 - `npm run lint`, `npm run test` and `npm run build` pass. Check both new pages at 320, 390, 768, 1280, 1440 and 1920px, with the keyboard only, and with a screen reader on the form.
 - After deploying, send one real application with a small PDF and confirm the row in **Volunteer Applications**, the CV in the Drive folder and the email to `notify_email`. Then delete them.
+
+## Phase 6: New share image
+
+The social share image now uses the Home hero photo (young people smiling together in church) with only the headline over it: "Every friend of Mary is a stranger" in white and "we cannot wait to pray for, care for, and gather with." in lime, the logo top right and "#PASSITON" top left. The lime panel and the "We are strangers" text are gone.
+
+- `src/app/opengraph-image.jpg` and `src/app/twitter-image.jpg` have already been replaced with `assets/social/sfm-og-1200x630.jpg`. Check that both files are identical to the kit's copy; if not, copy it over both.
+- The alt text is now: `Young people smiling together in church. Text: Every friend of Mary is a stranger we cannot wait to pray for, care for, and gather with. Strangers for Mary.` It has already been updated in `opengraph-image.alt.txt`, `twitter-image.alt.txt`, `strings.common.meta.share.imageAlt` and `content/strings-master.md`. Confirm all four match and that `share-image.test.ts` passes.
+- The share description and the Home meta description now use the definition from the strategy: `Strangers for Mary is a network of Marian devotees who carry one another to Jesus. We pray. We give. We gather. Pass it on.` It has already been updated in `strings.common.meta.share.description`, `strings.common.meta.home.description` and the strings master. The share title stays `Strangers for Mary | Never carry your faith alone`. After building, check the built HTML of `/` shows the new text in `description`, `og:description` and `twitter:description`.
+- Do not generate the image in code. Its source is `assets/social/og-source.html` (photo `og-photo-hero-church.jpg`); `og-photo-rosary-crucifix.jpg` is no longer used.
+- After deploying, refresh the link in the Facebook Sharing Debugger and the LinkedIn Post Inspector so they drop the old image.
 
 Report what you changed, anything in the design reference you could not match exactly, and any string you had to add that is not in the strings master.

@@ -18,6 +18,12 @@ import { appsScriptPost } from "@/shared/lib/appsScript";
 
 // Node is the default (and, with Cache Components, the only) runtime, which Buffer needs.
 
+/** Seconds the host may let this route run: the backend's Drive upload and email are slow. */
+export const maxDuration = 60;
+
+/** How long to wait for the backend, inside maxDuration. */
+const BACKEND_TIMEOUT_MS = 45_000;
+
 const schema = createApplicationSchema(roles);
 const limiter = createRateLimiter({ limit: 5, windowMs: 60_000 });
 
@@ -112,7 +118,7 @@ export async function POST(request: Request) {
     { fileName: parsed.data.cv?.name ?? `cv.${kind}`, mimeType: CV_TYPES[kind], base64: Buffer.from(bytes).toString("base64") },
     new Date(),
   );
-  const result = await appsScriptPost(payload);
+  const result = await appsScriptPost(payload, { timeoutMs: BACKEND_TIMEOUT_MS });
 
   if (result.ok) return reply({ ok: true });
 

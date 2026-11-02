@@ -25,6 +25,15 @@ describe("appsScript client", () => {
     expect(init.signal).toBeInstanceOf(AbortSignal);
   });
 
+  it("waits 10 seconds by default, longer when asked", async () => {
+    configure();
+    vi.stubGlobal("fetch", vi.fn().mockImplementation(async () => Response.json({ ok: true })));
+    const timeout = vi.spyOn(AbortSignal, "timeout");
+    await appsScriptPost({ action: "signup" });
+    await appsScriptPost({ action: "apply" }, { timeoutMs: 45_000 });
+    expect(timeout.mock.calls).toEqual([[10_000], [45_000]]);
+  });
+
   it("puts the action and secret in the GET query", async () => {
     configure();
     const fetchMock = vi.fn().mockResolvedValue(Response.json({ ok: true, time: "now" }));

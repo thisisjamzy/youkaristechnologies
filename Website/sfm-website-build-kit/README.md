@@ -10,7 +10,7 @@ Everything Claude Code or Cursor needs to build the pre-launch website exactly a
 | `prompts/01-apps-script-backend.md` | The original prompt for the version 1 backend. Kept for history: the finished version 2 is already in `Website/apps-script/`. |
 | `prompts/03-responsive-header-and-menu.md` | The header on tablets and phones (mark, "Join us", menu button), the full-screen menu, and hiding the header on scroll down and showing it on scroll up. Use on its own if the header is already built. |
 | `prompts/04-update-hero-and-share-image.md` | Paste this if the build has already started: applies the new hero tagline and the social share image and text. |
-| `prompts/05-volunteer-roles-and-applications.md` | **Use this next.** Renames Build With Us to Volunteer, adds the Roles page with one application per role (questions, CV upload, confirmations), updates Home, widens the layout and turns the second half of headlines blue. Deploy the version 2 backend first. |
+| `prompts/05-volunteer-roles-and-applications.md` | **Use this next.** Renames Build With Us to Volunteer, adds the Roles page with one application per role (questions, CV upload, confirmations), updates Home, widens the layout, turns the second half of headlines blue and applies the new share image. Deploy the version 2 backend first. |
 | `prompts/02-nextjs-website.md` | Prompt for the Next.js website: architecture, single sources of truth for strings and design values, hooks, components, pages, forms and phases. |
 | `rules/CLAUDE.md` | Standing rules. Copied to `Website/web/CLAUDE.md` for Claude Code. |
 | `rules/sfm.mdc` | The same rules as a Cursor project rule, copied to `.cursor/rules/sfm.mdc` at the repository root. |
@@ -20,7 +20,7 @@ Everything Claude Code or Cursor needs to build the pre-launch website exactly a
 | `design-reference/` | The approved design for every page, plus the shared header and the closing card and footer. `volunteer.html` and `roles.html` are new; `build-with-us.html` is obsolete and kept only for history. |
 | `assets/brand/` | The original logo and mark files. Use as they are. |
 | `assets/brand/pattern/` | The brand pattern: your original tile and swatches, plus see-through swatches made from the same shape. On the site it is used only on the dark closing card. |
-| `assets/social/` | The image shown when the site is shared on WhatsApp, Facebook, LinkedIn and X (1200 by 630), and the HTML it was made from. |
+| `assets/social/` | The image shown when the site is shared on WhatsApp, Facebook, LinkedIn and X (1200 by 630): the headline over the Home hero photo. `og-source.html` is the HTML it was made from. |
 | `assets/roles/*.pdf` | One description per role, named by role id, for the "Download PDF" buttons. There is deliberately no combined PDF of all roles. |
 | `assets/fonts/Nohemi-Bold.ttf` | The display typeface. |
 | `assets/photos/` | Every photo used on the site, sized for the web. All of them come from `Strangers For Mary/Stock Images`; `CREDITS.json` lists the source file (`image N.jpg`) for each. |
