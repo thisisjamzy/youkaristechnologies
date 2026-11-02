@@ -23,9 +23,13 @@
   // The reference puts "Now pass it on." on one line beside the lead, but its flex
   // columns are narrower than the line (it is clipped by about 100px at 1440). The
   // right column is sized to the headline instead, so nothing is cut off.
+  // The lead keeps a reading width so "We called you here…" wraps instead of running the
+  // full width, and the two columns sit apart with at least 80px between them.
   @include up(laptop) {
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, measure("600")) auto;
+    justify-content: space-between;
     align-items: end;
+    column-gap: space(20);
   }
 }
 
