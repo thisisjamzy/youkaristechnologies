@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import type { ReactElement } from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { GatherView } from "@/views/Gather";
@@ -62,8 +62,8 @@ function collect(root: HTMLElement, into: Set<string>) {
 
 // A valid sign-up, typed into whichever of these fields the form has.
 const typed: Record<string, string> = {
-  fullName: "Mary Ndi",
   baptismName: "Mary",
+  phone: "+237 6 70 00 00 00",
   email: "mary@example.org",
   parish: "St Anthony",
   city: "Buea, Cameroon",
@@ -78,13 +78,6 @@ async function renderedTexts(view: ReactElement): Promise<Set<string>> {
   const { container } = render(view);
   const texts = new Set<string>();
   collect(container, texts);
-
-  // Home: reveal the core team questions.
-  const apply = screen.queryByRole("checkbox", { name: /Apply for the core team/ });
-  if (apply) {
-    fireEvent.click(apply);
-    collect(container, texts);
-  }
 
   // Forms: a valid submission shows the success state.
   const form = container.querySelector("form");

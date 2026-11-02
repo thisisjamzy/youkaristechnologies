@@ -1,48 +1,31 @@
 "use client";
 
-import { useEffect, useId, useRef, useState, type FormEvent } from "react";
+import { useEffect, useId, useRef, type FormEvent } from "react";
 import { strings } from "@/content/strings";
-import { createSignupSchema, LIMITS, type SignupField } from "@/entities/signup";
+import { LIMITS, signupSchema, type SignupField } from "@/entities/signup";
 import { useSignupSubmission } from "@/entities/signup/client";
-import { teamIds } from "@/entities/team";
-import { externalLinks, whatsAppShareUrl } from "@/shared/lib";
-import {
-  Button,
-  Checkbox,
-  CheckboxGroup,
-  FormAlert,
-  FormField,
-  Heading,
-  Honeypot,
-  SmartLink,
-  SuccessState,
-  TextArea,
-} from "@/shared/ui";
+import { externalLinks, routes, whatsAppShareUrl } from "@/shared/lib";
+import { Button, Checkbox, FormAlert, FormField, Heading, Honeypot, SmartLink, SuccessState } from "@/shared/ui";
 import styles from "./JoinNetworkForm.module.scss";
 
-const { form, teams, share } = strings.common;
+const { form, share } = strings.common;
 const { join } = strings.home;
 const SPACE = " ";
+// A controlled box with a no-op handler: React puts the tick straight back.
+const keepTicked = () => {};
 
-const schema = createSignupSchema(teamIds);
-const teamOptions = teamIds.map((id) => ({ value: id, label: teams[id].name }));
-
-/** The Home sign-up form: join as a stranger and, optionally, apply for the core team. */
+/** The Home sign-up form: join the network as a stranger. Volunteers apply per role on the Roles page. */
 export function JoinNetworkForm() {
-  const [joining, setJoining] = useState(true);
-  const [applying, setApplying] = useState(false);
-  const [selectedTeams, setSelectedTeams] = useState<string[]>([]);
   const formRef = useRef<HTMLFormElement>(null);
   const successId = useId();
-  const { status, errors, formError, submit } = useSignupSubmission(schema);
+  const { status, errors, formError, submit } = useSignupSubmission(signupSchema);
 
   useEffect(() => {
     if (status === "sent") document.getElementById(successId)?.focus();
   }, [status, successId]);
 
   const focusField = (field: SignupField) => {
-    const name = field === "choice" ? "joinAsStranger" : field;
-    formRef.current?.querySelector<HTMLElement>(`[name="${name}"]`)?.focus();
+    formRef.current?.querySelector<HTMLElement>(`[name="${field}"]`)?.focus();
   };
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -51,21 +34,16 @@ export function JoinNetworkForm() {
     const text = (name: string) => String(data.get(name) ?? "");
     const firstInvalid = await submit({
       sourcePage: "home",
-      fullName: text("fullName"),
       baptismName: text("baptismName"),
-      email: text("email"),
+      phone: text("phone"),
       parish: text("parish"),
       city: text("city"),
-      whatsApp: text("whatsApp"),
-      joinAsStranger: joining,
-      applyCoreTeam: applying,
-      teams: applying ? selectedTeams : [],
-      about: applying ? text("about") : "",
+      email: text("email"),
+      joinAsStranger: true,
       website: text("website"),
     });
     if (firstInvalid) focusField(firstInvalid);
   };
-
 
   if (status === "sent") {
     return (
@@ -87,30 +65,22 @@ export function JoinNetworkForm() {
       <Honeypot />
       <div className={styles.pair}>
         <FormField
-          {...form.fullName}
-          name="fullName"
-          autoComplete="name"
-          maxLength={LIMITS.name}
-          required
-          error={errors.fullName}
-        />
-        <FormField
           {...form.baptismName}
           name="baptismName"
           maxLength={LIMITS.name}
           required
           error={errors.baptismName}
         />
+        <FormField
+          {...form.phone}
+          name="phone"
+          type="tel"
+          autoComplete="tel"
+          maxLength={LIMITS.phone}
+          required
+          error={errors.phone}
+        />
       </div>
-      <FormField
-        {...form.email}
-        name="email"
-        type="email"
-        autoComplete="email"
-        maxLength={LIMITS.email}
-        required
-        error={errors.email}
-      />
       <div className={styles.pair}>
         <FormField {...form.parish} name="parish" maxLength={LIMITS.place} required error={errors.parish} />
         <FormField
@@ -123,54 +93,32 @@ export function JoinNetworkForm() {
         />
       </div>
       <FormField
-        {...form.whatsApp}
-        name="whatsApp"
-        type="tel"
-        autoComplete="tel"
-        maxLength={LIMITS.whatsApp}
-        error={errors.whatsApp}
+        {...form.email}
+        labelHint={form.optional}
+        name="email"
+        type="email"
+        autoComplete="email"
+        maxLength={LIMITS.email}
+        error={errors.email}
       />
 
-      <fieldset className={styles.choices} aria-describedby={errors.choice ? `${successId}-choice` : undefined}>
+      <fieldset className={styles.choices}>
         <legend className={styles.legend}>{join.form.choiceLegend}</legend>
-        <div className={styles.choiceGrid}>
-          <Checkbox name="joinAsStranger" checked={joining} onChange={(e) => setJoining(e.target.checked)}>
-            <b>{join.form.joinAsStranger.label}</b>
-            {SPACE}
-            {join.form.joinAsStranger.hint}
-          </Checkbox>
-          <Checkbox
-            name="applyCoreTeam"
-            checked={applying}
-            onChange={(e) => setApplying(e.target.checked)}
-          >
-            <b>{join.form.applyCoreTeam.label}</b>
-            {SPACE}
-            {join.form.applyCoreTeam.hint}
-          </Checkbox>
-        </div>
-        {errors.choice && (
-          <p id={`${successId}-choice`} className={styles.error}>
-            {errors.choice}
-          </p>
-        )}
+        {/* Joining as a stranger is what this form does, so the box stays ticked. */}
+        <Checkbox name="joinAsStranger" checked onChange={keepTicked}>
+          <b>{join.form.joinAsStranger.label}</b>
+          {SPACE}
+          {join.form.joinAsStranger.hint}
+        </Checkbox>
       </fieldset>
 
-      {applying && (
-        <div className={styles.coreTeam}>
-          <p className={styles.note}>{form.interviewNote}</p>
-          <CheckboxGroup
-            legend={join.form.teamsLegend}
-            name="teams"
-            options={teamOptions}
-            value={selectedTeams}
-            onChange={setSelectedTeams}
-            gap={2.5}
-            error={errors.teams}
-          />
-          <TextArea {...form.about} name="about" maxLength={LIMITS.about} error={errors.about} />
-        </div>
-      )}
+      <p className={styles.note}>
+        {join.form.volunteer.text}
+        {SPACE}
+        <SmartLink href={routes.roles} className={styles.noteLink}>
+          {join.form.volunteer.link}
+        </SmartLink>
+      </p>
 
       <FormAlert message={formError} />
       <Button type="submit" variant="dark" block disabled={sending}>

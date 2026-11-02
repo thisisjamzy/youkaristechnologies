@@ -1,7 +1,7 @@
 // Public API of the signup entity: safe on the server and in the browser.
 // Browser-only pieces (the form hook, the fetch to /api/signup) are in ./client.
 export {
-  createSignupSchema,
+  signupSchema,
   toFieldErrors,
   LIMITS,
   signupFields,

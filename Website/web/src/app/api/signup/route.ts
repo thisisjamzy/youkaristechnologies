@@ -1,6 +1,6 @@
 import {
   backendFieldNames,
-  createSignupSchema,
+  signupSchema as schema,
   signupFields,
   toAppsScriptPayload,
   toFieldErrors,
@@ -9,11 +9,9 @@ import {
   type SignupField,
   type SignupResponse,
 } from "@/entities/signup";
-import { teamApiNames, teamIds } from "@/entities/team";
 import { appsScriptPost } from "@/shared/lib/appsScript";
 import { createRateLimiter } from "@/shared/lib";
 
-const schema = createSignupSchema(teamIds);
 const limiter = createRateLimiter({ limit: 5, windowMs: 60_000 });
 
 const reply = (body: SignupResponse, status = 200) => Response.json(body, { status });
@@ -57,7 +55,7 @@ export async function POST(request: Request) {
   // Honeypot filled: look successful, store nothing.
   if (parsed.data.website !== "") return reply({ ok: true });
 
-  const payload = toAppsScriptPayload(parsed.data, (id) => teamApiNames[id], new Date());
+  const payload = toAppsScriptPayload(parsed.data, new Date());
   const result = await appsScriptPost(payload);
 
   if (result.ok) return reply({ ok: true });

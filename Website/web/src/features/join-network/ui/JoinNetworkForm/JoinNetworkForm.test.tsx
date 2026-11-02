@@ -17,10 +17,11 @@ function reply(body: unknown) {
   return fetchMock;
 }
 
+const emailField = () => screen.getByLabelText(new RegExp(`^${form.email.label}`));
+
 async function fillValid(user: ReturnType<typeof userEvent.setup>) {
-  await user.type(screen.getByLabelText(form.fullName.label), "Mary Ndi");
   await user.type(screen.getByLabelText(form.baptismName.label), "Mary");
-  await user.type(screen.getByLabelText(form.email.label), "mary@example.org");
+  await user.type(screen.getByLabelText(form.phone.label), "+237 6 70 00 00 00");
   await user.type(screen.getByLabelText(form.parish.label), "St Anthony");
   await user.type(screen.getByLabelText(form.city.label), "Buea, Cameroon");
 }
@@ -28,38 +29,57 @@ async function fillValid(user: ReturnType<typeof userEvent.setup>) {
 const submitButton = () => screen.getByRole("button", { name: join.form.submit });
 
 describe("JoinNetworkForm", () => {
-  it("reveals the core team questions when the box is ticked", async () => {
+  it("asks for the baptism name and phone, never a full name, WhatsApp or core team", () => {
+    render(<JoinNetworkForm />);
+    expect(screen.getByLabelText(form.phone.label)).toHaveAttribute("type", "tel");
+    expect(screen.getByLabelText(form.phone.label)).toBeRequired();
+    expect(emailField()).not.toBeRequired();
+    expect(screen.queryByLabelText(form.fullName.label)).toBeNull();
+    expect(screen.queryByText(/WhatsApp number/)).toBeNull();
+    expect(screen.queryByRole("checkbox", { name: /core team/ })).toBeNull();
+    expect(screen.getAllByRole("checkbox")).toHaveLength(1);
+  });
+
+  it("keeps Join as a stranger ticked", async () => {
     const user = userEvent.setup();
     render(<JoinNetworkForm />);
-    expect(screen.queryByRole("group", { name: join.form.teamsLegend })).toBeNull();
-    await user.click(screen.getByRole("checkbox", { name: /Apply for the core team/ }));
-    expect(screen.getByRole("group", { name: join.form.teamsLegend })).toBeInTheDocument();
-    expect(screen.getByLabelText(form.about.label)).toBeInTheDocument();
+    const box = screen.getByRole("checkbox", { name: /Join as a stranger/ });
+    expect(box).toBeChecked();
+    await user.click(box);
+    expect(box).toBeChecked();
+  });
+
+  it("points volunteers to the roles page", () => {
+    render(<JoinNetworkForm />);
+    expect(screen.getByText(join.form.volunteer.text, { exact: false })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: join.form.volunteer.link })).toHaveAttribute("href", "/volunteer/roles");
   });
 
   it("shows the messages from strings and focuses the first invalid field, without sending", async () => {
     const user = userEvent.setup();
     const fetchMock = reply({ ok: true });
     render(<JoinNetworkForm />);
-    await user.type(screen.getByLabelText(form.email.label), "nope");
+    await user.type(emailField(), "nope");
     await user.click(submitButton());
-    expect(screen.getByLabelText(form.fullName.label)).toHaveAccessibleDescription(errors.fullNameMissing);
-    expect(screen.getByLabelText(form.email.label)).toHaveAccessibleDescription(errors.emailInvalid);
-    expect(screen.getByLabelText(form.fullName.label)).toHaveFocus();
+    expect(screen.getByLabelText(form.baptismName.label)).toHaveAccessibleDescription(errors.baptismNameMissing);
+    expect(screen.getByLabelText(form.phone.label)).toHaveAccessibleDescription(errors.phoneMissing);
+    expect(emailField()).toHaveAccessibleDescription(errors.emailInvalid);
+    expect(screen.getByLabelText(form.baptismName.label)).toHaveFocus();
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
-  it("asks for a choice when both boxes are unticked", async () => {
+  it("says when the phone number does not look right", async () => {
     const user = userEvent.setup();
     reply({ ok: true });
     render(<JoinNetworkForm />);
     await fillValid(user);
-    await user.click(screen.getByRole("checkbox", { name: /Join as a stranger/ }));
+    await user.clear(screen.getByLabelText(form.phone.label));
+    await user.type(screen.getByLabelText(form.phone.label), "call me");
     await user.click(submitButton());
-    expect(screen.getByText(errors.noChoice)).toBeInTheDocument();
+    expect(screen.getByLabelText(form.phone.label)).toHaveAccessibleDescription(errors.phoneInvalid);
   });
 
-  it("sends the sign-up and shows the success state", async () => {
+  it("sends the sign-up without an email and shows the success state", async () => {
     const user = userEvent.setup();
     const fetchMock = reply({ ok: true });
     render(<JoinNetworkForm />);
@@ -72,7 +92,16 @@ describe("JoinNetworkForm", () => {
     expect(screen.queryByRole("textbox")).toBeNull();
     const [url, init] = fetchMock.mock.calls[0];
     expect(url).toBe("/api/signup");
-    expect(JSON.parse(init.body)).toMatchObject({ sourcePage: "home", email: "mary@example.org", joinAsStranger: true });
+    expect(JSON.parse(init.body)).toEqual({
+      sourcePage: "home",
+      baptismName: "Mary",
+      phone: "+237 6 70 00 00 00",
+      parish: "St Anthony",
+      city: "Buea, Cameroon",
+      email: "",
+      joinAsStranger: true,
+      website: "",
+    });
   });
 
   it("says Sending and blocks a second submit while waiting", async () => {

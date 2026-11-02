@@ -24,7 +24,7 @@ const toMessages = (fields: FieldErrors) =>
   ) as Partial<Record<SignupField, string>>;
 
 /** Form state for the sign-up form: browser validation, sending, and the server's answer. */
-export function useSignupSubmission<T extends string>(schema: SignupSchema<T>): SignupSubmission {
+export function useSignupSubmission(schema: SignupSchema): SignupSubmission {
   const [status, setStatus] = useState<SubmissionStatus>("idle");
   const [errors, setErrors] = useState<Partial<Record<SignupField, string>>>({});
   const [formError, setFormError] = useState<string | null>(null);

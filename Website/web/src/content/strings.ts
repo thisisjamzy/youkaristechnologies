@@ -6,7 +6,7 @@
  * strings.test.ts checks every line of the master is here and nothing here is invented.
  *
  * Shapes:
- * - Two-tone headlines: `{ main, muted }` (main clause ink, second clause muted).
+ * - Two-tone headlines: `{ main, muted }` (main clause ink, second clause Elite Blue; the key keeps its old name).
  * - Other two-part lines: `{ main, emphasis }` (the component decides how the second part is styled).
  * - Lists: arrays of objects. Text with a number from the server: functions.
  * - Keys starting with TODO are not in the master yet. Do not ship them.
@@ -83,13 +83,13 @@ export const strings = {
 
     share: {
       afterSignup:
-        "I just joined Strangers for Mary, a network of Catholics who pray a full Rosary every day for each other's intentions. Add yours, pray for someone else's, and pass it on. Be one of the first: https://www.strangersformary.org",
+        "I just joined Strangers for Mary and I think you would love it. Strangers pray for your intentions, your small acts of charity become real help for someone in need, and once a year we gather to celebrate our Mother. It is a way to keep your faith alive beyond Sunday. Be one of the first: https://www.strangersformary.org",
       fromClosingCard:
-        "Strangers for Mary: a network of Catholics who pray a full Rosary every day for each other's intentions. Add yours, pray for someone else's, and pass it on. https://www.strangersformary.org",
+        "Never carry your faith alone. With Strangers for Mary, strangers pray for your intentions, your small acts become real help for someone in need, and you gather with Catholics who keep you strong between Sundays. Be one of the first: https://www.strangersformary.org",
       linkCopied: "Link copied",
     },
 
-    /** The four core teams. Ids match src/entities/team. */
+    /** The four teams, on the Volunteer page. */
     teams: {
       strangerRelations: {
         name: "Stranger Relations",
@@ -120,15 +120,12 @@ export const strings = {
     form: {
       fullName: { label: "Full name", placeholder: "First and last name" },
       baptismName: { label: "Baptism name", placeholder: "The name you were baptised with" },
+      phone: { label: "Phone number", placeholder: "With country code" },
       email: { label: "Email", placeholder: "you@example.com" },
+      /** Beside the Email label on Home, where email is not required. */
+      optional: "(optional)",
       parish: { label: "Your parish", placeholder: "Parish name" },
       city: { label: "City and country", placeholder: "e.g. Lagos, Nigeria" },
-      whatsApp: { label: "WhatsApp number", placeholder: "Optional, for updates" },
-      about: {
-        label: "Tell us about yourself",
-        placeholder: "What you do, what you would love to help with and how much time you can give",
-      },
-      interviewNote: "Applicants may be invited to a short interview.",
       privacyNote: "We will only use your details to contact you about Strangers for Mary.",
       privacyLink: "Privacy policy",
       sending: "Sending",
@@ -139,12 +136,12 @@ export const strings = {
     errors: {
       fullNameMissing: "Please tell us your full name.",
       baptismNameMissing: "Please add the name you were baptised with.",
+      phoneMissing: "Please add your phone number, with your country code.",
+      phoneInvalid: "That number does not look right. Include your country code.",
       emailMissing: "Please add your email.",
       emailInvalid: "That email does not look right. Please check it.",
       parishMissing: "Please tell us your parish.",
       cityMissing: "Please add your city and country.",
-      whatsAppInvalid: "That number does not look right. Include your country code, or leave it empty.",
-      noChoice: "Please choose at least one: join as a stranger or apply for the core team.",
       server: "Something went wrong on our side. Please try again in a moment.",
       tooManyAttempts: "Please wait a minute and try again.",
     },
@@ -152,18 +149,18 @@ export const strings = {
     meta: {
       /** Defaults for links shared on WhatsApp, Facebook, LinkedIn and X (pages override title and description). */
       share: {
-        title: "Strangers for Mary | A Rosary a day for a stranger",
+        title: "Strangers for Mary | Never carry your faith alone",
         description:
-          "Every day, a stranger prays a full Rosary for your intention, and you pray one for someone else. Join Catholics everywhere in the network, and be one of the first.",
+          "Never carry your faith alone. Have strangers pray for your intentions, see your small acts become real help, and gather with Catholics who keep you strong.",
         siteName: "Strangers for Mary",
         /** Also in src/app/opengraph-image.alt.txt and twitter-image.alt.txt (a test keeps them equal). */
         imageAlt:
           "A hand holding a wooden rosary with a crucifix. Text: Every friend of Mary is a stranger we cannot wait to pray for, care for, and gather with. We are strangers. Different cities. Different languages. Different stories. Most of us will never stand in the same room. But every one of us has run to the same Mother, and found her already waiting. Strangers for Mary.",
       },
       home: {
-        title: "Strangers for Mary | A Rosary a day for a stranger",
+        title: "Strangers for Mary | Never carry your faith alone",
         description:
-          "Every day, a stranger prays a full Rosary for your intention, and you pray one for someone else. Join Catholics everywhere in the network, and be one of the first.",
+          "Never carry your faith alone. Have strangers pray for your intentions, see your small acts become real help, and gather with Catholics who keep you strong.",
       },
       ourStory: {
         title: "Our Story | Strangers for Mary",
@@ -182,7 +179,8 @@ export const strings = {
       },
       gather: {
         title: "Gather | Strangers for Mary",
-        description: "Twice a year, the strangers meet. It is always a party for our Mother.",
+        description:
+          "Once a year, on the last Saturday of October, the strangers meet in person to pray, learn and break bread together.",
       },
       volunteer: {
         title: "Volunteer | Strangers for Mary",
@@ -207,9 +205,9 @@ export const strings = {
         main: "Every friend of Mary is a stranger",
         muted: "we cannot wait to pray for, care for, and gather with.",
       },
-      body: "Strangers for Mary is a network of Catholics around the world, linked like beads on a Rosary. We help people live out their Catholic faith every single day, out loud, alongside a community that shares the same values and the same hunger for Christ.",
+      body: "Strangers for Mary is a network of Marian devotees who carry one another to Jesus. Linked like beads on a Rosary, we help each other live the Catholic faith every single day, alongside people who share the same values and the same hunger for Christ.",
       primaryCta: "Join the strangers",
-      secondaryCta: "Help us build it",
+      secondaryCta: "Volunteer with us",
       photoAlt: "Young people smiling together in church",
       photoCard: "Every decade is a gift from one stranger to another.",
       limeCard: {
@@ -221,7 +219,7 @@ export const strings = {
 
     challenge: {
       label: "The challenge",
-      headline: { main: "Sunday is easy.", muted: "Monday is where we lose." },
+      headline: { main: "Faith is for every day,", muted: "not only for Sunday." },
       photoAlt: "A young man alone, looking at his phone",
       chips: ["Old habits", "Easy compromises", "A quiet drift"],
       body: [
@@ -277,6 +275,11 @@ export const strings = {
           title: "Prayer that becomes action.",
           text: "What we pray for, we also work for, through small acts of charity for people waiting to receive them.",
         },
+        {
+          n: "06",
+          title: "Fully Catholic, at home in your parish.",
+          text: "We are not a new church, parish or prayer group. Everything we pray and teach is faithful to the Catechism, and your home stays the parish you already belong to.",
+        },
       ],
     },
 
@@ -295,7 +298,7 @@ export const strings = {
 
     give: {
       headline: "We give.",
-      body: "We are built on the charity of small actions. A meal. A hospital visit. A school fee. A few hours of work. Each one small, each one offered for someone waiting to receive it. And we give only what we have worked for: every campaign is carried by the effort of the strangers themselves.",
+      body: "We are built on the charity of small actions: a day with orphaned children, a lesson that helps a young person live chastely and love well, an hour spent bringing peace to a divided community. Each one small, each one offered for someone waiting to receive it. And we give only what we have worked for: every campaign is carried by the effort of the strangers themselves.",
       link: "See how we give",
       photoAlt: "Two women embracing",
       card: {
@@ -307,9 +310,9 @@ export const strings = {
 
     gather: {
       photoAlt: "A crowd of people worshipping together",
-      label: "Twice a year",
+      label: "Once a year",
       headline: "We gather.",
-      body: "Twice a year, the strangers meet. Not to become familiar, since a room can hold a hundred Pauls and still keep every prayer's secret, but to share the communion our prayers have made us hungry for. We pray, praise and worship together, talk honestly about what makes daily prayer hard, go deeper into the faith and break bread with the strangers we trusted to care for ours. It is always a party for our Mother.",
+      body: "Once a year, on the last Saturday of October, the strangers meet in person. Not to become familiar, since a room can hold a hundred Pauls and still keep every prayer's secret, but to share the communion our prayers have made us hungry for. We pray the Rosary together, celebrate Holy Mass, talk honestly about what makes daily prayer hard, learn more of the faith and end the day with a feast.",
       link: "See how we gather",
       closing: "We arrive as strangers. We leave stronger.",
     },
@@ -335,7 +338,7 @@ export const strings = {
 
     join: {
       headline: "Take your place in the network.",
-      body: "Youkaris, our app, opens soon. Sign up today and you will be invited in on the first day, ready to add your first intention and receive your first strangers.",
+      body: "Youkaris, our app, opens on 1 January 2027. Sign up today and you will be invited in on the first day, ready to add your first intention and receive your first strangers.",
       benefits: [
         {
           title: "Open to every Catholic, everywhere",
@@ -343,7 +346,7 @@ export const strings = {
         },
         {
           title: "Known only by your baptism name",
-          text: "Your full name stays private. Your intention travels with your baptism name only.",
+          text: "We never ask for your full name. Your intention travels with your baptism name and nothing more.",
         },
         { title: "Leave any time", text: "One click and you are off the list." },
       ],
@@ -353,16 +356,15 @@ export const strings = {
           label: "Join as a stranger.",
           hint: "Invite me in the day Youkaris opens.",
         },
-        applyCoreTeam: {
-          label: "Apply for the core team.",
-          hint: "One of 20 places, one for every mystery.",
+        volunteer: {
+          text: "Want to volunteer? Each role has its own application.",
+          link: "See the volunteer roles",
         },
-        teamsLegend: "Which team fits you?",
         submit: "Count me in",
       },
       success: {
         title: "Welcome, stranger.",
-        body: "You are on the list. The day Youkaris opens, you will be among the first to know. If you applied for the core team, someone will be in touch soon.",
+        body: "You are on the list. The day Youkaris opens, you will be among the first to know.",
         prompt: "Now do what every stranger does.",
       },
     },
@@ -664,9 +666,9 @@ export const strings = {
     opening: {
       label: "We gather",
       headline: { main: "It is always a party", muted: "for our Mother." },
-      body: "For months you have prayed for strangers known to you only by a baptism name, and strangers have prayed for you. Then, twice a year, the doors open and the strangers walk in.",
+      body: "For months you have prayed for strangers known to you only by a baptism name, and strangers have prayed for you. Then, once a year, the doors open and the strangers walk in.",
       photoAlt: "A crowd of people worshipping together",
-      photoLabel: "Twice a year",
+      photoLabel: "Once a year",
     },
 
     roomOfPauls: {
@@ -712,20 +714,20 @@ export const strings = {
     whyWeGather: {
       label: "Why we gather",
       headline: "This is what keeps us praying.",
-      body: "Every gathering is built around one practical question: what stops us from praying every day, and how do we overcome it together? We leave with honest stories, habits that work and fresh strength for the next six months of the Rosary.",
+      body: "Every gathering is built around one practical question: what stops us from praying every day, and how do we overcome it together? We leave with honest stories, habits that work and fresh strength for the year of the Rosary ahead.",
       closing: { main: "We arrive as strangers.", emphasis: "We leave stronger." },
     },
 
     howOften: {
-      number: "2",
-      headline: "Twice a year, the strangers meet.",
-      body: "Every six months, Strangers for Mary comes together in person. Some gatherings are also held for a stranger's need, when the network rallies around someone waiting to receive help. Dates and places are announced as each gathering is set, and every stranger who signs up hears first.",
+      number: "1",
+      headline: "Once a year, the strangers meet.",
+      body: "Once a year, on the last Saturday of October, Strangers for Mary comes together in person. Some gatherings are also held for a stranger's need, when the network rallies around someone waiting to receive help. The place is announced as each gathering is set, and every stranger who signs up hears first.",
     },
 
     lookForward: {
       label: "Something to look forward to",
       headline: { main: "A date every stranger", muted: "circles on the calendar." },
-      body: "We are not starting a new church or a new parish; our home is the parish you already belong to. A gathering is a one-time occasion, a celebration our Mother hosts twice a year, that strangers can look forward to, plan for and bring their hunger to.",
+      body: "We are not starting a new church or a new parish; our home is the parish you already belong to. A gathering is a one-time occasion, a celebration our Mother hosts once a year, that strangers can look forward to, plan for and bring their hunger to.",
     },
 
     close: {

@@ -25,8 +25,8 @@
 .rule-mist {
   --rule-color: var(--color-mist);
 
-  // Home reasons: wider columns and more space.
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, space(50)), 1fr));
+  // Home reasons: wider columns (300px, so six reasons sit three by two) and more space.
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, space(75)), 1fr));
   gap: space(9) space(7);
 
   .item {

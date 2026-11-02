@@ -27,9 +27,9 @@ How to read it:
 
 - H1: Every friend of Mary is a stranger
 - H1: we cannot wait to pray for, care for, and gather with.
-- Paragraph: Strangers for Mary is a network of Catholics around the world, linked like beads on a Rosary. We help people live out their Catholic faith every single day, out loud, alongside a community that shares the same values and the same hunger for Christ.
+- Paragraph: Strangers for Mary is a network of Marian devotees who carry one another to Jesus. Linked like beads on a Rosary, we help each other live the Catholic faith every single day, alongside people who share the same values and the same hunger for Christ.
 - Link: Join the strangers
-- Link: Help us build it
+- Link: Volunteer with us
 - Image alt: Young people smiling together in church
 - Paragraph: Every decade is a gift from one stranger to another.
 - Label: Mon to Sat
@@ -39,8 +39,8 @@ How to read it:
 ### The challenge
 
 - Label: The challenge
-- H2: Sunday is easy.
-- H2: Monday is where we lose.
+- H2: Faith is for every day,
+- H2: not only for Sunday.
 - Image alt: A young man alone, looking at his phone
 - Text: Old habits
 - Text: Easy compromises
@@ -89,7 +89,7 @@ How to read it:
 ### We give
 
 - H2: We give.
-- Paragraph: We are built on the charity of small actions. A meal. A hospital visit. A school fee. A few hours of work. Each one small, each one offered for someone waiting to receive it. And we give only what we have worked for: every campaign is carried by the effort of the strangers themselves.
+- Paragraph: We are built on the charity of small actions: a day with orphaned children, a lesson that helps a young person live chastely and love well, an hour spent bringing peace to a divided community. Each one small, each one offered for someone waiting to receive it. And we give only what we have worked for: every campaign is carried by the effort of the strangers themselves.
 - Link: See how we give
 - Image alt: Two women embracing
 - Label: Small acts
@@ -100,9 +100,9 @@ How to read it:
 ### We gather
 
 - Image alt: A crowd of people worshipping together
-- Label: Twice a year
+- Label: Once a year
 - H2: We gather.
-- Paragraph: Twice a year, the strangers meet. Not to become familiar, since a room can hold a hundred Pauls and still keep every prayer's secret, but to share the communion our prayers have made us hungry for. We pray, praise and worship together, talk honestly about what makes daily prayer hard, go deeper into the faith and break bread with the strangers we trusted to care for ours. It is always a party for our Mother.
+- Paragraph: Once a year, on the last Saturday of October, the strangers meet in person. Not to become familiar, since a room can hold a hundred Pauls and still keep every prayer's secret, but to share the communion our prayers have made us hungry for. We pray the Rosary together, celebrate Holy Mass, talk honestly about what makes daily prayer hard, learn more of the faith and end the day with a feast.
 - Link: See how we gather
 - Paragraph: We arrive as strangers. We leave stronger.
 
@@ -148,7 +148,7 @@ How to read it:
 - Label: City and country
 - Placeholder: e.g. Lagos, Nigeria
 - Label: Email
-- Label (beside Email): (optional)
+- Label: (optional)
 - Placeholder: you@example.com
 - Legend: I want to
 - Label: Join as a stranger.
@@ -164,8 +164,6 @@ How to read it:
 - Paragraph: Now do what every stranger does.
 - Paragraph: Pass it on.
 - Link: Share on WhatsApp
-
-Note: Home also has other text changes (the definition paragraph, "We give", the six reasons, the yearly gathering). `design-reference/home.html` is the source for those; update this section from it when you apply prompt 5.
 
 ### Page script: lists and dynamic text
 
@@ -456,9 +454,9 @@ class Component extends DCLogic {
 - Label: We gather
 - H1: It is always a party
 - H1: for our Mother.
-- Paragraph: For months you have prayed for strangers known to you only by a baptism name, and strangers have prayed for you. Then, twice a year, the doors open and the strangers walk in.
+- Paragraph: For months you have prayed for strangers known to you only by a baptism name, and strangers have prayed for you. Then, once a year, the doors open and the strangers walk in.
 - Image alt: A crowd of people worshipping together
-- Label: Twice a year
+- Label: Once a year
 
 ### Not to become familiar
 
@@ -488,22 +486,22 @@ class Component extends DCLogic {
 
 - Label: Why we gather
 - H2: This is what keeps us praying.
-- Paragraph: Every gathering is built around one practical question: what stops us from praying every day, and how do we overcome it together? We leave with honest stories, habits that work and fresh strength for the next six months of the Rosary.
+- Paragraph: Every gathering is built around one practical question: what stops us from praying every day, and how do we overcome it together? We leave with honest stories, habits that work and fresh strength for the year of the Rosary ahead.
 - Paragraph: We arrive as strangers.
 - Paragraph: We leave stronger.
 
 ### How often
 
-- Paragraph: 2
-- H2: Twice a year, the strangers meet.
-- Paragraph: Every six months, Strangers for Mary comes together in person. Some gatherings are also held for a stranger's need, when the network rallies around someone waiting to receive help. Dates and places are announced as each gathering is set, and every stranger who signs up hears first.
+- Paragraph: 1
+- H2: Once a year, the strangers meet.
+- Paragraph: Once a year, on the last Saturday of October, Strangers for Mary comes together in person. Some gatherings are also held for a stranger's need, when the network rallies around someone waiting to receive help. The place is announced as each gathering is set, and every stranger who signs up hears first.
 
 ### Something to look forward to
 
 - Label: Something to look forward to
 - H2: A date every stranger
 - H2: circles on the calendar.
-- Paragraph: We are not starting a new church or a new parish; our home is the parish you already belong to. A gathering is a one-time occasion, a celebration our Mother hosts twice a year, that strangers can look forward to, plan for and bring their hunger to.
+- Paragraph: We are not starting a new church or a new parish; our home is the parish you already belong to. A gathering is a one-time occasion, a celebration our Mother hosts once a year, that strangers can look forward to, plan for and bring their hunger to.
 
 ### Close + switcher
 
@@ -785,7 +783,7 @@ These strings are needed by the code but have no place in the static design. The
 
 ### Share messages
 
-- After signing up (success panel): I just joined Strangers for Mary and I think you would love it. Strangers pray for your intentions, your small acts of charity become real help for someone in need, and twice a year we gather to celebrate our Mother. It is a way to keep your faith alive beyond Sunday. Be one of the first: https://www.strangersformary.org
+- After signing up (success panel): I just joined Strangers for Mary and I think you would love it. Strangers pray for your intentions, your small acts of charity become real help for someone in need, and once a year we gather to celebrate our Mother. It is a way to keep your faith alive beyond Sunday. Be one of the first: https://www.strangersformary.org
 - From the closing card (someone who has not joined yet): Never carry your faith alone. With Strangers for Mary, strangers pray for your intentions, your small acts become real help for someone in need, and you gather with Catholics who keep you strong between Sundays. Be one of the first: https://www.strangersformary.org
 - Copy link button, after click: Link copied
 

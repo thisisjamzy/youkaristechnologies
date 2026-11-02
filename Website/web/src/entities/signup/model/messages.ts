@@ -6,15 +6,11 @@ const e = strings.common.errors;
 // Inputs carry maxLength, so "too long" only reaches people who bypass the form; it then
 // reuses the field's own message rather than inventing new copy.
 const messages: Record<SignupField, Partial<Record<FieldErrorCode, string>> & { fallback: string }> = {
-  fullName: { fallback: e.fullNameMissing },
   baptismName: { fallback: e.baptismNameMissing },
-  email: { required: e.emailMissing, fallback: e.emailInvalid },
+  phone: { required: e.phoneMissing, fallback: e.phoneInvalid },
   parish: { fallback: e.parishMissing },
   city: { fallback: e.cityMissing },
-  whatsApp: { fallback: e.whatsAppInvalid },
-  choice: { fallback: e.noChoice },
-  teams: { fallback: e.server },
-  about: { fallback: e.server },
+  email: { fallback: e.emailInvalid },
 };
 
 /** The message from strings.common.errors for a field error. */

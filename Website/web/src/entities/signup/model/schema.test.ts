@@ -1,20 +1,14 @@
 import { describe, expect, it } from "vitest";
 import { toAppsScriptPayload } from "./payload";
-import { createSignupSchema, toFieldErrors, type SignupInput } from "./schema";
+import { signupSchema as schema, toFieldErrors, type SignupInput } from "./schema";
 
-const teams = ["outreach", "technology"] as const;
-const schema = createSignupSchema(teams);
-const names: Record<(typeof teams)[number], string> = { outreach: "Outreach", technology: "Technology" };
-
-const valid: SignupInput<(typeof teams)[number]> = {
+const valid: SignupInput = {
   sourcePage: "home",
-  fullName: "Mary Ndi",
   baptismName: "Mary",
-  email: "  Mary@Example.org ",
+  phone: "+237 6 70 00 00 00",
   parish: "St Anthony",
   city: "Buea, Cameroon",
   joinAsStranger: true,
-  applyCoreTeam: false,
 };
 
 const errorsFor = (input: unknown) => {
@@ -23,59 +17,59 @@ const errorsFor = (input: unknown) => {
 };
 
 describe("signup schema", () => {
-  it("accepts a valid sign-up and normalises the email", () => {
+  it("accepts a sign-up without an email", () => {
     const result = schema.safeParse(valid);
     expect(result.success).toBe(true);
-    expect(result.data?.email).toBe("mary@example.org");
-    expect(result.data?.whatsApp).toBe("");
+    expect(result.data?.email).toBe("");
   });
 
-  it("requires the five fields", () => {
-    const blank = { ...valid, fullName: " ", baptismName: "", email: "", parish: "", city: "" };
-    expect(errorsFor(blank)).toEqual({
-      fullName: "required",
-      baptismName: "required",
-      email: "required",
-      parish: "required",
-      city: "required",
-    });
+  it("normalises an email when one is given", () => {
+    expect(schema.parse({ ...valid, email: "  Mary@Example.org " }).email).toBe("mary@example.org");
   });
 
-  it("rejects a bad email and a bad WhatsApp number, but allows WhatsApp empty", () => {
-    expect(errorsFor({ ...valid, email: "not-an-email", whatsApp: "call me" })).toEqual({
-      email: "invalid",
-      whatsApp: "invalid",
-    });
-    expect(errorsFor({ ...valid, whatsApp: "+237 6 70 00 00 00" })).toEqual({});
+  it("requires baptism name, phone, parish and city, and never a full name", () => {
+    const blank = { ...valid, baptismName: " ", phone: "", parish: "", city: "" };
+    expect(errorsFor(blank)).toEqual({ baptismName: "required", phone: "required", parish: "required", city: "required" });
+    expect(Object.keys(schema.shape)).not.toContain("fullName");
+  });
+
+  it("rejects a phone number that does not look real", () => {
+    expect(errorsFor({ ...valid, phone: "call me" })).toEqual({ phone: "invalid" });
+    expect(errorsFor({ ...valid, phone: "12-34" })).toEqual({ phone: "invalid" });
+  });
+
+  it("checks the email only when it is filled", () => {
+    expect(errorsFor({ ...valid, email: "" })).toEqual({});
+    expect(errorsFor({ ...valid, email: "not-an-email" })).toEqual({ email: "invalid" });
   });
 
   it("enforces the backend's length limits", () => {
-    expect(errorsFor({ ...valid, fullName: "a".repeat(121), about: "b".repeat(2001) })).toEqual({
-      fullName: "too_long",
-      about: "too_long",
+    expect(errorsFor({ ...valid, baptismName: "a".repeat(121), city: "b".repeat(161) })).toEqual({
+      baptismName: "too_long",
+      city: "too_long",
     });
   });
 
-  it("needs at least one choice", () => {
-    expect(errorsFor({ ...valid, joinAsStranger: false, applyCoreTeam: false })).toEqual({ choice: "required" });
-  });
-
-  it("only accepts known teams and pages", () => {
-    expect(errorsFor({ ...valid, teams: ["catering"] })).toEqual({ teams: "invalid" });
-    expect(schema.safeParse({ ...valid, sourcePage: "admin" }).success).toBe(false);
+  it("only takes Home sign-ups that join as a stranger", () => {
+    expect(schema.safeParse({ ...valid, sourcePage: "build-with-us" }).success).toBe(false);
+    expect(schema.safeParse({ ...valid, joinAsStranger: false }).success).toBe(false);
   });
 });
 
 describe("toAppsScriptPayload", () => {
-  it("maps to the backend's names and drops teams when not applying", () => {
-    const data = schema.parse({ ...valid, whatsApp: "+237 670", teams: ["outreach"], about: "Hi" });
-    const payload = toAppsScriptPayload(data, (id) => names[id], new Date("2026-10-23T12:00:00Z"));
-    expect(payload).toMatchObject({ action: "signup", whatsapp: "+237 670", teams: [], about: "" });
-    expect(payload.submittedAt).toBe("2026-10-23T12:00:00.000Z");
-  });
-
-  it("sends team names with an application", () => {
-    const data = schema.parse({ ...valid, applyCoreTeam: true, teams: ["outreach", "technology"], about: "Hi" });
-    expect(toAppsScriptPayload(data, (id) => names[id], new Date()).teams).toEqual(["Outreach", "Technology"]);
+  it("sends exactly the fields the backend's signup action takes", () => {
+    const data = schema.parse({ ...valid, email: "mary@example.org" });
+    const payload = toAppsScriptPayload(data, new Date("2026-10-23T12:00:00Z"));
+    expect(payload).toEqual({
+      action: "signup",
+      sourcePage: "home",
+      baptismName: "Mary",
+      phone: "+237 6 70 00 00 00",
+      parish: "St Anthony",
+      city: "Buea, Cameroon",
+      email: "mary@example.org",
+      joinAsStranger: true,
+      submittedAt: "2026-10-23T12:00:00.000Z",
+    });
   });
 });

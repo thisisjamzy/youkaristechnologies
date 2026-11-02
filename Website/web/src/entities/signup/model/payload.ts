@@ -4,52 +4,35 @@ import type { SignupData } from "./schema";
 export type AppsScriptSignupPayload = {
   action: "signup";
   sourcePage: "home";
-  fullName: string;
   baptismName: string;
-  email: string;
+  phone: string;
   parish: string;
   city: string;
-  whatsapp: string;
-  joinAsStranger: boolean;
-  applyCoreTeam: boolean;
-  teams: string[];
-  about: string;
+  email: string;
+  joinAsStranger: true;
   submittedAt: string;
 };
 
-/** Maps validated form data to the backend's field names and team names. */
-export function toAppsScriptPayload<T extends string>(
-  data: SignupData<T>,
-  teamName: (id: T) => string,
-  submittedAt: Date,
-): AppsScriptSignupPayload {
+/** Maps validated form data to the backend's payload. */
+export function toAppsScriptPayload(data: SignupData, submittedAt: Date): AppsScriptSignupPayload {
   return {
     action: "signup",
     sourcePage: data.sourcePage,
-    fullName: data.fullName,
     baptismName: data.baptismName,
-    email: data.email,
+    phone: data.phone,
     parish: data.parish,
     city: data.city,
-    whatsapp: data.whatsApp,
+    email: data.email,
     joinAsStranger: data.joinAsStranger,
-    applyCoreTeam: data.applyCoreTeam,
-    // Teams only travel with a core team application.
-    teams: data.applyCoreTeam ? data.teams.map(teamName) : [],
-    about: data.applyCoreTeam ? data.about : "",
     submittedAt: submittedAt.toISOString(),
   };
 }
 
-/** Backend field names → ours, for validation errors coming back. */
+/** Backend field names → ours, for validation errors coming back. They now match one to one. */
 export const backendFieldNames: Record<string, string> = {
-  fullName: "fullName",
   baptismName: "baptismName",
-  email: "email",
+  phone: "phone",
   parish: "parish",
   city: "city",
-  whatsapp: "whatsApp",
-  teams: "teams",
-  about: "about",
-  choice: "choice",
+  email: "email",
 };

@@ -5,13 +5,12 @@ vi.mock("@/shared/lib/appsScript", () => ({ appsScriptPost: (p: unknown) => apps
 
 const valid = {
   sourcePage: "home",
-  fullName: "Mary Ndi",
   baptismName: "Mary",
-  email: "mary@example.org",
+  phone: "+237 6 70 00 00 00",
   parish: "St Anthony",
   city: "Buea, Cameroon",
+  email: "",
   joinAsStranger: true,
-  applyCoreTeam: false,
 };
 
 let ip = 0;
@@ -36,9 +35,9 @@ beforeEach(() => {
 
 describe("POST /api/signup", () => {
   it("rejects invalid fields with codes, without calling the backend", async () => {
-    const { status, json } = await post({ ...valid, email: "nope", fullName: "" });
+    const { status, json } = await post({ ...valid, email: "nope", phone: "" });
     expect(status).toBe(400);
-    expect(json).toEqual({ ok: false, error: "validation", fields: { email: "invalid", fullName: "required" } });
+    expect(json).toEqual({ ok: false, error: "validation", fields: { phone: "required", email: "invalid" } });
     expect(appsScriptPost).not.toHaveBeenCalled();
   });
 
@@ -59,22 +58,18 @@ describe("POST /api/signup", () => {
     expect(status).toBe(200);
     expect(json).toEqual({ ok: true });
     const payload = appsScriptPost.mock.calls[0][0];
-    expect(payload).toMatchObject({ action: "signup", sourcePage: "home", whatsapp: "", teams: [] });
+    expect(payload).toMatchObject({ action: "signup", sourcePage: "home", phone: "+237 6 70 00 00 00", joinAsStranger: true });
+    for (const gone of ["fullName", "whatsapp", "applyCoreTeam", "teams", "about"]) expect(payload).not.toHaveProperty(gone);
     expect(typeof payload.submittedAt).toBe("string");
     expect(payload).not.toHaveProperty("secret"); // the client adds it, server-side
   });
 
-  it("sends team names with an application", async () => {
-    appsScriptPost.mockResolvedValue({ ok: true, strangerId: "STR-1" });
-    await post({ ...valid, applyCoreTeam: true, teams: ["outreach", "technology"], about: "Hi" });
-    expect(appsScriptPost.mock.calls[0][0].teams).toEqual(["Outreach", "Technology"]);
-  });
 
   it("maps backend validation fields to ours", async () => {
-    appsScriptPost.mockResolvedValue({ ok: false, error: "validation", fields: { whatsapp: "invalid", body: "x" } });
+    appsScriptPost.mockResolvedValue({ ok: false, error: "validation", fields: { phone: "invalid", body: "x" } });
     const { status, json } = await post(valid);
     expect(status).toBe(400);
-    expect(json.fields).toEqual({ whatsApp: "invalid" });
+    expect(json.fields).toEqual({ phone: "invalid" });
   });
 
   it.each(["server", "unauthorised", "unknown_action"])("hides a backend %s error behind one friendly answer", async (error) => {

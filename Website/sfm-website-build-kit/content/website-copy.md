@@ -96,7 +96,7 @@ The Home page invites the reader in at once, names the struggle plainly, shows w
 
 **Label:** We gather
 
-**Body:** Twice a year, the strangers meet. Not to become familiar, since a room can hold a hundred Pauls and still keep every prayer's secret, but to share the communion our prayers have made us hungry for. We pray, praise and worship together. We talk honestly about what makes daily prayer hard and how we get past it. We go deeper into the faith, and we break bread with the strangers we trusted to care for ours. It is always a party for our Mother.
+**Body:** Once a year, the strangers meet. Not to become familiar, since a room can hold a hundred Pauls and still keep every prayer's secret, but to share the communion our prayers have made us hungry for. We pray, praise and worship together. We talk honestly about what makes daily prayer hard and how we get past it. We go deeper into the faith, and we break bread with the strangers we trusted to care for ours. It is always a party for our Mother.
 
 **Pull line:** We arrive as strangers. We leave stronger.
 
@@ -348,7 +348,7 @@ The Gather page shows that we meet not to become familiar but to share the commu
 
 **Headline:** It is always a party for our Mother.
 
-**Body:** For months you have prayed for strangers known to you only by a baptism name, and strangers have prayed for you. Then, twice a year, the doors open and the strangers walk in.
+**Body:** For months you have prayed for strangers known to you only by a baptism name, and strangers have prayed for you. Then, once a year, the doors open and the strangers walk in.
 
 ### 2. Not to become familiar
 
@@ -372,21 +372,21 @@ The Gather page shows that we meet not to become familiar but to share the commu
 
 **Headline:** This is what keeps us praying.
 
-**Body:** Every gathering is built around one practical question: what stops us from praying every day, and how do we overcome it together? We leave with honest stories, habits that work and fresh strength for the next six months of the Rosary.
+**Body:** Every gathering is built around one practical question: what stops us from praying every day, and how do we overcome it together? We leave with honest stories, habits that work and fresh strength for the year of the Rosary ahead.
 
 **Pull line:** We arrive as strangers. We leave stronger.
 
 ### 5. How often
 
-**Headline:** Twice a year, the strangers meet.
+**Headline:** Once a year, the strangers meet.
 
-**Body:** Every six months, Strangers for Mary comes together in person. Some gatherings are also held for a stranger's need, when the network rallies around someone waiting to receive help. Dates and places are announced as each gathering is set, and every stranger who signs up hears first.
+**Body:** Once a year, on the last Saturday of October, Strangers for Mary comes together in person. Some gatherings are also held for a stranger's need, when the network rallies around someone waiting to receive help. The place is announced as each gathering is set, and every stranger who signs up hears first.
 
 ### 6. Something to look forward to
 
 **Headline:** A date every stranger circles on the calendar.
 
-**Body:** We are not starting a new church or a new parish; our home is the parish you already belong to. A gathering is a one-time occasion, a celebration our Mother hosts twice a year, that strangers can look forward to, plan for and bring their hunger to.
+**Body:** We are not starting a new church or a new parish; our home is the parish you already belong to. A gathering is a one-time occasion, a celebration our Mother hosts once a year, that strangers can look forward to, plan for and bring their hunger to.
 
 ### 7. Close
 
@@ -497,7 +497,7 @@ One short form serves both strangers and builders, asks for a baptism name and p
 
 ### 4. The message they share
 
-I just joined Strangers for Mary and I think you would love it. Strangers pray for your intentions, your small acts of charity become real help for someone in need, and twice a year we gather to celebrate our Mother. It is a way to keep your faith alive beyond Sunday. Be one of the first: https://www.strangersformary.org
+I just joined Strangers for Mary and I think you would love it. Strangers pray for your intentions, your small acts of charity become real help for someone in need, and once a year we gather to celebrate our Mother. It is a way to keep your faith alive beyond Sunday. Be one of the first: https://www.strangersformary.org
 
 From the closing card, for someone who has not joined yet: Never carry your faith alone. With Strangers for Mary, strangers pray for your intentions, your small acts become real help for someone in need, and you gather with Catholics who keep you strong between Sundays. Be one of the first: https://www.strangersformary.org
 

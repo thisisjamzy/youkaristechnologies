@@ -3,7 +3,6 @@ export * from "./ArrowIcon";
 export * from "./ArrowLink";
 export * from "./Button";
 export * from "./Checkbox";
-export * from "./CheckboxGroup";
 export * from "./Chip";
 export * from "./Container";
 export * from "./FolderCard";

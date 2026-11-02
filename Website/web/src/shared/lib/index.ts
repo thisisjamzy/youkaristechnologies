@@ -5,3 +5,4 @@ export { routes, externalLinks, type RouteName } from "./routes";
 export { whatsAppShareUrl } from "./whatsApp";
 export { createRateLimiter } from "./rateLimit";
 export { siteUrl } from "./siteUrl";
+export { CONTACT_LIMITS, isValidEmail, isValidPhone } from "./contact";
