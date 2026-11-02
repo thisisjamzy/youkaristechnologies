@@ -497,7 +497,9 @@ One short form serves both strangers and builders, asks for a baptism name and p
 
 ### 4. The message they share
 
-I just joined Strangers for Mary, a network of Catholics who pray a full Rosary every day for each other's intentions. Add yours, pray for someone else's, and pass it on. Be one of the first: www.strangersformary.org
+I just joined Strangers for Mary and I think you would love it. Strangers pray for your intentions, your small acts of charity become real help for someone in need, and twice a year we gather to celebrate our Mother. It is a way to keep your faith alive beyond Sunday. Be one of the first: https://www.strangersformary.org
+
+From the closing card, for someone who has not joined yet: Never carry your faith alone. With Strangers for Mary, strangers pray for your intentions, your small acts become real help for someone in need, and you gather with Catholics who keep you strong between Sundays. Be one of the first: https://www.strangersformary.org
 
 ## Gaps to fill
 

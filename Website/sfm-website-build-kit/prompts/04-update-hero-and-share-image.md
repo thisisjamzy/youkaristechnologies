@@ -23,8 +23,8 @@ It replaces "If you love Mary, you are already one of us. Now take your place in
 
 - Copy `assets/social/sfm-og-1200x630.jpg` to `src/app/opengraph-image.jpg` and `src/app/twitter-image.jpg`. Add the matching `opengraph-image.alt.txt` and `twitter-image.alt.txt` with the "Share image alt text" from `content/strings-master.md` (section "Social sharing"). Use the file conventions this Next.js version documents in `node_modules/next/dist/docs/`.
 - In the root layout metadata: `metadataBase` `https://www.strangersformary.org`; `openGraph` with type `website`, `siteName` "Strangers for Mary", locale `en`, and the share title and description; `twitter` with `card: "summary_large_image"` and the same title and description.
-- Share title: `Strangers for Mary | A Rosary a day for a stranger`
-- Share description: `Every day, a stranger prays a full Rosary for your intention, and you pray one for someone else. Join Catholics everywhere in the network, and be one of the first.`
+- Share title: `Strangers for Mary | Never carry your faith alone`
+- Share description: `Never carry your faith alone. Have strangers pray for your intentions, see your small acts become real help, and gather with Catholics who keep you strong.`
 - Put all three texts in `strings.meta.share` and read them from there. Use the same description as the Home page `<meta name="description">`.
 - Do not generate the image in code. It is a designed asset. If the headline changes again, its source is `assets/social/og-source.html`.
 
@@ -68,3 +68,12 @@ The Our Story page has a new layout (see `design-reference/our-story.html`). The
 ## 7. No "Sign up someone else" after submitting
 
 Remove the "Sign up someone else" button from the success panel of both forms (Home and Build With Us), its string from `strings.ts`, and the reset handler behind it. After a successful submission the person sees only the thank-you panel (and, on Home, "Share on WhatsApp"). Update the form tests to check the button is not there.
+
+## 8. Share messages lead with benefits
+
+Both WhatsApp share messages and the share title and description now speak about what people gain from praying, giving and gathering, not how the network works. Update `strings.ts` from `content/strings-master.md` ("Share messages" and "Social sharing"):
+
+- After signing up: `I just joined Strangers for Mary and I think you would love it. Strangers pray for your intentions, your small acts of charity become real help for someone in need, and twice a year we gather to celebrate our Mother. It is a way to keep your faith alive beyond Sunday. Be one of the first: https://www.strangersformary.org`
+- From the closing card: `Never carry your faith alone. With Strangers for Mary, strangers pray for your intentions, your small acts become real help for someone in need, and you gather with Catholics who keep you strong between Sundays. Be one of the first: https://www.strangersformary.org`
+- Share title and Home `<title>`: `Strangers for Mary | Never carry your faith alone`
+- Share description and Home meta description: `Never carry your faith alone. Have strangers pray for your intentions, see your small acts become real help, and gather with Catholics who keep you strong.`
