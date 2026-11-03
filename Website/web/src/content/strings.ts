@@ -167,18 +167,18 @@ export const strings = {
     meta: {
       /** Defaults for links shared on WhatsApp, Facebook, LinkedIn and X (pages override title and description). */
       share: {
-        title: "Strangers for Mary | Never carry your faith alone",
+        title: "Strangers for Mary | Prayer that becomes action",
         description:
-          "Strangers for Mary is a network of Marian devotees who carry one another to Jesus. We pray. We give. We gather. Pass it on.",
+          "We help strangers live the Catholic faith every single day, alongside people who share the same values and the same hunger for Christ.",
         siteName: "Strangers for Mary",
         /** Also in src/app/opengraph-image.alt.txt and twitter-image.alt.txt (a test keeps them equal). */
         imageAlt:
           "Young people smiling together in church. Text: Every friend of Mary is a stranger we cannot wait to pray for, care for, and gather with. Strangers for Mary.",
       },
       home: {
-        title: "Strangers for Mary | Never carry your faith alone",
+        title: "Strangers for Mary | Prayer that becomes action",
         description:
-          "Strangers for Mary is a network of Marian devotees who carry one another to Jesus. We pray. We give. We gather. Pass it on.",
+          "We help strangers live the Catholic faith every single day, alongside people who share the same values and the same hunger for Christ.",
       },
       ourStory: {
         title: "Our Story | Strangers for Mary",

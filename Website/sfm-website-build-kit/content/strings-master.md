@@ -831,14 +831,14 @@ Volunteer application (Roles page):
 
 ### Page titles and descriptions (metadata)
 
-- Home: Strangers for Mary | Never carry your faith alone. Description: Strangers for Mary is a network of Marian devotees who carry one another to Jesus. We pray. We give. We gather. Pass it on.
+- Home: Strangers for Mary | Prayer that becomes action. Description: We help strangers live the Catholic faith every single day, alongside people who share the same values and the same hunger for Christ.
 
 ### Social sharing (Open Graph and X)
 
 These apply to every page unless a page sets its own title and description above.
 
-- Share title: Strangers for Mary | Never carry your faith alone
-- Share description: Strangers for Mary is a network of Marian devotees who carry one another to Jesus. We pray. We give. We gather. Pass it on.
+- Share title: Strangers for Mary | Prayer that becomes action
+- Share description: We help strangers live the Catholic faith every single day, alongside people who share the same values and the same hunger for Christ.
 - Share image alt text: Young people smiling together in church. Text: Every friend of Mary is a stranger we cannot wait to pray for, care for, and gather with. Strangers for Mary.
 - Site name: Strangers for Mary
 - Our Story: Our Story | Strangers for Mary. Description: It started in 2017 with ten text messages. Why Strangers for Mary began, and why it is coming back stronger.
